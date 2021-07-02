@@ -1,0 +1,29 @@
+SQL> set serveroutput on
+SQL> DECLARE
+  2  a TIMESTAMP WITH TIME ZONE;
+  3  b TIMESTAMP WITH TIME ZONE;
+  4  c TIMESTAMP WITH TIME ZONE;
+  5  d TIMESTAMP WITH TIME ZONE;
+  6  e DATE;
+  7  BEGIN
+  8  a:= TIMESTAMP '2002-02-19 11:52:00.00 -05:00';
+  9  b:= TIMESTAMP '2002-02-19 14:00:00.000000000 -05:00';
+ 10  c:= TIMESTAMP '2002-02-19 13:52:00 -05:00';
+ 11  d:= TIMESTAMP '2002-02-19 11:52:00.00';
+ 12  e:= DATE '2002-02-19';
+ 13  DBMS_OUTPUT.PUT_LINE(a);
+ 14  DBMS_OUTPUT.PUT_LINE(b);
+ 15  DBMS_OUTPUT.PUT_LINE(c);
+ 16  DBMS_OUTPUT.PUT_LINE(d);
+ 17  DBMS_OUTPUT.PUT_LINE(e);
+ 18  END;
+ 19  /
+19/02/02 11:52:00.000000 -05:00                                                                                                                       
+19/02/02 14:00:00.000000 -05:00                                                                                                                       
+19/02/02 13:52:00.000000 -05:00                                                                                                                       
+19/02/02 11:52:00.000000 -05:00                                                                                                                       
+19/02/02                                                                                                                                              
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off

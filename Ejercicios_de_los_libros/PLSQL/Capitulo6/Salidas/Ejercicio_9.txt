@@ -1,0 +1,10 @@
+SQL> REM se crean condiciones adicionales (descripcion comienza con B)
+SQL> SELECT c.course_no, s.section_no, c.description,
+  2  s.location, s.instructor_id
+  3  FROM course c JOIN section s
+  4  ON (c.course_no = s.course_no)
+  5  WHERE description LIKE 'B%';
+
+no rows selected
+
+SQL> spool off

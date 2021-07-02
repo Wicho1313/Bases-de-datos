@@ -1,0 +1,278 @@
+DROP TABLE EMPEADO_ELECTRODOMESTRICO
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table dropped.
+
+
+Table dropped.
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+       NIF NOMBRE       APELLIDOS                 NIVEL OCUPACION               
+---------- ------------ -------------------- ---------- --------------------    
+        10 Nancy        Devolio                       6 GERENTE                 
+        20 Andrew       Fuller                        1 VENDEDOR                
+        30 Janet        Leverling                     1 VENDEDOR                
+        40 Margaret     Peacocle                      2 CONTADOR                
+        50 Steven       Rodriguez                     2 PROGRAMADOR             
+        60 Rosy         BUchanan                      3 ANALISTA                
+        70 Mary         Sumayal                       3 CONTADORI               
+
+7 rows selected.
+
+Drop table ELECTRODOMESTICO
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+   APARATO MARCA          MODELO                                                
+---------- -------------- ------------                                          
+     10001 Radio sony     S223                                                  
+     20002 TELE samsung   S50x20                                                
+     30001 tablet dell    venue8                                                
+     40001 monitor lanix  1x900t                                                
+     50004 Router syscom  WNRT617G                                              
+     60005 radio pionner  DEH-X65                                               
+     70008 1pad mac       AIR2                                                  
+
+7 rows selected.
+
+
+       NIF NOMBRE       APELLIDOS                 NIVEL OCUPACION               
+---------- ------------ -------------------- ---------- --------------------    
+        10 Nancy        Devolio                       6 GERENTE                 
+        20 Andrew       Fuller                        1 VENDEDOR                
+        30 Janet        Leverling                     1 VENDEDOR                
+        40 Margaret     Peacocle                      2 CONTADOR                
+        50 Steven       Rodriguez                     2 PROGRAMADOR             
+        60 Rosy         BUchanan                      3 ANALISTA                
+        70 Mary         Sumayal                       3 CONTADORI               
+
+7 rows selected.
+
+consulta
+where E.nif = ED.nif
+              *
+ERROR at line 3:
+ORA-00904: "ED"."NIF": invalid identifier 
+
+
+inserta un empleado
+
+1 row created.
+
+
+       NIF NOMBRE       APELLIDOS                 NIVEL OCUPACION               
+---------- ------------ -------------------- ---------- --------------------    
+        10 Nancy        Devolio                       6 GERENTE                 
+        20 Andrew       Fuller                        1 VENDEDOR                
+        30 Janet        Leverling                     1 VENDEDOR                
+        40 Margaret     Peacocle                      2 CONTADOR                
+        50 Steven       Rodriguez                     2 PROGRAMADOR             
+        60 Rosy         BUchanan                      3 ANALISTA                
+        70 Mary         Sumayal                       3 CONTADORI               
+        80 Guadalupe    Rosetti                       3 Psicologia              
+
+8 rows selected.
+
+
+   APARATO MARCA          MODELO                                                
+---------- -------------- ------------                                          
+     10001 Radio sony     S223                                                  
+     20002 TELE samsung   S50x20                                                
+     30001 tablet dell    venue8                                                
+     40001 monitor lanix  1x900t                                                
+     50004 Router syscom  WNRT617G                                              
+     60005 radio pionner  DEH-X65                                               
+     70008 1pad mac       AIR2                                                  
+
+7 rows selected.
+
+Crea tabla de la interrelación EMPLEADO_ELECTRODOMESTICO
+DROP TABLE EMPLEADO_ELECTRODOMESTICO
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+				APARATO integer contraint PK_EMP_ELECT_APARATO
+				                *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+INSERT INTO EMPLEADO_ELECTRODOMESTICO VALUES(10001,60)
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+INSERT INTO EMPLEADO_ELECTRODOMESTICO VALUES(20002,50)
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+INSERT INTO EMPLEADO_ELECTRODOMESTICO VALUES(30001,70)
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+INSERT INTO EMPLEADO_ELECTRODOMESTICO VALUES(40001,40)
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+INSERT INTO EMPLEADO_ELECTRODOMESTICO VALUES(50004,20)
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+INSERT INTO EMPLEADO_ELECTRODOMESTICO VALUES(60005,30)
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+INSERT INTO EMPLEADO_ELECTRODOMESTICO VALUES(70008,10)
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+       NIF NOMBRE       APELLIDOS                 NIVEL OCUPACION               
+---------- ------------ -------------------- ---------- --------------------    
+        10 Nancy        Devolio                       6 GERENTE                 
+        20 Andrew       Fuller                        1 VENDEDOR                
+        30 Janet        Leverling                     1 VENDEDOR                
+        40 Margaret     Peacocle                      2 CONTADOR                
+        50 Steven       Rodriguez                     2 PROGRAMADOR             
+        60 Rosy         BUchanan                      3 ANALISTA                
+        70 Mary         Sumayal                       3 CONTADORI               
+        80 Guadalupe    Rosetti                       3 Psicologia              
+
+8 rows selected.
+
+
+   APARATO MARCA          MODELO                                                
+---------- -------------- ------------                                          
+     10001 Radio sony     S223                                                  
+     20002 TELE samsung   S50x20                                                
+     30001 tablet dell    venue8                                                
+     40001 monitor lanix  1x900t                                                
+     50004 Router syscom  WNRT617G                                              
+     60005 radio pionner  DEH-X65                                               
+     70008 1pad mac       AIR2                                                  
+
+7 rows selected.
+
+select * from EMPLEADO_electrodomestico
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+1 row created.
+
+desplegar restricciones de las tablas EMP ELECTRODOMESTICO...
+de la tabla user_cons_columns...del diccionario.
+
+NN   4OWNER       4CONSTRAINT_NAM4TABLE_NAME     4COLUMN_NAME 4POSITION                                                             
+-----4------------4--------------4---------------4------------4--------                                                             
+     4HR          4PK_EMP_NIF    4EMP            4NIF         4       1                                                             
+     4HR          4PK_ELECTRODOM_4ELECTRODOMESTIC4APARATO     4       1                                                             
+     4            4APARATO       4O              4            4                                                                     
+                                                                                                                                    
+
+
+       NIF4NOMBRE      4APELLIDOS           4     NIVEL4OCUPACION                                                                   
+----------4------------4--------------------4----------4--------------------                                                        
+        104Nancy       4Devolio             4         64GERENTE                                                                     
+        204Andrew      4Fuller              4         14VENDEDOR                                                                    
+        304Janet       4Leverling           4         14VENDEDOR                                                                    
+        404Margaret    4Peacocle            4         24CONTADOR                                                                    
+        504Steven      4Rodriguez           4         24PROGRAMADOR                                                                 
+        604Rosy        4BUchanan            4         34ANALISTA                                                                    
+        704Mary        4Sumayal             4         34CONTADORI                                                                   
+        804Guadalupe   4Rosetti             4         34Psicologia                                                                  
+
+8 rows selected.
+
+
+   APARATO4MARCA         4MODELO                                                                                                    
+----------4--------------4------------                                                                                              
+     100014Radio sony    4S223                                                                                                      
+     200024TELE samsung  4S50x20                                                                                                    
+     300014tablet dell   4venue8                                                                                                    
+     400014monitor lanix 41x900t                                                                                                    
+     500044Router syscom 4WNRT617G                                                                                                  
+     600054radio pionner 4DEH-X65                                                                                                   
+     7000841pad mac      4AIR2                                                                                                      
+     800094Iphone mac    46g                                                                                                        
+
+8 rows selected.
+
+select * from EMPLEADO_electrodomestico
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+

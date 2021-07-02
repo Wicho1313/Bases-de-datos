@@ -1,0 +1,12 @@
+SQL> column name format a25
+SQL> column value format a25
+SQL> column description format a70
+SQL> select name, value, description
+  2  from v$parameter;
+from v$parameter
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> spool off

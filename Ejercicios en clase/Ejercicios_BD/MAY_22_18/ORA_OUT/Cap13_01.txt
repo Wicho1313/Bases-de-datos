@@ -1,0 +1,27 @@
+
+SP2-0246: Illegal FORMAT string "al0"
+
+|________Ejercicio 1________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-1.sql"
+|________Ejercicio 2________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-2.sql"
+|________Ejercicio 3________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-3.sql"
+|________Ejercicio 4________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-4.sql"
+|________Ejercicio 5________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-5.sql"
+|________Ejercicio 6________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-6.sql"
+|________Ejercicio 7________|
+|___________________________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-7.sql"
+|________Ejercicio 8________|
+|___________________________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-8.sql"
+|________Ejercicio 9________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-9.sql"
+|________Ejercicio 10________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-10.sql"
+|________Ejercicio 11________|
+SP2-0310: unable to open file "C:\BD\Chapter13\q13-11.sql"

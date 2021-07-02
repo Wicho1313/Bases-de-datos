@@ -1,0 +1,9 @@
+SQL> rem pag 329 dos tablas mostradas
+SQL> SELECT course.course_no, section_no, description,
+  2  location, instructor_id
+  3  FROM course, section
+  4  WHERE course.course_no = section.course_no;
+
+no rows selected
+
+SQL> spool off

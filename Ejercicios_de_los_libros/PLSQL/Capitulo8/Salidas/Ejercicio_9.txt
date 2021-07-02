@@ -1,0 +1,9 @@
+SQL> REM Operacion minus que resta los elementos
+SQL> SELECT instructor_id   FROM instructor  MINUS SELECT instructor_id   FROM section;
+
+INSTRUCTOR_ID                                                                                                                                         
+-------------                                                                                                                                         
+          110                                                                                                                                         
+          300                                                                                                                                         
+
+SQL> spool off

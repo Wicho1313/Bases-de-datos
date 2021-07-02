@@ -1,0 +1,6 @@
+SQL> REM Lista diferente de instructors
+SQL> SELECT DISTINCT instructor_id   FROM section;
+
+no rows selected
+
+SQL> spool off

@@ -1,0 +1,6 @@
+SQL> REM Realiza la interseccion entre los dos atributos
+SQL> SELECT created_by   FROM enrollment INTERSECT SELECT created_by   FROM course;
+
+no rows selected
+
+SQL> spool off

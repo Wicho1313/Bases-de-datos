@@ -1,0 +1,11 @@
+SQL> 
+SQL> SELECT course_no, description
+  2  FROM course c
+  3  WHERE NOT EXISTS
+  4  (SELECT 'X'
+  5  FROM section
+  6  WHERE c.course_no = course_no);
+
+no rows selected
+
+SQL> spool off

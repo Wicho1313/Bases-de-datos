@@ -1,0 +1,11 @@
+SQL> SELECT owner ||'.'||name refs_table, referenced_owner ||'.'||
+  2  referenced_name table_referenced
+  3  from all_dependencies
+  4  where owner LIKE UPPER('HR')
+  5  AND TYPE IN ('PACKAGE','PACKAGE BODY', 'PROCEDURE','FUNCTION')
+  6  AND referenced_type IN ('TABLE','VIEW')
+  7  ORDER BY owner, name, referenced_owner, referenced_name;
+HR.ADD_JOB_HISTORY                                                                                                                                    
+HR.JOB_HISTORY                                                                                                                                        
+                                                                                                                                                      
+SQL> spool off

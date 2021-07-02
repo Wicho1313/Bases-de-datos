@@ -1,0 +1,17 @@
+SQL> 
+SQL> COLUMN course_no FORMAT 999999999
+SQL> COLUMN section_id FORMAT 999999999
+SQL> COLUMN description FORMAT A30
+SQL> SELECT c.course_no, s.course_no, s.section_id,
+  2  c.description, s.start_date_time
+  3  FROM course c, section s
+  4  WHERE c.course_no = s.course_no(+)
+  5  UNION
+  6  SELECT c.course_no, s.course_no, s.section_id,
+  7  c.description, s.start_date_time
+  8  FROM course c, section s
+  9  WHERE c.course_no(+) = s.course_no;
+
+no rows selected
+
+SQL> spool off

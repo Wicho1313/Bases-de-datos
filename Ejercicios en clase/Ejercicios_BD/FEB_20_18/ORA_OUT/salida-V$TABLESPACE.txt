@@ -1,0 +1,6 @@
+	FROM V$TABLESPACE
+	     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+

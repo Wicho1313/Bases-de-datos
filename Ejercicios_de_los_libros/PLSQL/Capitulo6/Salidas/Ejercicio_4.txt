@@ -1,0 +1,10 @@
+SQL> rem pag 330 consulta el instructor 110
+SQL> SELECT instructor_id, zip, last_name, first_name
+  2  FROM instructor
+  3  WHERE instructor_id = 110;
+
+INSTRUCTOR_ID  || ZIP    || LAST_NAME                  || FIRST_NAME                                                                                  
+-------------  || -----  || -------------------------  || -------------------------                                                                   
+          110  ||        || Willig                     || Irene                                                                                       
+
+SQL> spool off

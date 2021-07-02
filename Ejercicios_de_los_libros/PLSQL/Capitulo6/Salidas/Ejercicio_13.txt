@@ -1,0 +1,9 @@
+SQL> REM da las filas del producto cartesiano, el cross join reemplaza las comas
+SQL> SELECT COUNT(*)
+  2  FROM section CROSS JOIN instructor;
+
+COUNT(*)                                                                                                                                              
+--------                                                                                                                                              
+       0                                                                                                                                              
+
+SQL> spool off

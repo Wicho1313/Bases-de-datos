@@ -1,0 +1,25 @@
+
+FIRST_NAME                 || LAST_NAME                                                                                                               
+-------------------------  || -------------------------                                                                                               
+John T.                    || Beitler                                                                                                                 
+Eilene                     || Grant                                                                                                                   
+Genny                      || Andrew                                                                                                                  
+Nicole                     || Gillen                                                                                                                  
+Sylvia                     || Perrin                                                                                                                  
+Peter                      || Daly                                                                                                                    
+May                        || Jodoin                                                                                                                  
+Jim                        || Joas                                                                                                                    
+Sally                      || Naso                                                                                                                    
+Frantz                     || McLean                                                                                                                  
+P.                         || Balterzar                                                                                                               
+Denise                     || Brownstein                                                                                                              
+Maria                      || Arias                                                                                                                   
+Oscar                      || McGill                                                                                                                  
+Michael                    || Brown                                                                                                                   
+Debra                      || Boyce                                                                                                                   
+Beth                       || Satterfield                                                                                                             
+Ricardo                    || Kurtz                                                                                                                   
+Simon                      || Ramesh                                                                                                                  
+
+19 rows selected.
+

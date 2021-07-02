@@ -1,0 +1,7 @@
+spool  D:\ESCOM\bases\Ejercicios_de_los_libros\Oracle_by_example\Capitulo7\Salidas\Ejercicio_1.txt
+
+SELECT e.student_id, e.section_id
+FROM enrollment e, student s
+WHERE e.student_id = s.student_id
+AND s.zip = '06820';
+spool off

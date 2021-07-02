@@ -1,0 +1,22 @@
+SQL> COLUMN ROLE FORMAT A 35
+SP2-0246: Illegal FORMAT string "A"
+SQL> COLUMN PRIVILEGE FORMAT A35
+SQL> COLUMN ADMIN_OPTION FORMAT A35
+SQL> SELECT ROLE, PRIVILEGE, ADMIN_OPTION
+  2  FROM ROLE_SYS_PRIVS;
+
+ROLE                           PRIVILEGE                           ADMIN_OPTION                                                                       
+------------------------------ ----------------------------------- -----------------------------------                                                
+RESOURCE                       CREATE SEQUENCE                     NO                                                                                 
+RESOURCE                       CREATE TRIGGER                      NO                                                                                 
+RESOURCE                       CREATE CLUSTER                      NO                                                                                 
+RESOURCE                       CREATE PROCEDURE                    NO                                                                                 
+RESOURCE                       CREATE TYPE                         NO                                                                                 
+CONNECT                        CREATE SESSION                      NO                                                                                 
+RESOURCE                       CREATE OPERATOR                     NO                                                                                 
+RESOURCE                       CREATE TABLE                        NO                                                                                 
+RESOURCE                       CREATE INDEXTYPE                    NO                                                                                 
+
+9 rows selected.
+
+SQL> spool off

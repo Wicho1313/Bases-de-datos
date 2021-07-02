@@ -1,0 +1,232 @@
+SQL> REM EJERCICIO DEL CAPITULO 4 DEPENDENCIA FUNCIONALES
+SQL> REM LIBRO MAIER PAG 43
+SQL> 
+SQL> DROP TABLE VUELOS;
+
+Table dropped.
+
+SQL> CREATE TABLE VUELOS(
+  2  PILOT VARCHAR2(20),
+  3  FLIGHT NUMBER(3),
+  4  FECHA TIMESTAMP
+  5  );
+
+Table created.
+
+SQL> 
+SQL> INSERT INTO VUELOS VALUES('Lopez',83,TO_DATE('09/08/2018 10:15:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Gutierrez',83,TO_DATE('10/08/2018 10:15:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('chavez',116,TO_DATE('10/08/2018 13:25:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Lopez',281,TO_DATE('08/08/2018 5:50:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Lopez',301,TO_DATE('12/08/2018 18:35:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Lopez',83,TO_DATE('11/08/2018 10:15:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Romero',83,TO_DATE('13/08/2018 10:15:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Romero',116,TO_DATE('12/08/2018 13:25:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Cortes',281,TO_DATE('09/08/2018 5:50:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Cortes',281,TO_DATE('13/08/2018 5:50:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Cortes',412,TO_DATE('15/08/2018 13:25:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Bustamante',83,TO_DATE('15/08/2018 10:15:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> INSERT INTO VUELOS VALUES('Bustamante',83,TO_DATE('14/08/2018 10:15:00','DD/MM/YYYY HH24:MI:SS'));
+
+1 row created.
+
+SQL> 
+SQL> SELECT FLIGHT VUELO, PILOT PILOTO, TO_CHAR(FECHA, 'DD/MM/YYYY HH24:MI:SS') FECHA
+  2  FROM VUELOS;
+
+     VUELO||PILOTO              ||FECHA                                         
+----------||--------------------||---------------------------                   
+        83||Lopez               ||09/08/2018 10:15:00                           
+        83||Gutierrez           ||10/08/2018 10:15:00                           
+       116||chavez              ||10/08/2018 13:25:00                           
+       281||Lopez               ||08/08/2018 05:50:00                           
+       301||Lopez               ||12/08/2018 18:35:00                           
+        83||Lopez               ||11/08/2018 10:15:00                           
+        83||Romero              ||13/08/2018 10:15:00                           
+       116||Romero              ||12/08/2018 13:25:00                           
+       281||Cortes              ||09/08/2018 05:50:00                           
+       281||Cortes              ||13/08/2018 05:50:00                           
+       412||Cortes              ||15/08/2018 13:25:00                           
+        83||Bustamante          ||15/08/2018 10:15:00                           
+        83||Bustamante          ||14/08/2018 10:15:00                           
+
+13 rows selected.
+
+SQL> 
+SQL> REM ORDENADOS POR  VUELO
+SQL> SELECT FLIGHT VUELO, PILOT PILOTO, TO_CHAR(FECHA, 'DD/MM/YYYY HH24:MI:SS PM') FECHA
+  2  FROM VUELOS
+  3  ORDER BY 1;
+
+     VUELO||PILOTO              ||FECHA                                         
+----------||--------------------||---------------------------                   
+        83||Lopez               ||09/08/2018 10:15:00 AM                        
+        83||Gutierrez           ||10/08/2018 10:15:00 AM                        
+        83||Romero              ||13/08/2018 10:15:00 AM                        
+        83||Bustamante          ||15/08/2018 10:15:00 AM                        
+        83||Bustamante          ||14/08/2018 10:15:00 AM                        
+        83||Lopez               ||11/08/2018 10:15:00 AM                        
+       116||Romero              ||12/08/2018 13:25:00 PM                        
+       116||chavez              ||10/08/2018 13:25:00 PM                        
+       281||Cortes              ||09/08/2018 05:50:00 AM                        
+       281||Cortes              ||13/08/2018 05:50:00 AM                        
+       281||Lopez               ||08/08/2018 05:50:00 AM                        
+       301||Lopez               ||12/08/2018 18:35:00 PM                        
+       412||Cortes              ||15/08/2018 13:25:00 PM                        
+
+13 rows selected.
+
+SQL> 
+SQL> REM CONFIGURA PAG Y LINEA
+SQL> 
+SQL> SET COLSEP'||'
+SQL> COLUMN FECHA FORMAT A27
+SQL> COLUMN HORAS_MIN FORMAT A15
+SQL> SELECT FLIGHT VUELO, PILOT PILOTO, TO_CHAR(FECHA, 'DD/MM/YYYY') FECHA,
+  2  CONCAT(EXTRACT(HOUR FROM FECHA)||':', EXTRACT(MINUTE FROM FECHA)) HORAS_MIN
+  3  FROM VUELOS
+  4  ORDER BY 1;
+
+     VUELO||PILOTO              ||FECHA                      ||HORAS_MIN        
+----------||--------------------||---------------------------||---------------  
+        83||Lopez               ||09/08/2018                 ||10:15            
+        83||Gutierrez           ||10/08/2018                 ||10:15            
+        83||Romero              ||13/08/2018                 ||10:15            
+        83||Bustamante          ||15/08/2018                 ||10:15            
+        83||Bustamante          ||14/08/2018                 ||10:15            
+        83||Lopez               ||11/08/2018                 ||10:15            
+       116||Romero              ||12/08/2018                 ||13:25            
+       116||chavez              ||10/08/2018                 ||13:25            
+       281||Cortes              ||09/08/2018                 ||5:50             
+       281||Cortes              ||13/08/2018                 ||5:50             
+       281||Lopez               ||08/08/2018                 ||5:50             
+       301||Lopez               ||12/08/2018                 ||18:35            
+       412||Cortes              ||15/08/2018                 ||13:25            
+
+13 rows selected.
+
+SQL> 
+SQL> REM ORDENAR POR HORA DE SALIDA
+SQL> SELECT FLIGHT VUELO, PILOT PILOTO, TO_CHAR(FECHA, 'DD/MM/YYYY') FECHA,
+  2  CONCAT(EXTRACT(HOUR FROM FECHA)||':', EXTRACT(MINUTE FROM FECHA)) HORAS_MIN
+  3  FROM VUELOS
+  4  ORDER BY 4;
+
+     VUELO||PILOTO              ||FECHA                      ||HORAS_MIN        
+----------||--------------------||---------------------------||---------------  
+        83||Lopez               ||09/08/2018                 ||10:15            
+        83||Gutierrez           ||10/08/2018                 ||10:15            
+        83||Romero              ||13/08/2018                 ||10:15            
+        83||Bustamante          ||15/08/2018                 ||10:15            
+        83||Bustamante          ||14/08/2018                 ||10:15            
+        83||Lopez               ||11/08/2018                 ||10:15            
+       412||Cortes              ||15/08/2018                 ||13:25            
+       116||Romero              ||12/08/2018                 ||13:25            
+       116||chavez              ||10/08/2018                 ||13:25            
+       301||Lopez               ||12/08/2018                 ||18:35            
+       281||Cortes              ||09/08/2018                 ||5:50             
+       281||Cortes              ||13/08/2018                 ||5:50             
+       281||Lopez               ||08/08/2018                 ||5:50             
+
+13 rows selected.
+
+SQL> 
+SQL> REM SOLO DESPLEGANDO EL NO DE VUELO Y LA HORA
+SQL> SELECT PILOT PILOTO, TO_CHAR(FECHA, 'DD/MM/YYYY') FECHA, FLIGHT VUELO,
+  2  CONCAT(EXTRACT(HOUR FROM FECHA)||':', EXTRACT(MINUTE FROM FECHA)) HORAS_MIN
+  3  FROM VUELOS
+  4  ORDER BY 4;
+
+PILOTO              ||FECHA                      ||     VUELO||HORAS_MIN        
+--------------------||---------------------------||----------||---------------  
+Lopez               ||09/08/2018                 ||        83||10:15            
+Gutierrez           ||10/08/2018                 ||        83||10:15            
+Romero              ||13/08/2018                 ||        83||10:15            
+Bustamante          ||15/08/2018                 ||        83||10:15            
+Bustamante          ||14/08/2018                 ||        83||10:15            
+Lopez               ||11/08/2018                 ||        83||10:15            
+Cortes              ||15/08/2018                 ||       412||13:25            
+Romero              ||12/08/2018                 ||       116||13:25            
+chavez              ||10/08/2018                 ||       116||13:25            
+Lopez               ||12/08/2018                 ||       301||18:35            
+Cortes              ||09/08/2018                 ||       281||5:50             
+Cortes              ||13/08/2018                 ||       281||5:50             
+Lopez               ||08/08/2018                 ||       281||5:50             
+
+13 rows selected.
+
+SQL> 
+SQL> REM DESPLEGANDO PRIMERO HORA Y LUEGO EL VUELO
+SQL> SELECT PILOT PILOTO, TO_CHAR(FECHA, 'DD/MM/YYYY') FECHA, CONCAT(EXTRACT(HOUR FROM FECHA)||':', EXTRACT(MINUTE FROM FECHA)) HORAS_MIN,
+  2  FLIGHT VUELO
+  3  FROM VUELOS
+  4  ORDER BY 3;
+
+PILOTO              ||FECHA                      ||HORAS_MIN      ||     VUELO  
+--------------------||---------------------------||---------------||----------  
+Lopez               ||09/08/2018                 ||10:15          ||        83  
+Gutierrez           ||10/08/2018                 ||10:15          ||        83  
+Romero              ||13/08/2018                 ||10:15          ||        83  
+Bustamante          ||15/08/2018                 ||10:15          ||        83  
+Bustamante          ||14/08/2018                 ||10:15          ||        83  
+Lopez               ||11/08/2018                 ||10:15          ||        83  
+Cortes              ||15/08/2018                 ||13:25          ||       412  
+Romero              ||12/08/2018                 ||13:25          ||       116  
+chavez              ||10/08/2018                 ||13:25          ||       116  
+Lopez               ||12/08/2018                 ||18:35          ||       301  
+Cortes              ||09/08/2018                 ||5:50           ||       281  
+Cortes              ||13/08/2018                 ||5:50           ||       281  
+Lopez               ||08/08/2018                 ||5:50           ||       281  
+
+13 rows selected.
+
+SQL> 
+SQL> REM PREGUNTA.... LA HORA DE SALIDA DETERMINA EL NUMERO DE VUELO?
+SQL> REM PREGUNTA.... EL VUELO DETERMINA LA HORA DE SALIDA?
+SQL> 
+SQL> prompt TIME FUNCTIONALY DEPENDS ON FLIGHT
+TIME FUNCTIONALY DEPENDS ON FLIGHT
+SQL> prompt FLIGHT FUNCTIONALY DEPENDS ON {PILOT,DATE,TIME} AND
+FLIGHT FUNCTIONALY DEPENDS ON {PILOT,DATE,TIME} AND
+SQL> prompt PILOT FUNCTIONALY DEPENDS ON {FLIGHT,DATE}
+PILOT FUNCTIONALY DEPENDS ON {FLIGHT,DATE}
+SQL> 
+SQL> prompt SATISFIES TEST IF A RELATION SATIFIES AN FD X->Y
+SATISFIES TEST IF A RELATION SATIFIES AN FD X->Y
+SQL> spool off

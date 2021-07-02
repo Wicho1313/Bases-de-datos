@@ -1,0 +1,16 @@
+set echo off;
+Column Seccion format 9999999;
+Column Capacidad format 9999999;
+Column Capacidad2 format A15;
+set colsep '  *  ';
+
+Spool  "C:\Users\Acer\Desktop\Ejercicios\Oracle by example\Capitulo3\Salidas\Ejercicio 5.txt"
+
+SELECT section_id "Seccion", capacity "Capacidad",
+CASE WHEN capacity >=15 THEN TO_CHAR(capacity)
+WHEN capacity < 15 THEN 'Muy chico'
+END AS "Capacidad2"
+FROM section
+WHERE section_id IN (101, 146, 147);
+
+Spool off;

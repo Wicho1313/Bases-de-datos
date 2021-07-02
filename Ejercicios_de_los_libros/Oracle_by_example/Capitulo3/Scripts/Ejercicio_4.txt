@@ -1,0 +1,23 @@
+set echo off;
+Column Curso format 9999999;
+Column Costo format 9999999;
+Column Prerequisito format 9999999;
+Column When_Case format 99999999;
+set colsep '  *  ';
+
+Spool  "C:\Users\Acer\Desktop\Ejercicios\Oracle by example\Capitulo3\Salidas\Ejercicio 4.txt"
+
+SELECT course_no "Curso", cost "Costo", prerequisite "Prerequisito",
+CASE WHEN cost <1100 THEN
+CASE WHEN prerequisite IN (10, 50) THEN cost/2
+ELSE cost
+END
+WHEN cost >=1100 AND cost <1500 THEN cost*1.1
+WHEN cost IS NULL THEN 0
+ELSE cost
+END "When_Case"
+FROM course
+WHERE course_no IN (80, 20, 135, 450, 230)
+ORDER BY 2;
+
+Spool off;

@@ -1,0 +1,38 @@
+SQL> PROMPT DESPLEGAR LOS TRIGGERS ACTIVOS
+DESPLEGAR LOS TRIGGERS ACTIVOS
+SQL> PROMPT ACTIVAR LOS TRIGGERS
+ACTIVAR LOS TRIGGERS
+SQL> PROMPT DESACTIVAR LOS TRIGGERS
+DESACTIVAR LOS TRIGGERS
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER temp_aur
+  2  AFTER UPDATE ON TEMP
+  3  FOR EACH ROW
+  4  WHEN(NEW.N BETWEEN 1 AND 10)
+  5  BEGIN
+  6  DBMS_OUTPUT.PUT_LINE('EXECUTING temp_aur');
+  7  END;
+  8  /
+SQL> drop table TEMP;
+SQL> create table TEMP (N NUMBER, M NUMBER DEFAULT 5);
+SQL> create or replace trigger temp_bur
+  2  before update on TEMP for each row
+  3  begin
+  4  dbms_output.put_line('BUR old N:'||:old.n||'M:'||:old.M);
+  5  dbms_output.put_line('BUR new N:'||:new.n||'M:'||:new.M);
+  6  END;
+  7  /
+SQL> 
+SQL> create or replace trigger temp_aur after update on temp
+  2  for each row
+  3  BEGIN
+  4  dbms_output.put_line('AUR old N:'||:old.n||'M:'||:old.M);
+  5  dbms_output.put_line('AUR new N:'||:new.n||'M:'||:new.M);
+  6  END;
+  7  /
+SQL> insert into TEMP (n) values (1);
+SQL> update TEMP set n=n+1 where n>=1;
+SQL> 
+SQL> UPDATE TEMP SET m=2 WHERE M=5;
+SQL> 
+SQL> spool off

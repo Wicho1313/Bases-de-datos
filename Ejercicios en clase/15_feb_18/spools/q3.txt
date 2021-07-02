@@ -1,0 +1,65 @@
+SQL> desc all_tab_columns
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ OWNER                                                                               NOT NULL VARCHAR2(30)
+ TABLE_NAME                                                                          NOT NULL VARCHAR2(30)
+ COLUMN_NAME                                                                         NOT NULL VARCHAR2(30)
+ DATA_TYPE                                                                                    VARCHAR2(106)
+ DATA_TYPE_MOD                                                                                VARCHAR2(3)
+ DATA_TYPE_OWNER                                                                              VARCHAR2(120)
+ DATA_LENGTH                                                                         NOT NULL NUMBER
+ DATA_PRECISION                                                                               NUMBER
+ DATA_SCALE                                                                                   NUMBER
+ NULLABLE                                                                                     VARCHAR2(1)
+ COLUMN_ID                                                                                    NUMBER
+ DEFAULT_LENGTH                                                                               NUMBER
+ DATA_DEFAULT                                                                                 LONG
+ NUM_DISTINCT                                                                                 NUMBER
+ LOW_VALUE                                                                                    RAW(32)
+ HIGH_VALUE                                                                                   RAW(32)
+ DENSITY                                                                                      NUMBER
+ NUM_NULLS                                                                                    NUMBER
+ NUM_BUCKETS                                                                                  NUMBER
+ LAST_ANALYZED                                                                                DATE
+ SAMPLE_SIZE                                                                                  NUMBER
+ CHARACTER_SET_NAME                                                                           VARCHAR2(44)
+ CHAR_COL_DECL_LENGTH                                                                         NUMBER
+ GLOBAL_STATS                                                                                 VARCHAR2(3)
+ USER_STATS                                                                                   VARCHAR2(3)
+ AVG_COL_LEN                                                                                  NUMBER
+ CHAR_LENGTH                                                                                  NUMBER
+ CHAR_USED                                                                                    VARCHAR2(1)
+ V80_FMT_IMAGE                                                                                VARCHAR2(3)
+ DATA_UPGRADED                                                                                VARCHAR2(3)
+ HISTOGRAM                                                                                    VARCHAR2(15)
+
+SQL> PROMPT DESPLIEGA ATRIBUTOS DE LA TABLA ALL_TAB_COLUMNS
+DESPLIEGA ATRIBUTOS DE LA TABLA ALL_TAB_COLUMNS
+SQL> COLUMN OWNER FORMAT A6
+SQL> COLUMN COLUMN_NAME FORMAT A18
+SQL> COLUMN TABLE_NAME A25
+SP2-0158: unknown COLUMN option "A25"
+SQL> COLUMN DATA_TYPE FORMAT A10
+SQL> COLUMN Tipo FORMAT A10 JUS CENTER
+SQL> SELECT OWNER, TABLE_NAME, COLUMN_NAME, DATA_TYPE "Tipo"
+  2  FROM ALL_TAB_COLUMNS
+  3  WHERE OWNER='HR'
+  4  AND TABLE_NAME='EMPLOYEES'
+  5  ORDER BY 2,3;
+OWNER  * TABLE_NAME                     * COLUMN_NAME        *    Tipo                                                                                
+====== * ============================== * ================== * ==========                                                                             
+HR     * EMPLOYEES                      * COMMISSION_PCT     * NUMBER                                                                                 
+HR     * EMPLOYEES                      * DEPARTMENT_ID      * NUMBER                                                                                 
+HR     * EMPLOYEES                      * EMAIL              * VARCHAR2                                                                               
+HR     * EMPLOYEES                      * EMPLOYEE_ID        * NUMBER                                                                                 
+HR     * EMPLOYEES                      * FIRST_NAME         * VARCHAR2                                                                               
+HR     * EMPLOYEES                      * HIRE_DATE          * DATE                                                                                   
+HR     * EMPLOYEES                      * JOB_ID             * VARCHAR2                                                                               
+HR     * EMPLOYEES                      * LAST_NAME          * VARCHAR2                                                                               
+HR     * EMPLOYEES                      * MANAGER_ID         * NUMBER                                                                                 
+HR     * EMPLOYEES                      * PHONE_NUMBER       * VARCHAR2                                                                               
+HR     * EMPLOYEES                      * SALARY             * NUMBER                                                                                 
+
+11 rows selected.
+
+SQL> spool off

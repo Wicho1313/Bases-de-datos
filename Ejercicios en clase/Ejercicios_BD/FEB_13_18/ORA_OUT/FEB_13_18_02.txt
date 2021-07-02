@@ -1,0 +1,40 @@
+ALTER USER HR IDENTIFIED BY HR ACCOUNT UNLOCK
+                            *
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+
+TABLE_NAME          *COLUMN_NAME                                                
+--------------------*---------------                                            
+EMPLOYEES           *EMPLOYEE_ID                                                
+EMPLOYEES           *FIRST_NAME                                                 
+EMPLOYEES           *LAST_NAME                                                  
+EMPLOYEES           *EMAIL                                                      
+EMPLOYEES           *PHONE_NUMBER                                               
+EMPLOYEES           *HIRE_DATE                                                  
+EMPLOYEES           *JOB_ID                                                     
+EMPLOYEES           *SALARY                                                     
+EMPLOYEES           *COMMISSION_PCT                                             
+EMPLOYEES           *MANAGER_ID                                                 
+EMPLOYEES           *DEPARTMENT_ID                                              
+
+11 rows selected.
+
+
+OWNER          *TABLE_NAME          *COLUMN_NAME                                
+---------------*--------------------*---------------                            
+HR             *EMPLOYEES           *EMPLOYEE_ID                                
+HR             *EMPLOYEES           *FIRST_NAME                                 
+HR             *EMPLOYEES           *LAST_NAME                                  
+HR             *EMPLOYEES           *EMAIL                                      
+HR             *EMPLOYEES           *PHONE_NUMBER                               
+HR             *EMPLOYEES           *HIRE_DATE                                  
+HR             *EMPLOYEES           *JOB_ID                                     
+HR             *EMPLOYEES           *SALARY                                     
+HR             *EMPLOYEES           *COMMISSION_PCT                             
+HR             *EMPLOYEES           *MANAGER_ID                                 
+HR             *EMPLOYEES           *DEPARTMENT_ID                              
+
+11 rows selected.
+

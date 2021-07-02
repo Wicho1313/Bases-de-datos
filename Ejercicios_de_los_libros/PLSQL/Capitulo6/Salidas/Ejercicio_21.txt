@@ -1,0 +1,58 @@
+SQL> REM Con clausula USING
+SQL> SELECT first_name, last_name, student_id
+  2  FROM student JOIN enrollment
+  3  USING (student_id)
+  4  ORDER BY last_name;
+
+FIRST_NAME                 || LAST_NAME                  || STUDENT_ID                                                                                
+-------------------------  || -------------------------  || ----------                                                                                
+Alan                       || Affinito                   ||        190                                                                                
+Edwin                      || Allende                    ||        198                                                                                
+Genny                      || Andrew                     ||        162                                                                                
+Maria                      || Arias                      ||        172                                                                                
+P.                         || Balterzar                  ||        170                                                                                
+John T.                    || Beitler                    ||        160                                                                                
+Regina                     || Bose                       ||        195                                                                                
+Debra                      || Boyce                      ||        175                                                                                
+Michael                    || Brown                      ||        174                                                                                
+Denise                     || Brownstein                 ||        171                                                                                
+Anthony                    || Bullock                    ||        181                                                                                
+J.                         || Dalvi                      ||        197                                                                                
+Peter                      || Daly                       ||        165                                                                                
+Jeffrey                    || Delbrun                    ||        182                                                                                
+O.                         || Garnes                     ||        187                                                                                
+Nicole                     || Gillen                     ||        163                                                                                
+Phil                       || Gilloon                    ||        188                                                                                
+Eilene                     || Grant                      ||        161                                                                                
+Verona                     || Grant                      ||        194                                                                                
+Al                         || Jamerncy                   ||        193                                                                                
+Jim                        || Joas                       ||        167                                                                                
+May                        || Jodoin                     ||        166                                                                                
+Ricardo                    || Kurtz                      ||        178                                                                                
+Ricardo                    || Kurtz                      ||        178                                                                                
+Steven                     || M. Orent                   ||        191                                                                                
+Oscar                      || McGill                     ||        173                                                                                
+Oscar                      || McGill                     ||        173                                                                                
+Frantz                     || McLean                     ||        169                                                                                
+Dennis                     || Mehta                      ||        185                                                                                
+Victor                     || Meshaj                     ||        196                                                                                
+Sally                      || Naso                       ||        168                                                                                
+Sylvia                     || Perrin                     ||        164                                                                                
+Simon                      || Ramesh                     ||        179                                                                                
+Deborah                    || Reyes                      ||        189                                                                                
+Deborah                    || Reyes                      ||        189                                                                                
+Beth                       || Satterfield                ||        176                                                                                
+Beth                       || Satterfield                ||        176                                                                                
+J.                         || Segall                     ||        199                                                                                
+J.                         || Segall                     ||        199                                                                                
+Christine                  || Sheppard                   ||        186                                                                                
+E.A.                       || Torres                     ||        180                                                                                
+E.A.                       || Torres                     ||        180                                                                                
+Frank                      || Viotty                     ||        192                                                                                
+Salewa                     || Zuckerberg                 ||        184                                                                                
+Salewa                     || Zuckerberg                 ||        184                                                                                
+Salewa                     || Zuckerberg                 ||        184                                                                                
+
+46 rows selected.
+
+SQL> spool off

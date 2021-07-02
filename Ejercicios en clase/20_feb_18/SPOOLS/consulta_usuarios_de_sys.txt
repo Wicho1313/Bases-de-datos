@@ -1,0 +1,30 @@
+SQL> PROMPT CONSULTA A LOS USUARIOS DE SYS
+CONSULTA A LOS USUARIOS DE SYS
+SQL> SELECT username, account_status, lock_date, expiry_date
+  2  from dba_users;
+
+USERNAME                       ACCOUNT_STATUS                   LOCK_DAT EXPIRY_D                                                                     
+------------------------------ -------------------------------- -------- --------                                                                     
+SYSTEM                         OPEN                                      22/09/18                                                                     
+SYS                            OPEN                                      22/09/18                                                                     
+ANONYMOUS                      OPEN                                      23/02/12                                                                     
+HR                             OPEN                                      22/09/18                                                                     
+APEX_PUBLIC_USER               LOCKED                           27/08/11 23/02/12                                                                     
+APEX_040000                    LOCKED                           27/08/11 23/02/12                                                                     
+FLOWS_FILES                    LOCKED                           27/08/11 23/02/12                                                                     
+OUTLN                          EXPIRED & LOCKED                 26/03/18 26/03/18                                                                     
+XS$NULL                        EXPIRED & LOCKED                 27/08/11 27/08/11                                                                     
+XDB                            EXPIRED & LOCKED                 27/08/11 27/08/11                                                                     
+CTXSYS                         EXPIRED & LOCKED                 26/03/18 26/03/18                                                                     
+MDSYS                          EXPIRED & LOCKED                 27/08/11 26/03/18                                                                     
+
+12 rows selected.
+
+SQL> PROMPT CONSULTA AL USUARIO STUDENT
+CONSULTA AL USUARIO STUDENT
+SQL> SELECT username, account_status, expiry_date from dba_users
+  2  where username='student';
+
+no rows selected
+
+SQL> spool off

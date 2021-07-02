@@ -1,0 +1,14 @@
+SQL> COLUMN SEQUENCE_NAME FORMAT A25
+SQL> COLUMN MIN_VALUE FORMAT 9999
+SQL> COLUMN MAX_VALUE FORMAT 9999
+SQL> COLUMN LAST_NUMBER FORMAT 9999
+SQL> SELECT SEQUENCE_NAME, MIN_VALUE, MAX_VALUE, LAST_NUMBER
+  2  FROM USER_SEQUENCES;
+
+SEQUENCE_NAME             MIN_VALUE MAX_VALUE LAST_NUMBER                                                                                             
+------------------------- --------- --------- -----------                                                                                             
+DEPARTMENTS_SEQ                   1      9990         280                                                                                             
+EMPLOYEES_SEQ                     1     #####         207                                                                                             
+LOCATIONS_SEQ                     1      9900        3300                                                                                             
+
+SQL> spool off

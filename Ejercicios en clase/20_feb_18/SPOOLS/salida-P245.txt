@@ -1,0 +1,17 @@
+SQL> set serveroutput on
+SQL> DECLARE
+  2  a TIMESTAMP;
+  3  b TIMESTAMP;
+  4  BEGIN
+  5  a:= TO_TIMESTAMP('24-FEB-2002 09.00.00.50');
+  6  b:= to_timestamp('02/24/02 09.00.00.50 PM','mm/dd/yyyy hh:mi:ssxff AM');
+  7  DBMS_OUTPUT.PUT_LINE(a);
+  8  DBMS_OUTPUT.PUT_LINE(b);
+  9  END;
+ 10  /
+24/02/02 09:00:00.500000                                                                                                                              
+24/02/02 21:00:00.500000                                                                                                                              
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off

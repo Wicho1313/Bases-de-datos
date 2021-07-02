@@ -1,0 +1,30 @@
+SQL> alter table PAIS
+  2  drop constraint PAIS_CONTINENTE_fk;
+
+Table altered.
+
+SQL> 
+SQL> alter table pais
+  2  ADD CONSTRAINT PAIS_CONTINENTE_FK
+  3  FOREIGN KEY(CONTINENTE)
+  4  REFERENCES CONTINENTE
+  5  ON DELETE CASCADE;
+
+Table altered.
+
+SQL> 
+SQL> DELETE CONTINENTE WHERE
+  2  Nom_CONTINENTE='AFRICA';
+
+0 rows deleted.
+
+SQL> 
+SQL> SELECT Nom_CONTINENTE from CONTINENTE;
+
+no rows selected
+
+SQL> select Nom_pais, CONTINENTE from PAIS;
+
+no rows selected
+
+SQL> spool off

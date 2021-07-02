@@ -1,0 +1,500 @@
+SQL> DESC COURSE
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ COURSE_NO                                                                           NOT NULL NUMBER(8)
+ DESCRIPTION                                                                         NOT NULL VARCHAR2(50)
+ COST                                                                                         NUMBER(9,2)
+ PREREQUISITE                                                                                 NUMBER(8)
+ CREATED_BY                                                                          NOT NULL VARCHAR2(30)
+ CREATED_DATE                                                                        NOT NULL DATE
+ MODIFIED_BY                                                                         NOT NULL VARCHAR2(30)
+ MODIFIED_DATE                                                                       NOT NULL DATE
+
+SQL> DESC SECTION
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ SECTION_ID                                                                          NOT NULL NUMBER(8)
+ COURSE_NO                                                                           NOT NULL NUMBER(8)
+ SECTION_NO                                                                          NOT NULL NUMBER(3)
+ START_DATE_TIME                                                                              DATE
+ LOCATION                                                                                     VARCHAR2(50)
+ INSTRUCTOR_ID                                                                       NOT NULL NUMBER(8)
+ CAPACITY                                                                                     NUMBER(3)
+ CREATED_BY                                                                          NOT NULL VARCHAR2(30)
+ CREATED_DATE                                                                        NOT NULL DATE
+ MODIFIED_BY                                                                         NOT NULL VARCHAR2(30)
+ MODIFIED_DATE                                                                       NOT NULL DATE
+
+SQL> SET PAGESIZE 99
+SQL> SET LINESIZE 150
+SQL> SET NUMWIDTH 6
+SQL> SET COLSEP "  || "
+SQL> 
+SQL> 
+SQL> CLEAR COLUMNS
+columns cleared
+SQL> COLUMN C_NO FORMAT 999
+SQL> COLUMN description FORMAT A28 WRAPPED
+SQL> COLUMN LOCATION    FORMAT A6 WRAPPED
+SQL> COLUMN INSTRUCTOR_ID FORMAT 999999
+SQL> COLUMN INST_ID FORMAT 999999
+SQL> 
+SQL> REM hace la union de ambas tablas
+SQL> SELECT course_no, description,
+  2  section_id
+  3  FROM course JOIN section
+  4  USING (course_no)
+  5  ORDER BY course_no;
+
+no rows selected
+
+SQL> 
+SQL> REM Utilizacion de subquery
+SQL> SELECT course_no, description
+  2  FROM course c
+  3  WHERE NOT EXISTS
+  4  (SELECT 'X'
+  5  FROM section
+  6  WHERE c.course_no = course_no);
+
+no rows selected
+
+SQL> 
+SQL> REM se unen por la izquierda
+SQL> SELECT c.course_no, c.description,
+  2  s.section_id, s.course_no
+  3  FROM course c LEFT OUTER JOIN section s
+  4  ON c.course_no = s.course_no
+  5  ORDER BY c.course_no;
+
+no rows selected
+
+SQL> 
+SQL> REM Union por la derecha
+SQL> SELECT c.course_no, c.description,
+  2  s.section_id, s.course_no
+  3  FROM section s RIGHT OUTER JOIN course c
+  4  ON c.course_no = s.course_no
+  5  ORDER BY c.course_no;
+
+no rows selected
+
+SQL> 
+SQL> REM Usando la sintaxis ANSI union por la derecha
+SQL> SELECT course_no, description,
+  2  section_id
+  3  FROM section RIGHT OUTER JOIN course
+  4  USING (course_no)
+  5  ORDER BY course_no;
+
+no rows selected
+
+SQL> 
+SQL> REM Utilizando (+)
+SQL> SELECT c.course_no, c.description,
+  2  s.section_id, s.course_no
+  3  FROM course c, section s
+  4  WHERE c.course_no = s.course_no(+)
+  5  ORDER BY c.course_no;
+
+no rows selected
+
+SQL> 
+SQL> REM Union All usa nulos y subquerys
+SQL> SELECT c1.course_no, c1.description,
+  2  s.section_id, s.course_no
+  3  FROM course c1, section s
+  4  WHERE c1.course_no = s.course_no
+  5  UNION ALL
+  6  SELECT c2.course_no, c2.description,
+  7  TO_NUMBER(NULL), TO_NUMBER(NULL)
+  8  FROM course c2
+  9  WHERE NOT EXISTS
+ 10  (SELECT 'X'
+ 11  FROM section
+ 12  WHERE c2.course_no = course_no);
+
+no rows selected
+
+SQL> 
+SQL> REM Join completo con sintaxis ANSI
+SQL> SELECT c.course_no, s.course_no, s.section_id,
+  2  c.description, s.start_date_time
+  3  FROM course c FULL OUTER JOIN section s
+  4  ON c.course_no = s.course_no;
+
+no rows selected
+
+SQL> 
+SQL> REM prerequisito igual a 350
+SQL> SELECT course_no, description
+  2  FROM course
+  3  WHERE prerequisite = 350;
+
+no rows selected
+
+SQL> 
+SQL> REM entre 430 y 450
+SQL> SELECT section_id, course_no
+  2  FROM section
+  3  WHERE course_no IN (430, 450);
+
+no rows selected
+
+SQL> 
+SQL> REM union por la izquierda y prerequisito es 350
+SQL> SELECT c.course_no cno, s.course_no sno,
+  2  c.description,
+  3  c.prerequisite prereq,
+  4  s.location loc, s.section_id
+  5  FROM course c LEFT OUTER JOIN section s
+  6  ON c.course_no = s.course_no
+  7  WHERE c.prerequisite = 350;
+
+no rows selected
+
+SQL> 
+SQL> SELECT c.course_no cno, s.course_no sno,
+  2  c.description,
+  3  c.prerequisite prereq,
+  4  s.location loc, s.section_id
+  5  FROM course c, section s
+  6  WHERE c.course_no = s.course_no(+)
+  7  AND c.prerequisite = 350;
+
+no rows selected
+
+SQL> 
+SQL> SELECT c.course_no cno, s.course_no sno,
+  2  c.description,
+  3  c.prerequisite prereq,
+  4  s.location loc, s.section_id
+  5  FROM course c, section s
+  6  WHERE c.course_no = s.course_no(+)
+  7  AND c.prerequisite = 350
+  8  Oracle© SQL by Example, Third Edition By Alice Rischert
+  9  - 458 -
+ 10  AND s.location = 'L507';
+Oracle© SQL by Example, Third Edition By Alice Rischert
+*
+ERROR at line 8:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> 
+SQL> SELECT c.course_no cno, s.course_no sno,
+  2  c.description,
+  3  c.prerequisite prereq,
+  4  s.location loc, s.section_id
+  5  FROM course c, section s
+  6  WHERE c.course_no = s.course_no(+)
+  7  AND c.prerequisite = 350
+  8  AND s.location(+) = 'L507';
+
+no rows selected
+
+SQL> 
+SQL> SELECT c.course_no cno, s.course_no sno,
+  2  SUBSTR(c.description, 1,20),
+  3  c.prerequisite prereq,
+  4  s.location loc, s.section_id
+  5  FROM course c, section s
+  6  Oracle© SQL by Example, Third Edition By Alice Rischert
+  7  - 459 -
+  8  WHERE c.course_no = s.course_no(+)
+  9  AND c.prerequisite = 350
+ 10  AND s.location(+) = 'L210';
+Oracle© SQL by Example, Third Edition By Alice Rischert
+*
+ERROR at line 6:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> 
+SQL> SELECT c.course_no cno, s.course_no sno,
+  2  c.description,
+  3  c.prerequisite prereq,
+  4  s.location loc, s.section_id
+  5  FROM course c LEFT OUTER JOIN section s
+  6  ON c.course_no = s.course_no
+  7  WHERE c.prerequisite = 350
+  8  AND location = 'L507';
+
+no rows selected
+
+SQL> 
+SQL> SELECT c.course_no cno, s.course_no sno,
+  2  c.description,
+  3  c.prerequisite prereq,
+  4  s.location loc, s.section_id
+  5  Oracle© SQL by Example, Third Edition By Alice Rischert
+  6  - 460 -
+  7  FROM course c LEFT OUTER JOIN section s
+  8  ON (c.course_no = s.course_no
+  9  AND location = 'L507')
+ 10  WHERE c.prerequisite = 350;
+Oracle© SQL by Example, Third Edition By Alice Rischert
+      *
+ERROR at line 5:
+ORA-00911: invalid character 
+
+
+SQL> 
+SQL> SELECT c.course_no cno, s.course_no sno,
+  2  c.description,
+  3  c.prerequisite prereq,
+  4  s.location loc, s.section_id
+  5  FROM (SELECT *
+  6  FROM course
+  7  WHERE prerequisite = 350) c LEFT OUTER JOIN
+  8  (SELECT * FROM section
+  9  WHERE location = 'L507') s
+ 10  ON (c.course_no = s.course_no);
+
+no rows selected
+
+SQL> 
+SQL> SELECT course_no, description
+  2  FROM course c
+  3  WHERE NOT EXISTS
+  4  (SELECT 'X'
+  5  FROM section
+  6  WHERE c.course_no = course_no);
+
+no rows selected
+
+SQL> 
+SQL> SELECT course_no, description
+  2  FROM course LEFT OUTER JOIN section
+  3  USING (course_no)
+  4  WHERE section_id IS NULL;
+
+no rows selected
+
+SQL> 
+SQL> SELECT city, state, z.zip AS zzip, s.zip AS szip,
+  2  COUNT(s.zip) AS student_count,
+  3  COUNT(z.zip) AS wrong_value
+  4  FROM zipcode z LEFT OUTER JOIN student s
+  5  ON (z.zip = s.zip)
+  6  WHERE state = 'CT'
+  7  GROUP BY city, state, z.zip, s.zip;
+
+no rows selected
+
+SQL> 
+SQL> SELECT city, state, zip,
+  2  (SELECT COUNT(*)
+  3  FROM student s
+  4  WHERE s.zip = z.zip) AS student_count
+  5  FROM zipcode z
+  6  WHERE state = 'CT';
+
+no rows selected
+
+SQL> 
+SQL> SELECT course_no cou, description, cost,
+  2  location, last_name
+  3  FROM course LEFT OUTER JOIN section
+  4  USING (course_no)
+  5  LEFT OUTER JOIN instructor
+  6  USING (instructor_id)
+  7  ORDER BY course_no;
+
+no rows selected
+
+SQL> 
+SQL> SELECT student_id, section_id, grade_type_code,
+  2  numeric_grade
+  3  FROM student LEFT OUTER JOIN enrollment
+  4  USING (student_id)
+  5  LEFT OUTER JOIN grade
+  6  USING (student_id, section_id)
+  7  WHERE student_id IN (102, 301);
+
+STUDENT_ID  || SECTION_ID  || GR  || NUMERIC_GRADE                                                                                                    
+----------  || ----------  || --  || -------------                                                                                                    
+       301  ||             ||     ||                                                                                                                  
+
+SQL> 
+SQL> SELECT s.student_id, e.section_id, g.grade_type_code,
+  2  g.numeric_grade
+  3  FROM student s, enrollment e, grade g
+  4  WHERE s.student_id IN (102, 301)
+  5  AND s.student_id = e.student_id(+)
+  6  AND e.student_id = g.student_id(+)
+  7  AND e.section_id = g.section_id(+);
+
+STUDENT_ID  || SECTION_ID  || GR  || NUMERIC_GRADE                                                                                                    
+----------  || ----------  || --  || -------------                                                                                                    
+       301  ||             ||     ||                                                                                                                  
+
+SQL> 
+SQL> SELECT course_no, description, prerequisite
+  2  FROM course;
+
+no rows selected
+
+SQL> 
+SQL> SELECT c1.course_no,
+  2  c1.description course_descr,
+  3  c1.prerequisite,
+  4  c2.description pre_req_descr
+  5  FROM course c1 JOIN course c2
+  6  ON (c1.prerequisite = c2.course_no)
+  7  ORDER BY 3;
+
+no rows selected
+
+SQL> 
+SQL> SELECT c1.course_no,
+  2  c1.description course_descr,
+  3  c1.prerequisite,
+  4  c2.description pre_req_descr
+  5  FROM course c1, course c2
+  6  WHERE c1.prerequisite = c2.course_no
+  7  ORDER BY 3;
+
+no rows selected
+
+SQL> 
+SQL> SELECT grade_type_code, numeric_grade, letter_grade
+  2  FROM grade g JOIN grade_conversion c
+  3  ON (g.numeric_grade BETWEEN c.min_grade AND c.max_grade)
+  4  WHERE g.student_id = 107
+  5  ORDER BY 1, 2 DESC;
+
+no rows selected
+
+SQL> 
+SQL> SELECT fi.student_id, mt.numeric_grade "Midterm Grade",
+  2  fi.numeric_grade "Final Grade"
+  3  FROM grade fi JOIN grade mt
+  4  ON (fi.section_id = mt.section_id
+  5  AND fi.student_id = mt.student_id)
+  6  WHERE fi.grade_type_code = 'FI'
+  7  AND fi.section_id = 86
+  8  AND mt.grade_type_code = 'MT'
+  9  AND fi.numeric_grade < mt.numeric_grade;
+
+STUDENT_ID  || Midterm Grade  || Final Grade                                                                                                          
+----------  || -------------  || -----------                                                                                                          
+       102  ||            90  ||          85                                                                                                          
+       108  ||            91  ||          76                                                                                                          
+       211  ||            92  ||          77                                                                                                          
+
+SQL> 
+SQL> SELECT DISTINCT a.student_id, a.last_name,
+  2  a.street_address
+  3  FROM student a, student b
+  4  WHERE a.street_address = b.street_address
+  5  AND a.zip = b.zip
+  6  AND a.student_id <> b.student_id
+  7  ORDER BY a.street_address;
+
+STUDENT_ID  || LAST_NAME                  || STREET_ADDRESS                                                                                           
+----------  || -------------------------  || --------------------------------------------------                                                       
+       217  || Citron                     || PO Box 1091                                                                                              
+       182  || Delbrun                    || PO Box 1091                                                                                              
+       390  || Greenberg                  || 105-34 65th Ave.  #6B                                                                                    
+       392  || Saliternan                 || 105-34 65th Ave.  #6B                                                                                    
+       234  || Brendler                   || 111 Village Hill Dr.                                                                                     
+       380  || Krot                       || 111 Village Hill Dr.                                                                                     
+       305  || Larcia                     || 131-57 230th                                                                                             
+       337  || Cross                      || 131-57 230th                                                                                             
+       184  || Zuckerberg                 || 1614 64th St.                                                                                            
+       284  || Lindeman                   || 1614 64th St.                                                                                            
+       379  || Padron                     || 199-46 21st Ave.                                                                                         
+       371  || Anglin                     || 199-46 21st Ave.                                                                                         
+       256  || Velasco                    || 200 Winston Dr. #2212                                                                                    
+       286  || Kelly                      || 200 Winston Dr. #2212                                                                                    
+       322  || Archer                     || 578 E 40th ST.                                                                                           
+       173  || McGill                     || 578 E 40th ST.                                                                                           
+       393  || Martin                     || 88 Sherman St.                                                                                           
+       389  || Leung                      || 88 Sherman St.                                                                                           
+
+18 rows selected.
+
+SQL> 
+SQL> SELECT DISTINCT a.student_id, a.last_name,
+  2  a.street_address
+  3  FROM student a JOIN student b
+  4  ON (a.street_address = b.street_address
+  5  AND a.zip = b.zip
+  6  AND a.student_id <> b.student_id)
+  7  ORDER BY a.street_address;
+
+STUDENT_ID  || LAST_NAME                  || STREET_ADDRESS                                                                                           
+----------  || -------------------------  || --------------------------------------------------                                                       
+       217  || Citron                     || PO Box 1091                                                                                              
+       182  || Delbrun                    || PO Box 1091                                                                                              
+       390  || Greenberg                  || 105-34 65th Ave.  #6B                                                                                    
+       392  || Saliternan                 || 105-34 65th Ave.  #6B                                                                                    
+       234  || Brendler                   || 111 Village Hill Dr.                                                                                     
+       380  || Krot                       || 111 Village Hill Dr.                                                                                     
+       305  || Larcia                     || 131-57 230th                                                                                             
+       337  || Cross                      || 131-57 230th                                                                                             
+       184  || Zuckerberg                 || 1614 64th St.                                                                                            
+       284  || Lindeman                   || 1614 64th St.                                                                                            
+       379  || Padron                     || 199-46 21st Ave.                                                                                         
+       371  || Anglin                     || 199-46 21st Ave.                                                                                         
+       256  || Velasco                    || 200 Winston Dr. #2212                                                                                    
+       286  || Kelly                      || 200 Winston Dr. #2212                                                                                    
+       322  || Archer                     || 578 E 40th ST.                                                                                           
+       173  || McGill                     || 578 E 40th ST.                                                                                           
+       393  || Martin                     || 88 Sherman St.                                                                                           
+       389  || Leung                      || 88 Sherman St.                                                                                           
+
+18 rows selected.
+
+SQL> 
+SQL> SELECT DISTINCT b.student_id id, b.last_name,
+  2  b.street_address ||' '|| city || ', '
+  3  || state address
+  4  FROM student a, student b, zipcode z
+  5  WHERE a.street_address = b.street_address
+  6  AND a.zip = b.zip
+  7  AND a.student_id <> b.student_id
+  8  AND z.zip = b.zip
+  9  ORDER BY address;
+
+no rows selected
+
+SQL> 
+SQL> SELECT DISTINCT student_id id, last_name,
+  2  street_address ||' '|| city || ', '
+  3  || state address
+  4  FROM student s, zipcode z
+  5  WHERE s.zip = z.zip
+  6  AND (street_address, s.zip) IN
+  7  (SELECT street_address, zip
+  8  FROM student
+  9  GROUP BY street_address, zip
+ 10  HAVING COUNT(*) > 1)
+ 11  ORDER BY address;
+
+no rows selected
+
+SQL> 
+SQL> SELECT c1.course_no,
+  2  SUBSTR(c1.description, 1,15) course_descr,
+  3  C1.prerequisite,
+  4  SUBSTR(c2.description,1,15) pre_req_descr
+  5  FROM course c1 LEFT OUTER JOIN course c2
+  6  ON c1.prerequisite = c2.course_no
+  7  ORDER BY 1;
+
+no rows selected
+
+SQL> 
+SQL> SELECT c1.course_no,
+  2  SUBSTR(c1.description, 1,15) course_descr,
+  3  C1.prerequisite,
+  4  SUBSTR(c2.description,1,15) pre_req_descr
+  5  FROM course c1, course c2
+  6  WHERE c1.prerequisite = c2.course_no(+)
+  7  ORDER BY 1;
+
+no rows selected
+
+SQL> spool off

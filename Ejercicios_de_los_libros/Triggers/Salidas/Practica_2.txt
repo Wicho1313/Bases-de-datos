@@ -1,0 +1,17 @@
+SQL> 
+SQL> 
+SQL> prompt 2)Write a trigger to print the current values in a row being deleted.
+2)Write a trigger to print the current values in a row being deleted.
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER temp_adr
+  2  AFTER DELETE ON TEMP
+  3  FOR EACH ROW
+  4  BEGIN
+  5      dbms_output.put_line
+  6         (:old.x||' '||:old.y||' '||:old.z);
+  7  END;
+  8  /
+
+Warning: Trigger created with compilation errors.
+
+SQL> SPOOL OFF

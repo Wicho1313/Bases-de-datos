@@ -1,0 +1,300 @@
+drop table student cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table faculty cascade constraints;
+drop table faculty cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table class cascade constraints;
+drop table class cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table enrolled cascade constraints;
+drop table enrolled cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table emp cascade constraints;
+drop table emp cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table works cascade constraints;
+drop table works cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table dept cascade constraints;
+drop table dept cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table flights cascade constraints;
+drop table flights cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table aircraft cascade constraints;
+drop table aircraft cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table certified cascade constraints;
+drop table certified cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table employees cascade constraints;
+
+Table dropped.
+
+SQL> drop table suppliers cascade constraints;
+drop table suppliers cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table parts cascade constraints;
+drop table parts cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table catalog cascade constraints;
+drop table catalog cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table sailors cascade constraints;
+drop table sailors cascade constraints
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL>
+SQL>
+SQL> create table student (
+  2   snum number(9,0) primary key,
+  3   sname varchar2(30),
+  4  major varchar2(25),
+  5  standing varchar2(2),
+  6  age number(3,0)
+  7  );
+
+Table created.
+
+SQL> create table faculty(
+  2  fid nukmber(9,0) primary key,
+  3  fname varchar2(30),
+  4  deptid number(2,0)
+  5  );
+fid nukmber(9,0) primary key,
+           *
+ERROR at line 2:
+ORA-00907: missing right parenthesis
+
+
+SQL> create table faculty(
+  2  fid number(9,0) primary key,
+  3  fname varchar2(30),
+  4  deptid number(2,0)
+  5  );
+
+Table created.
+
+SQL> create table class(
+  2  name varchar2(40) primary key,
+  3  meets_at varchar2(30)
+  4  room varchar2(10),
+  5  fid number(9,0),
+  6  foreign key(fid) references faculty
+  7  );
+room varchar2(10),
+*
+ERROR at line 4:
+ORA-00907: missing right parenthesis
+
+
+SQL> create table class(
+  2  name varchar2(40) primary key,
+  3  meets_at varchar2(30),
+  4  room varchar2(10),
+  5  fid number(9,0),
+  6  foreign key(fid) references faculty
+  7  );
+
+Table created.
+
+SQL> create table enrolled(
+  2  snum number (9,0),
+  3  cname varchar2(40),
+  4  primary key (snum, cname),
+  5  foreign key(dsmun) references student,
+  6  foreign key (cname) references class(name)
+  7  );
+foreign key(dsmun) references student,
+            *
+ERROR at line 5:
+ORA-00904: "DSMUN": invalid identifier
+
+
+SQL> create table enrolled(
+  2  snum number (9,0),
+  3  cname varchar2(40),
+  4  primary key (snum, cname),
+  5  foreign key(smun) references student,
+  6  foreign key (cname) references class(name)
+  7  );
+foreign key(smun) references student,
+            *
+ERROR at line 5:
+ORA-00904: "SMUN": invalid identifier
+
+
+SQL> create table enrolled(
+  2  snum number (9,0),
+  3  cname varchar2(40),
+  4  primary key (snum, cname),
+  5  foreign key(snum) references student,
+  6  foreign key (cname) references class(name)
+  7  );
+
+Table created.
+
+SQL> create table emp(
+  2  eid number(9,0) primary key,
+  3  ename varchar2(30),
+  4  age number (3,0),
+  5  salary number (10,2)
+  6  );
+
+Table created.
+
+SQL> create table dept(
+  2  did number (2,0) primary key,
+  3  dname varchar2(20),
+  4  budget number (10,2),
+  5  managerid number(9,0),
+  6  foreign key(managerid) references emp(eid)
+  7  );
+
+Table created.
+
+SQL> create table works(
+  2  eid number (9,0),
+  3  did number(2,0),
+  4  pct_time number (3,0),
+  5  primary key(eid, did),
+  6  foreign key(eid) references emp,
+  7  foreign key(did) references dept
+  8  );
+
+Table created.
+
+SQL> create table flights(
+  2  flno number(4,0) primary key,
+  3  origin varchar2(20),
+  4  destination varchar2(20),
+  5  distance number(6,0),
+  6  departs date,
+  7  arrives date,
+  8  price number (7,2)
+  9  );
+
+Table created.
+
+SQL> create table aircraft(
+  2  aid number (9,0) primary key,
+  3  aname varchar2(30),
+  4  cruisingrange number (6,0)
+  5  );
+
+Table created.
+
+SQL> create table employees(
+  2  eid number (9,0) primary key,
+  3  ename varchar2(30),
+  4  salary number(10,2)
+  5  );
+
+Table created.
+
+SQL> create table certified(
+  2  eid number(9,0),
+  3  aid number(9,0),
+  4  primary key(eid, aid),
+  5  foreign key(eid) references employees,
+  6  foreign key references aircraft
+  7  );
+foreign key references aircraft
+            *
+ERROR at line 6:
+ORA-00906: missing left parenthesis
+
+
+SQL> create table certified(
+  2  eid number(9,0),
+  3  aid number(9,0),
+  4  primary key(eid, aid),
+  5  foreign key(eid) references employees,
+  6  foreign key(aid) references aircraft
+  7  );
+
+Table created.
+
+SQL> create table suppliers (
+  2  sid number (9,0) primary key,
+  3  sname varchar2(30),
+  4  address varchar2(40)
+  5  );
+
+Table created.
+
+SQL> create table parts(
+  2  pid number(9,0) primary key,
+  3  pname varchar2(40),
+  4  color varchar2(15)
+  5  );
+
+Table created.
+
+SQL> create table catalog(
+  2  sid number (9,0),
+  3  pid number(9,0),
+  4  cost number(10,2),
+  5  primary key(sid,pid),
+  6  foreign key(sid) references suppliers,
+  7  foreign key(pid) references parts
+  8  );
+
+Table created.
+
+SQL>

@@ -1,0 +1,182 @@
+SQL> CLEAR SCREEN
+
+SQL> REM ELIMINAR TODO EL EJERCICIO
+SQL> Drop table EMP;
+
+Table dropped.
+
+SQL> 
+SQL> CLEAR SCREEN
+
+SQL> REM 27/feb/2017
+SQL> REM INICIO
+SQL> create table EMP(empleado_id
+  2  integer CONSTRAINT EMP_ID_PK PRIMARY KEY,
+  3  First_name varchar2(20),
+  4  Last_name varchar2(20),
+  5  Reporta_a integer);
+
+Table created.
+
+SQL> 
+SQL> prompt tuplas
+tuplas
+SQL> 	insert into EMP Values (1,'Nancy','Devolio',NULL);
+
+1 row created.
+
+SQL> 	insert into EMP Values (2,'Andrew','Fuller',1);
+
+1 row created.
+
+SQL> 	insert into EMP Values (3,'Janet','Leverling',1);
+
+1 row created.
+
+SQL> 	insert into EMP Values (4,'Margaret','Peacock',1);
+
+1 row created.
+
+SQL> 	insert into EMP Values (5,'Steven','Rodriguez',3);
+
+1 row created.
+
+SQL> 	insert into EMP Values (6,'Rosy','BUchanan',5);
+
+1 row created.
+
+SQL> 	insert into EMP Values (7,'Mary','Sumaya',6);
+
+1 row created.
+
+SQL> 
+SQL> prompt despliega empleados del jefe
+despliega empleados del jefe
+SQL> select First_name, Last_name
+  2  from emp
+  3  where Reporta_a = 1;
+
+FIRST_NAME           || LAST_NAME                                                                                                                     
+==================== || ====================                                                                                                          
+Andrew               || Fuller                                                                                                                        
+Janet                || Leverling                                                                                                                     
+Margaret             || Peacock                                                                                                                       
+
+SQL> 
+SQL> prompt despliega jefe
+despliega jefe
+SQL> select First_name,Last_name,Reporta_a
+  2  from emp
+  3  where empleado_id = 1;
+
+FIRST_NAME           || LAST_NAME            ||  REPORTA_A                                                                                            
+==================== || ==================== || ==========                                                                                            
+Nancy                || Devolio              ||                                                                                                       
+
+SQL> 
+SQL> prompt despliega jefe
+despliega jefe
+SQL> COLUMN FIRST_NAME FORMAT A12;
+SQL> COLUMN LAST_NAME FORMAT A12;
+SQL> COLUMN REPORTA FORMAT A12;
+SQL> select first_name,Last_name,
+  2  NVL(TO_CHAR(REPORTA_A),'SIN JEFE')REPORTA
+  3  from emp
+  4  where reporta_a is NULL;
+
+FIRST_NAME   || LAST_NAME    || REPORTA                                                                                                               
+============ || ============ || ============                                                                                                          
+Nancy        || Devolio      || SIN JEFE                                                                                                              
+
+SQL> select first_name,LAST_NAME
+  2  from emp
+  3  where reporta_a = NULL;
+
+no rows selected
+
+SQL> 
+SQL> prompt declara la llave foranea
+declara la llave foranea
+SQL> ALTER TABLE EMP
+  2  ADD CONSTRAINT FK_EMP_REFLEXIVA FOREIGN KEY
+  3  (REPORTA_A)
+  4  REFERENCES EMP (EMPLEADO_ID);
+
+Table altered.
+
+SQL> 
+SQL> prompt habilita llave foranea
+habilita llave foranea
+SQL> ALTER TABLE EMP
+  2  ENABLE CONSTRAINT
+  3  FK_EMP_REFLEXIVA;
+
+Table altered.
+
+SQL> 
+SQL> prompt intenta borrar al jefe
+intenta borrar al jefe
+SQL> DELETE FROM EMP
+  2  WHERE EMPLEADO_ID=1;
+DELETE FROM EMP
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (SYS.FK_EMP_REFLEXIVA) violated - child record found 
+
+
+SQL> 
+SQL> prompt deshabilita llave foranea
+deshabilita llave foranea
+SQL> ALTER TABLE EMP
+  2  DISABLE CONSTRAINT
+  3  FK_EMP_REFLEXIVA;
+
+Table altered.
+
+SQL> 
+SQL> prompt borrar al jefe
+borrar al jefe
+SQL> DELETE FROM EMP
+  2  WHERE EMPLEADO_ID = 1;
+
+1 row deleted.
+
+SQL> 
+SQL> prompt inserta al jefe
+inserta al jefe
+SQL> insert into EMP Values(1,'Nancy','Devolio',NULL);
+
+1 row created.
+
+SQL> 
+SQL> prompt despliega todos las tuplas
+despliega todos las tuplas
+SQL> select * from emp;
+
+EMPLEADO_ID || FIRST_NAME   || LAST_NAME    ||  REPORTA_A                                                                                             
+=========== || ============ || ============ || ==========                                                                                             
+          2 || Andrew       || Fuller       ||          1                                                                                             
+          3 || Janet        || Leverling    ||          1                                                                                             
+          4 || Margaret     || Peacock      ||          1                                                                                             
+          5 || Steven       || Rodriguez    ||          3                                                                                             
+          6 || Rosy         || BUchanan     ||          5                                                                                             
+          7 || Mary         || Sumaya       ||          6                                                                                             
+          1 || Nancy        || Devolio      ||                                                                                                        
+
+7 rows selected.
+
+SQL> 
+SQL> COLUMN TABLE_NAME FORMAT A14
+SQL> COLUMN OWNER FORMAT A14
+SQL> select owner,table_name,constraint_name,constraint_type,
+  2  table_name,deferrable,deferred
+  3  from user_constraints
+  4  where table_name = 'EMP';
+
+OWNER          || TABLE_NAME     || CONSTRAINT_NAME                || C || TABLE_NAME     || DEFERRABLE     || DEFERRED                               
+============== || ============== || ============================== || = || ============== || ============== || =========                              
+SYS            || EMP            || EMP_ID_PK                      || P || EMP            || NOT DEFERRABLE || IMMEDIATE                              
+SYS            || EMP            || FK_EMP_REFLEXIVA               || R || EMP            || NOT DEFERRABLE || IMMEDIATE                              
+
+SQL> REM FINAL
+SQL> spool off

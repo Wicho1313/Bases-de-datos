@@ -1,0 +1,11 @@
+SQL> REM on tiene condiciones opcionales
+SQL> SELECT c.course_no, s.section_no, c.description, s.location,
+  2  s.instructor_id, i.last_name, i.first_name
+  3  FROM course c JOIN section s
+  4  ON (c.course_no = s.course_no)
+  5  JOIN instructor i
+  6  ON (s.instructor_id = i.instructor_id);
+
+no rows selected
+
+SQL> spool off

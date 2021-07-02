@@ -1,0 +1,669 @@
+SQL> REM COUNT AND NULLS
+SQL> SELECT COUNT(final_grade),COUNT(section_id),
+  2  COUNT(*)
+  3  FROM enrollment;
+
+COUNT(FINAL_GRADE) COUNT(SECTION_ID)   COUNT(*)                                 
+------------------ ----------------- ----------                                 
+                 1               226        226                                 
+
+SQL> 
+SQL> REM COUNT DISTINCT
+SQL> SELECT COUNT(DISTINCT section_id),
+  2  COUNT(section_id)
+  3  FROM enrollment;
+
+COUNT(DISTINCTSECTION_ID) COUNT(SECTION_ID)                                     
+------------------------- -----------------                                     
+                       64               226                                     
+
+SQL> 
+SQL> select AVG(capacity), AVG(NVL(capacity,0))
+  2  from section;
+
+AVG(CAPACITY) AVG(NVL(CAPACITY,0))                                              
+------------- --------------------                                              
+   21.1794872           21.1794872                                              
+
+SQL> 
+SQL> rem function min max
+SQL> select MIN(capacity),Max(capacity)
+  2  from section;
+
+MIN(CAPACITY) MAX(CAPACITY)                                                     
+------------- -------------                                                     
+           10            25                                                     
+
+SQL> 
+SQL> prompt min max con otros tipos de datos
+min max con otros tipos de datos
+SQL> select MIN(registration_date) "First",
+  2  MAX(registration_date) "Last"
+  3  from student;
+
+First    Last                                                                   
+-------- --------                                                               
+22/01/03 23/02/03                                                               
+
+SQL> select MIN(description) AS MIN
+  2  MAX (description) AS MAX
+  3  FROM course;
+MAX (description) AS MAX
+*
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> 
+SQL> select AVG(
+  2  CASE WHEN prerequisite IS NOT NULL THEN cost*1.1
+  3  WHEN prerequisite=20 THEN cost*1.2
+  4  ELSE cost
+  5  END) AS PROMEDIO;
+END) AS PROMEDIO
+               *
+ERROR at line 5:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> 
+SQL> SELECT COOUNT(*)
+  2  FROM course
+  3  WHERE prerequisite IS NULL COUNT(*);
+SELECT COOUNT(*)
+              *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> 
+SQL> select count(distinct student_id)
+  2  FROM enrollment;
+
+COUNT(DISTINCTSTUDENT_ID)                                                       
+-------------------------                                                       
+                      165                                                       
+
+SQL> 
+SQL> SELECT NVL (MAX(modified_date),TO_DATE('12-MAR-2005','DD-MON-YYYY'))
+  2  FROM enrollment;
+
+NVL(MAX(                                                                        
+--------                                                                        
+05/01/04                                                                        
+
+SQL> 
+SQL> SELECT location
+  2  from section
+  3  group by location;
+
+LOCATION                                                                        
+--------------------------------------------------                              
+H310                                                                            
+L214                                                                            
+L210                                                                            
+M500                                                                            
+M311                                                                            
+L507                                                                            
+L206                                                                            
+L500                                                                            
+L511                                                                            
+M200                                                                            
+L509                                                                            
+
+LOCATION                                                                        
+--------------------------------------------------                              
+L211                                                                            
+
+12 rows selected.
+
+SQL> 
+SQL> select location, count(*),
+  2  SUM(capacity) AS sum,
+  3  MIN(capacity) AS min,
+  4  MAX(capacity) AS max
+  5  from section
+  6  group by location;
+
+LOCATION                                             COUNT(*)        SUM        
+-------------------------------------------------- ---------- ----------        
+       MIN        MAX                                                           
+---------- ----------                                                           
+H310                                                        1         15        
+        15         15                                                           
+                                                                                
+L214                                                       15        275        
+        15         25                                                           
+                                                                                
+L210                                                       10        200        
+        15         25                                                           
+                                                                                
+
+LOCATION                                             COUNT(*)        SUM        
+-------------------------------------------------- ---------- ----------        
+       MIN        MAX                                                           
+---------- ----------                                                           
+M500                                                        1         25        
+        25         25                                                           
+                                                                                
+M311                                                        3         75        
+        25         25                                                           
+                                                                                
+L507                                                       15        355        
+        15         25                                                           
+                                                                                
+
+LOCATION                                             COUNT(*)        SUM        
+-------------------------------------------------- ---------- ----------        
+       MIN        MAX                                                           
+---------- ----------                                                           
+L206                                                        1         15        
+        15         15                                                           
+                                                                                
+L500                                                        2         27        
+        12         15                                                           
+                                                                                
+L511                                                        1         25        
+        25         25                                                           
+                                                                                
+
+LOCATION                                             COUNT(*)        SUM        
+-------------------------------------------------- ---------- ----------        
+       MIN        MAX                                                           
+---------- ----------                                                           
+M200                                                        1         15        
+        15         15                                                           
+                                                                                
+L509                                                       25        570        
+        10         25                                                           
+                                                                                
+L211                                                        3         55        
+        15         25                                                           
+                                                                                
+
+12 rows selected.
+
+SQL> 
+SQL> select location, capacity, section_id
+  2  from section
+  3  where location='L211';
+
+LOCATION                                             CAPACITY SECTION_ID        
+-------------------------------------------------- ---------- ----------        
+L211                                                       25        119        
+L211                                                       15        133        
+L211                                                       15        153        
+
+SQL> 
+SQL> SELECT location, instructor_id, count(*), SUM(apacity) AS sum,MIN(capacity) AS min,
+  2  MAX(capacity) AS max
+  3  from section
+  4  grooup by location, instructor_id;
+grooup by location, instructor_id
+       *
+ERROR at line 4:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> 
+SQL> select location, instructor_id,capacity, section_id
+  2  from section
+  3  where location='L210'
+  4  ORDER BY 1,2;
+
+LOCATION                                           INSTRUCTOR_ID   CAPACITY     
+-------------------------------------------------- ------------- ----------     
+SECTION_ID                                                                      
+----------                                                                      
+L210                                                         101         15     
+       117                                                                      
+                                                                                
+L210                                                         103         15     
+        81                                                                      
+                                                                                
+L210                                                         103         25     
+       150                                                                      
+                                                                                
+
+LOCATION                                           INSTRUCTOR_ID   CAPACITY     
+-------------------------------------------------- ------------- ----------     
+SECTION_ID                                                                      
+----------                                                                      
+L210                                                         104         25     
+        96                                                                      
+                                                                                
+L210                                                         105         15     
+       129                                                                      
+                                                                                
+L210                                                         105         25     
+        91                                                                      
+                                                                                
+
+LOCATION                                           INSTRUCTOR_ID   CAPACITY     
+-------------------------------------------------- ------------- ----------     
+SECTION_ID                                                                      
+----------                                                                      
+L210                                                         106         25     
+        84                                                                      
+                                                                                
+L210                                                         108         15     
+       155                                                                      
+                                                                                
+L210                                                         108         15     
+        86                                                                      
+                                                                                
+
+LOCATION                                           INSTRUCTOR_ID   CAPACITY     
+-------------------------------------------------- ------------- ----------     
+SECTION_ID                                                                      
+----------                                                                      
+L210                                                         108         25     
+       124                                                                      
+                                                                                
+
+10 rows selected.
+
+SQL> 
+SQL> SELECT location "location", instructor_id, count(location) "total locations", SUM(capacity) "total capacity"
+  2  from section
+  3  group by location, instructor_id
+  4  order by "total capacity" desc;
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L509                                                         106               5
+           115                                                                  
+                                                                                
+L509                                                         101               4
+            85                                                                  
+                                                                                
+L509                                                         104               3
+            75                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L509                                                         105               3
+            75                                                                  
+                                                                                
+L507                                                         101               3
+            75                                                                  
+                                                                                
+L507                                                         107               3
+            75                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L509                                                         103               3
+            75                                                                  
+                                                                                
+L214                                                         102               4
+            70                                                                  
+                                                                                
+L214                                                         104               4
+            70                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L507                                                         105               3
+            65                                                                  
+                                                                                
+L507                                                         102               3
+            65                                                                  
+                                                                                
+L509                                                         107               3
+            65                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L210                                                         108               3
+            55                                                                  
+                                                                                
+L214                                                         106               3
+            55                                                                  
+                                                                                
+L507                                                         103               2
+            50                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L509                                                         108               2
+            50                                                                  
+                                                                                
+L214                                                         108               2
+            40                                                                  
+                                                                                
+L210                                                         105               2
+            40                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L210                                                         103               2
+            40                                                                  
+                                                                                
+L509                                                         102               2
+            30                                                                  
+                                                                                
+L210                                                         104               1
+            25                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+M311                                                         108               1
+            25                                                                  
+                                                                                
+L211                                                         103               1
+            25                                                                  
+                                                                                
+L511                                                         104               1
+            25                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L210                                                         106               1
+            25                                                                  
+                                                                                
+L507                                                         104               1
+            25                                                                  
+                                                                                
+M311                                                         105               1
+            25                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L214                                                         107               1
+            25                                                                  
+                                                                                
+M311                                                         107               1
+            25                                                                  
+                                                                                
+M500                                                         102               1
+            25                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L206                                                         108               1
+            15                                                                  
+                                                                                
+H310                                                         103               1
+            15                                                                  
+                                                                                
+M200                                                         107               1
+            15                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L210                                                         101               1
+            15                                                                  
+                                                                                
+L211                                                         101               1
+            15                                                                  
+                                                                                
+L500                                                         103               1
+            15                                                                  
+                                                                                
+
+location                                           INSTRUCTOR_ID total locations
+-------------------------------------------------- ------------- ---------------
+total capacity                                                                  
+--------------                                                                  
+L211                                                         106               1
+            15                                                                  
+                                                                                
+L214                                                         105               1
+            15                                                                  
+                                                                                
+L500                                                         107               1
+            12                                                                  
+                                                                                
+
+39 rows selected.
+
+SQL> 
+SQL> rem clausula having
+SQL> select location "location", instructor_id, count(location) "total locations" SUM(capacity) "total capacity"
+  2  from section
+  3  group by location, instructor_id
+  4  HAVING SUM(capaity)>50
+  5  order by "total capacity" desc;
+select location "location", instructor_id, count(location) "total locations" SUM(capacity) "total capacity"
+                                                                             *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> 
+SQL> prompt clausula where y having
+clausula where y having
+SQL> select location "location", instructor_id, count(location) "total locations" SUM(capacity) "total capacity"
+  2  from section
+  3  where section_no IN(2,3)
+  4  GROUP BY location, instructor_id
+  5  HAVING SUM(capacity)>50;
+select location "location", instructor_id, count(location) "total locations" SUM(capacity) "total capacity"
+                                                                             *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> 
+SQL> rem funciones de agregacion anidadas
+SQL> select MAX(COUNT(*))
+  2  FROM enrollment
+  3  group by section_id;
+
+MAX(COUNT(*))                                                                   
+-------------                                                                   
+           12                                                                   
+
+SQL> 
+SQL> select prerequisite, count(*)
+  2  from course
+  3  group by prerequisite
+  4  order by prerequisite;
+
+PREREQUISITE   COUNT(*)                                                         
+------------ ----------                                                         
+          10          1                                                         
+          20          5                                                         
+          25          2                                                         
+          80          2                                                         
+         120          1                                                         
+         122          2                                                         
+         125          1                                                         
+         130          2                                                         
+         132          1                                                         
+         134          1                                                         
+         140          1                                                         
+
+PREREQUISITE   COUNT(*)                                                         
+------------ ----------                                                         
+         204          1                                                         
+         220          1                                                         
+         310          2                                                         
+         350          2                                                         
+         420          1                                                         
+                      4                                                         
+
+17 rows selected.
+
+SQL> 
+SQL> rem nulls first
+SQL> select prerequisite, count(*)
+  2  from course
+  3  group by prerequisite
+  4  order by prerequisite NULLS FIRST;
+
+PREREQUISITE   COUNT(*)                                                         
+------------ ----------                                                         
+                      4                                                         
+          10          1                                                         
+          20          5                                                         
+          25          2                                                         
+          80          2                                                         
+         120          1                                                         
+         122          2                                                         
+         125          1                                                         
+         130          2                                                         
+         132          1                                                         
+         134          1                                                         
+
+PREREQUISITE   COUNT(*)                                                         
+------------ ----------                                                         
+         140          1                                                         
+         204          1                                                         
+         220          1                                                         
+         310          2                                                         
+         350          2                                                         
+         420          1                                                         
+
+17 rows selected.
+
+SQL> 
+SQL> SELECT student_id, COUNT(*)
+  2  FROM enrollment
+  3  group by student_id
+  4  HAVING COUNT(*)>2;
+
+STUDENT_ID   COUNT(*)                                                           
+---------- ----------                                                           
+       124          4                                                           
+       184          3                                                           
+       214          4                                                           
+       215          3                                                           
+       232          3                                                           
+       238          3                                                           
+       250          3                                                           
+
+7 rows selected.
+
+SQL> 
+SQL> SELECT course_no "course #",
+  2  AVG(capacity) "AVG.Capacity",
+  3  ROUND(AVG(capacity)) "Rounded AVG. CAPACITY"
+  4  FROM section
+  5  group by course_no;
+
+  course # AVG.Capacity Rounded AVG. CAPACITY                                   
+---------- ------------ ---------------------                                   
+        10           15                    15                                   
+        20           20                    20                                   
+        25   22.7777778                    23                                   
+       100           21                    21                                   
+       120   21.6666667                    22                                   
+       122           21                    21                                   
+       124           20                    20                                   
+       125           21                    21                                   
+       130           20                    20                                   
+       132           25                    25                                   
+       134   21.6666667                    22                                   
+
+  course # AVG.Capacity Rounded AVG. CAPACITY                                   
+---------- ------------ ---------------------                                   
+       135           20                    20                                   
+       140   21.6666667                    22                                   
+       142   21.6666667                    22                                   
+       144           15                    15                                   
+       145           25                    25                                   
+       146           20                    20                                   
+       147           25                    25                                   
+       204           25                    25                                   
+       210           25                    25                                   
+       220           25                    25                                   
+       230         13.5                    14                                   
+
+  course # AVG.Capacity Rounded AVG. CAPACITY                                   
+---------- ------------ ---------------------                                   
+       240         12.5                    13                                   
+       310           25                    25                                   
+       330           25                    25                                   
+       350   21.6666667                    22                                   
+       420           25                    25                                   
+       450           25                    25                                   
+
+28 rows selected.
+
+SQL> 
+SQL> 
+SQL> SELECT course_no "course #",
+  2  AVG(capacity) "AVG.Capacity",
+  3  ROUND(AVG(capacity)) "Rounded AVG. CAPACITY"
+  4  FROM section
+  5  group by course_no;
+
+  course # AVG.Capacity Rounded AVG. CAPACITY                                   
+---------- ------------ ---------------------                                   
+        10           15                    15                                   
+        20           20                    20                                   
+        25   22.7777778                    23                                   
+       100           21                    21                                   
+       120   21.6666667                    22                                   
+       122           21                    21                                   
+       124           20                    20                                   
+       125           21                    21                                   
+       130           20                    20                                   
+       132           25                    25                                   
+       134   21.6666667                    22                                   
+
+  course # AVG.Capacity Rounded AVG. CAPACITY                                   
+---------- ------------ ---------------------                                   
+       135           20                    20                                   
+       140   21.6666667                    22                                   
+       142   21.6666667                    22                                   
+       144           15                    15                                   
+       145           25                    25                                   
+       146           20                    20                                   
+       147           25                    25                                   
+       204           25                    25                                   
+       210           25                    25                                   
+       220           25                    25                                   
+       230         13.5                    14                                   
+
+  course # AVG.Capacity Rounded AVG. CAPACITY                                   
+---------- ------------ ---------------------                                   
+       240         12.5                    13                                   
+       310           25                    25                                   
+       330           25                    25                                   
+       350   21.6666667                    22                                   
+       420           25                    25                                   
+       450           25                    25                                   
+
+28 rows selected.
+
+SQL> HAVING COUNT(*)=2;
+SP2-0734: unknown command beginning "HAVING COU..." - rest of line ignored.
+SQL> spool off

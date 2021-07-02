@@ -1,0 +1,131 @@
+
+PARAMETER                       VALUE                                                                                                                 
+=========================       ========================================                                                                              
+NLS_LANGUAGE                    MEXICAN SPANISH                                                                                                       
+NLS_TERRITORY                   MEXICO                                                                                                                
+NLS_CURRENCY                    $                                                                                                                     
+NLS_ISO_CURRENCY                MEXICO                                                                                                                
+NLS_NUMERIC_CHARACTERS          .,                                                                                                                    
+NLS_CALENDAR                    GREGORIAN                                                                                                             
+NLS_DATE_FORMAT                 DD/MM/RR                                                                                                              
+NLS_DATE_LANGUAGE               MEXICAN SPANISH                                                                                                       
+NLS_SORT                        WEST_EUROPEAN                                                                                                         
+NLS_TIME_FORMAT                 HH24:MI:SSXFF                                                                                                         
+NLS_TIMESTAMP_FORMAT            DD/MM/RR HH24:MI:SSXFF                                                                                                
+NLS_TIME_TZ_FORMAT              HH24:MI:SSXFF TZR                                                                                                     
+NLS_TIMESTAMP_TZ_FORMAT         DD/MM/RR HH24:MI:SSXFF TZR                                                                                            
+NLS_DUAL_CURRENCY               $                                                                                                                     
+NLS_COMP                        BINARY                                                                                                                
+NLS_LENGTH_SEMANTICS            BYTE                                                                                                                  
+NLS_NCHAR_CONV_EXCP             FALSE                                                                                                                 
+
+17 rows selected.
+
+
+SYSDATE                                                                                                                                               
+========                                                                                                                                              
+10/06/18                                                                                                                                              
+
+
+Session altered.
+
+
+SYSDATE                                                                                                                                               
+============================                                                                                                                          
+DOMINGO   10-JUNIO     -2018                                                                                                                          
+
+alter session ser NLS_LANGUAGE='ENGLISH'
+              *
+ERROR at line 1:
+ORA-00922: missing or invalid option 
+
+
+
+SYSDATE                                                                                                                                               
+============================                                                                                                                          
+DOMINGO   10-JUNIO     -2018                                                                                                                          
+
+
+Session altered.
+
+
+SYSDATE                                                                                                                                               
+==========================                                                                                                                            
+DIMANCHE 10-JUIN     -2018                                                                                                                            
+
+
+Session altered.
+
+
+SYSDATE                                                                                                                                               
+============================                                                                                                                          
+DOMINGO   10-JUNIO     -2018                                                                                                                          
+
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2458280                                                                                                                                               
+
+	select to_char(to_date('30-03-14'), 'J') from dual
+	                       *
+ERROR at line 1:
+ORA-01846: not a valid day of the week 
+
+
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2458280                                                                                                                                               
+
+
+SYSTIMESTAMP                                                                                                                                          
+===========================================================================                                                                           
+10/06/18 15:01:12.935000 -05:00                                                                                                                       
+
+
+SYSDATE                            SYSTIMESTAMP                                                                                                       
+============================       ===========================================================================                                        
+DOMINGO   10-JUNIO     -2018       10/06/18 15:01:12.958000 -05:00                                                                                    
+
+
+FECHA1                     FECHA2                                                                                                                     
+====================       ================================                                                                                           
+DOMINGO   10-JUNIO         10/06/18 15:01:12.965000 -05:00                                                                                            
+   -2018                                                                                                                                              
+                                                                                                                                                      
+
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+0000001                                                                                                                                               
+
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+1720693                                                                                                                                               
+
+
+FECHA                                                                                                                                                 
+=======                                                                                                                                               
+2458162                                                                                                                                               
+
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2299160                                                                                                                                               
+
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2299161                                                                                                                                               
+
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2299161                                                                                                                                               
+
+
+FECHA1                     FECHA2                                 Dias |Transcurridos                                                                 
+====================       ================================       ===================                                                                 
+2458162                    2458148                                                 14                                                                 
+

@@ -1,0 +1,13 @@
+SQL> REM muestra con condiciones en fecha, to_date convierte a formato fecha
+SQL> SELECT e.student_id, s.course_no,
+  2  TO_CHAR(e.enroll_date,'MM/DD/YYYY HH:MI PM'),
+  3  e.section_id
+  4  FROM enrollment e JOIN section s
+  5  ON (e.section_id = s.section_id)
+  6  WHERE s.course_no = 20
+  7  AND e.enroll_date >= TO_DATE('01/30/2003','MM/DD/YYYY')
+  8  AND e.enroll_date < TO_DATE('01/31/2003','MM/DD/YYYY');
+
+no rows selected
+
+SQL> spool off

@@ -1,0 +1,10 @@
+SQL> REM Tiene mas condiciones
+SQL> SELECT c.course_no, s.section_no, c.description, s.location,
+  2  s.instructor_id, i.last_name, i.first_name
+  3  FROM course c, section s, instructor i
+  4  WHERE c.course_no = s.course_no
+  5  AND s.instructor_id = i.instructor_id;
+
+no rows selected
+
+SQL> spool off

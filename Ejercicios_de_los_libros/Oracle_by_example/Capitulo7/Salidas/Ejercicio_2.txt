@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT last_name, first_name
+  2  FROM student
+  3  WHERE student_id IN
+  4  (SELECT student_id
+  5  FROM enrollment
+  6  WHERE section_id IN
+  7  (SELECT section_id
+  8  FROM section
+  9  WHERE section_no = 8
+ 10  AND course_no = 20));
+
+no rows selected
+
+SQL> spool off

@@ -1,0 +1,13 @@
+SQL> 
+SQL> column course_no format 99999999
+SQL> column description format A30
+SQL> column section_id format 99999999
+SQL> SELECT course_no, description,
+  2  section_id
+  3  FROM course JOIN section
+  4  USING (course_no)
+  5  ORDER BY course_no;
+
+no rows selected
+
+SQL> spool off

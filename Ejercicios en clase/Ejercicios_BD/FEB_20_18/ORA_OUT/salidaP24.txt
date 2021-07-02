@@ -1,0 +1,26 @@
+CONSULTA LOS USUARIOS DESDE SYS
+from dba_users
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+CONSULTA AL USUARIO STUDENT
+select username, account_status, EXPIRY_DATE from dba_users
+                                                  *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+ALTER USER STUDENT ACCOUNT UNLOCK
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SPOOL drop.cmd
+*
+ERROR at line 4:
+ORA-00933: SQL command not properly ended 
+
+

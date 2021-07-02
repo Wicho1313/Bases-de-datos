@@ -1,0 +1,5 @@
+SQL> SELECT zip   FROM instructor INTERSECT SELECT zip   FROM student;
+
+no rows selected
+
+SQL> spool off

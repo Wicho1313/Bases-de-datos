@@ -1,0 +1,15 @@
+SQL> 
+SQL> SELECT first_name, last_name, student_id
+  2  FROM student s
+  3  WHERE EXISTS
+  4  (SELECT NULL
+  5  FROM enrollment
+  6  WHERE s.student_id = student_id
+  7  GROUP BY student_id
+  8  HAVING COUNT(*) >= 3);
+
+FIRST_NAME                LAST_NAME                 STUDENT_ID                  
+------------------------- ------------------------- ----------                  
+Salewa                    Zuckerberg                       184                  
+
+SQL> spool off

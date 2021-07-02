@@ -1,0 +1,15 @@
+SQL> REM combinacion de la union con la resta de conjunto
+SQL> SELECT col1
+  2  FROM t1
+  3  UNION ALL
+  4  SELECT col2
+  5  FROM t2 MINUS
+  6  SELECT col3
+  7  FROM t3;
+
+  COL1                                                                                                                                                
+------                                                                                                                                                
+     1                                                                                                                                                
+     4                                                                                                                                                
+
+SQL> spool off

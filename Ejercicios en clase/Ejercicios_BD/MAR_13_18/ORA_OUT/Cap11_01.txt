@@ -1,0 +1,228 @@
+
+Table created.
+
+	CONSTRAINT tab1_zipcode_fk FOREIGN KEY(col3)		REFERENCES zipcode(zip),
+	                                            		           *
+ERROR at line 9:
+ORA-00942: table or view does not exist 
+
+
+SP2-0734: unknown command beginning "REVISA LA ..." - rest of line ignored.
+		BEFORE UPDATE ON STUDENT
+		                 *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+	FROM enrollment
+	     *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+SP2-0734: unknown command beginning "SQL>DESC j..." - rest of line ignored.
+SP2-0734: unknown command beginning "Name Null?..." - rest of line ignored.
+SP2-0734: unknown command beginning "STUDENT_ID..." - rest of line ignored.
+SP2-0734: unknown command beginning "SECTION_ID..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SP2-0734: unknown command beginning "ENROLL_DAT..." - rest of line ignored.
+SP2-0734: unknown command beginning "FINAL_GRAD..." - rest of line ignored.
+SP2-0734: unknown command beginning "CREATED_BY..." - rest of line ignored.
+SP2-0734: unknown command beginning "CREATED_DA..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SP2-0734: unknown command beginning "MODIFIED_B..." - rest of line ignored.
+SP2-0734: unknown command beginning "MODIFIED_D..." - rest of line ignored.
+FROM jan_03_enrollment
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SP2-0734: unknown command beginning "STUDENT_ID..." - rest of line ignored.
+SP2-0042: unknown command "..." - rest of line ignored.
+DROP TABLE zipcode CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE jan_03_enrollment
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$KCq/0IisTLSNuNTBVYqW5g==$0 PLANTEL                                          
+TABLE                                                                           
+                                                                                
+BIN$oLkcbwmqRlmrgXb0SQD4rQ==$0 PK_ELECTRODOM_APARATO                            
+INDEX                                                                           
+                                                                                
+BIN$IL/hR7fqSLGU0FNamdgj3Q==$0 ELECTRODOMESTICO                                 
+TABLE                                                                           
+                                                                                
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$1ZrNOF28Suqi4fhgFYk1XA==$0 PK_EMP_NIF                                       
+INDEX                                                                           
+                                                                                
+BIN$U7nyj98nTbCs04TgBXM9kQ==$0 EMP                                              
+TABLE                                                                           
+                                                                                
+BIN$24hnfo55Q62MyQaV2QqTTg==$0 PK_ELECTRODOM_APARATO                            
+INDEX                                                                           
+                                                                                
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$wnf8XMRvTPekPPB8x9ZCAA==$0 ELECTRODOMESTICO                                 
+TABLE                                                                           
+                                                                                
+BIN$v3z9Pgw7TiaGmGiHzSlZBg==$0 PK_EMP_NIF                                       
+INDEX                                                                           
+                                                                                
+BIN$Sxn61zqiTwO6KlDXL2Zt3A==$0 EMP                                              
+TABLE                                                                           
+                                                                                
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$mye6MOt2R/SH7GkxNcchYw==$0 PK_ELECTRODOM_APARATO                            
+INDEX                                                                           
+                                                                                
+BIN$V0hIWTkhQbGqeV1X+wHVhA==$0 ELECTRODOMESTICO                                 
+TABLE                                                                           
+                                                                                
+BIN$mGgiwUToSYiWQQL+atiofQ==$0 PK_EMP_NIF                                       
+INDEX                                                                           
+                                                                                
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$8QXOEdywSlCNZouODnmoDA==$0 EMP                                              
+TABLE                                                                           
+                                                                                
+BIN$NTHVoEDoRIyM/VuTnQ28zg==$0 PK_EMP_NIF                                       
+INDEX                                                                           
+                                                                                
+BIN$YTj4fBBySpeY5EEp5MoV/A==$0 EMP                                              
+TABLE                                                                           
+                                                                                
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$telYG98fTbyIhQlW3yOipQ==$0 PK_EMP_NIF                                       
+INDEX                                                                           
+                                                                                
+BIN$Z8PEW9JESs6byTSmgdtfOg==$0 EMP                                              
+TABLE                                                                           
+                                                                                
+BIN$/qTTGyguSVCfKT2+JCRhRQ==$0 PK_ELECTRODOM_APARATO                            
+INDEX                                                                           
+                                                                                
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$ZTfMl7cxRk6uyUr2GLpqNw==$0 ELECTRODOMESTICO                                 
+TABLE                                                                           
+                                                                                
+BIN$Rwma9ldcSQW3X7+PENeBzw==$0 PK_EMP_NIF                                       
+INDEX                                                                           
+                                                                                
+BIN$ekqJDmOAQdSsBoeertC6bw==$0 EMP                                              
+TABLE                                                                           
+                                                                                
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$+5WTWF8uQfW703c2Wvr8/A==$0 PK_ELECTRODOM_APARATO                            
+INDEX                                                                           
+                                                                                
+BIN$rTno/pd+REeFW7cuLUsyEA==$0 ELECTRODOMESTICO                                 
+TABLE                                                                           
+                                                                                
+BIN$MXRZx2m3Sya4QGmIVD9XIA==$0 PK_EMP_NIF                                       
+INDEX                                                                           
+                                                                                
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$dXE4azfYScGUSmLm7sGNoQ==$0 EMP                                              
+TABLE                                                                           
+                                                                                
+BIN$XGAebujkQ6uYH/dh5loTGg==$0 PK_EMP_NIF                                       
+INDEX                                                                           
+                                                                                
+BIN$9/E+/x1hSf6x1tIU++P2fA==$0 EMP                                              
+TABLE                                                                           
+                                                                                
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$PBdm6bQwR9uZn4uwt5U8mg==$0 SYS_C007607                                      
+INDEX                                                                           
+                                                                                
+BIN$8h4DQaFTTUaxTLI4OVns7g==$0 EMP                                              
+TABLE                                                                           
+                                                                                
+
+29 rows selected.
+
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME          
+---------------- ------------------------------ ------------ -------------------
+ELECTRODOMESTICO BIN$rTno/pd+REeFW7cuLUsyEA==$0 TABLE        2018-06-10:14:59:40
+ELECTRODOMESTICO BIN$ZTfMl7cxRk6uyUr2GLpqNw==$0 TABLE        2018-06-10:14:34:53
+ELECTRODOMESTICO BIN$V0hIWTkhQbGqeV1X+wHVhA==$0 TABLE        2018-06-10:06:31:59
+ELECTRODOMESTICO BIN$wnf8XMRvTPekPPB8x9ZCAA==$0 TABLE        2018-06-10:06:22:37
+ELECTRODOMESTICO BIN$IL/hR7fqSLGU0FNamdgj3Q==$0 TABLE        2018-06-10:06:20:07
+EMP              BIN$8h4DQaFTTUaxTLI4OVns7g==$0 TABLE        2018-06-10:15:03:47
+EMP              BIN$9/E+/x1hSf6x1tIU++P2fA==$0 TABLE        2018-06-10:15:03:25
+EMP              BIN$dXE4azfYScGUSmLm7sGNoQ==$0 TABLE        2018-06-10:14:59:40
+EMP              BIN$ekqJDmOAQdSsBoeertC6bw==$0 TABLE        2018-06-10:14:34:53
+EMP              BIN$Z8PEW9JESs6byTSmgdtfOg==$0 TABLE        2018-06-10:06:32:52
+EMP              BIN$YTj4fBBySpeY5EEp5MoV/A==$0 TABLE        2018-06-10:06:32:16
+EMP              BIN$8QXOEdywSlCNZouODnmoDA==$0 TABLE        2018-06-10:06:31:59
+EMP              BIN$Sxn61zqiTwO6KlDXL2Zt3A==$0 TABLE        2018-06-10:06:22:37
+EMP              BIN$U7nyj98nTbCs04TgBXM9kQ==$0 TABLE        2018-06-10:06:20:07
+PLANTEL          BIN$KCq/0IisTLSNuNTBVYqW5g==$0 TABLE        2018-06-10:01:56:15
+
+Recyclebin purged.
+
+FROM student
+     *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+select * from school_program
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+

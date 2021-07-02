@@ -1,0 +1,350 @@
+SQL> DESC COURSE
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ COURSE_NO                                                                           NOT NULL NUMBER(8)
+ DESCRIPTION                                                                         NOT NULL VARCHAR2(50)
+ COST                                                                                         NUMBER(9,2)
+ PREREQUISITE                                                                                 NUMBER(8)
+ CREATED_BY                                                                          NOT NULL VARCHAR2(30)
+ CREATED_DATE                                                                        NOT NULL DATE
+ MODIFIED_BY                                                                         NOT NULL VARCHAR2(30)
+ MODIFIED_DATE                                                                       NOT NULL DATE
+
+SQL> DESC SECTION
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ SECTION_ID                                                                          NOT NULL NUMBER(8)
+ COURSE_NO                                                                           NOT NULL NUMBER(8)
+ SECTION_NO                                                                          NOT NULL NUMBER(3)
+ START_DATE_TIME                                                                              DATE
+ LOCATION                                                                                     VARCHAR2(50)
+ INSTRUCTOR_ID                                                                       NOT NULL NUMBER(8)
+ CAPACITY                                                                                     NUMBER(3)
+ CREATED_BY                                                                          NOT NULL VARCHAR2(30)
+ CREATED_DATE                                                                        NOT NULL DATE
+ MODIFIED_BY                                                                         NOT NULL VARCHAR2(30)
+ MODIFIED_DATE                                                                       NOT NULL DATE
+
+SQL> SET PAGESIZE 99
+SQL> SET LINESIZE 150
+SQL> SET NUMWIDTH 6
+SQL> SET COLSEP "  || "
+SQL> 
+SQL> 
+SQL> CLEAR COLUMNS
+columns cleared
+SQL> COLUMN C_NO FORMAT 999
+SQL> COLUMN description FORMAT A28 WRAPPED
+SQL> COLUMN LOCATION    FORMAT A6 WRAPPED
+SQL> COLUMN INSTRUCTOR_ID FORMAT 999999
+SQL> COLUMN INST_ID FORMAT 999999
+SQL> 
+SQL> REM Inserta una fila a la tabla zipcode con los valores
+SQL> INSERT INTO zipcode
+  2  VALUES
+  3  ('11111', 'Westerly', 'MA',
+  4  USER, TO_DATE('18-JAN-2000', 'DD-MON-YYYY'),
+  5  USER, SYSDATE);
+USER, TO_DATE('18-JAN-2000', 'DD-MON-YYYY'),
+              *
+ERROR at line 4:
+ORA-01843: not a valid month 
+
+
+SQL> 
+SQL> REM prueba con nulos
+SQL> INSERT INTO zipcode
+  2  VALUES
+  3  ('11111', NULL, NULL, USER, SYSDATE, USER, SYSDATE);
+
+1 row created.
+
+SQL> 
+SQL> REM describe date_example
+SQL> DESCR date_example;
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ COL_DATE                                                                                     DATE
+ COL_TIMESTAMP                                                                                TIMESTAMP(6)
+ COL_TIMESTAMP_W_TZ                                                                           TIMESTAMP(6) WITH TIME ZONE
+ COL_TIMESTAMP_W_LOCAL_TZ                                                                     TIMESTAMP(6) WITH LOCAL TIME ZONE
+
+SQL> REM inserta una nueva fila con cada tipo de dato
+SQL> INSERT INTO date_example
+  2  (col_date,
+  3  col_timestamp,
+  4  col_timestamp_w_tz,
+  5  col_timestamp_w_local_tz)
+  6  VALUES
+  7  (TO_DATE('24-MAR-2002 16:25:32',
+  8  'DD-MON-YYYY HH24:MI:SS'),
+  9  TO_TIMESTAMP('24-MAR-2002 16:25:32.0000000',
+ 10  'DD-MON-YYYY HH24:MI:SS.FF'),
+ 11  TO_TIMESTAMP_TZ('24-MAR-2002 16:25:32.0000000 -5:00',
+ 12  'DD-MON-YYYY HH24:MI:SS.FF TZH:TZM'),
+ 13  TO_TIMESTAMP('24-MAR-2002 16:25:32.0000000',
+ 14  'DD-MON-YYYY HH24:MI:SS.FF'));
+
+1 row created.
+
+SQL> 
+SQL> REM Inserta datos que luego seran redondeados
+SQL> INSERT INTO course
+  2  (course_no, description, cost, prerequisite,
+  3  created_by, created_date, modified_by, modified_date)
+  4  VALUES
+  5  (900, 'Test Course', 50.57499, NULL,
+  6  'Your name', SYSDATE, 'Your name', SYSDATE);
+
+1 row created.
+
+SQL> 
+SQL> REM utilizacion de subqueries insertando filas
+SQL> INSERT INTO course
+  2  (course_no, description, cost,
+  3  prerequisite, created_by, created_date,
+  4  modified_by, modified_date)
+  5  VALUES
+  6  (1000, (SELECT description||' - Test'
+  7  FROM course
+  8  WHERE course_no = 10),
+  9  (SELECT MAX(cost)
+ 10  FROM course),
+ 11  20, 'MyName', SYSDATE,
+ 12  'MyName', SYSDATE);
+(1000, (SELECT description||' - Test'
+                           *
+ERROR at line 6:
+ORA-01400: cannot insert NULL into ("SYS"."COURSE"."DESCRIPTION") 
+
+
+SQL> 
+SQL> REM subqueries para insert
+SQL> INSERT INTO intro_course
+  2  (course_no, description_tx, cost, prereq_no,
+  3  created_by, created_date, modified_by,
+  4  modified_date)
+  5  SELECT course_no, description, cost, prerequisite,
+  6  created_by, created_date, 'Melanie',
+  7  TO_DATE('01-JAN-2001', 'DD-MON-YYYY')
+  8  FROM course
+  9  WHERE prerequisite IS NULL;
+TO_DATE('01-JAN-2001', 'DD-MON-YYYY')
+        *
+ERROR at line 7:
+ORA-01843: not a valid month 
+
+
+SQL> 
+SQL> REM inserta todo
+SQL> INSERT ALL
+  2  INTO section_history
+  3  VALUES (section_id, start_date_time, course_no, section_no)
+  4  INTO capacity_history
+  5  VALUES (section_id, location, capacity)
+  6  SELECT section_id, start_date_time, course_no, section_no,
+  7  location, capacity
+  8  FROM section
+  9  WHERE TRUNC(start_date_time) < TRUNC(SYSDATE)-365;
+
+0 rows created.
+
+SQL> 
+SQL> REM Inserta todo usando condiciones
+SQL> INSERT ALL
+  2  WHEN section_id BETWEEN 100 and 400 THEN
+  3  INTO section_history
+  4  VALUES (section_id, start_date_time, course_no, section_no)
+  5  WHEN capacity >= 25 THEN
+  6  INTO capacity_history
+  7  VALUES (section_id, location, capacity)
+  8  SELECT section_id, start_date_time, course_no, section_no,
+  9  location, capacity
+ 10  FROM section
+ 11  WHERE TRUNC(start_date_time) < TRUNC(SYSDATE)-365;
+
+0 rows created.
+
+SQL> 
+SQL> REM inserta el primero
+SQL> INSERT FIRST
+  2  WHEN section_id BETWEEN 100 and 400 THEN
+  3  INTO section_history
+  4  VALUES (section_id, start_date_time, course_no, section_no)
+  5  WHEN capacity >= 25 THEN
+  6  INTO capacity_history
+  7  VALUES (section_id, location, capacity)
+  8  SELECT section_id, start_date_time, course_no, section_no,
+  9  location, capacity
+ 10  FROM section
+ 11  WHERE TRUNC(start_date_time) < TRUNC(SYSDATE)-365;
+
+0 rows created.
+
+SQL> 
+SQL> REM Inserta en todas las tablas normalizadas
+SQL> INSERT ALL
+  2  INTO grade_distribution_normalized
+  3  VALUES (section_id, 'A', grade_a)
+  4  INTO grade_distribution_normalized
+  5  VALUES (section_id, 'B', grade_b)
+  6  INTO grade_distribution_normalized
+  7  VALUES (section_id, 'C', grade_c)
+  8  INTO grade_distribution_normalized
+  9  VALUES (section_id, 'D', grade_d)
+ 10  INTO grade_distribution_normalized
+ 11  VALUES (section_id, 'F', grade_f)
+ 12  SELECT section_id, grade_a, grade_b,
+ 13  grade_c, grade_d, grade_f
+ 14  FROM grade_distribution;
+
+15 rows created.
+
+SQL> 
+SQL> REM ROLLBACK Deshace los cambios anteriores
+SQL> INSERT INTO zipcode
+  2  (zip, city, state,
+  3  created_by, created_date, modified_by, modified_date)
+  4  VALUES
+  5  ('22222', NULL, NULL,
+  6  USER, SYSDATE, USER, SYSDATE);
+
+1 row created.
+
+SQL> ROLLBACK;
+
+Rollback complete.
+
+SQL> 
+SQL> REM Borra el que se guarde con SAVEPOINT
+SQL> INSERT INTO zipcode
+  2  (zip, city, state,
+  3  created_by, created_date, modified_by, modified_date)
+  4  VALUES
+  5  ('22222', NULL, NULL,
+  6  USER, SYSDATE, USER, SYSDATE);
+
+1 row created.
+
+SQL> SAVEPOINT zip22222;
+
+Savepoint created.
+
+SQL> ROLLBACK TO SAVEPOINT zip22222;
+
+Rollback complete.
+
+SQL> 
+SQL> REM No acepta ningun valor nulo
+SQL> INSERT INTO grade_type
+  2  (grade_type_code, description,
+  3  created_by, created_date, modified_by, modified_date)
+  4  VALUES
+  5  ('EC', 'Extra Credit',
+  6  USER, SYSDATE, USER, SYSDATE);
+
+1 row created.
+
+SQL> 
+SQL> REM UPDATE Manipula datos existentes en la tabla
+SQL> UPDATE enrollment
+  2  SET final_grade = 90
+  3  WHERE enroll_date >= TO_DATE('01/01/2003', 'MM/DD/YYYY')
+  4  AND enroll_date < TO_DATE('02/01/2003', 'MM/DD/YYYY');
+
+0 rows updated.
+
+SQL> 
+SQL> REM pasa a nulo todas las filas del atributo
+SQL> UPDATE enrollment
+  2  SET final_grade = NULL;
+
+103 rows updated.
+
+SQL> 
+SQL> REM Valor por defecto 0
+SQL> UPDATE grade
+  2  SET numeric_grade = DEFAULT
+  3  WHERE student_id = 211
+  4  AND section_id = 141
+  5  AND grade_type_code = 'HM'
+  6  AND grade_code_occurrence = 1;
+
+1 row updated.
+
+SQL> 
+SQL> REM actualiza usando condiciones
+SQL> UPDATE enrollment
+  2  SET final_grade = CASE WHEN final_grade <=80 THEN
+  3  final_grade+5
+  4  WHEN final_grade > 80 THEN
+  5  final_grade+10
+  6  END
+  7  WHERE section_id = 100;
+
+1 row updated.
+
+SQL> 
+SQL> REM Actualiza con subqueries
+SQL> UPDATE instructor
+  2  SET zip = (SELECT zip
+  3  FROM zipcode
+  4  WHERE state = 'FL')
+  5  WHERE instructor_id = 108;
+
+0 rows updated.
+
+SQL> 
+SQL> REM Multiples columnas
+SQL> UPDATE employee
+  2  SET (salary, title) = (SELECT salary, title
+  3  FROM employee_change
+  4  WHERE employee_id = 4)
+  5  WHERE employee_id = 4;
+WHERE employee_id = 4
+      *
+ERROR at line 5:
+ORA-00904: "EMPLOYEE_ID": invalid identifier 
+
+
+SQL> 
+SQL> REM borra todas las filas luego reviven con ROLLBACK
+SQL> DELETE FROM grade_conversion;
+
+0 rows deleted.
+
+SQL> ROLLBACK;
+
+Rollback complete.
+
+SQL> 
+SQL> REM borra con condicion
+SQL> DELETE FROM grade_type
+  2  WHERE grade_type_code = 'EC';
+
+0 rows deleted.
+
+SQL> 
+SQL> DELETE FROM enrollment
+  2  WHERE student_id NOT IN
+  3  (SELECT student_id
+  4  FROM student s, zipcode z
+  5  WHERE s.zip = z.zip
+  6  AND z.city = 'Brooklyn'
+  7  AND z.state = 'NY');
+
+103 rows deleted.
+
+SQL> 
+SQL> DELETE FROM enrollment e
+  2  WHERE NOT EXISTS
+  3  (SELECT 'x'
+  4  FROM student s, zipcode z
+  5  WHERE s.zip = z.zip
+  6  AND s.student_id = e.student_id
+  7  AND z.city = 'Brooklyn'
+  8  AND z.state = 'NY');
+
+0 rows deleted.
+
+SQL> spool off

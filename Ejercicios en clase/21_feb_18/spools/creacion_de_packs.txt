@@ -1,0 +1,116 @@
+SQL> CREATE OR REPLACE PACKAGE pkg
+  2  IS FUNCTION year number
+  3  RETURN INTEGER;
+  4  function deploy_fecha
+  5  return vaarchar2;
+  6  function deploy_fecha_2
+  7  return verchar2;
+  8  END;
+  9  /
+
+Warning: Package created with compilation errors.
+
+SQL> REM CREA CUERPO DEL PACKAGE
+SQL> CREATE OR REPLACE PACKAGE BODY pkg
+  2  IS
+  3  BEGIN
+  4  c_year_number CONSTRAINT INTEGER:=2017;
+  5  c_deploy_fecha varchar2(20);
+  6  c_deploy_fecha_2 varchar2(35);
+  7  END;
+  8  /
+
+Warning: Package Body created with compilation errors.
+
+SQL> FUNCTION year_number
+SP2-0734: unknown command beginning "FUNCTION y..." - rest of line ignored.
+SQL> RETURN INTEGER
+SP2-0734: unknown command beginning "RETURN INT..." - rest of line ignored.
+SQL> IS
+SP2-0042: unknown command "IS" - rest of line ignored.
+SQL> BEGIN
+  2  RETURN c_year_number;
+  3  END;
+  4  /
+RETURN c_year_number;
+*
+ERROR at line 2:
+ORA-06550: line 2, column 1: 
+PLS-00372: In a procedure, RETURN statement cannot contain an expression 
+ORA-06550: line 2, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> FUNCTION deploy_fecha
+SP2-0734: unknown command beginning "FUNCTION d..." - rest of line ignored.
+SQL> RETURN varchar2
+SP2-0734: unknown command beginning "RETURN var..." - rest of line ignored.
+SQL> IS
+SP2-0042: unknown command "IS" - rest of line ignored.
+SQL> BEGIN
+  2  c_deploy_fecha:=to_char(sysdate,'j');
+  3  RETURN c_deploy_fecha;
+  4  END;
+  5  /
+c_deploy_fecha:=to_char(sysdate,'j');
+*
+ERROR at line 2:
+ORA-06550: line 2, column 1: 
+PLS-00201: identifier 'C_DEPLOY_FECHA' must be declared 
+ORA-06550: line 2, column 1: 
+PL/SQL: Statement ignored 
+ORA-06550: line 3, column 1: 
+PLS-00372: In a procedure, RETURN statement cannot contain an expression 
+ORA-06550: line 3, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> FUNCTION deploy_fecha_2
+SP2-0734: unknown command beginning "FUNCTION d..." - rest of line ignored.
+SQL> return varchar2
+SP2-0734: unknown command beginning "return var..." - rest of line ignored.
+SQL> IS
+SP2-0042: unknown command "IS" - rest of line ignored.
+SQL> BEGIN
+  2  c_deploy_fecha_2:=to_char(sysdate,'DAY DD/MONTH/RRRR');
+  3  RETURN c_deploy_fecha_2;
+  4  END;
+  5  /
+c_deploy_fecha_2:=to_char(sysdate,'DAY DD/MONTH/RRRR');
+*
+ERROR at line 2:
+ORA-06550: line 2, column 1: 
+PLS-00201: identifier 'C_DEPLOY_FECHA_2' must be declared 
+ORA-06550: line 2, column 1: 
+PL/SQL: Statement ignored 
+ORA-06550: line 3, column 1: 
+PLS-00372: In a procedure, RETURN statement cannot contain an expression 
+ORA-06550: line 3, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> SELECT pkg.year_number
+  2  from dual;
+SELECT pkg.year_number
+       *
+ERROR at line 1:
+ORA-06575: Package or function PKG is in an invalid state 
+
+
+SQL> select pkg.deploy_fecha
+  2  from dual;
+select pkg.deploy_fecha
+       *
+ERROR at line 1:
+ORA-06575: Package or function PKG is in an invalid state 
+
+
+SQL> select pkg.deploy_fecha_2
+  2  from dual;
+select pkg.deploy_fecha_2
+       *
+ERROR at line 1:
+ORA-06575: Package or function PKG is in an invalid state 
+
+
+SQL> spool off

@@ -1,0 +1,1 @@
+@@ D:\ESCOM\bases\Ejercicios_de_los_libros\PLSQL\Capitulo6\Script\CH6.sql

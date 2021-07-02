@@ -1,0 +1,11 @@
+spool G:\ESCOM\bases\15_feb_18\invocacion_de_queries.txt
+@@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q1.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q2.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q3.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q4.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q5.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q6.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q7.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q8.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q9.sql
+spool off

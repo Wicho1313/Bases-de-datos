@@ -1,0 +1,55 @@
+SQL> PROMPT DEPLIEGA LOS OBJETOS TIPO TABLA E INDEX EN PARA EL USUARIO HR
+DEPLIEGA LOS OBJETOS TIPO TABLA E INDEX EN PARA EL USUARIO HR
+SQL> OLUMN OWNER FORMAT A10 JUS CENTER
+SP2-0734: unknown command beginning "OLUMN OWNE..." - rest of line ignored.
+SQL> COLUMN OBJECT_NAME FORMAT A25 JUSTIFY CENTER
+SQL> COLUMN Tipo FORMAT A10 JUS CENTER
+SQL> SELECT OWNER, OBJECT_NAME, OBJECT_TYPE "Tipo"
+  2  FROM ALL_OBJECTS
+  3  WHERE OWNER = 'HR'
+  4  AND OBJECT_TYPE = 'TABLE'
+  5  OR OBJECT_TYPE = 'INDEX'
+  6  ORDER BY 3,2;
+OWNER                         *       OBJECT_NAME       *   Tipo                                                                                      
+==============================*=========================*==========                                                                                   
+HR                            *COUNTRY_C_ID_PK          *INDEX                                                                                        
+HR                            *DEPT_ID_PK               *INDEX                                                                                        
+HR                            *DEPT_LOCATION_IX         *INDEX                                                                                        
+HR                            *EMP_DEPARTMENT_IX        *INDEX                                                                                        
+HR                            *EMP_EMAIL_UK             *INDEX                                                                                        
+HR                            *EMP_EMP_ID_PK            *INDEX                                                                                        
+HR                            *EMP_JOB_IX               *INDEX                                                                                        
+HR                            *EMP_MANAGER_IX           *INDEX                                                                                        
+HR                            *EMP_NAME_IX              *INDEX                                                                                        
+HR                            *JHIST_DEPARTMENT_IX      *INDEX                                                                                        
+HR                            *JHIST_EMP_ID_ST_DATE_PK  *INDEX                                                                                        
+HR                            *JHIST_EMPLOYEE_IX        *INDEX                                                                                        
+HR                            *JHIST_JOB_IX             *INDEX                                                                                        
+HR                            *JOB_ID_PK                *INDEX                                                                                        
+HR                            *LOC_CITY_IX              *INDEX                                                                                        
+HR                            *LOC_COUNTRY_IX           *INDEX                                                                                        
+HR                            *LOC_ID_PK                *INDEX                                                                                        
+HR                            *LOC_STATE_PROVINCE_IX    *INDEX                                                                                        
+HR                            *PK_ELECTRODOM_APARATO    *INDEX                                                                                        
+HR                            *PK_EMP_NIF               *INDEX                                                                                        
+HR                            *REG_ID_PK                *INDEX                                                                                        
+HR                            *COUNTRIES                *TABLE                                                                                        
+HR                            *DEPARTMENTS              *TABLE                                                                                        
+HR                            *ELECTRODOMESTICO         *TABLE                                                                                        
+HR                            *EMP                      *TABLE                                                                                        
+HR                            *EMPLOYEES                *TABLE                                                                                        
+HR                            *GRUPO_MATERIA            *TABLE                                                                                        
+HR                            *INSTRUCTOR_CURSO         *TABLE                                                                                        
+HR                            *INSTRUCTOR_ESTUDIANTE    *TABLE                                                                                        
+HR                            *JOB_HISTORY              *TABLE                                                                                        
+HR                            *JOBS                     *TABLE                                                                                        
+HR                            *LOCATIONS                *TABLE                                                                                        
+HR                            *PLANTEL                  *TABLE                                                                                        
+HR                            *REGIONS                  *TABLE                                                                                        
+HR                            *T1                       *TABLE                                                                                        
+HR                            *T2                       *TABLE                                                                                        
+HR                            *T3                       *TABLE                                                                                        
+
+37 rows selected.
+
+SQL> spool off

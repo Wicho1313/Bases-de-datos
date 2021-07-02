@@ -1,0 +1,14 @@
+SQL> SELECT created_by   FROM enrollment  UNION SELECT created_by   FROM grade  UNION SELECT created_by   FROM grade_type  UNION SELECT created_by   FROM grade_conversion;
+
+CREATED_BY                                                                                                                                            
+------------------------------                                                                                                                        
+BROSENZW                                                                                                                                              
+CBRENNAN                                                                                                                                              
+JAYCAF                                                                                                                                                
+Jerry                                                                                                                                                 
+MCAFFREY                                                                                                                                              
+MyName                                                                                                                                                
+
+6 rows selected.
+
+SQL> spool off

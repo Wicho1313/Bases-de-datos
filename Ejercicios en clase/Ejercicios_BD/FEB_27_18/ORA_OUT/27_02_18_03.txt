@@ -1,0 +1,442 @@
+drop table EMPLOYEE
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+drop table PROJECT
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+drop table works_on
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+FNAME           MI LNAME                  SSN BDATE    ADDRESS                  
+--------------- -- --------------- ---------- -------- -------------------------
+SEX                 SALARY   SUPERSSN        DNO                                
+--------------- ---------- ---------- ----------                                
+John            B  Smith            123456789 09/01/65 731 Fondren, Houston, TX 
+M                    30000  333445555          5                                
+                                                                                
+Franklin        T  Wong             333445555 08/12/55 638 Voss, Houston, TX    
+M                    40000  888665555          4                                
+                                                                                
+Jennifer        J  Zelaya           999887777 19/01/68 3321 Castle, Spring, TX  
+F                    25000  987654321          4                                
+                                                                                
+
+FNAME           MI LNAME                  SSN BDATE    ADDRESS                  
+--------------- -- --------------- ---------- -------- -------------------------
+SEX                 SALARY   SUPERSSN        DNO                                
+--------------- ---------- ---------- ----------                                
+Alicia          S  Wallane          987654321 19/06/41 291 Berry, Bellaire, TX  
+F                    43000  888665555          4                                
+                                                                                
+Ramesh          K  Narayan          666884444 15/09/62 975 Fire Oak, Humble, TX 
+M                    38000  333445555          5                                
+                                                                                
+Joyce           A  English          453453453 31/07/72 15631 Rice, Houston, TX  
+F                    25000  333445555          5                                
+                                                                                
+
+FNAME           MI LNAME                  SSN BDATE    ADDRESS                  
+--------------- -- --------------- ---------- -------- -------------------------
+SEX                 SALARY   SUPERSSN        DNO                                
+--------------- ---------- ---------- ----------                                
+Ahmad           V  Jabbar           987987987 29/03/69 980 Dallas, Houston, TX  
+M                    25000  987654321          4                                
+                                                                                
+James           E  Borg             888655555 10/11/37 450 Stone, Houston, TX   
+M                    55000                     1                                
+                                                                                
+
+8 rows selected.
+
+
+        ESSN PNO HOURS                                                          
+------------ --- -----                                                          
+ 123,456,789   1  32.5                                                          
+ 123,456,789   2   7.5                                                          
+ 666,884,444   3  40.0                                                          
+ 453,453,453   1  20.0                                                          
+ 453,453,453   2  20.0                                                          
+ 333,445,555   2  10.0                                                          
+ 333,445,555  10  10.0                                                          
+ 333,445,555  20  10.0                                                          
+ 999,887,777  30  30.0                                                          
+ 999,887,777  10  30.0                                                          
+ 987,987,987   1  35.0                                                          
+
+        ESSN PNO HOURS                                                          
+------------ --- -----                                                          
+ 987,987,987  30   5.0                                                          
+ 987,654,321  30  20.0                                                          
+ 987,654,321  20  15.0                                                          
+ 888,665,555  20                                                                
+
+15 rows selected.
+
+
+PNAME       PNUMBER PLOCATION   DNUM                                            
+----------- ------- ----------- ----                                            
+ProductX1         1 Bellaire       5                                            
+ProductY          2 Sugarland      5                                            
+ProductZ          3 Houston        5                                            
+Computeriza      10 Stafford       5                                            
+tion                                                                            
+                                                                                
+Reorganizat      20 Houston        5                                            
+ion                                                                             
+                                                                                
+Newbenefits       1 Stafford       5                                            
+
+6 rows selected.
+
+
+no rows selected
+
+
+  COUNT(*)                                                                      
+----------                                                                      
+         8                                                                      
+
+
+  COUNT(*)                                                                      
+----------                                                                      
+        15                                                                      
+
+
+  COUNT(*)                                                                      
+----------                                                                      
+         6                                                                      
+
+SELECT * COUNT(*) FROM EMPLOYEE, WORKS_ON
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SELECT * COUNT(*) FROM PROJECT, WORKS_ON
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+Usage: DESCRIBE [schema.]object[@db_link]
+DROP VIEW VISTA_E9
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP VIEW VISTA_E8
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP VIEW VISTA_E7
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP VIEW VISTA_E6
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP VIEW VISTA_E5
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP VIEW VISTA_E4
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP VIEW VISTA_E3
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP VIEW VISTA_E2
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP VIEW VISTA_E1
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+View created.
+
+
+View created.
+
+
+View created.
+
+
+View created.
+
+CREATE VIEW VISTA_E4 AS
+            *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+
+View created.
+
+
+View created.
+
+
+View created.
+
+
+View created.
+
+
+View created.
+
+
+no rows selected
+
+
+no rows selected
+
+
+
+no rows selected
+
+
+
+        ESSN PNO                                                                
+------------ ---                                                                
+ 123,456,789   1                                                                
+ 123,456,789   2                                                                
+ 666,884,444   3                                                                
+ 453,453,453   1                                                                
+ 453,453,453   2                                                                
+ 333,445,555   2                                                                
+ 333,445,555  10                                                                
+ 333,445,555  20                                                                
+ 999,887,777  30                                                                
+ 999,887,777  10                                                                
+ 987,987,987   1                                                                
+
+        ESSN PNO                                                                
+------------ ---                                                                
+ 987,987,987  30                                                                
+ 987,654,321  30                                                                
+ 987,654,321  20                                                                
+ 888,665,555  20                                                                
+
+15 rows selected.
+
+
+no rows selected
+
+
+no rows selected
+
+
+FNAME           MI LNAME                  SSN BDATE    ADDRESS                  
+--------------- -- --------------- ---------- -------- -------------------------
+SEX                 SALARY   SUPERSSN        DNO                                
+--------------- ---------- ---------- ----------                                
+John            B  Smith            123456789 09/01/65 731 Fondren, Houston, TX 
+M                    30000  333445555          5                                
+                                                                                
+Jennifer        J  Zelaya           999887777 19/01/68 3321 Castle, Spring, TX  
+F                    25000  987654321          4                                
+                                                                                
+Ramesh          K  Narayan          666884444 15/09/62 975 Fire Oak, Humble, TX 
+M                    38000  333445555          5                                
+                                                                                
+
+FNAME           MI LNAME                  SSN BDATE    ADDRESS                  
+--------------- -- --------------- ---------- -------- -------------------------
+SEX                 SALARY   SUPERSSN        DNO                                
+--------------- ---------- ---------- ----------                                
+Joyce           A  English          453453453 31/07/72 15631 Rice, Houston, TX  
+F                    25000  333445555          5                                
+                                                                                
+Ahmad           V  Jabbar           987987987 29/03/69 980 Dallas, Houston, TX  
+M                    25000  987654321          4                                
+                                                                                
+
+
+       SSN LNAME                                                                
+---------- ---------------                                                      
+ 123456789 Smith                                                                
+ 999887777 Zelaya                                                               
+ 666884444 Narayan                                                              
+ 453453453 English                                                              
+ 987987987 Jabbar                                                               
+
+
+no rows selected
+
+
+no rows selected
+
+'CIFRAS CONTROL'
+
+  VISTA_E1                                                                      
+----------                                                                      
+         0                                                                      
+
+
+  VISTA_E2                                                                      
+----------                                                                      
+         0                                                                      
+
+
+  VISTA_E3                                                                      
+----------                                                                      
+        15                                                                      
+
+
+  VISTA_E4                                                                      
+----------                                                                      
+         0                                                                      
+
+
+  VISTA_E5                                                                      
+----------                                                                      
+         0                                                                      
+
+
+  VISTA_E6                                                                      
+----------                                                                      
+         5                                                                      
+
+
+  VISTA_E7                                                                      
+----------                                                                      
+         5                                                                      
+
+
+  VISTA_E8                                                                      
+----------                                                                      
+         0                                                                      
+
+
+  VISTA_E9                                                                      
+----------                                                                      
+         0                                                                      
+

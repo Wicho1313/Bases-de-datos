@@ -1,0 +1,10 @@
+SQL> 
+SQL> SELECT c.course_no, c.description,
+  2  s.section_id, s.course_no
+  3  FROM course c, section s
+  4  WHERE c.course_no = s.course_no(+)
+  5  ORDER BY c.course_no;
+
+no rows selected
+
+SQL> spool off

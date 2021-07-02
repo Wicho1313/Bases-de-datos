@@ -1,0 +1,44 @@
+SQL> column INDEX_NAME FORMAT A25
+SQL> COLUMN INDEX_TYPE FORMAT A25
+SQL> COLUMN TABLE_OWNER FORMAT A25
+SQL> COLUMN TABLE_NAME FORMAT A25
+SQL> COLUMN BLEVEL FORMAT A25
+SQL> COLUMN LEAF_BLOCKS FORMAT A 25
+SP2-0246: Illegal FORMAT string "A"
+SQL> SELECT INDEX_NAME, INDEX_TYPE, TABLE_OWNER, TABLE_NAME,
+  2  BLEVEL, LEAF_BLOCKS
+  3  FROM USER_INDEXES;
+
+INDEX_NAME                INDEX_TYPE                TABLE_OWNER               TABLE_NAME                    BLEVEL LEAF_BLOCKS                        
+------------------------- ------------------------- ------------------------- ------------------------- ---------- -----------                        
+SYS_C006997               NORMAL                    HR                        WORKS                     ##########           0                        
+SYS_C007006               NORMAL                    HR                        SUPPLIERS                 ##########           0                        
+SYS_C006987               NORMAL                    HR                        STUDENT                   ##########           0                        
+REG_ID_PK                 NORMAL                    HR                        REGIONS                   ##########           1                        
+SYS_C007007               NORMAL                    HR                        PARTS                     ##########           0                        
+LOC_ID_PK                 NORMAL                    HR                        LOCATIONS                 ##########           1                        
+LOC_CITY_IX               NORMAL                    HR                        LOCATIONS                 ##########           1                        
+LOC_STATE_PROVINCE_IX     NORMAL                    HR                        LOCATIONS                 ##########           1                        
+LOC_COUNTRY_IX            NORMAL                    HR                        LOCATIONS                 ##########           1                        
+JHIST_EMP_ID_ST_DATE_PK   NORMAL                    HR                        JOB_HISTORY               ##########           1                        
+JHIST_JOB_IX              NORMAL                    HR                        JOB_HISTORY               ##########           1                        
+JHIST_EMPLOYEE_IX         NORMAL                    HR                        JOB_HISTORY               ##########           1                        
+JHIST_DEPARTMENT_IX       NORMAL                    HR                        JOB_HISTORY               ##########           1                        
+JOB_ID_PK                 NORMAL                    HR                        JOBS                      ##########           1                        
+SYS_C007000               NORMAL                    HR                        FLIGHTS                   ##########           0                        
+SYS_C006988               NORMAL                    HR                        FACULTY                   ##########           0                        
+SYS_C006991               NORMAL                    HR                        ENROLLED                  ##########           0                        
+SYS_C007002               NORMAL                    HR                        EMPLOYEES                 ##########           0                        
+SYS_C006994               NORMAL                    HR                        EMP                       ##########           0                        
+SYS_C006995               NORMAL                    HR                        DEPT                      ##########           0                        
+DEPT_ID_PK                NORMAL                    HR                        DEPARTMENTS               ##########           1                        
+DEPT_LOCATION_IX          NORMAL                    HR                        DEPARTMENTS               ##########           1                        
+COUNTRY_C_ID_PK           IOT - TOP                 HR                        COUNTRIES                 ##########           1                        
+SYS_C006989               NORMAL                    HR                        CLASS                     ##########           0                        
+SYS_C007003               NORMAL                    HR                        CERTIFIED                 ##########           0                        
+SYS_C007008               NORMAL                    HR                        CATALOG                   ##########           0                        
+SYS_C007001               NORMAL                    HR                        AIRCRAFT                  ##########           0                        
+
+27 rows selected.
+
+SQL> spool off

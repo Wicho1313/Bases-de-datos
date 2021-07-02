@@ -1,0 +1,9 @@
+SQL> REM Mientras el zip de ambas tablas sea igual y queda ordenado en orden descendente
+SQL> SELECT s.last_name, s.zip, z.state, z.city
+  2  FROM student s, zipcode z
+  3  WHERE s.zip = z.zip
+  4  ORDER BY s.zip;
+
+no rows selected
+
+SQL> spool off

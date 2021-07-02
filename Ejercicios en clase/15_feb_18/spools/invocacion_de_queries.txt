@@ -1,0 +1,19 @@
+SQL> @@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q1.sql
+SP2-0310: unable to open file "G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q1.sql"
+SQL> @@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q2.sql
+SP2-0310: unable to open file "G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q2.sql"
+SQL> @@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q3.sql
+SP2-0310: unable to open file "G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q3.sql"
+SQL> @@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q4.sql
+SP2-0310: unable to open file "G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q4.sql"
+SQL> @@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q5.sql
+SP2-0310: unable to open file "G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q5.sql"
+SQL> @@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q6.sql
+SP2-0310: unable to open file "G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q6.sql"
+SQL> @@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q7.sql
+SP2-0310: unable to open file "G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q7.sql"
+SQL> @@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q8.sql
+SP2-0310: unable to open file "G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q8.sql"
+SQL> @@ G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q9.sql
+SP2-0310: unable to open file "G:\ESCOM\bases\15_feb_18_queries\15_feb_18_Q9.sql"
+SQL> spool off

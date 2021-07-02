@@ -1,0 +1,8 @@
+SQL> REM lista de filas, todas las combinaciones entre dos tablas
+SQL> SELECT s.instructor_id alias_1,
+  2  i.instructor_id alias_2
+  3  FROM section s, instructor i;
+
+no rows selected
+
+SQL> spool off

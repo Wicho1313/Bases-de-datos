@@ -1,0 +1,9 @@
+SQL> REM No se utiliza un alias para evitar causar error
+SQL> SELECT s.last_name, zip, z.state, z.city
+  2  FROM student s JOIN zipcode z
+  3  USING (zip)
+  4  ORDER BY zip;
+
+no rows selected
+
+SQL> spool off

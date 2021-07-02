@@ -1,0 +1,23 @@
+
+PARAMETER                           VALUE                                                                                                             
+----------------------------------- -----------------------------------                                                                               
+NLS_LANGUAGE                        AMERICAN                                                                                                          
+NLS_TERRITORY                       AMERICA                                                                                                           
+NLS_SORT                                                                                                                                              
+NLS_DATE_LANGUAGE                                                                                                                                     
+NLS_DATE_FORMAT                                                                                                                                       
+NLS_CURRENCY                                                                                                                                          
+NLS_NUMERIC_CHARACTERS                                                                                                                                
+NLS_ISO_CURRENCY                                                                                                                                      
+NLS_CALENDAR                                                                                                                                          
+NLS_TIME_FORMAT                                                                                                                                       
+NLS_TIMESTAMP_FORMAT                                                                                                                                  
+NLS_TIME_TZ_FORMAT                                                                                                                                    
+NLS_TIMESTAMP_TZ_FORMAT                                                                                                                               
+NLS_DUAL_CURRENCY                                                                                                                                     
+NLS_COMP                            BINARY                                                                                                            
+NLS_LENGTH_SEMANTICS                BYTE                                                                                                              
+NLS_NCHAR_CONV_EXCP                 FALSE                                                                                                             
+
+17 rows selected.
+

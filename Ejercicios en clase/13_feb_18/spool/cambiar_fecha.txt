@@ -1,0 +1,193 @@
+SQL> 
+SQL> column parameter format a25
+SQL> column value format a40 wrapped;
+SQL> set space 7;
+SQL> 
+SQL> select parameter, value
+  2  from nls_session_parameters;
+
+PARAMETER                       VALUE                                                                                                                 
+=========================       ========================================                                                                              
+NLS_LANGUAGE                    MEXICAN SPANISH                                                                                                       
+NLS_TERRITORY                   MEXICO                                                                                                                
+NLS_CURRENCY                    $                                                                                                                     
+NLS_ISO_CURRENCY                MEXICO                                                                                                                
+NLS_NUMERIC_CHARACTERS          .,                                                                                                                    
+NLS_CALENDAR                    GREGORIAN                                                                                                             
+NLS_DATE_FORMAT                 DD/MM/RR                                                                                                              
+NLS_DATE_LANGUAGE               MEXICAN SPANISH                                                                                                       
+NLS_SORT                        WEST_EUROPEAN                                                                                                         
+NLS_TIME_FORMAT                 HH24:MI:SSXFF                                                                                                         
+NLS_TIMESTAMP_FORMAT            DD/MM/RR HH24:MI:SSXFF                                                                                                
+NLS_TIME_TZ_FORMAT              HH24:MI:SSXFF TZR                                                                                                     
+NLS_TIMESTAMP_TZ_FORMAT         DD/MM/RR HH24:MI:SSXFF TZR                                                                                            
+NLS_DUAL_CURRENCY               $                                                                                                                     
+NLS_COMP                        BINARY                                                                                                                
+NLS_LENGTH_SEMANTICS            BYTE                                                                                                                  
+NLS_NCHAR_CONV_EXCP             FALSE                                                                                                                 
+
+17 rows selected.
+
+SQL> 
+SQL> select sysdate
+  2  from dual;
+
+SYSDATE                                                                                                                                               
+========                                                                                                                                              
+05/06/18                                                                                                                                              
+
+SQL> 
+SQL> alter session set NLS_DATE_FORMAT="DAY DD-MONTH-YYYY";
+
+Session altered.
+
+SQL> 
+SQL> SELECT sysdate from dual;
+
+SYSDATE                                                                                                                                               
+============================                                                                                                                          
+MARTES    05-JUNIO     -2018                                                                                                                          
+
+SQL> 
+SQL> alter session set NLS_LANGUAGE='ENGLISH';
+
+Session altered.
+
+SQL> 
+SQL> SELECT sysdate from dual;
+
+SYSDATE                                                                                                                                               
+===========================                                                                                                                           
+TUESDAY   05-JUNE     -2018                                                                                                                           
+
+SQL> 
+SQL> alter session set NLS_LANGUAGE='FRENCH';
+
+Session altered.
+
+SQL> 
+SQL> SELECT sysdate from dual;
+
+SYSDATE                                                                                                                                               
+==========================                                                                                                                            
+MARDI    05-JUIN     -2018                                                                                                                            
+
+SQL> 
+SQL> alter session set NLS_LANGUAGE='SPANISH';
+
+Session altered.
+
+SQL> 
+SQL> select sysdate from dual;
+
+SYSDATE                                                                                                                                               
+============================                                                                                                                          
+MARTES    05-JUNIO     -2018                                                                                                                          
+
+SQL> 
+SQL> DEFINE GNAME=Luis
+SQL> set sqlprompt'&GNAME>'
+Luis>REM DESPLEGAR VARIAS FEHAS
+Luis>SELECT TO_CHAR(SYSDATE,'J')FROM DUAL;
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2458275                                                                                                                                               
+
+Luis>SELECT TO_CHAR(TO_DATE('30-03-14'),'J') FROM DUAL;
+SELECT TO_CHAR(TO_DATE('30-03-14'),'J') FROM DUAL
+                       *
+ERROR at line 1:
+ORA-01846: not a valid day of the week 
+
+
+Luis>SELECT TO_CHAR(SYSTIMESTAMP, 'J') FROM DUAL;
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2458275                                                                                                                                               
+
+Luis>SELECT SYSTIMESTAMP FROM DUAL;
+
+SYSTIMESTAMP                                                                                                                                          
+===========================================================================                                                                           
+05/06/18 07:40:07.060000 -05:00                                                                                                                       
+
+Luis>SELECT SYSDATE, SYSTIMESTAMP FROM DUAL;
+
+SYSDATE                            SYSTIMESTAMP                                                                                                       
+============================       ===========================================================================                                        
+MARTES    05-JUNIO     -2018       05/06/18 07:40:07.061000 -05:00                                                                                    
+
+Luis>SET sqlprompt'SQL>'
+SQL>clear columns
+columns cleared
+SQL>column fecha1 format a20;
+SQL>column fecha2 format a32;
+SQL>select sysdate feha1, systimestamp fecha2 from dual;
+
+FEHA1                              FECHA2                                                                                                             
+============================       ================================                                                                                   
+MARTES    05-JUNIO     -2018       05/06/18 07:40:07.092000 -05:00                                                                                    
+
+SQL>REM el 1 de enero del a¤o 4712 ac
+SQL>select to_char(to_date('1-ene-4712 12:00 pm','dd-Mon-syyyy hh:mi am'),'j')
+  2  from dual;
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+3442082                                                                                                                                               
+
+SQL>REM el 1 de enero del a¤o 1 de nuestra era
+SQL>select to_char(to_date('1-ene-1 12:00 pm','dd-Mon-syyyy hh:mi am'),'j')
+  2  from dual;
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+1721424                                                                                                                                               
+
+SQL>REM el 12 de feb de 2018
+SQL>select to_char(to_date('12-feb-2018 7:00 am','dd-Mon-yyyy hh:mi am'),'j')
+  2  from dual;
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2458162                                                                                                                                               
+
+SQL>REM Los dias recortados por gregorio VII
+SQL>select to_char(to_date('04-oct-1582 3:50 pm','dd-Mon-yyyy hh:mi am'),'j')
+  2  from dual;
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2299160                                                                                                                                               
+
+SQL>REM Los dias recortados por gregorio VII
+SQL>select to_char(to_date('10-oct-1582 3:50 pm','dd-Mon-yyyy hh:mi am'),'j')
+  2  from dual;
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2299161                                                                                                                                               
+
+SQL>REM Los dias recortados por gregorio VII
+SQL>select to_char(to_date('15-oct-1582 3:50 pm','dd-Mon-yyyy hh:mi am'),'j')
+  2  from dual;
+
+TO_CHAR                                                                                                                                               
+=======                                                                                                                                               
+2299161                                                                                                                                               
+
+SQL>
+SQL>REM encontrar diferencia entre fehas
+SQL>select to_char(to_date('12-feb-2018 7:00 am','dd-Mon-yyyy hh:mi am'),'j')FECHA1,
+  2         to_char(to_date('29-ene-2018 7:00 am','dd-Mon-yyyy hh:mi am'),'j')FECHA2,
+  3         (to_date('12-feb-2018 7:00 am','dd-Mon-yyyy hh:mi am')-
+  4         to_date('29-ene-2018 7:00 am','dd-Mon-yyyy hh:mi am')) "Dias|Transcurridos"
+  5  from dual;
+
+FECHA1                     FECHA2                                 Dias|Transcurridos                                                                  
+====================       ================================       ==================                                                                  
+2458162                    2458148                                                14                                                                  
+
+SQL>spool off

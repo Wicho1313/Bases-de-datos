@@ -1,0 +1,236 @@
+SQL> REM pagina 424 realiza la union de ambas tablas sin repetidos
+SQL> SELECT first_name, last_name, phone
+  2  FROM instructor
+  3  UNION SELECT first_name, last_name, phone
+  4  FROM student;
+
+FIRST_NAME                 || LAST_NAME                  || PHONE                                                                                     
+-------------------------  || -------------------------  || ---------------                                                                           
+A.                         || Tucker                     || 203-555-5555                                                                              
+Adele                      || Rothstein                  || 718-555-5555                                                                              
+Adrienne                   || Lopez                      || 201-555-5555                                                                              
+Al                         || Jamerncy                   || 212-555-5555                                                                              
+Alan                       || Affinito                   || 201-555-5555                                                                              
+Alan                       || Galik                      || 718-555-5555                                                                              
+Alfred                     || Hutheesing                 || 718-555-5555                                                                              
+Allan                      || Simmons                    || 718-555-5555                                                                              
+Angel                      || Cook                       || 201-555-5555                                                                              
+Anna                       || Bathmanapan                || 718-555-5555                                                                              
+Anthony                    || Bullock                    || 718-555-5555                                                                              
+Artie                      || Ward                       || 718-555-5555                                                                              
+Arun                       || Griffen                    || 718-555-5555                                                                              
+Asian                      || Chirichella                || 718-555-5555                                                                              
+Austin V.                  || Cadet                      || 201-555-5555                                                                              
+Barbara                    || Robichaud                  || 212-555-5555                                                                              
+Barry                      || Dunkon                     || 201-555-5555                                                                              
+Benita                     || Perkins                    || 718-555-5555                                                                              
+Bernadette                 || Montanez                   || 201-555-5555                                                                              
+Bernice                    || Dermody                    || 718-555-5555                                                                              
+Bessie                     || Heedles                    || 201-555-5555                                                                              
+Beth                       || Satterfield                || 718-555-5555                                                                              
+Bharat                     || Roberts                    || 201-555-5555                                                                              
+Bill                       || Engongoro                  || 718-555-5555                                                                              
+Brian                      || Robles                     || 718-555-5555                                                                              
+Brian                      || Saluja                     || 718-555-5555                                                                              
+Bridget                    || Hagel                      || 718-555-5555                                                                              
+Calvin                     || Kiraly                     || 203-555-5555                                                                              
+Carlos                     || Airall                     || 718-555-5555                                                                              
+Catherine                  || Frangopoulos               || 718-555-5555                                                                              
+Cathy                      || Austin                     || 718-555-5555                                                                              
+Charles                    || Caro                       || 203-555-5555                                                                              
+Christine                  || Sheppard                   || 201-555-5555                                                                              
+Craig                      || Anglin                     || 718-555-5555                                                                              
+Craig                      || Padron                     || 718-555-5555                                                                              
+D.                         || Dewitt                     || 201-555-5555                                                                              
+Daniel                     || McHowell                   || 718-555-5555                                                                              
+Daniel                     || Ordes                      || 201-555-5555                                                                              
+David                      || Eng                        || 718-555-5555                                                                              
+David                      || Thares                     || 203-555-5555                                                                              
+Deborah                    || Reyes                      || 201-555-5555                                                                              
+Debra                      || Boyce                      || 718-555-5555                                                                              
+Debra                      || Shah                       || 718-555-5555                                                                              
+Denise                     || Brownstein                 || 718-555-5555                                                                              
+Dennis                     || Mehta                      || 201-555-5555                                                                              
+Donna                      || Walston                    || 201-555-5555                                                                              
+E.A.                       || Torres                     || 718-555-5555                                                                              
+Edgar                      || Moffat                     || 201-555-5555                                                                              
+Edith                      || Daly                       || 718-555-5555                                                                              
+Edwin                      || Allende                    || 203-555-5555                                                                              
+Eilene                     || Grant                      || 718-555-5555                                                                              
+Eric                       || Da Silva                   || 718-555-5555                                                                              
+Evan                       || Fielding                   || 718-555-5555                                                                              
+Evelyn                     || Liggons                    || 718-555-5555                                                                              
+Fermin                     || Galik                      || 718-555-5555                                                                              
+Florence                   || Valamas                    || 718-555-5555                                                                              
+Frances                    || Lawson                     || 718-555-5555                                                                              
+Frank                      || Bunnell                    || 203-555-5555                                                                              
+Frank                      || M. Orent                   || 718-555-5555                                                                              
+Frank                      || Pace                       || 203-555-5555                                                                              
+Frank                      || Viotty                     || 718-555-5555                                                                              
+Frantz                     || McLean                     || 718-555-5555                                                                              
+Freedon                    || annunziato                 || 718-555-5555                                                                              
+Gabriel                    || Smith                      || 718-555-5555                                                                              
+Gene                       || Bresser, HR Rep.           || 201-555-5555                                                                              
+Genny                      || Andrew                     || 203-555-5555                                                                              
+George                     || Eakheit                    || 201-555-5555                                                                              
+George                     || Kocka                      || 617-555-5555                                                                              
+George                     || Korka                      || 718-555-5555                                                                              
+George                     || Merriman                   || 718-555-5555                                                                              
+George                     || Milano                     || 718-555-5555                                                                              
+George                     || Ross                       || 718-555-5555                                                                              
+Gerry                      || Tripp                      || 718-555-5555                                                                              
+Gilbert                    || Ginestra                   || 201-555-5555                                                                              
+Hedy                       || Naso                       || 201-555-5555                                                                              
+Helga                      || Towle                      || 201-555-5555                                                                              
+Henry                      || Masser                     || 718-555-5555                                                                              
+Howard                     || Leopta                     || 201-555-5555                                                                              
+Irene                      || Willig                     || 2125551212                                                                                
+Irv                        || Dalvi                      || 201-555-5555                                                                              
+J.                         || Dalvi                      || 203-555-5555                                                                              
+J.                         || Segall                     || 718-555-5555                                                                              
+Jack                       || Kasperovich                || 718-555-5555                                                                              
+James E.                   || Norman                     || 617-555-5555                                                                              
+Jane                       || Jackson                    || 201-555-5555                                                                              
+Janet                      || Jung                       || 718-555-5555                                                                              
+Jean                       || Griffith                   || 201-555-5555                                                                              
+Jeannette                  || Smagler                    || 718-555-5555                                                                              
+Jeffrey                    || Citron                     || 201-555-5555                                                                              
+Jeffrey                    || Delbrun                    || 201-555-5555                                                                              
+Jenny                      || Goldsmith                  || 201-555-5555                                                                              
+Jerry                      || Abdou                      || 718-555-5555                                                                              
+Jim                        || Joas                       || 718-555-5555                                                                              
+Joane                      || Buckberg                   || 201-555-5555                                                                              
+Joel                       || Brendler                   || 718-555-5555                                                                              
+Joel                       || Krot                       || 718-555-5555                                                                              
+
+FIRST_NAME                 || LAST_NAME                  || PHONE                                                                                     
+-------------------------  || -------------------------  || ---------------                                                                           
+John                       || Ancean                     || 203-555-5555                                                                              
+John                       || De Simone                  || 718-555-5555                                                                              
+John                       || Mithane                    || 201-555-5555                                                                              
+John                       || Tabs                       || 718-555-5555                                                                              
+John                       || Velie                      || 718-555-5555                                                                              
+John T.                    || Beitler                    || 201-555-5555                                                                              
+Jonathan                   || Jaele                      || 718-555-5555                                                                              
+Jose                       || Benitez                    || 201-555-5555                                                                              
+Joseph                     || Jimenes                    || 718-555-5555                                                                              
+Joseph                     || Yourish                    || 718-555-5555                                                                              
+Julius                     || Kwong                      || 201-555-5555                                                                              
+Kardik                     || Guarino                    || 718-555-5555                                                                              
+Kate                       || Page                       || 718-555-5555                                                                              
+Kathleen                   || Mastandora                 || 718-555-5555                                                                              
+Kathleen                   || Mulroy                     || 201-555-5555                                                                              
+Kevin                      || Lin                        || 718-555-5555                                                                              
+Kevin                      || Porch                      || 201-555-5555                                                                              
+Leonard                    || Millstein                  || 201-555-5555                                                                              
+Lloyd                      || Kellam                     || 718-555-5555                                                                              
+Lorelei                    || McNeal                     || 718-555-5555                                                                              
+Lorraine                   || Harty                      || 201-555-5555                                                                              
+Lorraine                   || Tucker                     || 201-555-5555                                                                              
+Lorrane                    || Velasco                    || 201-555-5555                                                                              
+Lynwood A.                 || Thorton                    || 201-555-5555                                                                              
+M.                         || Diokno                     || 718-555-5555                                                                              
+Madhav                     || Dusenberry                 || 201-555-5555                                                                              
+Margaret                   || Lloyd                      || 718-555-5555                                                                              
+Margaret                   || Mandel                     || 718-555-5555                                                                              
+Maria                      || Allende                    || 718-555-5555                                                                              
+Maria                      || Arias                      || 718-555-5555                                                                              
+Marianne                   || De Armas                   || 201-555-5555                                                                              
+Mark                       || Miller                     || 718-555-5555                                                                              
+Mary                       || Axch                       || 718-555-5555                                                                              
+May                        || Jodoin                     || 718-555-5555                                                                              
+Mei-Wah                    || Zopf                       || 718-555-5555                                                                              
+Melvin                     || Martin                     || 201-555-5555                                                                              
+Melvina                    || Chamnonkool                || 718-555-5555                                                                              
+Meryl                      || Owens                      || 201-555-5555                                                                              
+Michael                    || Brown                      || 718-555-5555                                                                              
+Michael                    || Carcia                     || 718-555-5555                                                                              
+Michael                    || Lefbowitz                  || 718-555-5555                                                                              
+Michael                    || Miroff                     || 201-555-5555                                                                              
+Mike                       || Madej                      || 203-555-5555                                                                              
+Mohamed                    || Valentine                  || 718-555-5555                                                                              
+Morty                      || Miller                     || 203-555-5555                                                                              
+Nana                       || Barogh                     || 718-555-5555                                                                              
+Nicole                     || Gillen                     || 904-555-5555                                                                              
+Norman                     || Callender                  || 718-555-5555                                                                              
+O.                         || Garnes                     || 201-555-5555                                                                              
+Oscar                      || Archer                     || 718-555-5555                                                                              
+Oscar                      || McGill                     || 718-555-5555                                                                              
+P.                         || Balterzar                  || 718-555-5555                                                                              
+Pat                        || Puetrino                   || 212-555-5555                                                                              
+Paul                       || Braun                      || 201-555-5555                                                                              
+Paul                       || Intal                      || 201-555-5555                                                                              
+Paul                       || Sikinger                   || 201-555-5555                                                                              
+Paula                      || Mwangi                     || 914-555-5555                                                                              
+Paula                      || Valentine                  || 718-555-5555                                                                              
+Peter                      || Carey                      || 718-555-5555                                                                              
+Peter                      || Daly                       || 718-555-5555                                                                              
+Phil                       || Gilloon                    || 614-555-5555                                                                              
+Piang                      || Nyziak                     || 718-555-5555                                                                              
+Piotr                      || Padel                      || 203-555-5555                                                                              
+Preston                    || Cross                      || 718-555-5555                                                                              
+Preston                    || Larcia                     || 718-555-5555                                                                              
+Price                      || Marten                     || 718-555-5555                                                                              
+R.                         || Sprouse                    || 201-555-5555                                                                              
+Radharam                   || King                       || 718-555-5555                                                                              
+Rafael A.                  || Torres                     || 718-555-5555                                                                              
+Rawan                      || Rosenberg                  || 718-555-5555                                                                              
+Ray                        || Schafer                    || 718-555-5555                                                                              
+Raymond                    || Cheevens                   || 203-555-5555                                                                              
+Reeva                      || Yeroushalmi                || 718-555-5555                                                                              
+Regina                     || Bose                       || 718-555-5555                                                                              
+Reynaldo                   || Chatman                    || 718-555-5555                                                                              
+Ricardo                    || Kurtz                      || 718-555-5555                                                                              
+Rita                       || Archor                     || 203-555-5555                                                                              
+Robert                     || Segall                     || 203-555-5555                                                                              
+Robin                      || Kelly                      || 201-555-5555                                                                              
+Roger                      || Cowie                      || 201-555-5555                                                                              
+Roger                      || Snow                       || 517-555-5555                                                                              
+Romeo                      || Ittoop                     || 201-555-5555                                                                              
+Rommel                     || Frost                      || 201-555-5555                                                                              
+Ronald                     || Tangaribuan                || 201-555-5555                                                                              
+Rosemary                   || Ellman                     || 201-555-5555                                                                              
+Salewa                     || Lindeman                   || 718-555-5555                                                                              
+Salewa                     || Zuckerberg                 || 718-555-5555                                                                              
+Sally                      || Naso                       || 201-555-5555                                                                              
+Salondra                   || Galik                      || 718-555-5555                                                                              
+Sarah                      || Annina                     || 203-555-5555                                                                              
+Sarah                      || Wilson                     || 718-555-5555                                                                              
+Sengita                    || MacDonald, Jr.             || 718-555-5555                                                                              
+Sharon                     || Thompson                   || 718-555-5555                                                                              
+Sheradha                   || Malone                     || 718-555-5555                                                                              
+Shirley                    || Leung                      || 201-555-5555                                                                              
+Shirley                    || Murray                     || 718-555-5555                                                                              
+
+FIRST_NAME                 || LAST_NAME                  || PHONE                                                                                     
+-------------------------  || -------------------------  || ---------------                                                                           
+Simon                      || Ramesh                     || 718-555-5555                                                                              
+Steven                     || Gallagher                  || 718-555-5555                                                                              
+Steven                     || M. Orent                   || 718-555-5555                                                                              
+Suzanna                    || Velasco                    || 201-555-5555                                                                              
+Suzanne M.                 || Abid                       || 718-555-5555                                                                              
+Sylvia                     || Perrin                     || 718-555-5555                                                                              
+Tamara                     || Zapulla                    || 201-555-5555                                                                              
+Thomas E.                  || La Blank                   || 617-555-5555                                                                              
+Tom                        || Vargas                     || 718-555-5555                                                                              
+V.                         || Greenberg                  || 718-555-5555                                                                              
+V.                         || Saliternan                 || 718-555-5555                                                                              
+Valerie                    || Avia                       || 718-555-5555                                                                              
+Vera                       || Wetcel                     || 718-555-5555                                                                              
+Verona                     || Grant                      || 201-555-5555                                                                              
+Victor                     || Meshaj                     || 203-555-5555                                                                              
+Vinnie                     || Moon                       || 718-555-5555                                                                              
+Virginia                   || Ocampo                     || 201-555-5555                                                                              
+Walter                     || Boremmann                  || 617-555-5555                                                                              
+William                    || Gallo                      || 201-555-5555                                                                              
+Yu                         || Sentell                    || 718-555-5555                                                                              
+Yvonne                     || Allende                    || 718-555-5555                                                                              
+Yvonne                     || Williams                   || 718-555-5555                                                                              
+Yvonne                     || Winnicki                   || 718-555-5555                                                                              
+Z.A.                       || Scrittorale                || 203-555-5555                                                                              
+Zalman                     || Draquez                    || 718-555-5555                                                                              
+                           || Spencer                    ||                                                                                           
+
+218 rows selected.
+
+SQL> spool off

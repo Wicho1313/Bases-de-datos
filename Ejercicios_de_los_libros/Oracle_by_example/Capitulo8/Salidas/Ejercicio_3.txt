@@ -1,0 +1,33 @@
+SQL> 
+SQL> SELECT created_by, 'GRADE' AS SOURCE, 1 AS SORT_ORDER
+  2  FROM grade
+  3  UNION
+  4  SELECT created_by, 'GRADE_TYPE', 2
+  5  FROM grade_type
+  6  UNION
+  7  SELECT created_by, 'GRADE_CONVERSION', 3
+  8  FROM grade_conversion
+  9  UNION
+ 10  SELECT created_by, 'ENROLLMENT', 4
+ 11  FROM enrollment
+ 12  ORDER BY 3;
+
+CREATED_BY                     SOURCE           SORT_ORDER                      
+------------------------------ ---------------- ----------                      
+BROSENZW                       GRADE                     1                      
+CBRENNAN                       GRADE                     1                      
+MCAFFREY                       GRADE_TYPE                2                      
+JAYCAF                         ENROLLMENT                4                      
+
+SQL> 
+SQL> SELECT created_by
+  2  FROM enrollment
+  3  MINUS
+  4  SELECT created_by
+  5  FROM course;
+
+CREATED_BY                                                                      
+------------------------------                                                  
+JAYCAF                                                                          
+
+SQL> spool off

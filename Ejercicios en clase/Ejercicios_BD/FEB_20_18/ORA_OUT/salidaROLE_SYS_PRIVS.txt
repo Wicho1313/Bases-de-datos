@@ -1,0 +1,15 @@
+
+ROLE                                PRIVILEGE                           ADMIN_OPTION                                                                  
+----------------------------------- ----------------------------------- -----------------------------------                                           
+RESOURCE                            CREATE TRIGGER                      NO                                                                            
+RESOURCE                            CREATE SEQUENCE                     NO                                                                            
+RESOURCE                            CREATE TYPE                         NO                                                                            
+RESOURCE                            CREATE PROCEDURE                    NO                                                                            
+RESOURCE                            CREATE CLUSTER                      NO                                                                            
+CONNECT                             CREATE SESSION                      NO                                                                            
+RESOURCE                            CREATE OPERATOR                     NO                                                                            
+RESOURCE                            CREATE INDEXTYPE                    NO                                                                            
+RESOURCE                            CREATE TABLE                        NO                                                                            
+
+9 rows selected.
+

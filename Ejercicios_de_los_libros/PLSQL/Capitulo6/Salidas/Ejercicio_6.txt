@@ -1,0 +1,9 @@
+SQL> rem el equijoin siempre considera la clausula USING
+SQL> SELECT course_no, s.section_no, c.description,
+  2  	s.location, s.instructor_id
+  3  	FROM course c JOIN section s
+  4  	USING (course_no);
+
+no rows selected
+
+SQL> spool off

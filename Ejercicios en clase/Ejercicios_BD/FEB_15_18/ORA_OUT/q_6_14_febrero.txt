@@ -1,0 +1,53 @@
+SQL> PROMPT DESPLIEGA LA ESTRUCTURA DE LA TABLA DEPARTMENTS
+DESPLIEGA LA ESTRUCTURA DE LA TABLA DEPARTMENTS
+SQL> DESC DEPARTMENTS
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ DEPARTMENT_ID                                                                       NOT NULL NUMBER(4)
+ DEPARTMENT_NAME                                                                     NOT NULL VARCHAR2(30)
+ MANAGER_ID                                                                                   NUMBER(6)
+ LOCATION_ID                                                                                  NUMBER(4)
+
+SQL> PROMPT DESPLIEGA LOS ATRIBUTOS ID, NOMBRE DE DEPTO, MANAGER Y UBICACION
+DESPLIEGA LOS ATRIBUTOS ID, NOMBRE DE DEPTO, MANAGER Y UBICACION
+SQL> COLUMN Num format 9999
+SQL> column Nombre|depto format A21
+SQL> COLUMN GERENTE FORMAT 9999
+SQL> COLUMN LUGAR FORMAT 9999
+SQL> SELECT DEPARTMENT_ID "Num", DEPARTMENT_NAME "Nombre|depto",
+  2  MANAGER_ID GERENTE, LOCATION_ID LUGAR
+  3  FROM DEPARTMENTS
+  4  ORDER BY 2;
+  Num*Nombre|depto         *GERENTE*LUGAR                                                                                                             
+=====*=====================*=======*=====                                                                                                             
+  110*Accounting           *    205* 1700                                                                                                             
+   10*Administration       *    200* 1700                                                                                                             
+  160*Benefits             *NADA   * 1700                                                                                                             
+  180*Construction         *NADA   * 1700                                                                                                             
+  190*Contracting          *NADA   * 1700                                                                                                             
+  140*Control And Credit   *NADA   * 1700                                                                                                             
+  130*Corporate Tax        *NADA   * 1700                                                                                                             
+   90*Executive            *    100* 1700                                                                                                             
+  100*Finance              *    108* 1700                                                                                                             
+  240*Government Sales     *NADA   * 1700                                                                                                             
+   40*Human Resources      *    203* 2400                                                                                                             
+   60*IT                   *    103* 1400                                                                                                             
+  230*IT Helpdesk          *NADA   * 1700                                                                                                             
+  210*IT Support           *NADA   * 1700                                                                                                             
+  170*Manufacturing        *NADA   * 1700                                                                                                             
+   20*Marketing            *    201* 1800                                                                                                             
+  220*NOC                  *NADA   * 1700                                                                                                             
+  200*Operations           *NADA   * 1700                                                                                                             
+  270*Payroll              *NADA   * 1700                                                                                                             
+   70*Public Relations     *    204* 2700                                                                                                             
+   30*Purchasing           *    114* 1700                                                                                                             
+  260*Recruiting           *NADA   * 1700                                                                                                             
+  250*Retail Sales         *NADA   * 1700                                                                                                             
+   80*Sales                *    145* 2500                                                                                                             
+  150*Shareholder Services *NADA   * 1700                                                                                                             
+   50*Shipping             *    121* 1500                                                                                                             
+  120*Treasury             *NADA   * 1700                                                                                                             
+
+27 rows selected.
+
+SQL> spool off

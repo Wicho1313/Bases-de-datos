@@ -1,0 +1,9 @@
+SQL> REM Otra forma de hacer la operacion anterior con un join
+SQL> SELECT s.last_name, s.zip, z.state, z.city
+  2  FROM student s JOIN zipcode z
+  3  ON (s.zip = z.zip)
+  4  ORDER BY s.zip;
+
+no rows selected
+
+SQL> spool off

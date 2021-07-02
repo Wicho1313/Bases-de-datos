@@ -1,0 +1,6 @@
+WHERE registration_date = TO_DATE('22-JAN-2003', 'DD-MON-YYYY')
+                                  *
+ERROR at line 3:
+ORA-01843: not a valid month 
+
+

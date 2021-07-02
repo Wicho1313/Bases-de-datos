@@ -1,0 +1,1 @@
+@@ D:\ESCOM\bases\20_feb_18\Script\20_feb_18_ tabla_dinamica.sql

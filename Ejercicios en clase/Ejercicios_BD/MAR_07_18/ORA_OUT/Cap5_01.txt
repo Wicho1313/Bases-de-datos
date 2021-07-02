@@ -1,0 +1,147 @@
+FROM enrollment
+     *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+FROM enrollment
+     *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+FROM section
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+FROM section
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+min max con otros tipos de datos
+FROM student
+     *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+FROM course
+     *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+END) AS PROMEDIO
+               *
+ERROR at line 6:
+ORA-00923: FROM keyword not found where expected 
+
+
+COUNT(*)
+*
+ERROR at line 4:
+ORA-00933: SQL command not properly ended 
+
+
+FROM enrollment
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+TO DATE('12-MAR-2005', 'DD-MON-YYYY'))
+*
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+FROM section
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+FROM section
+     *
+ERROR at line 5:
+ORA-00942: table or view does not exist 
+
+
+FROM section
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+FROM section
+     *
+ERROR at line 5:
+ORA-00942: table or view does not exist 
+
+
+SP2-0734: unknown command beginning "GROUP BY l..." - rest of line ignored.
+FROM section
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+FROM section
+     *
+ERROR at line 4:
+ORA-00942: table or view does not exist 
+
+
+FROM section
+     *
+ERROR at line 4:
+ORA-00942: table or view does not exist 
+
+
+clausula where y having
+GROUP BY location, instructor id
+                              *
+ERROR at line 6:
+ORA-00933: SQL command not properly ended 
+
+
+FROM enrollment
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+FROM course
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+FROM course
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+FROM enrollment
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+FROM section
+     *
+ERROR at line 5:
+ORA-00942: table or view does not exist 
+
+
+FROM section
+     *
+ERROR at line 5:
+ORA-00942: table or view does not exist 
+
+

@@ -1,0 +1,11 @@
+spool G:\ESCOM\bases\15_feb_18\invocacion_de_queries.txt
+@@ G:\ESCOM\bases\15_feb_18_queries\scripts\q1.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\scripts\q2.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\scripts\q3.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\scripts\q4.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\scripts\q5.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\scripts\q6.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\scripts\q7.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\scripts\q8.sql
+@@ G:\ESCOM\bases\15_feb_18_queries\scripts\q9.sql
+spool off

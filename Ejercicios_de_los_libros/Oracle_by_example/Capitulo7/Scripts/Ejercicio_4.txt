@@ -1,0 +1,19 @@
+Spool D:\ESCOM\bases\Ejercicios_de_los_libros\Oracle_by_example\Capitulo7\Salidas\Ejercicio_4.txt
+
+SELECT student_id, section_id, numeric_grade
+FROM grade
+WHERE grade_type_code = 'PJ'
+AND (section_id, numeric_grade) IN
+(SELECT section_id, MAX(numeric_grade)
+FROM grade
+WHERE grade_type_code = 'PJ'
+GROUP BY section_id);
+
+SELECT student_id, COUNT(*)
+FROM enrollment
+GROUP BY student_id
+HAVING COUNT(*) =
+(SELECT MAX(COUNT(*))
+FROM enrollment
+GROUP BY student_id);
+spool off

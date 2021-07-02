@@ -1,0 +1,231 @@
+SQL> SET PAGESIZE 99
+SQL> SET LINESIZE 150
+SQL> DROP TABLE EMP;
+
+Table dropped.
+
+SQL> CREATE TABLE EMP (
+  2  nif integer
+  3  primary key,
+  4  nombre varchar2(12),
+  5  apellidos varchar2(20),
+  6  nivel integer,
+  7  ocupacion varchar2(20),
+  8  matricula integer
+  9  );
+
+Table created.
+
+SQL> 
+SQL> drop table EMP_DATOS;
+
+Table dropped.
+
+SQL> CREATE TABLE EMP_DATOS(
+  2  matricula integer
+  3  primary key,
+  4  nacimiento varchar2(12),
+  5  direccion varchar2(16),
+  6  hobbies varcHar2(20),
+  7  nif integer
+  8  );
+
+Table created.
+
+SQL> 
+SQL> INSERT INTO EMP VALUES (10,'NANCY','DEVOLIO',6,'GERENTE',1010);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES (20,'ANDRREW','FULLER',1,'VENDEDOR',1020);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES (30,'JANET','LEVERLING',1,'VENDEDOR',1030);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES (40,'MARGARET','PEACOCK',2,'CONTADOR',1040);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES (50,'STEVEN','RODRIGUEZ',2,'PROGRAMADOR',1050);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES (60,'ROSY','BUCHANAN',3,'ANALISTA',1060);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES (70,'MARY','SUMAYA',3,'CONTADOR',1070);
+
+1 row created.
+
+SQL> 
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> 
+SQL> INSERT INTO EMP_DATOS VALUES (1010,TO_DATE('1968-01-19','YYYY-MM-DD'),'ALTILLO 50','LECTURA',10);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DATOS VALUES (1020,TO_DATE('1978-01-19','YYYY-MM-DD'),'REGINA 22','EL CHAT',20);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DATOS VALUES (1030,TO_DATE('1988-01-19','YYYY-MM-DD'),'ARGENTINA 20','MUSICA',30);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DATOS VALUES (1040,TO_DATE('1998-01-19','YYYY-MM-DD'),'DONCELES 16','FUTBOL',40);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DATOS VALUES (1050,TO_DATE('1999-01-19','YYYY-MM-DD'),'MONTEVIDEO 45','CINE',50);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DATOS VALUES (1060,TO_DATE('2000-01-19','YYYY-MM-DD'),'TICOMAN 19','TEATRO',60);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DATOS VALUES (1070,TO_DATE('2001-01-19','YYYY-MM-DD'),'LIMA 38','GRAFITTI',70);
+
+1 row created.
+
+SQL> 
+SQL> CLEAR COLUMNS;
+columns cleared
+SQL> SET SPACE 6;
+SQL> column nif format 9999;
+SQL> column nombre format a12;
+SQL> column apellidos format a13;
+SQL> column nivel format 9999;
+SQL> column ocupacion format a12;
+SQL> column nif_emp_dat format 9999;
+SQL> select * FROM EMP;
+
+  NIF      NOMBRE            APELLIDOS          NIVEL      OCUPACION          MATRICULA                                                               
+-----      ------------      -------------      -----      ------------      ----------                                                               
+   10      NANCY             DEVOLIO                6      GERENTE                 1010                                                               
+   20      ANDRREW           FULLER                 1      VENDEDOR                1020                                                               
+   30      JANET             LEVERLING              1      VENDEDOR                1030                                                               
+   40      MARGARET          PEACOCK                2      CONTADOR                1040                                                               
+   50      STEVEN            RODRIGUEZ              2      PROGRAMADOR             1050                                                               
+   60      ROSY              BUCHANAN               3      ANALISTA                1060                                                               
+   70      MARY              SUMAYA                 3      CONTADOR                1070                                                               
+
+7 rows selected.
+
+SQL> 
+SQL> CLEAR COLUMNS;
+columns cleared
+SQL> SET SPACE 6;
+SQL> SET UNDERLINE '=';
+SQL> COLUMN NACIMIENTO FORMAT A15;
+SQL> COLUMN DIRECCION FORMAT A16;
+SQL> COLUMN HOBBIES FORMAT A12;
+SQL> SELECT * FROM EMP_DATOS;
+
+ MATRICULA      NACIMIENTO           DIRECCION             HOBBIES                  NIF                                                               
+==========      ===============      ================      ============      ==========                                                               
+      1010      19/01/68             ALTILLO 50            LECTURA                   10                                                               
+      1020      19/01/78             REGINA 22             EL CHAT                   20                                                               
+      1030      19/01/88             ARGENTINA 20          MUSICA                    30                                                               
+      1040      19/01/98             DONCELES 16           FUTBOL                    40                                                               
+      1050      19/01/99             MONTEVIDEO 45         CINE                      50                                                               
+      1060      19/01/00             TICOMAN 19            TEATRO                    60                                                               
+      1070      19/01/01             LIMA 38               GRAFITTI                  70                                                               
+
+7 rows selected.
+
+SQL> 
+SQL> set space 6;
+SQL> set underline '=';
+SQL> column nombre format a15;
+SQL> column apellidos format a12;
+SQL> column hobbies format a20;
+SQL> select NOMBRE, APELLIDOS, HOBBIES
+  2  FROM EMP, EMP_DATOS
+  3  WHERE EMP.NIF=EMP_DATOS.NIF;
+
+NOMBRE               APELLIDOS         HOBBIES                                                                                                        
+===============      ============      ====================                                                                                           
+NANCY                DEVOLIO           LECTURA                                                                                                        
+ANDRREW              FULLER            EL CHAT                                                                                                        
+JANET                LEVERLING         MUSICA                                                                                                         
+MARGARET             PEACOCK           FUTBOL                                                                                                         
+STEVEN               RODRIGUEZ         CINE                                                                                                           
+ROSY                 BUCHANAN          TEATRO                                                                                                         
+MARY                 SUMAYA            GRAFITTI                                                                                                       
+
+7 rows selected.
+
+SQL> 
+SQL> set space 6;
+SQL> set underline'=';
+SQL> column nombre format a15;
+SQL> column apellidos format a12;
+SQL> column hobbies format a20;
+SQL> select NOMBRE, APELLIDOS, HOBBIES,E.NIF,ED.NIF
+  2  FROM EMP E, EMP_DATOS ED WHERE E.matricula=ED.matricula;
+
+NOMBRE               APELLIDOS         HOBBIES                          NIF             NIF                                                           
+===============      ============      ====================      ==========      ==========                                                           
+NANCY                DEVOLIO           LECTURA                           10              10                                                           
+ANDRREW              FULLER            EL CHAT                           20              20                                                           
+JANET                LEVERLING         MUSICA                            30              30                                                           
+MARGARET             PEACOCK           FUTBOL                            40              40                                                           
+STEVEN               RODRIGUEZ         CINE                              50              50                                                           
+ROSY                 BUCHANAN          TEATRO                            60              60                                                           
+MARY                 SUMAYA            GRAFITTI                          70              70                                                           
+
+7 rows selected.
+
+SQL> 
+SQL> set space 6;
+SQL> set underline'=';
+SQL> column nombre format a15;
+SQL> column apellidos format a12;
+SQL> column hobbies format a20;
+SQL> select nombre, apellidos, hobbies, E.matricula,ED.matricula
+  2  from EMP E, EMP_DATOS ED
+  3  WHERE E.matricula=ED.matricula;
+
+NOMBRE               APELLIDOS         HOBBIES                    MATRICULA       MATRICULA                                                           
+===============      ============      ====================      ==========      ==========                                                           
+NANCY                DEVOLIO           LECTURA                         1010            1010                                                           
+ANDRREW              FULLER            EL CHAT                         1020            1020                                                           
+JANET                LEVERLING         MUSICA                          1030            1030                                                           
+MARGARET             PEACOCK           FUTBOL                          1040            1040                                                           
+STEVEN               RODRIGUEZ         CINE                            1050            1050                                                           
+ROSY                 BUCHANAN          TEATRO                          1060            1060                                                           
+MARY                 SUMAYA            GRAFITTI                        1070            1070                                                           
+
+7 rows selected.
+
+SQL> 
+SQL> set space 2;
+SQL> set underline'=';
+SQL> column nombre format a10;
+SQL> column apellidos format a12;
+SQL> column hobbies format a13;
+SQL> column matricula format 9999;
+SQL> select nombre, apellidos, hobbies, E.matricula, ED.matricula, E.NIF, ED.NIF
+  2  FROM EMP E, EMP_DATOS ED WHERE E.matricula=ED.matricula;
+
+NOMBRE      APELLIDOS     HOBBIES        MATRICULA  MATRICULA         NIF         NIF                                                                 
+==========  ============  =============  =========  =========  ==========  ==========                                                                 
+NANCY       DEVOLIO       LECTURA             1010       1010          10          10                                                                 
+ANDRREW     FULLER        EL CHAT             1020       1020          20          20                                                                 
+JANET       LEVERLING     MUSICA              1030       1030          30          30                                                                 
+MARGARET    PEACOCK       FUTBOL              1040       1040          40          40                                                                 
+STEVEN      RODRIGUEZ     CINE                1050       1050          50          50                                                                 
+ROSY        BUCHANAN      TEATRO              1060       1060          60          60                                                                 
+MARY        SUMAYA        GRAFITTI            1070       1070          70          70                                                                 
+
+7 rows selected.
+
+SQL> spool off

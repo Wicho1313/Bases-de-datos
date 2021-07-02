@@ -1,0 +1,90 @@
+SQL> REM SEGUNDA PARTE
+SQL> REM ELMARSI NAVATHE PAG 508
+SQL> REM DEPENDENCIAS FUNCIONALES
+SQL> REM SSN-> ENAME, BDATE, ADDRESS, DNUMBER DNUMBER -> DANAME, DMGRSSN
+SQL> REM PROBANDO EL 18 DE MARZO HOME
+SQL> SET PAGESIZE 99
+SQL> SET LINESIZE 150
+SQL> SET COLSEP ' || '
+SQL> DROP TABLE EMP_DEPT;
+
+Table dropped.
+
+SQL> CREATE TABLE EMP_DEPT(
+  2  ENAME VARCHAR2(25),
+  3  SSN NUMBER (9),
+  4  BDATE DATE,
+  5  ADDRESS VARCHAR2(27),
+  6  DNUMBER NUMBER (2),
+  7  DNAME VARCHAR2(15),
+  8  DMGRSSN NUMBER (9));
+
+Table created.
+
+SQL> REM POBLAR TABLA
+SQL> INSERT INTO EMP_DEPT VALUES ('SMITH, JOHN B.',123456789,TO_DATE('09/01/1965'),'731 FONDREN, HOUSTON, TX',5,'RESEARCH',333445555);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DEPT VALUES ('WONG, FRANKLIN T.',333445555, TO_DATE('08/12/1995'),'638 VOSS, HOUSTON, TX',5,'RESEARCH',333445555);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DEPT VALUES ('ZELAYA, ALICIA J.',999887777, TO_DATE('19/07/1968'),'3321 CASTLE, SPRING, TX',4,'ADMINISTRATION',987654321);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DEPT VALUES ('WALLACE, JEBIFER S.',987654321, TO_DATE('20/06/1941'),'291 BERRY, BELLAIRE, TX',4, 'ADMINISTRATION',987654321);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DEPT VALUES ('NARAYAN, RAMESH K.',666884444 ,TO_DATE('15/09/1962'),'975 FIREOAK, HUMBLE, TX',5 ,'RESEARCH',333445555);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DEPT VALUES ('ENGLISH, JOYCE A.',453453453 ,TO_DATE('31/07/1972'),'5631 RICE, HOUSTON, TX',5 ,'RESEARCH',333445555);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DEPT VALUES ('JABBAR, AHMAD V.',987987987 ,TO_DATE('29/03/1969'),'980 DALLAS, HOUSTON, TX',4 , 'ADMINISTRATION',987654321);
+
+1 row created.
+
+SQL> INSERT INTO EMP_DEPT VALUES ('BORG, JAMES E.',888665555 ,TO_DATE('10/11/1937'),'450 STONE, HOUSTON, TX',1 ,'HEADQUARTERS',888665555);
+
+1 row created.
+
+SQL> SELECT * FROM EMP_DEPT;
+
+ENAME                     ||        SSN || BDATE    || ADDRESS                     ||    DNUMBER || DNAME           ||    DMGRSSN                     
+------------------------- || ---------- || -------- || --------------------------- || ---------- || --------------- || ----------                     
+SMITH, JOHN B.            ||  123456789 || 09/01/65 || 731 FONDREN, HOUSTON, TX    ||          5 || RESEARCH        ||  333445555                     
+WONG, FRANKLIN T.         ||  333445555 || 08/12/95 || 638 VOSS, HOUSTON, TX       ||          5 || RESEARCH        ||  333445555                     
+ZELAYA, ALICIA J.         ||  999887777 || 19/07/68 || 3321 CASTLE, SPRING, TX     ||          4 || ADMINISTRATION  ||  987654321                     
+WALLACE, JEBIFER S.       ||  987654321 || 20/06/41 || 291 BERRY, BELLAIRE, TX     ||          4 || ADMINISTRATION  ||  987654321                     
+NARAYAN, RAMESH K.        ||  666884444 || 15/09/62 || 975 FIREOAK, HUMBLE, TX     ||          5 || RESEARCH        ||  333445555                     
+ENGLISH, JOYCE A.         ||  453453453 || 31/07/72 || 5631 RICE, HOUSTON, TX      ||          5 || RESEARCH        ||  333445555                     
+JABBAR, AHMAD V.          ||  987987987 || 29/03/69 || 980 DALLAS, HOUSTON, TX     ||          4 || ADMINISTRATION  ||  987654321                     
+BORG, JAMES E.            ||  888665555 || 10/11/37 || 450 STONE, HOUSTON, TX      ||          1 || HEADQUARTERS    ||  888665555                     
+
+8 rows selected.
+
+SQL> SELECT SSN, ENAME, BDATE, ADDRESS, DNUMBER, DNAME, DMGRSSN FROM EMP_DEPT ORDER BY 1;
+
+       SSN || ENAME                     || BDATE    || ADDRESS                     ||    DNUMBER || DNAME           ||    DMGRSSN                     
+---------- || ------------------------- || -------- || --------------------------- || ---------- || --------------- || ----------                     
+ 123456789 || SMITH, JOHN B.            || 09/01/65 || 731 FONDREN, HOUSTON, TX    ||          5 || RESEARCH        ||  333445555                     
+ 333445555 || WONG, FRANKLIN T.         || 08/12/95 || 638 VOSS, HOUSTON, TX       ||          5 || RESEARCH        ||  333445555                     
+ 453453453 || ENGLISH, JOYCE A.         || 31/07/72 || 5631 RICE, HOUSTON, TX      ||          5 || RESEARCH        ||  333445555                     
+ 666884444 || NARAYAN, RAMESH K.        || 15/09/62 || 975 FIREOAK, HUMBLE, TX     ||          5 || RESEARCH        ||  333445555                     
+ 888665555 || BORG, JAMES E.            || 10/11/37 || 450 STONE, HOUSTON, TX      ||          1 || HEADQUARTERS    ||  888665555                     
+ 987654321 || WALLACE, JEBIFER S.       || 20/06/41 || 291 BERRY, BELLAIRE, TX     ||          4 || ADMINISTRATION  ||  987654321                     
+ 987987987 || JABBAR, AHMAD V.          || 29/03/69 || 980 DALLAS, HOUSTON, TX     ||          4 || ADMINISTRATION  ||  987654321                     
+ 999887777 || ZELAYA, ALICIA J.         || 19/07/68 || 3321 CASTLE, SPRING, TX     ||          4 || ADMINISTRATION  ||  987654321                     
+
+8 rows selected.
+
+SQL> SELECT DNUMBER, DNAME, DMGRSSN FROM EMP_DEPT ORDER BY 1;
+SELECT DNUMBER, DNAME, DMGRSSN FROM EMP_DEPT ORDER BY 1;
+
+SQL> SPOOL OFF

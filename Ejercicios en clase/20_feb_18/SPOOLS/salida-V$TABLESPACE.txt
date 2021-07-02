@@ -1,0 +1,12 @@
+SQL> COLUMN TS# FORMAT 999;
+SQL> column NAME format a25;
+SQL> column INCLUDED_IN_DATABASE_BACKUP format a25
+SQL> SELECT TS#,NAME,INCLUDED_IN_DATABASE_BACKUP
+  2  FROM V$TABLESPACE;
+FROM V$TABLESPACE
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> spool off

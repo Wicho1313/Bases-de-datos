@@ -1,0 +1,10 @@
+SQL> PROMPT DESPLIEGA LA ESTRUCTURA DE LA TABLA COUNTRIES
+DESPLIEGA LA ESTRUCTURA DE LA TABLA COUNTRIES
+SQL> DESC COUNTRIES
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ COUNTRY_ID                                                                          NOT NULL CHAR(2)
+ COUNTRY_NAME                                                                                 VARCHAR2(40)
+ REGION_ID                                                                                    NUMBER
+
+SQL> spool off

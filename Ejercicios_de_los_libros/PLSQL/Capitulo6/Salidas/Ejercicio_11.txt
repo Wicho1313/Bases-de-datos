@@ -1,0 +1,8 @@
+SQL> REM cuenta las filas de ambas tablas
+SQL> SELECT COUNT(*)   FROM section, instructor;
+
+COUNT(*)                                                                                                                                              
+--------                                                                                                                                              
+       0                                                                                                                                              
+
+SQL> spool off

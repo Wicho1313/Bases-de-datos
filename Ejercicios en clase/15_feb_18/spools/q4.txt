@@ -1,0 +1,44 @@
+SQL> DESC EMPLOYEES
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ EMPLOYEE_ID                                                                         NOT NULL NUMBER(6)
+ FIRST_NAME                                                                                   VARCHAR2(20)
+ LAST_NAME                                                                           NOT NULL VARCHAR2(25)
+ EMAIL                                                                               NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                                                                 VARCHAR2(20)
+ HIRE_DATE                                                                           NOT NULL DATE
+ JOB_ID                                                                              NOT NULL VARCHAR2(10)
+ SALARY                                                                                       NUMBER(8,2)
+ COMMISSION_PCT                                                                               NUMBER(2,2)
+ MANAGER_ID                                                                                   NUMBER(6)
+ DEPARTMENT_ID                                                                                NUMBER(4)
+
+SQL> PROMPT DESPLIEGA ATRIBUTOS DE LA TABLA EMPLOYEES
+DESPLIEGA ATRIBUTOS DE LA TABLA EMPLOYEES
+SQL> SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, MANAGER_ID, SALARY
+  2  FROM EMPLOYEES
+  3  WHERE SALARY>4000
+  4  AND SALARY<7000;
+EMPLOYEE_ID * FIRST_NAME * LAST_NAME                 * MANAGER_ID *      SALARY                                                                       
+=========== * ========== * ========================= * ========== * ===========                                                                       
+        104 * Bruce      * Ernst                     *        103 *   $6,000.00                                                                       
+        105 * David      * Austin                    *        103 *   $4,800.00                                                                       
+        106 * Valli      * Pataballa                 *        103 *   $4,800.00                                                                       
+        107 * Diana      * Lorentz                   *        103 *   $4,200.00                                                                       
+        113 * Luis       * Popp                      *        108 *   $6,900.00                                                                       
+        123 * Shanta     * Vollman                   *        100 *   $6,500.00                                                                       
+        124 * Kevin      * Mourgos                   *        100 *   $5,800.00                                                                       
+        165 * David      * Lee                       *        147 *   $6,800.00                                                                       
+        166 * Sundar     * Ande                      *        147 *   $6,400.00                                                                       
+        167 * Amit       * Banda                     *        147 *   $6,200.00                                                                       
+        173 * Sundita    * Kumar                     *        148 *   $6,100.00                                                                       
+        179 * Charles    * Johnson                   *        149 *   $6,200.00                                                                       
+        184 * Nandita    * Sarchand                  *        121 *   $4,200.00                                                                       
+        185 * Alexis     * Bull                      *        121 *   $4,100.00                                                                       
+        200 * Jennifer   * Whalen                    *        101 *   $4,400.00                                                                       
+        202 * Pat        * Fay                       *        201 *   $6,000.00                                                                       
+        203 * Susan      * Mavris                    *        101 *   $6,500.00                                                                       
+
+17 rows selected.
+
+SQL> spool off

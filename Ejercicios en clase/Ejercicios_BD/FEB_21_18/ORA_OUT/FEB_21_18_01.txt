@@ -1,0 +1,163 @@
+
+Warning: Package created with compilation errors.
+
+
+Warning: Package Body created with compilation errors.
+
+SELECT pkg.year_number
+       *
+ERROR at line 1:
+ORA-06575: Package or function PKG is in an invalid state 
+
+
+SELECT pkg.deploy_fecha
+       *
+ERROR at line 1:
+ORA-06575: Package or function PKG is in an invalid state 
+
+
+SELECT pkg.deploy_fecha_2
+       *
+ERROR at line 1:
+ORA-06575: Package or function PKG is in an invalid state 
+
+
+SELECT pkg.deploy_fecha_2
+       *
+ERROR at line 1:
+ORA-06575: Package or function PKG is in an invalid state 
+
+
+DROP TABLE PAIS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE CONTINENTE
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+NOM_CONTINE                                                                     
+-----------                                                                     
+Africa                                                                          
+
+
+NOM_PAIS   CONTINENTE                                                           
+---------- -----------                                                          
+Benin      Africa                                                               
+Kenia      Africa                                                               
+Libia      Africa                                                               
+
+delete continente where
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (HR.PAIS_CONTINENTE_FK) violated - child record 
+found 
+
+
+PASO UNO
+
+Table altered.
+
+
+Table altered.
+
+
+1 row deleted.
+
+
+no rows selected
+
+
+no rows selected
+
+PASO DOS
+
+Rollback complete.
+
+
+Table altered.
+
+
+Table altered.
+
+
+1 row deleted.
+
+
+no rows selected
+
+
+NOM_PAIS   CONTINENTE                                                           
+---------- -----------                                                          
+Benin                                                                           
+Kenia                                                                           
+Libia                                                                           
+
+demos otro ROLLBACK
+PASO TRES
+
+Rollback complete.
+
+update continente
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (HR.PAIS_CONTINENTE_FK) violated - child record 
+found 
+
+
+update pais
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (HR.PAIS_CONTINENTE_FK) violated - parent key 
+not found 
+
+
+PUNTO CUATRO
+
+Table altered.
+
+
+Table altered.
+
+
+1 row updated.
+
+
+3 rows updated.
+
+
+NOM_CONTINE                                                                     
+-----------                                                                     
+Ifriqiyaahi                                                                     
+
+
+NOM_PAIS   CONTINENTE                                                           
+---------- -----------                                                          
+Benin      Ifriqiyaahi                                                          
+Kenia      Ifriqiyaahi                                                          
+Libia      Ifriqiyaahi                                                          
+
+

@@ -1,0 +1,13 @@
+1)Write a trigger that fires ONLY under the following conditions:
+CREATE TABLE TEMP(X NUMBER, Y NUMBER, Z NUMBER DEFAULT 5)
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+AFTER INSERT OR UPDATE OF Y ON TEMP
+                          *
+ERROR at line 2:
+ORA-00904: "Y": invalid identifier 
+
+

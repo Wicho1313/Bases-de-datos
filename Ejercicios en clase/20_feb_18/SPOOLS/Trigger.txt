@@ -1,0 +1,30 @@
+SQL> drop table temp;
+SQL> CREATE TABLE temp (N NUMBER);
+SQL> CREATE OR REPLACE TRIGGER temp_air
+  2  AFTER INSERT ON TEMP
+  3  FOR EACH ROW
+  4  BEGIN
+  5  dbms_output.put_line('executing temp_air');
+  6  END;
+  7  /
+SQL> INSERT INTO temp VALUES(10);
+SQL> INSERT INTO temp VALUES(20);
+SQL> INSERT INTO temp VALUES(30);
+SQL> INSERT INTO temp VALUES(40);
+SQL> INSERT INTO temp VALUES(50);
+SQL> INSERT INTO temp VALUES(60);
+SQL> INSERT INTO temp select * from temp;
+SQL> select * from temp;
+        10                                                                                                                                            
+        20                                                                                                                                            
+        30                                                                                                                                            
+        40                                                                                                                                            
+        50                                                                                                                                            
+        60                                                                                                                                            
+        10                                                                                                                                            
+        20                                                                                                                                            
+        30                                                                                                                                            
+        40                                                                                                                                            
+        50                                                                                                                                            
+        60                                                                                                                                            
+SQL> spool off

@@ -1,0 +1,237 @@
+SQL> SELECT first_name, last_name,
+  2  'Instructor' "Type"
+  3  FROM instructor
+  4  UNION SELECT first_name, last_name,
+  5  'Student'
+  6  FROM student;
+
+FIRST_NAME                 || LAST_NAME                  || Type                                                                                      
+-------------------------  || -------------------------  || ----------                                                                                
+A.                         || Tucker                     || Student                                                                                   
+Adele                      || Rothstein                  || Student                                                                                   
+Adrienne                   || Lopez                      || Student                                                                                   
+Al                         || Jamerncy                   || Student                                                                                   
+Alan                       || Affinito                   || Student                                                                                   
+Alan                       || Galik                      || Student                                                                                   
+Alfred                     || Hutheesing                 || Student                                                                                   
+Allan                      || Simmons                    || Student                                                                                   
+Angel                      || Cook                       || Student                                                                                   
+Anna                       || Bathmanapan                || Student                                                                                   
+Anthony                    || Bullock                    || Student                                                                                   
+Artie                      || Ward                       || Student                                                                                   
+Arun                       || Griffen                    || Student                                                                                   
+Asian                      || Chirichella                || Student                                                                                   
+Austin V.                  || Cadet                      || Student                                                                                   
+Barbara                    || Robichaud                  || Student                                                                                   
+Barry                      || Dunkon                     || Student                                                                                   
+Benita                     || Perkins                    || Student                                                                                   
+Bernadette                 || Montanez                   || Student                                                                                   
+Bernice                    || Dermody                    || Student                                                                                   
+Bessie                     || Heedles                    || Student                                                                                   
+Beth                       || Satterfield                || Student                                                                                   
+Bharat                     || Roberts                    || Student                                                                                   
+Bill                       || Engongoro                  || Student                                                                                   
+Brian                      || Robles                     || Student                                                                                   
+Brian                      || Saluja                     || Student                                                                                   
+Bridget                    || Hagel                      || Student                                                                                   
+Calvin                     || Kiraly                     || Student                                                                                   
+Carlos                     || Airall                     || Student                                                                                   
+Catherine                  || Frangopoulos               || Student                                                                                   
+Cathy                      || Austin                     || Student                                                                                   
+Charles                    || Caro                       || Student                                                                                   
+Christine                  || Sheppard                   || Student                                                                                   
+Craig                      || Anglin                     || Student                                                                                   
+Craig                      || Padron                     || Student                                                                                   
+D.                         || Dewitt                     || Student                                                                                   
+Daniel                     || McHowell                   || Student                                                                                   
+Daniel                     || Ordes                      || Student                                                                                   
+David                      || Eng                        || Student                                                                                   
+David                      || Thares                     || Student                                                                                   
+Deborah                    || Reyes                      || Student                                                                                   
+Debra                      || Boyce                      || Student                                                                                   
+Debra                      || Shah                       || Student                                                                                   
+Denise                     || Brownstein                 || Student                                                                                   
+Dennis                     || Mehta                      || Student                                                                                   
+Donna                      || Walston                    || Student                                                                                   
+E.A.                       || Torres                     || Student                                                                                   
+Edgar                      || Moffat                     || Student                                                                                   
+Edith                      || Daly                       || Student                                                                                   
+Edwin                      || Allende                    || Student                                                                                   
+Eilene                     || Grant                      || Student                                                                                   
+Eric                       || Da Silva                   || Student                                                                                   
+Evan                       || Fielding                   || Student                                                                                   
+Evelyn                     || Liggons                    || Student                                                                                   
+Fermin                     || Galik                      || Student                                                                                   
+Florence                   || Valamas                    || Student                                                                                   
+Frances                    || Lawson                     || Student                                                                                   
+Frank                      || Bunnell                    || Student                                                                                   
+Frank                      || M. Orent                   || Student                                                                                   
+Frank                      || Pace                       || Student                                                                                   
+Frank                      || Viotty                     || Student                                                                                   
+Frantz                     || McLean                     || Student                                                                                   
+Freedon                    || annunziato                 || Student                                                                                   
+Gabriel                    || Smith                      || Student                                                                                   
+Gene                       || Bresser, HR Rep.           || Student                                                                                   
+Genny                      || Andrew                     || Student                                                                                   
+George                     || Eakheit                    || Student                                                                                   
+George                     || Kocka                      || Student                                                                                   
+George                     || Korka                      || Student                                                                                   
+George                     || Merriman                   || Student                                                                                   
+George                     || Milano                     || Student                                                                                   
+George                     || Ross                       || Student                                                                                   
+Gerry                      || Tripp                      || Student                                                                                   
+Gilbert                    || Ginestra                   || Student                                                                                   
+Hedy                       || Naso                       || Student                                                                                   
+Helga                      || Towle                      || Student                                                                                   
+Henry                      || Masser                     || Student                                                                                   
+Howard                     || Leopta                     || Student                                                                                   
+Irene                      || Willig                     || Instructor                                                                                
+Irv                        || Dalvi                      || Student                                                                                   
+J.                         || Dalvi                      || Student                                                                                   
+J.                         || Segall                     || Student                                                                                   
+Jack                       || Kasperovich                || Student                                                                                   
+James E.                   || Norman                     || Student                                                                                   
+Jane                       || Jackson                    || Student                                                                                   
+Janet                      || Jung                       || Student                                                                                   
+Jean                       || Griffith                   || Student                                                                                   
+Jeannette                  || Smagler                    || Student                                                                                   
+Jeffrey                    || Citron                     || Student                                                                                   
+Jeffrey                    || Delbrun                    || Student                                                                                   
+Jenny                      || Goldsmith                  || Student                                                                                   
+Jerry                      || Abdou                      || Student                                                                                   
+Jim                        || Joas                       || Student                                                                                   
+Joane                      || Buckberg                   || Student                                                                                   
+Joel                       || Brendler                   || Student                                                                                   
+Joel                       || Krot                       || Student                                                                                   
+
+FIRST_NAME                 || LAST_NAME                  || Type                                                                                      
+-------------------------  || -------------------------  || ----------                                                                                
+John                       || Ancean                     || Student                                                                                   
+John                       || De Simone                  || Student                                                                                   
+John                       || Mithane                    || Student                                                                                   
+John                       || Tabs                       || Student                                                                                   
+John                       || Velie                      || Student                                                                                   
+John T.                    || Beitler                    || Student                                                                                   
+Jonathan                   || Jaele                      || Student                                                                                   
+Jose                       || Benitez                    || Student                                                                                   
+Joseph                     || Jimenes                    || Student                                                                                   
+Joseph                     || Yourish                    || Student                                                                                   
+Julius                     || Kwong                      || Student                                                                                   
+Kardik                     || Guarino                    || Student                                                                                   
+Kate                       || Page                       || Student                                                                                   
+Kathleen                   || Mastandora                 || Student                                                                                   
+Kathleen                   || Mulroy                     || Student                                                                                   
+Kevin                      || Lin                        || Student                                                                                   
+Kevin                      || Porch                      || Student                                                                                   
+Leonard                    || Millstein                  || Student                                                                                   
+Lloyd                      || Kellam                     || Student                                                                                   
+Lorelei                    || McNeal                     || Student                                                                                   
+Lorraine                   || Harty                      || Student                                                                                   
+Lorraine                   || Tucker                     || Student                                                                                   
+Lorrane                    || Velasco                    || Student                                                                                   
+Lynwood A.                 || Thorton                    || Student                                                                                   
+M.                         || Diokno                     || Student                                                                                   
+Madhav                     || Dusenberry                 || Student                                                                                   
+Margaret                   || Lloyd                      || Student                                                                                   
+Margaret                   || Mandel                     || Student                                                                                   
+Maria                      || Allende                    || Student                                                                                   
+Maria                      || Arias                      || Student                                                                                   
+Marianne                   || De Armas                   || Student                                                                                   
+Mark                       || Miller                     || Student                                                                                   
+Mary                       || Axch                       || Student                                                                                   
+May                        || Jodoin                     || Student                                                                                   
+Mei-Wah                    || Zopf                       || Student                                                                                   
+Melvin                     || Martin                     || Student                                                                                   
+Melvina                    || Chamnonkool                || Student                                                                                   
+Meryl                      || Owens                      || Student                                                                                   
+Michael                    || Brown                      || Student                                                                                   
+Michael                    || Carcia                     || Student                                                                                   
+Michael                    || Lefbowitz                  || Student                                                                                   
+Michael                    || Miroff                     || Student                                                                                   
+Mike                       || Madej                      || Student                                                                                   
+Mohamed                    || Valentine                  || Student                                                                                   
+Morty                      || Miller                     || Student                                                                                   
+Nana                       || Barogh                     || Student                                                                                   
+Nicole                     || Gillen                     || Student                                                                                   
+Norman                     || Callender                  || Student                                                                                   
+O.                         || Garnes                     || Student                                                                                   
+Oscar                      || Archer                     || Student                                                                                   
+Oscar                      || McGill                     || Student                                                                                   
+P.                         || Balterzar                  || Student                                                                                   
+Pat                        || Puetrino                   || Student                                                                                   
+Paul                       || Braun                      || Student                                                                                   
+Paul                       || Intal                      || Student                                                                                   
+Paul                       || Sikinger                   || Student                                                                                   
+Paula                      || Mwangi                     || Student                                                                                   
+Paula                      || Valentine                  || Student                                                                                   
+Peter                      || Carey                      || Student                                                                                   
+Peter                      || Daly                       || Student                                                                                   
+Phil                       || Gilloon                    || Student                                                                                   
+Piang                      || Nyziak                     || Student                                                                                   
+Piotr                      || Padel                      || Student                                                                                   
+Preston                    || Cross                      || Student                                                                                   
+Preston                    || Larcia                     || Student                                                                                   
+Price                      || Marten                     || Student                                                                                   
+R.                         || Sprouse                    || Student                                                                                   
+Radharam                   || King                       || Student                                                                                   
+Rafael A.                  || Torres                     || Student                                                                                   
+Rawan                      || Rosenberg                  || Student                                                                                   
+Ray                        || Schafer                    || Student                                                                                   
+Raymond                    || Cheevens                   || Student                                                                                   
+Reeva                      || Yeroushalmi                || Student                                                                                   
+Regina                     || Bose                       || Student                                                                                   
+Reynaldo                   || Chatman                    || Student                                                                                   
+Ricardo                    || Kurtz                      || Student                                                                                   
+Rita                       || Archor                     || Student                                                                                   
+Robert                     || Segall                     || Student                                                                                   
+Robin                      || Kelly                      || Student                                                                                   
+Roger                      || Cowie                      || Student                                                                                   
+Roger                      || Snow                       || Student                                                                                   
+Romeo                      || Ittoop                     || Student                                                                                   
+Rommel                     || Frost                      || Student                                                                                   
+Ronald                     || Tangaribuan                || Student                                                                                   
+Rosemary                   || Ellman                     || Student                                                                                   
+Salewa                     || Lindeman                   || Student                                                                                   
+Salewa                     || Zuckerberg                 || Student                                                                                   
+Sally                      || Naso                       || Student                                                                                   
+Salondra                   || Galik                      || Student                                                                                   
+Sarah                      || Annina                     || Student                                                                                   
+Sarah                      || Wilson                     || Student                                                                                   
+Sengita                    || MacDonald, Jr.             || Student                                                                                   
+Sharon                     || Thompson                   || Student                                                                                   
+Sheradha                   || Malone                     || Student                                                                                   
+Shirley                    || Leung                      || Student                                                                                   
+Shirley                    || Murray                     || Student                                                                                   
+
+FIRST_NAME                 || LAST_NAME                  || Type                                                                                      
+-------------------------  || -------------------------  || ----------                                                                                
+Simon                      || Ramesh                     || Student                                                                                   
+Steven                     || Gallagher                  || Student                                                                                   
+Steven                     || M. Orent                   || Student                                                                                   
+Suzanna                    || Velasco                    || Student                                                                                   
+Suzanne M.                 || Abid                       || Student                                                                                   
+Sylvia                     || Perrin                     || Student                                                                                   
+Tamara                     || Zapulla                    || Student                                                                                   
+Thomas E.                  || La Blank                   || Student                                                                                   
+Tom                        || Vargas                     || Student                                                                                   
+V.                         || Greenberg                  || Student                                                                                   
+V.                         || Saliternan                 || Student                                                                                   
+Valerie                    || Avia                       || Student                                                                                   
+Vera                       || Wetcel                     || Student                                                                                   
+Verona                     || Grant                      || Student                                                                                   
+Victor                     || Meshaj                     || Student                                                                                   
+Vinnie                     || Moon                       || Student                                                                                   
+Virginia                   || Ocampo                     || Student                                                                                   
+Walter                     || Boremmann                  || Student                                                                                   
+William                    || Gallo                      || Student                                                                                   
+Yu                         || Sentell                    || Student                                                                                   
+Yvonne                     || Allende                    || Student                                                                                   
+Yvonne                     || Williams                   || Student                                                                                   
+Yvonne                     || Winnicki                   || Student                                                                                   
+Z.A.                       || Scrittorale                || Student                                                                                   
+Zalman                     || Draquez                    || Student                                                                                   
+                           || Spencer                    || Instructor                                                                                
+
+218 rows selected.
+
+SQL> spool off

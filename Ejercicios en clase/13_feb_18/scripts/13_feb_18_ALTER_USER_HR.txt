@@ -1,0 +1,49 @@
+spool G:\ESCOM\bases\13_feb_18\alter_user.txt
+
+desc hr.employees;
+desc dba_tab_columns;
+
+column owner format a15;
+column table_name format a20;
+column column_name format a15;
+set colsep ' * '
+
+select owner, table_name, column_name
+from dba_tab_columns
+where owner='HR' and table_name='EMPLOYEES';
+
+select owner, table_name, column_name
+from ALL_tab_columns 
+where owner='HR' and table_name='EMPLOYEES';
+
+DESC ALL_OBJECTS;
+
+REM CONFIGURA LA PAGINA, TAMAÑO DE LINEA. SEPARADOR DE COLUMNAS Y SUBRAYADO
+SET PAGESIZE 99
+SET LINESIZE 150
+SET COLSEP' || '
+SET UNDERLINE '='
+
+COLUMN OWNER FORMAT A10 JUS CENTER
+COLUMN OBJECT_NAME FORMAT A25 JUSTIFY CENTER
+COLUMN Tipo FORMAT A10 JUS CENTER
+
+SELECT OWNER, OBJECT_NAME, OBJECT_TYPE "Tipo"
+FROM ALL_OBJECTS
+WHERE OWNER='HR'
+ORDER BY 3;
+
+DESC ALL_TAB_COLUMNS
+
+COLUMN OWNER FORMAT A6
+COLUMN TABLE_NAME FORMAT A23
+COLUMN COLUMN_NAME FORMAT A18
+COLUMN DATA_TYPE FORMAT A10
+COLUMN DATA_TYPE_MOD FORMAT A6
+COLUMN DATA_TYPE_OWNER FORMAT A6
+
+SELECT OWNER, TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_SET_NAME "CARACT"
+FROM ALL_TAB_COLUMNS
+WHERE OWNER='HR'
+ORDER BY 2,3;
+spool off

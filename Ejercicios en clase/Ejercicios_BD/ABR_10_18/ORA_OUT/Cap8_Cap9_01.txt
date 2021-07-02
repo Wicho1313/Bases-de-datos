@@ -1,0 +1,239 @@
+Chapter 8: Set Operations and Chapter 9: Complex Joins
+create table an populate it
+DROP TABLE T3; DROP TABLE T2; DROP TABLE T1
+             *
+ERROR at line 1:
+ORA-00911: invalid character 
+
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+      COL1                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+        10                                                                      
+        20                                                                      
+        30                                                                      
+
+6 rows selected.
+
+
+      COL2                                                                      
+----------                                                                      
+         2                                                                      
+         3                                                                      
+         4                                                                      
+        20                                                                      
+        30                                                                      
+        40                                                                      
+
+6 rows selected.
+
+
+      COL3                                                                      
+----------                                                                      
+         2                                                                      
+         3                                                                      
+         5                                                                      
+        20                                                                      
+        30                                                                      
+        50                                                                      
+
+6 rows selected.
+
+
+Commit complete.
+
+
+      COL1                                                                      
+----------                                                                      
+         1                                                                      
+         2                                                                      
+         3                                                                      
+        10                                                                      
+        20                                                                      
+        30                                                                      
+
+6 rows selected.
+
+
+      COL2                                                                      
+----------                                                                      
+         2                                                                      
+         3                                                                      
+         4                                                                      
+        20                                                                      
+        30                                                                      
+        40                                                                      
+
+6 rows selected.
+
+
+      COL1       COL2                                                           
+---------- ----------                                                           
+         2          2                                                           
+         3          3                                                           
+        20         20                                                           
+        30         30                                                           
+         1                                                                      
+        10                                                                      
+
+6 rows selected.
+
+
+      COL1       COL2                                                           
+---------- ----------                                                           
+         2          2                                                           
+         3          3                                                           
+        20         20                                                           
+        30         30                                                           
+                    4                                                           
+                   40                                                           
+
+6 rows selected.
+
+
+      COL1       COL2                                                           
+---------- ----------                                                           
+         1                                                                      
+         2          2                                                           
+         3          3                                                           
+        10                                                                      
+        20         20                                                           
+        30         30                                                           
+                    4                                                           
+                   40                                                           
+
+8 rows selected.
+
+   FROM course c LEFT OUTER JOIN section s
+                                 *
+ERROR at line 5:
+ORA-00942: table or view does not exist 
+
+
+FROM course c, section s
+               *
+ERROR at line 5:
+ORA-00942: table or view does not exist 
+
+
+FROM zipcode z
+     *
+ERROR at line 6:
+ORA-00942: table or view does not exist 
+
+
+   LEFT OUTER JOIN grade g
+                   *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+SP2-0042: unknown command "EXAMPLE" - rest of line ignored.
+   FROM instructor
+        *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+		FROM instructor
+		     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+UNION
+*
+ERROR at line 5:
+ORA-00933: SQL command not properly ended 
+
+
+	FROM course
+	     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+	FROM instructor
+	     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+	FROM student
+	     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+	FROM course
+	     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+

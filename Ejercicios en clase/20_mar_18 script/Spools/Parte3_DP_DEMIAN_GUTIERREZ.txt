@@ -1,0 +1,473 @@
+SQL> DROP TABLE EMP_PROJ;
+DROP TABLE EMP_PROJ
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE TABLE EMP_PROJ(
+  2  SSN NUMBER(9),
+  3  PNUMBER NUMBER (2),
+  4  HOURS NUMBER(4,2),
+  5  ENAME VARCHAR2(27),
+  6  PNAME VARCHAR2 (20),
+  7  PLOCATION VARCHAR2(15)
+  8  );
+
+Table created.
+
+SQL> 
+SQL> INSERT INTO EMP_PROJ VALUES(123456789,1,32.5,'SMITH, JOHN B.','PRODUCT X','BELLAIRE');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(123456789,2,7.5,'SMITH, JOHN B.','PRODUCT Y','SUGARLAND');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(666884444,3,40,'NARAYAN, RAMESH K.','PRODUCT Z','HOUSTON');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(453453543,1,20,'ENGLISH, JOYCE A.','PRODUCT X','BELLAIRE');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(453453453,2,20,'ENGLISH, JOYCE A.','PRODUCT Y','SUGARLAND');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(333445555,2,10,'WONG, FRANKLIN T.','PROYECY Y','SUGARLAND');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(333445555,3,10,'WONG, FRANKLIN T.','PRODUCT Z','HOUSTON');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(333445555,10,10,'WONG, FRANKLIN T.','COMPUTERIZATION','STAFFORD');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(333445555,20,10,'WONG, FRANKLIN T.','REORGANIZATION','HOUSTON');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(999887777,30,30,'ZELAYA, ALICIA J.','NEWBENEFITS','STAFFORD');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(999887777,10,10,'ZELAYA, ALICIA J.','COMPUTARIZATION','STAFFORD');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(987987987,10,35,'JABBAR, AHMAD V.','COMPUTERIZATION','STAFFORD');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(987987987,30,5,'JABBAR, AHMAD V.','NEWBENEFITS','STAFFORD');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(987654321,30,20,'WALLACE, JEBIFER S.','NEWBENEFITS','STAFFORD');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(987654321,20,15,'WALLACE, JEBIFER S.','REORGANIZATION','HOUSTON');
+
+1 row created.
+
+SQL> INSERT INTO EMP_PROJ VALUES(888665555,20,20,'BORG, JAMES E.','REORGANIZATION','HOUSTON');
+
+1 row created.
+
+SQL> 
+SQL> SELECT * FROM EMP_PROJ ORDER BY 1;
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 123456789          1       32.5 SMITH, JOHN B.                                 
+PRODUCT X            BELLAIRE                                                   
+                                                                                
+ 123456789          2        7.5 SMITH, JOHN B.                                 
+PRODUCT Y            SUGARLAND                                                  
+                                                                                
+ 333445555         10         10 WONG, FRANKLIN T.                              
+COMPUTERIZATION      STAFFORD                                                   
+                                                                                
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 333445555         20         10 WONG, FRANKLIN T.                              
+REORGANIZATION       HOUSTON                                                    
+                                                                                
+ 333445555          3         10 WONG, FRANKLIN T.                              
+PRODUCT Z            HOUSTON                                                    
+                                                                                
+ 333445555          2         10 WONG, FRANKLIN T.                              
+PROYECY Y            SUGARLAND                                                  
+                                                                                
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 453453453          2         20 ENGLISH, JOYCE A.                              
+PRODUCT Y            SUGARLAND                                                  
+                                                                                
+ 453453543          1         20 ENGLISH, JOYCE A.                              
+PRODUCT X            BELLAIRE                                                   
+                                                                                
+ 666884444          3         40 NARAYAN, RAMESH K.                             
+PRODUCT Z            HOUSTON                                                    
+                                                                                
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 888665555         20         20 BORG, JAMES E.                                 
+REORGANIZATION       HOUSTON                                                    
+                                                                                
+ 987654321         20         15 WALLACE, JEBIFER S.                            
+REORGANIZATION       HOUSTON                                                    
+                                                                                
+ 987654321         30         20 WALLACE, JEBIFER S.                            
+NEWBENEFITS          STAFFORD                                                   
+                                                                                
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 987987987         10         35 JABBAR, AHMAD V.                               
+COMPUTERIZATION      STAFFORD                                                   
+                                                                                
+ 987987987         30          5 JABBAR, AHMAD V.                               
+NEWBENEFITS          STAFFORD                                                   
+                                                                                
+ 999887777         30         30 ZELAYA, ALICIA J.                              
+NEWBENEFITS          STAFFORD                                                   
+                                                                                
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 999887777         10         10 ZELAYA, ALICIA J.                              
+COMPUTARIZATION      STAFFORD                                                   
+                                                                                
+
+16 rows selected.
+
+SQL> 
+SQL> SELECT * FROM EMP_PROJ ORDER BY 3;
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 987987987         30          5 JABBAR, AHMAD V.                               
+NEWBENEFITS          STAFFORD                                                   
+                                                                                
+ 123456789          2        7.5 SMITH, JOHN B.                                 
+PRODUCT Y            SUGARLAND                                                  
+                                                                                
+ 333445555         10         10 WONG, FRANKLIN T.                              
+COMPUTERIZATION      STAFFORD                                                   
+                                                                                
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 999887777         10         10 ZELAYA, ALICIA J.                              
+COMPUTARIZATION      STAFFORD                                                   
+                                                                                
+ 333445555         20         10 WONG, FRANKLIN T.                              
+REORGANIZATION       HOUSTON                                                    
+                                                                                
+ 333445555          3         10 WONG, FRANKLIN T.                              
+PRODUCT Z            HOUSTON                                                    
+                                                                                
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 333445555          2         10 WONG, FRANKLIN T.                              
+PROYECY Y            SUGARLAND                                                  
+                                                                                
+ 987654321         20         15 WALLACE, JEBIFER S.                            
+REORGANIZATION       HOUSTON                                                    
+                                                                                
+ 888665555         20         20 BORG, JAMES E.                                 
+REORGANIZATION       HOUSTON                                                    
+                                                                                
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 987654321         30         20 WALLACE, JEBIFER S.                            
+NEWBENEFITS          STAFFORD                                                   
+                                                                                
+ 453453543          1         20 ENGLISH, JOYCE A.                              
+PRODUCT X            BELLAIRE                                                   
+                                                                                
+ 453453453          2         20 ENGLISH, JOYCE A.                              
+PRODUCT Y            SUGARLAND                                                  
+                                                                                
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 999887777         30         30 ZELAYA, ALICIA J.                              
+NEWBENEFITS          STAFFORD                                                   
+                                                                                
+ 123456789          1       32.5 SMITH, JOHN B.                                 
+PRODUCT X            BELLAIRE                                                   
+                                                                                
+ 987987987         10         35 JABBAR, AHMAD V.                               
+COMPUTERIZATION      STAFFORD                                                   
+                                                                                
+
+       SSN    PNUMBER      HOURS ENAME                                          
+---------- ---------- ---------- ---------------------------                    
+PNAME                PLOCATION                                                  
+-------------------- ---------------                                            
+ 666884444          3         40 NARAYAN, RAMESH K.                             
+PRODUCT Z            HOUSTON                                                    
+                                                                                
+
+16 rows selected.
+
+SQL> 
+SQL> SELECT SSN, ENAME FROM EMP_PROJ ORDER BY 1;
+
+       SSN ENAME                                                                
+---------- ---------------------------                                          
+ 123456789 SMITH, JOHN B.                                                       
+ 123456789 SMITH, JOHN B.                                                       
+ 333445555 WONG, FRANKLIN T.                                                    
+ 333445555 WONG, FRANKLIN T.                                                    
+ 333445555 WONG, FRANKLIN T.                                                    
+ 333445555 WONG, FRANKLIN T.                                                    
+ 453453453 ENGLISH, JOYCE A.                                                    
+ 453453543 ENGLISH, JOYCE A.                                                    
+ 666884444 NARAYAN, RAMESH K.                                                   
+ 888665555 BORG, JAMES E.                                                       
+ 987654321 WALLACE, JEBIFER S.                                                  
+
+       SSN ENAME                                                                
+---------- ---------------------------                                          
+ 987654321 WALLACE, JEBIFER S.                                                  
+ 987987987 JABBAR, AHMAD V.                                                     
+ 987987987 JABBAR, AHMAD V.                                                     
+ 999887777 ZELAYA, ALICIA J.                                                    
+ 999887777 ZELAYA, ALICIA J.                                                    
+
+16 rows selected.
+
+SQL> 
+SQL> SELECT SSN, ENAME, PNUMBER, HOURS
+  2  FROM EMP_PROJ ORDER BY 1;
+
+       SSN ENAME                          PNUMBER      HOURS                    
+---------- --------------------------- ---------- ----------                    
+ 123456789 SMITH, JOHN B.                       1       32.5                    
+ 123456789 SMITH, JOHN B.                       2        7.5                    
+ 333445555 WONG, FRANKLIN T.                   10         10                    
+ 333445555 WONG, FRANKLIN T.                   20         10                    
+ 333445555 WONG, FRANKLIN T.                    3         10                    
+ 333445555 WONG, FRANKLIN T.                    2         10                    
+ 453453453 ENGLISH, JOYCE A.                    2         20                    
+ 453453543 ENGLISH, JOYCE A.                    1         20                    
+ 666884444 NARAYAN, RAMESH K.                   3         40                    
+ 888665555 BORG, JAMES E.                      20         20                    
+ 987654321 WALLACE, JEBIFER S.                 20         15                    
+
+       SSN ENAME                          PNUMBER      HOURS                    
+---------- --------------------------- ---------- ----------                    
+ 987654321 WALLACE, JEBIFER S.                 30         20                    
+ 987987987 JABBAR, AHMAD V.                    10         35                    
+ 987987987 JABBAR, AHMAD V.                    30          5                    
+ 999887777 ZELAYA, ALICIA J.                   30         30                    
+ 999887777 ZELAYA, ALICIA J.                   10         10                    
+
+16 rows selected.
+
+SQL> 
+SQL> SELECT PNUMBER,PNAME
+  2  FROM EMP_PROJ ORDER BY 1;
+
+   PNUMBER PNAME                                                                
+---------- --------------------                                                 
+         1 PRODUCT X                                                            
+         1 PRODUCT X                                                            
+         2 PRODUCT Y                                                            
+         2 PRODUCT Y                                                            
+         2 PROYECY Y                                                            
+         3 PRODUCT Z                                                            
+         3 PRODUCT Z                                                            
+        10 COMPUTERIZATION                                                      
+        10 COMPUTERIZATION                                                      
+        10 COMPUTARIZATION                                                      
+        20 REORGANIZATION                                                       
+
+   PNUMBER PNAME                                                                
+---------- --------------------                                                 
+        20 REORGANIZATION                                                       
+        20 REORGANIZATION                                                       
+        30 NEWBENEFITS                                                          
+        30 NEWBENEFITS                                                          
+        30 NEWBENEFITS                                                          
+
+16 rows selected.
+
+SQL> 
+SQL> SELECT PNUMBER, PNAME, HOURS, ENAME
+  2  FROM EMP_PROJ ORDER BY 1;
+
+   PNUMBER PNAME                     HOURS ENAME                                
+---------- -------------------- ---------- ---------------------------          
+         1 PRODUCT X                  32.5 SMITH, JOHN B.                       
+         1 PRODUCT X                    20 ENGLISH, JOYCE A.                    
+         2 PRODUCT Y                   7.5 SMITH, JOHN B.                       
+         2 PRODUCT Y                    20 ENGLISH, JOYCE A.                    
+         2 PROYECY Y                    10 WONG, FRANKLIN T.                    
+         3 PRODUCT Z                    40 NARAYAN, RAMESH K.                   
+         3 PRODUCT Z                    10 WONG, FRANKLIN T.                    
+        10 COMPUTERIZATION              10 WONG, FRANKLIN T.                    
+        10 COMPUTERIZATION              35 JABBAR, AHMAD V.                     
+        10 COMPUTARIZATION              10 ZELAYA, ALICIA J.                    
+        20 REORGANIZATION               15 WALLACE, JEBIFER S.                  
+
+   PNUMBER PNAME                     HOURS ENAME                                
+---------- -------------------- ---------- ---------------------------          
+        20 REORGANIZATION               10 WONG, FRANKLIN T.                    
+        20 REORGANIZATION               20 BORG, JAMES E.                       
+        30 NEWBENEFITS                  20 WALLACE, JEBIFER S.                  
+        30 NEWBENEFITS                   5 JABBAR, AHMAD V.                     
+        30 NEWBENEFITS                  30 ZELAYA, ALICIA J.                    
+
+16 rows selected.
+
+SQL> 
+SQL> SELECT SSN, ENAME, PNUMBER, PNAME, HOURS
+  2  FROM EMP_PROJ ORDER BY 1,3;
+
+       SSN ENAME                          PNUMBER PNAME                         
+---------- --------------------------- ---------- --------------------          
+     HOURS                                                                      
+----------                                                                      
+ 123456789 SMITH, JOHN B.                       1 PRODUCT X                     
+      32.5                                                                      
+                                                                                
+ 123456789 SMITH, JOHN B.                       2 PRODUCT Y                     
+       7.5                                                                      
+                                                                                
+ 333445555 WONG, FRANKLIN T.                    2 PROYECY Y                     
+        10                                                                      
+                                                                                
+
+       SSN ENAME                          PNUMBER PNAME                         
+---------- --------------------------- ---------- --------------------          
+     HOURS                                                                      
+----------                                                                      
+ 333445555 WONG, FRANKLIN T.                    3 PRODUCT Z                     
+        10                                                                      
+                                                                                
+ 333445555 WONG, FRANKLIN T.                   10 COMPUTERIZATION               
+        10                                                                      
+                                                                                
+ 333445555 WONG, FRANKLIN T.                   20 REORGANIZATION                
+        10                                                                      
+                                                                                
+
+       SSN ENAME                          PNUMBER PNAME                         
+---------- --------------------------- ---------- --------------------          
+     HOURS                                                                      
+----------                                                                      
+ 453453453 ENGLISH, JOYCE A.                    2 PRODUCT Y                     
+        20                                                                      
+                                                                                
+ 453453543 ENGLISH, JOYCE A.                    1 PRODUCT X                     
+        20                                                                      
+                                                                                
+ 666884444 NARAYAN, RAMESH K.                   3 PRODUCT Z                     
+        40                                                                      
+                                                                                
+
+       SSN ENAME                          PNUMBER PNAME                         
+---------- --------------------------- ---------- --------------------          
+     HOURS                                                                      
+----------                                                                      
+ 888665555 BORG, JAMES E.                      20 REORGANIZATION                
+        20                                                                      
+                                                                                
+ 987654321 WALLACE, JEBIFER S.                 20 REORGANIZATION                
+        15                                                                      
+                                                                                
+ 987654321 WALLACE, JEBIFER S.                 30 NEWBENEFITS                   
+        20                                                                      
+                                                                                
+
+       SSN ENAME                          PNUMBER PNAME                         
+---------- --------------------------- ---------- --------------------          
+     HOURS                                                                      
+----------                                                                      
+ 987987987 JABBAR, AHMAD V.                    10 COMPUTERIZATION               
+        35                                                                      
+                                                                                
+ 987987987 JABBAR, AHMAD V.                    30 NEWBENEFITS                   
+         5                                                                      
+                                                                                
+ 999887777 ZELAYA, ALICIA J.                   10 COMPUTARIZATION               
+        10                                                                      
+                                                                                
+
+       SSN ENAME                          PNUMBER PNAME                         
+---------- --------------------------- ---------- --------------------          
+     HOURS                                                                      
+----------                                                                      
+ 999887777 ZELAYA, ALICIA J.                   30 NEWBENEFITS                   
+        30                                                                      
+                                                                                
+
+16 rows selected.
+
+SQL> 
+SQL> SELECT SSN, PNUMBER, HOURS
+  2  FROM EMP_PROJ ORDER BY 1,2;
+
+       SSN    PNUMBER      HOURS                                                
+---------- ---------- ----------                                                
+ 123456789          1       32.5                                                
+ 123456789          2        7.5                                                
+ 333445555          2         10                                                
+ 333445555          3         10                                                
+ 333445555         10         10                                                
+ 333445555         20         10                                                
+ 453453453          2         20                                                
+ 453453543          1         20                                                
+ 666884444          3         40                                                
+ 888665555         20         20                                                
+ 987654321         20         15                                                
+
+       SSN    PNUMBER      HOURS                                                
+---------- ---------- ----------                                                
+ 987654321         30         20                                                
+ 987987987         10         35                                                
+ 987987987         30          5                                                
+ 999887777         10         10                                                
+ 999887777         30         30                                                
+
+16 rows selected.
+
+SQL> spool off

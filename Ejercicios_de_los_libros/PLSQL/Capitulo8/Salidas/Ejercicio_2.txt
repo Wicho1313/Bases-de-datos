@@ -1,0 +1,11 @@
+SQL> REM group es para ordenar filas por prioridad de izquierda a derecha
+SQL> REM a demas por count nos muesta las filas duplicadas
+SQL> SELECT first_name, last_name, phone, COUNT(*)
+  2  FROM student
+  3  GROUP BY last_name, first_name, phone HAVING COUNT(*) > 1;
+
+FIRST_NAME                 || LAST_NAME                  || PHONE            || COUNT(*)                                                              
+-------------------------  || -------------------------  || ---------------  || --------                                                              
+Kevin                      || Porch                      || 201-555-5555     ||        2                                                              
+
+SQL> spool off

@@ -1,0 +1,24 @@
+SQL> 
+SQL> SELECT student_id, section_id, numeric_grade
+  2  FROM grade
+  3  WHERE grade_type_code = 'PJ'
+  4  AND (section_id, numeric_grade) IN
+  5  (SELECT section_id, MAX(numeric_grade)
+  6  FROM grade
+  7  WHERE grade_type_code = 'PJ'
+  8  GROUP BY section_id);
+
+STUDENT_ID SECTION_ID NUMERIC_GRADE                                             
+---------- ---------- -------------                                             
+       153        144            92                                             
+       105        155            92                                             
+       166         88            99                                             
+       232        149            83                                             
+       168        133            92                                             
+       234        137            99                                             
+       176        115            76                                             
+       245         82            77                                             
+
+8 rows selected.
+
+SQL> spool off

@@ -1,0 +1,41 @@
+SQL> 
+SQL> prmompt 4)Write two triggers that accomplish the same as the prior six triggers.
+SP2-0734: unknown command beginning "prmompt 4)..." - rest of line ignored.
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER temp_biudr
+  2  BEFORE INSERT OR UPDATE OR DELETE ON TEMP
+  3  FOR EACH ROW
+  4  BEGIN
+  5      CASE
+  6      WHEN inserting THEN
+  7          dbms_output.put_line('inserting before');
+  8      WHEN updating THEN
+  9          dbms_output.put_line('updating before');
+ 10      WHEN deleting THEN
+ 11          dbms_output.put_line('deleting before');
+ 12      END CASE;
+ 13  END;
+ 14  /
+
+Trigger created.
+
+SQL> CREATE OR REPLACE TRIGGER temp_aiudr
+  2  AFTER INSERT OR UPDATE OR DELETE ON TEMP
+  3  FOR EACH ROW
+  4  BEGIN
+  5      CASE
+  6      WHEN inserting THEN
+  7          dbms_output.put_line('inserting after');
+  8      WHEN updating THEN
+  9          dbms_output.put_line('updating after');
+ 10      WHEN deleting THEN
+ 11          dbms_output.put_line('deleting after');
+ 12      END CASE;
+ 13  END;
+ 14  /
+
+Trigger created.
+
+SQL> 
+SQL> 
+SQL> SPOOL OFF

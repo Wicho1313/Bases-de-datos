@@ -1,0 +1,38 @@
+BEFORE UPDATE ON STUDENT
+FOR EACH ROW
+BEGIN
+:new.modified_date:=SYSDATE;
+END;
+REM PRUEBA SU CREACION Y SU EJECUCION
+REM VERIFICA LAS TABLAS DEL DICCIONARIO ACERCA DE LOS TRIGGERSREM HABILITA Y DESHABILITA EL TRIGGER PROBÁNDOLO
+
+CREATE TABLE jan_03_enrollment AS 
+SELECT *
+FORM enrollment
+WHERE enroll_date>=
+TO_DATE ('01/01/2003','MM/DD/YYYY')
+AND enroll_date < TO_DATE('02/01/2003','MM/DD/YYYY');
+REM REVISA LOS NOMBRES DE LOS ATRIBUTOS
+DESC jan_03_enrollment
+SELECT student_id, section_id, enroll_date
+FROM jan_03_enrollment;
+
+DROP TABLE zipcode CASCADE CONSTRAINTS;
+REM PRUEBA LAS SIGUIENTES INSTRUCCIONES
+FLASHBACK TABLE table name [,tablename...] TO
+{{SCN|TIMESTAMP} expr [ENABLE|DISABLE TRIGGERS]|
+BEFORE DROP [RENAME TO newtablename]}
+REM REVISA LA PAPELERA DE RECICLAJE DE ORACLE
+DROP TABLE jan_03;
+SELECT object_name, original_name, type
+FROM user_recyclebin;
+SHOW recyclebin
+PURGE RECYCLEBIN;
+CREATE TABLE school_program AS
+SELECT last_name ||','||first_name name
+FROM student
+UNION 
+SELECT last_name||','||first_name
+FROM instructor;
+select * from school_program;
+spool off

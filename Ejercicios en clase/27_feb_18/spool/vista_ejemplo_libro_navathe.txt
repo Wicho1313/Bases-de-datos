@@ -1,0 +1,811 @@
+SQL> CLEAR SCREEN
+
+SQL> REM 27 de febrero del 2018
+SQL> REM EJEMPLO LIBRO NAVATHE
+SQL> REM
+SQL> 
+SQL> CLEAR SCREEN
+
+SQL> REM ELIMINAR TODO EL EJERCICIO
+SQL> drop table EMPLOYEE;
+
+Table dropped.
+
+SQL> drop table PROJECT;
+drop table PROJECT
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> drop table works_on;
+drop table works_on
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> SET ECHO OFF;
+SQL> DROP VIEW VISTA_E9;
+DROP VIEW VISTA_E9
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E8;
+DROP VIEW VISTA_E8
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E7;
+DROP VIEW VISTA_E7
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E6;
+DROP VIEW VISTA_E6
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E5;
+DROP VIEW VISTA_E5
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E4;
+DROP VIEW VISTA_E4
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E3;
+DROP VIEW VISTA_E3
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E2;
+DROP VIEW VISTA_E2
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E1;
+DROP VIEW VISTA_E1
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> 
+SQL> REM INICIO
+SQL> --
+SQL> REM TABLA EMPLOYEE
+SQL> REM
+SQL> drop table EMPLOYEE;
+drop table EMPLOYEE
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE TABLE EMPLOYEE(
+  2  	FNAME VARCHAR2(15),
+  3  		MINIT VARCHAR2(2),
+  4  		LNAME VARCHAR2(15),
+  5  	SSN NUMBER,
+  6  		BDATE DATE,
+  7  		ADDRESS VARCHAR2(25),
+  8  		SEX VARCHAR2(15),
+  9  		SALARY NUMBER,
+ 10  		SUPERSSN NUMBER,
+ 11  		DNO NUMBER);
+
+Table created.
+
+SQL> --
+SQL> REM TABLA PROJECT
+SQL> REM
+SQL> drop table PROJECT;
+drop table PROJECT
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE TABLE PROJECT(
+  2  	PNAME VARCHAR2(15),
+  3  	PNUMBER NUMBER,
+  4  		PLOCATION VARCHAR2(15),
+  5  		DNUM NUMBER);
+
+Table created.
+
+SQL> --
+SQL> REM TABLA WORKS_ON
+SQL> REM
+SQL> drop table works_on;
+drop table works_on
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE TABLE works_on(
+  2  	ESSN NUMBER,
+  3  		PNO NUMBER,
+  4  		HOURS NUMBER);
+
+Table created.
+
+SQL> --
+SQL> REM POBLAR LA TABLA EMPLOYEE
+SQL> --
+SQL> --
+SQL> INSERT INTO EMPLOYEE VALUES
+  2  ('John','B','Smith',123456789,TO_DATE('1965-01-09','YYYY-MM-DD'),'731 Fondren, Houston, TX','M',30000,333445555,5);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES
+  2  ('Franklin','T','Wong',333445555,TO_DATE('1955-12-08','YYYY-MM-DD'),'638 Voss, Houston, TX','M',40000,888665555,4);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES
+  2  ('Jennifer','J','Zelaya',999887777,TO_DATE('1968-01-19','YYYY-MM-DD'),'3321 Castle, Spring, TX','F',25000,9876543221,4);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES
+  2  ('Alicia','S','Wallane',987654321,TO_DATE('1941-06-19','YYYY-MM-DD'),'291 Berry, Bellaire, TX','F',43000,888665555,4);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES
+  2  ('Ramesh','K','Narayan',666884444,TO_DATE('1962-09-15','YYYY-MM-DD'),'975 Fire Oak, Humble, TX','M',38000,333445555,5);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES
+  2  ('Joyce','A','English',453453453,TO_DATE('1972-07-31','YYYY-MM-DD'),'5631 Rice, Houston, TX','F',25000,333445555,5);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES
+  2  ('Ahmad','V','Jabbar',987987987,TO_DATE('1969-03-29','YYYY-MM-DD'),'980 Dallas, Houston, TX','F',25000,987654321,4);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES
+  2  ('James','E','Borg',888665555,TO_DATE('1937-11-10','YYYY-MM-DD'),'450 Stone, Houston, TX','M','55000',NULL,1);
+
+1 row created.
+
+SQL> --
+SQL> REM
+SQL> REM POBLAR LA TABLA WORKS_ON
+SQL> --
+SQL> --
+SQL> insert into works_on values(123456789,1,32.5);
+
+1 row created.
+
+SQL> insert into works_on values(123456789,2,7.5);
+
+1 row created.
+
+SQL> insert into works_on values(666884444,3,40);
+
+1 row created.
+
+SQL> insert into works_on values(453453453,1,20.0);
+
+1 row created.
+
+SQL> insert into works_on values(453453453,2,20.0);
+
+1 row created.
+
+SQL> insert into works_on values(333445555,2,10.0);
+
+1 row created.
+
+SQL> insert into works_on values(333445555,3,10.0);
+
+1 row created.
+
+SQL> insert into works_on values(333445555,10,10.0);
+
+1 row created.
+
+SQL> insert into works_on values(333445555,20,10.0);
+
+1 row created.
+
+SQL> insert into works_on values(999887777,30,30.0);
+
+1 row created.
+
+SQL> insert into works_on values(999887777,10,30.0);
+
+1 row created.
+
+SQL> insert into works_on values(987987987,10,35.0);
+
+1 row created.
+
+SQL> insert into works_on values(987987987,30,5.0);
+
+1 row created.
+
+SQL> insert into works_on values(987654321,30,20.0);
+
+1 row created.
+
+SQL> insert into works_on values(987654321,20,15.0);
+
+1 row created.
+
+SQL> insert into works_on values(888665555,20,NULL);
+
+1 row created.
+
+SQL> --
+SQL> REM POBLAR LA TABLA PROJECT
+SQL> --
+SQL> --
+SQL> insert into project values('ProductX',1,'Bellaire',5);
+
+1 row created.
+
+SQL> insert into project values('ProductY',2,'Sugarland',5);
+
+1 row created.
+
+SQL> insert into project values('ProductZ',3,'Houston',5);
+
+1 row created.
+
+SQL> insert into project values('Computerization',10,'Stafford',5);
+
+1 row created.
+
+SQL> insert into project values('Reorganization',20,'Houston',5);
+
+1 row created.
+
+SQL> insert into project values('Newbenefits',1,'Stafford',5);
+
+1 row created.
+
+SQL> 
+SQL> REM FORMATO PARA WORKS_ON
+SQL> COLUMN ESSN FORMAT 999,999,999;
+SQL> COLUMN PNO FORMAT 99;
+SQL> COLUMN HOURS FORMAT 99.9;
+SQL> COLUMN PNAME FORMAT A11;
+SQL> COLUMN PNUMBER FORMAT 99;
+SQL> COLUMN PLOCATION FORMAT A11;
+SQL> COLUMN DNUM FORMAT 99;
+SQL> 
+SQL> SELECT * FROM EMPLOYEE;
+
+FNAME           || MI || LNAME           ||   SSN || BDATE    || ADDRESS                   || SEX             ||     SALARY ||   SUPERSSN             
+=============== || == || =============== || ===== || ======== || ========================= || =============== || ========== || ==========             
+       DNO                                                                                                                                            
+==========                                                                                                                                            
+John            || B  || Smith           || ##### || 09/01/65 || 731 Fondren, Houston, TX  || M               ||      30000 ||  333445555             
+         5                                                                                                                                            
+                                                                                                                                                      
+Franklin        || T  || Wong            || ##### || 08/12/55 || 638 Voss, Houston, TX     || M               ||      40000 ||  888665555             
+         4                                                                                                                                            
+                                                                                                                                                      
+Jennifer        || J  || Zelaya          || ##### || 19/01/68 || 3321 Castle, Spring, TX   || F               ||      25000 || 9876543221             
+         4                                                                                                                                            
+                                                                                                                                                      
+Alicia          || S  || Wallane         || ##### || 19/06/41 || 291 Berry, Bellaire, TX   || F               ||      43000 ||  888665555             
+         4                                                                                                                                            
+                                                                                                                                                      
+Ramesh          || K  || Narayan         || ##### || 15/09/62 || 975 Fire Oak, Humble, TX  || M               ||      38000 ||  333445555             
+         5                                                                                                                                            
+                                                                                                                                                      
+Joyce           || A  || English         || ##### || 31/07/72 || 5631 Rice, Houston, TX    || F               ||      25000 ||  333445555             
+         5                                                                                                                                            
+                                                                                                                                                      
+Ahmad           || V  || Jabbar          || ##### || 29/03/69 || 980 Dallas, Houston, TX   || F               ||      25000 ||  987654321             
+         4                                                                                                                                            
+                                                                                                                                                      
+James           || E  || Borg            || ##### || 10/11/37 || 450 Stone, Houston, TX    || M               ||      55000 ||                        
+         1                                                                                                                                            
+                                                                                                                                                      
+
+8 rows selected.
+
+SQL> SELECT * FROM WORKS_ON;
+
+        ESSN || PNO || HOURS                                                                                                                          
+============ || === || =====                                                                                                                          
+ 123,456,789 ||   1 ||  32.5                                                                                                                          
+ 123,456,789 ||   2 ||   7.5                                                                                                                          
+ 666,884,444 ||   3 ||  40.0                                                                                                                          
+ 453,453,453 ||   1 ||  20.0                                                                                                                          
+ 453,453,453 ||   2 ||  20.0                                                                                                                          
+ 333,445,555 ||   2 ||  10.0                                                                                                                          
+ 333,445,555 ||   3 ||  10.0                                                                                                                          
+ 333,445,555 ||  10 ||  10.0                                                                                                                          
+ 333,445,555 ||  20 ||  10.0                                                                                                                          
+ 999,887,777 ||  30 ||  30.0                                                                                                                          
+ 999,887,777 ||  10 ||  30.0                                                                                                                          
+ 987,987,987 ||  10 ||  35.0                                                                                                                          
+ 987,987,987 ||  30 ||   5.0                                                                                                                          
+ 987,654,321 ||  30 ||  20.0                                                                                                                          
+ 987,654,321 ||  20 ||  15.0                                                                                                                          
+ 888,665,555 ||  20 ||                                                                                                                                
+
+16 rows selected.
+
+SQL> SELECT * FROM PROJECT;
+
+PNAME       || PNUMBER || PLOCATION   || DNUM                                                                                                         
+=========== || ======= || =========== || ====                                                                                                         
+ProductX    ||       1 || Bellaire    ||    5                                                                                                         
+ProductY    ||       2 || Sugarland   ||    5                                                                                                         
+ProductZ    ||       3 || Houston     ||    5                                                                                                         
+Computeriza ||      10 || Stafford    ||    5                                                                                                         
+tion        ||         ||             ||                                                                                                              
+                                                                                                                                                      
+Reorganizat ||      20 || Houston     ||    5                                                                                                         
+ion         ||         ||             ||                                                                                                              
+                                                                                                                                                      
+Newbenefits ||       1 || Stafford    ||    5                                                                                                         
+
+6 rows selected.
+
+SQL> 
+SQL> SELECT COUNT(*) FROM EMPLOYEE;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+         8                                                                                                                                            
+
+SQL> SELECT COUNT(*) FROM WORKS_ON;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+        16                                                                                                                                            
+
+SQL> SELECT COUNT(*) FROM PROJECT;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+         6                                                                                                                                            
+
+SQL> 
+SQL> SELECT * FROM PROJECT,WORKS_ON
+  2  WHERE PNO=PNUMBER AND PNAME='ProductX';
+
+PNAME       || PNUMBER || PLOCATION   || DNUM ||         ESSN || PNO || HOURS                                                                         
+=========== || ======= || =========== || ==== || ============ || === || =====                                                                         
+ProductX    ||       1 || Bellaire    ||    5 ||  123,456,789 ||   1 ||  32.5                                                                         
+ProductX    ||       1 || Bellaire    ||    5 ||  453,453,453 ||   1 ||  20.0                                                                         
+
+SQL> 
+SQL> SELECT COUNT(*) FROM EMPLOYEE;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+         8                                                                                                                                            
+
+SQL> SELECT COUNT(*) FROM WORKS_ON;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+        16                                                                                                                                            
+
+SQL> SELECT COUNT(*) FROM PROJECT;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+         6                                                                                                                                            
+
+SQL> 
+SQL> SELECT COUNT(*) FROM EMPLOYEE, WORKS_ON;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+       128                                                                                                                                            
+
+SQL> 
+SQL> SELECT COUNT(*) FROM PROJECT, WORKS_ON;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+        96                                                                                                                                            
+
+SQL> 
+SQL> DESC ALL_OBJECTS;
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ OWNER                                                                               NOT NULL VARCHAR2(30)
+ OBJECT_NAME                                                                         NOT NULL VARCHAR2(30)
+ SUBOBJECT_NAME                                                                               VARCHAR2(30)
+ OBJECT_ID                                                                           NOT NULL NUMBER
+ DATA_OBJECT_ID                                                                               NUMBER
+ OBJECT_TYPE                                                                                  VARCHAR2(19)
+ CREATED                                                                             NOT NULL DATE
+ LAST_DDL_TIME                                                                       NOT NULL DATE
+ TIMESTAMP                                                                                    VARCHAR2(19)
+ STATUS                                                                                       VARCHAR2(7)
+ TEMPORARY                                                                                    VARCHAR2(1)
+ GENERATED                                                                                    VARCHAR2(1)
+ SECONDARY                                                                                    VARCHAR2(1)
+ NAMESPACE                                                                           NOT NULL NUMBER
+ EDITION_NAME                                                                                 VARCHAR2(30)
+
+SQL> 
+SQL> REM ELIMINAR VISTAS DEL ARBOL E1
+SQL> SET ECHO OFF;
+SQL> DROP VIEW VISTA_E9;
+DROP VIEW VISTA_E9
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E8;
+DROP VIEW VISTA_E8
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E7;
+DROP VIEW VISTA_E7
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E6;
+DROP VIEW VISTA_E6
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E5;
+DROP VIEW VISTA_E5
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E4;
+DROP VIEW VISTA_E4
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E3;
+DROP VIEW VISTA_E3
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E2;
+DROP VIEW VISTA_E2
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> DROP VIEW VISTA_E1;
+DROP VIEW VISTA_E1
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> 
+SQL> REM VISTA DEL ARBOL E
+SQL> 
+SQL> REM VISTA_E1
+SQL> --
+SQL> DROP VIEW VISTA_E1;
+DROP VIEW VISTA_E1
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE VIEW VISTA_E1 AS
+  2  SELECT * FROM PROJECT
+  3  WHERE Pname = 'ProductX';
+
+View created.
+
+SQL> 
+SQL> REM VISTA_E2
+SQL> --
+SQL> DROP VIEW VISTA_E2;
+DROP VIEW VISTA_E2
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE VIEW VISTA_E2 AS
+  2  SELECT PNUMBER FROM VISTA_E1;
+
+View created.
+
+SQL> 
+SQL> REM VISTA_E3
+SQL> --
+SQL> DROP VIEW VISTA_E3;
+DROP VIEW VISTA_E3
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE VIEW VISTA_E3 AS
+  2  SELECT ESSN, PNO
+  3  FROM WORKS_ON;
+
+View created.
+
+SQL> 
+SQL> REM VISTA_E4
+SQL> --
+SQL> DROP VIEW VISTA_E4;
+DROP VIEW VISTA_E4
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE VIEW VISTA_E4 AS
+  2  SELECT * FROM VISTA_E2, VISTA_E3
+  3  WHERE PNUMBER = PNO;
+
+View created.
+
+SQL> 
+SQL> REM VISTA_E5
+SQL> --
+SQL> DROP VIEW VISTA_E5;
+DROP VIEW VISTA_E5
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE VIEW VISTA_E5 AS
+  2  SELECT ESSN FROM VISTA_E4;
+
+View created.
+
+SQL> 
+SQL> REM VISTA_E6
+SQL> --
+SQL> DROP VIEW VISTA_E6;
+DROP VIEW VISTA_E6
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE VIEW VISTA_E6 AS
+  2  SELECT * FROM EMPLOYEE
+  3  WHERE BDATE > TO_DATE('1957-12-31','YYYY-MM-DD');
+
+View created.
+
+SQL> 
+SQL> REM VISTA_E7
+SQL> --
+SQL> DROP VIEW VISTA_E7;
+DROP VIEW VISTA_E7
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE VIEW VISTA_E7 AS
+  2  SELECT SSN,LNAME
+  3  FROM VISTA_E6;
+
+View created.
+
+SQL> 
+SQL> REM VISTA_E8
+SQL> --
+SQL> DROP VIEW VISTA_E8;
+DROP VIEW VISTA_E8
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE VIEW VISTA_E8 AS
+  2  SELECT * FROM VISTA_E5, VISTA_E7
+  3  WHERE ESSN = SSN;
+
+View created.
+
+SQL> 
+SQL> REM VISTA_E9
+SQL> --
+SQL> DROP VIEW VISTA_E9;
+DROP VIEW VISTA_E9
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> CREATE VIEW VISTA_E9 AS
+  2  SELECT LNAME
+  3  FROM VISTA_E8;
+
+View created.
+
+SQL> 
+SQL> SELECT LNAME
+  2  FROM EMPLOYEE, WORKS_ON, PROJECT
+  3  WHERE PNAME = 'ProductX' AND
+  4  	ESSN = SSN AND
+  5  	BDATE > TO_DATE('1957-12-31','YYYY-MM-DD') AND
+  6  	PNUMBER = PNO;
+
+LNAME                                                                                                                                                 
+===============                                                                                                                                       
+Smith                                                                                                                                                 
+English                                                                                                                                               
+
+SQL> 
+SQL> SELECT * FROM VISTA_E1;
+
+PNAME       || PNUMBER || PLOCATION   || DNUM                                                                                                         
+=========== || ======= || =========== || ====                                                                                                         
+ProductX    ||       1 || Bellaire    ||    5                                                                                                         
+
+SQL> PAUSE
+SELECT * FROM VISTA_E2;
+SQL> PAUSE
+SELECT * FROM VISTA_E3;
+SQL> SELECT * FROM VISTA_E4;
+
+PNUMBER ||         ESSN || PNO                                                                                                                        
+======= || ============ || ===                                                                                                                        
+      1 ||  123,456,789 ||   1                                                                                                                        
+      1 ||  453,453,453 ||   1                                                                                                                        
+
+SQL> SELECT * FROM VISTA_E5;
+
+        ESSN                                                                                                                                          
+============                                                                                                                                          
+ 123,456,789                                                                                                                                          
+ 453,453,453                                                                                                                                          
+
+SQL> SELECT * FROM VISTA_E6;
+
+FNAME           || MI || LNAME           ||   SSN || BDATE    || ADDRESS                   || SEX             ||     SALARY ||   SUPERSSN             
+=============== || == || =============== || ===== || ======== || ========================= || =============== || ========== || ==========             
+       DNO                                                                                                                                            
+==========                                                                                                                                            
+John            || B  || Smith           || ##### || 09/01/65 || 731 Fondren, Houston, TX  || M               ||      30000 ||  333445555             
+         5                                                                                                                                            
+                                                                                                                                                      
+Jennifer        || J  || Zelaya          || ##### || 19/01/68 || 3321 Castle, Spring, TX   || F               ||      25000 || 9876543221             
+         4                                                                                                                                            
+                                                                                                                                                      
+Ramesh          || K  || Narayan         || ##### || 15/09/62 || 975 Fire Oak, Humble, TX  || M               ||      38000 ||  333445555             
+         5                                                                                                                                            
+                                                                                                                                                      
+Joyce           || A  || English         || ##### || 31/07/72 || 5631 Rice, Houston, TX    || F               ||      25000 ||  333445555             
+         5                                                                                                                                            
+                                                                                                                                                      
+Ahmad           || V  || Jabbar          || ##### || 29/03/69 || 980 Dallas, Houston, TX   || F               ||      25000 ||  987654321             
+         4                                                                                                                                            
+                                                                                                                                                      
+
+SQL> SELECT * FROM VISTA_E7;
+
+  SSN || LNAME                                                                                                                                        
+===== || ===============                                                                                                                              
+##### || Smith                                                                                                                                        
+##### || Zelaya                                                                                                                                       
+##### || Narayan                                                                                                                                      
+##### || English                                                                                                                                      
+##### || Jabbar                                                                                                                                       
+
+SQL> SELECT * FROM VISTA_E8;
+
+        ESSN ||   SSN || LNAME                                                                                                                        
+============ || ===== || ===============                                                                                                              
+ 123,456,789 || ##### || Smith                                                                                                                        
+ 453,453,453 || ##### || English                                                                                                                      
+
+SQL> SELECT * FROM VISTA_E9;
+
+LNAME                                                                                                                                                 
+===============                                                                                                                                       
+Smith                                                                                                                                                 
+English                                                                                                                                               
+
+SQL> 
+SQL> PROMPT 'CIFRAS CONTROL'
+'CIFRAS CONTROL'
+SQL> SELECT COUNT(*)"VISTA_E1" FROM VISTA_E1;
+
+  VISTA_E1                                                                                                                                            
+==========                                                                                                                                            
+         1                                                                                                                                            
+
+SQL> SELECT COUNT(*)"VISTA_E2" FROM VISTA_E2;
+
+  VISTA_E2                                                                                                                                            
+==========                                                                                                                                            
+         1                                                                                                                                            
+
+SQL> SELECT COUNT(*)"VISTA_E3" FROM VISTA_E3;
+
+  VISTA_E3                                                                                                                                            
+==========                                                                                                                                            
+        16                                                                                                                                            
+
+SQL> SELECT COUNT(*)"VISTA_E4" FROM VISTA_E4;
+
+  VISTA_E4                                                                                                                                            
+==========                                                                                                                                            
+         2                                                                                                                                            
+
+SQL> SELECT COUNT(*)"VISTA_E5" FROM VISTA_E5;
+
+  VISTA_E5                                                                                                                                            
+==========                                                                                                                                            
+         2                                                                                                                                            
+
+SQL> SELECT COUNT(*)"VISTA_E6" FROM VISTA_E6;
+
+  VISTA_E6                                                                                                                                            
+==========                                                                                                                                            
+         5                                                                                                                                            
+
+SQL> SELECT COUNT(*)"VISTA_E7" FROM VISTA_E7;
+
+  VISTA_E7                                                                                                                                            
+==========                                                                                                                                            
+         5                                                                                                                                            
+
+SQL> SELECT COUNT(*)"VISTA_E8" FROM VISTA_E8;
+
+  VISTA_E8                                                                                                                                            
+==========                                                                                                                                            
+         2                                                                                                                                            
+
+SQL> SELECT COUNT(*)"VISTA_E9" FROM VISTA_E9;
+
+  VISTA_E9                                                                                                                                            
+==========                                                                                                                                            
+         2                                                                                                                                            
+
+SQL> 
+SQL> REM FINAL
+SQL> spool off

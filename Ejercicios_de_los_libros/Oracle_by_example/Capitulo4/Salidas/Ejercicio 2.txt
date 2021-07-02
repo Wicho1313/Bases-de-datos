@@ -1,0 +1,12 @@
+
+Grado            *  Descripcion                     *  Fecha                    
+---------------  *  ------------------------------  *  --------------------     
+FI               *  Final                           *  31/12/98                 
+HM               *  Homework                        *  31/12/98                 
+MT               *  Midterm                         *  31/12/98                 
+PA               *  Participation                   *  31/12/98                 
+PJ               *  Project                         *  31/12/98                 
+QZ               *  Quiz                            *  31/12/98                 
+
+6 rows selected.
+

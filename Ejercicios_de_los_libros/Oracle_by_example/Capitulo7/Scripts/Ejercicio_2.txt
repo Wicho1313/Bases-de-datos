@@ -1,0 +1,13 @@
+Spool D:\ESCOM\bases\Ejercicios_de_los_libros\Oracle_by_example\Capitulo7\Salidas\Ejercicio_2.txt
+
+SELECT last_name, first_name
+FROM student
+WHERE student_id IN
+(SELECT student_id
+FROM enrollment
+WHERE section_id IN
+(SELECT section_id
+FROM section
+WHERE section_no = 8
+AND course_no = 20));
+spool off

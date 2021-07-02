@@ -1,0 +1,11 @@
+SQL> 
+SQL> SELECT course_no, description
+  2  FROM course
+  3  MINUS
+  4  SELECT s.course_no, c.description
+  5  FROM section s, course c
+  6  WHERE s.course_no = c.course_no;
+
+no rows selected
+
+SQL> spool off

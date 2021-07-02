@@ -1,0 +1,6 @@
+SQL> REM Se puede tener el mismo resultado con equijoins
+SQL> SELECT DISTINCT c.course_no   FROM course c, section s  WHERE c.course_no = s.course_no;
+
+no rows selected
+
+SQL> spool off

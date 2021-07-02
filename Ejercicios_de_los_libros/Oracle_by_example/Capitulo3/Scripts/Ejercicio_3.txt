@@ -1,0 +1,14 @@
+set echo off;
+Column Nombre format A15;
+Column Otro format A15;
+Column Primero format A15;
+set colsep '  *  ';
+
+Spool  "C:\Users\Acer\Desktop\Ejercicios\Oracle by example\Capitulo3\Salidas\Ejercicio 3.txt"
+
+Select First_name "Nombre", Substr(First_name, Instr(First_name, '.')-1) "Otro",
+Substr(First_name, 1, Instr(First_name, '.')-2) "Primero"
+From student
+Where Instr(First_name, '.') >= 3;
+
+Spool off;

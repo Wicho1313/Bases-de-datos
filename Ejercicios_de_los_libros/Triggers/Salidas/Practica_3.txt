@@ -1,0 +1,83 @@
+SQL> 
+SQL> prompt 3)Write all six possible row level triggers: BEFORE and AFTER ROW for INSERT, UPDATE, and DELETE.
+3)Write all six possible row level triggers: BEFORE and AFTER ROW for INSERT, UPDATE, and DELETE.
+SQL> 
+SQL> prompt BEFORE INSERT
+BEFORE INSERT
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER temp_bir
+  2  BEFORE INSERT ON TEMP
+  3  FOR EACH ROW
+  4  BEGIN
+  5      dbms_output.put_line('executing temp_bir');
+  6  END;
+  7  /
+
+Trigger created.
+
+SQL> prompt AFTER INSERT
+AFTER INSERT
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER temp_air
+  2  AFTER INSERT ON TEMP
+  3  FOR EACH ROW
+  4  BEGIN
+  5      dbms_output.put_line('executing temp_air');
+  6  END;
+  7  /
+
+Trigger created.
+
+SQL> prompt BEFORE UPDATE
+BEFORE UPDATE
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER temp_bur
+  2  BEFORE UPDATE ON TEMP
+  3  FOR EACH ROW
+  4  BEGIN
+  5  dbms_output.put_line('executing temp_bur');
+  6  END;
+  7  /
+
+Trigger created.
+
+SQL> prompt AFTER UPDATE
+AFTER UPDATE
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER temp_aur
+  2  AFTER UPDATE ON TEMP
+  3  FOR EACH ROW
+  4  BEGIN
+  5      dbms_output.put_line('executing temp_aur');
+  6  END;
+  7  /
+
+Trigger created.
+
+SQL> prompt BEFORE DELETE
+BEFORE DELETE
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER temp_bdr
+  2  BEFORE DELETE ON TEMP
+  3  FOR EACH ROW
+  4  BEGIN
+  5      dbms_output.put_line('executing temp_bdr');
+  6  END;
+  7  /
+
+Trigger created.
+
+SQL> prompt AFTER DELETE
+AFTER DELETE
+SQL> 
+SQL> CREATE OR REPLACE TRIGGER temp_adr
+  2  AFTER DELETE ON TEMP
+  3  FOR EACH ROW
+  4  BEGIN
+  5      dbms_output.put_line('executing temp_adr');
+  6  END;
+  7  /
+
+Trigger created.
+
+SQL> SPOOL OFF

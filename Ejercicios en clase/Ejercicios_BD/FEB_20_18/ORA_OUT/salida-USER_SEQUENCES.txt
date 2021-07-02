@@ -1,0 +1,7 @@
+
+SEQUENCE_NAME              MIN_VALUE  MAX_VALUE LAST_NUMBER                                                                                           
+------------------------- ---------- ---------- -----------                                                                                           
+DEPARTMENTS_SEQ           ########## ##########  ##########                                                                                           
+EMPLOYEES_SEQ             ########## ##########  ##########                                                                                           
+LOCATIONS_SEQ             ########## ##########  ##########                                                                                           
+

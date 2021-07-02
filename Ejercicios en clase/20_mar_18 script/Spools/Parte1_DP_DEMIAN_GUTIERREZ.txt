@@ -1,0 +1,246 @@
+SQL> REM PAG 9 DE DEPENDENCIAS FUNCIONALES
+SQL> REM PROF. DEMIAN GUTIERREZ MAKE_REFREM UNIVERSIDAD DE LOS ANDES VENEZUELA
+SQL> REM CREMOS LA CANTIDAD CARRO
+SQL> REM PROYECTAMOS LOS ATRIBUTOS PLACA, MARCA EN TABLA R
+SQL> REM PROYECTAMOS LOS LOS ATRIBUTOS MARCA MODELO Y COLOR
+SQL> REM QUITANDO TUPLAAS DUPLICADAS EN LA TABLA QUEUE
+SQL> 
+SQL> DROP TABLE CARRO;
+
+Table dropped.
+
+SQL> CREATE TABLE CARRO (
+  2  PLACA  VARCHAR2 (6),
+  3  MARCA  VARCHAR2 (6),
+  4  MODELO VARCHAR2 (8),
+  5  COLOR  VARCHAR2 (8));
+
+Table created.
+
+SQL> 
+SQL> INSERT INTO CARRO VALUES ('MBO34L','FORD','KA','VERDE');
+
+1 row created.
+
+SQL> INSERT INTO CARRO VALUES ('LDA75K','TOYOTA','COROLLA','BLANCO');
+
+1 row created.
+
+SQL> INSERT INTO CARRO VALUES ('ADA89A','FIAT','SIENA','GRIS');
+
+1 row created.
+
+SQL> INSERT INTO CARRO VALUES ('LBF78G','TOYOTA','COROLLA','BLANCO');
+
+1 row created.
+
+SQL> INSERT INTO CARRO VALUES ('XSA67','FORD','KA','ROJO');
+
+1 row created.
+
+SQL> SELECT PLACA, MARCA FROM CARRO ORDER BY 2;
+
+PLACA  MARCA                                                                    
+------ ------                                                                   
+ADA89A FIAT                                                                     
+XSA67  FORD                                                                     
+MBO34L FORD                                                                     
+LDA75K TOYOTA                                                                   
+LBF78G TOYOTA                                                                   
+
+SQL> DROP TABLE R;
+
+Table dropped.
+
+SQL> CREATE TABLE R AS(
+  2  SELECT PLACA, MARCA FROM CARRO)
+  3  ORDER BY 2;
+
+Table created.
+
+SQL> SELECT DISTINCT (MARCA), MODELO, COLOR
+  2  FROM CARRO ORDER BY 1;
+
+MARCA  MODELO   COLOR                                                           
+------ -------- --------                                                        
+FIAT   SIENA    GRIS                                                            
+FORD   KA       VERDE                                                           
+FORD   KA       ROJO                                                            
+TOYOTA COROLLA  BLANCO                                                          
+
+SQL> REM CREAMOS LA TABLA Q
+SQL> DROP TABLE Q;
+
+Table dropped.
+
+SQL> CREATE TABLE Q AS (
+  2  SELECT DISTINCT (MARCA), MODELO, COLOR
+  3  FROM CARRO)
+  4  ORDER BY 1;
+
+Table created.
+
+SQL> SELECT * FROM Q ORDER BY 1,3;
+
+MARCA  MODELO   COLOR                                                           
+------ -------- --------                                                        
+FIAT   SIENA    GRIS                                                            
+FORD   KA       ROJO                                                            
+FORD   KA       VERDE                                                           
+TOYOTA COROLLA  BLANCO                                                          
+
+SQL> REM ENCUENTRA EL NATURAL JOIN
+SQL> SELECT *
+  2  FROM R NATURAL JOIN Q;
+
+MARCA  PLACA  MODELO   COLOR                                                    
+------ ------ -------- --------                                                 
+FIAT   ADA89A SIENA    GRIS                                                     
+FORD   XSA67  KA       ROJO                                                     
+FORD   XSA67  KA       VERDE                                                    
+FORD   MBO34L KA       ROJO                                                     
+FORD   MBO34L KA       VERDE                                                    
+TOYOTA LDA75K COROLLA  BLANCO                                                   
+TOYOTA LBF78G COROLLA  BLANCO                                                   
+
+7 rows selected.
+
+SQL> REM CREA LA TABLA CARRO_2 COMO UN SUBQUERY
+SQL> DROP TABLE CARRO_2;
+
+Table dropped.
+
+SQL> CREATE TABLE CARRO_2 AS(
+  2  SELECT * FROM R NATURAL JOIN Q);
+
+Table created.
+
+SQL> SELECT * FROM CARRO_2 ORDER BY 1,3,4;
+
+MARCA  PLACA  MODELO   COLOR                                                    
+------ ------ -------- --------                                                 
+FIAT   ADA89A SIENA    GRIS                                                     
+FORD   XSA67  KA       ROJO                                                     
+FORD   MBO34L KA       ROJO                                                     
+FORD   MBO34L KA       VERDE                                                    
+FORD   XSA67  KA       VERDE                                                    
+TOYOTA LBF78G COROLLA  BLANCO                                                   
+TOYOTA LDA75K COROLLA  BLANCO                                                   
+
+7 rows selected.
+
+SQL> REM ENCUENTRA EL PRODUCTO CARTESIANO DE R X Q
+SQL> SELECT * FROM R CROSS JOIN Q ORDER BY 2,3;
+
+PLACA  MARCA  MARCA  MODELO   COLOR                                             
+------ ------ ------ -------- --------                                          
+ADA89A FIAT   FIAT   SIENA    GRIS                                              
+ADA89A FIAT   FORD   KA       ROJO                                              
+ADA89A FIAT   FORD   KA       VERDE                                             
+ADA89A FIAT   TOYOTA COROLLA  BLANCO                                            
+MBO34L FORD   FIAT   SIENA    GRIS                                              
+XSA67  FORD   FIAT   SIENA    GRIS                                              
+XSA67  FORD   FORD   KA       VERDE                                             
+MBO34L FORD   FORD   KA       ROJO                                              
+XSA67  FORD   FORD   KA       ROJO                                              
+MBO34L FORD   FORD   KA       VERDE                                             
+MBO34L FORD   TOYOTA COROLLA  BLANCO                                            
+
+PLACA  MARCA  MARCA  MODELO   COLOR                                             
+------ ------ ------ -------- --------                                          
+XSA67  FORD   TOYOTA COROLLA  BLANCO                                            
+LDA75K TOYOTA FIAT   SIENA    GRIS                                              
+LBF78G TOYOTA FIAT   SIENA    GRIS                                              
+LBF78G TOYOTA FORD   KA       ROJO                                              
+LDA75K TOYOTA FORD   KA       ROJO                                              
+LDA75K TOYOTA FORD   KA       VERDE                                             
+LBF78G TOYOTA FORD   KA       VERDE                                             
+LDA75K TOYOTA TOYOTA COROLLA  BLANCO                                            
+LBF78G TOYOTA TOYOTA COROLLA  BLANCO                                            
+
+20 rows selected.
+
+SQL> REM ENCUENTRA EL NATURAL JOIN
+SQL> SELECT * FROM R NATURAL JOIN Q;
+
+MARCA  PLACA  MODELO   COLOR                                                    
+------ ------ -------- --------                                                 
+FIAT   ADA89A SIENA    GRIS                                                     
+FORD   XSA67  KA       ROJO                                                     
+FORD   XSA67  KA       VERDE                                                    
+FORD   MBO34L KA       ROJO                                                     
+FORD   MBO34L KA       VERDE                                                    
+TOYOTA LDA75K COROLLA  BLANCO                                                   
+TOYOTA LBF78G COROLLA  BLANCO                                                   
+
+7 rows selected.
+
+SQL> SELECT R.PLACA, R.MARCA, Q.MARCA, Q.MODELO, Q.COLOR
+  2  FROM R CROSS JOIN Q ORDER BY 2,3;
+
+PLACA  MARCA  MARCA  MODELO   COLOR                                             
+------ ------ ------ -------- --------                                          
+ADA89A FIAT   FIAT   SIENA    GRIS                                              
+ADA89A FIAT   FORD   KA       ROJO                                              
+ADA89A FIAT   FORD   KA       VERDE                                             
+ADA89A FIAT   TOYOTA COROLLA  BLANCO                                            
+MBO34L FORD   FIAT   SIENA    GRIS                                              
+XSA67  FORD   FIAT   SIENA    GRIS                                              
+XSA67  FORD   FORD   KA       VERDE                                             
+MBO34L FORD   FORD   KA       ROJO                                              
+XSA67  FORD   FORD   KA       ROJO                                              
+MBO34L FORD   FORD   KA       VERDE                                             
+MBO34L FORD   TOYOTA COROLLA  BLANCO                                            
+
+PLACA  MARCA  MARCA  MODELO   COLOR                                             
+------ ------ ------ -------- --------                                          
+XSA67  FORD   TOYOTA COROLLA  BLANCO                                            
+LDA75K TOYOTA FIAT   SIENA    GRIS                                              
+LBF78G TOYOTA FIAT   SIENA    GRIS                                              
+LBF78G TOYOTA FORD   KA       ROJO                                              
+LDA75K TOYOTA FORD   KA       ROJO                                              
+LDA75K TOYOTA FORD   KA       VERDE                                             
+LBF78G TOYOTA FORD   KA       VERDE                                             
+LDA75K TOYOTA TOYOTA COROLLA  BLANCO                                            
+LBF78G TOYOTA TOYOTA COROLLA  BLANCO                                            
+
+20 rows selected.
+
+SQL> SELECT R.MARCA, Q.MARCA, Q.COLOR FROM R CROSS JOIN Q ORDER BY 1,2,3;
+
+MARCA  MARCA  COLOR                                                             
+------ ------ --------                                                          
+FIAT   FIAT   GRIS                                                              
+FIAT   FORD   ROJO                                                              
+FIAT   FORD   VERDE                                                             
+FIAT   TOYOTA BLANCO                                                            
+FORD   FIAT   GRIS                                                              
+FORD   FIAT   GRIS                                                              
+FORD   FORD   ROJO                                                              
+FORD   FORD   ROJO                                                              
+FORD   FORD   VERDE                                                             
+FORD   FORD   VERDE                                                             
+FORD   TOYOTA BLANCO                                                            
+
+MARCA  MARCA  COLOR                                                             
+------ ------ --------                                                          
+FORD   TOYOTA BLANCO                                                            
+TOYOTA FIAT   GRIS                                                              
+TOYOTA FIAT   GRIS                                                              
+TOYOTA FORD   ROJO                                                              
+TOYOTA FORD   ROJO                                                              
+TOYOTA FORD   VERDE                                                             
+TOYOTA FORD   VERDE                                                             
+TOYOTA TOYOTA BLANCO                                                            
+TOYOTA TOYOTA BLANCO                                                            
+
+20 rows selected.
+
+SQL> REM COMPARANDO LA RELACION CARRO ORIGINAL CONTRA
+SQL> REM LA RELACION CARRO_2 OBTENIDA CON EL NATURAL JOIN DE
+SQL> REM R & Q OBSERVAMOS QUE DUPLICO DOS TUPLAS
+SQL> REM FORD ROJO PLACA MBO34L
+SQL> REM Y EL FORD VERDE PLACAS XSA67D
+SQL> PROMPT TERMINE
+TERMINE
+SQL> SPOOL OFF

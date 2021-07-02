@@ -1,0 +1,113 @@
+spool G:\ESCOM\bases\06_mar_18\cap6_oracle_by_example.txt
+set pagesize 99
+set linesize 150
+set colsep '||'
+set underline '='
+ 
+COLUMN COURSE_NO FORMAT 999;
+COLUMN SECTION_NO FORMAT 999;
+COLUMN DESCRIPTION FORMAT A30;
+COLUMN SALON FORMAT A7;
+COLUMN INSTRUCTOR_ID FORMAT 9999;
+SELECT course.course_no, section_no, description, Location SALON, Instructor_id
+FROM course, section
+where course.course_no=section.course_no;
+
+PROMPT ALIAS DE NOMBRES DE TABLAS 
+SELECT 	c.course_no,s.section_no, c.description, s.location, s.instructor_id
+FROM course c, section s
+where c.course_no=s.course_no
+AND ROWNUM<=25;
+
+REM OPERADOR LIKE
+SELECT c.course_no, s.section_no, c.description, s.location, s.istructor_id
+from course c, section s
+where c.course_no=s.course_no
+AND c.description LIKE 'intro to%';
+REM NULL
+SELECT instructor_id, zip, last_name, first_name
+FROM instructor
+where zip IS NULL;
+
+PROMPT EL INSTRUCTOR WILLING NO APARECE POR NO TENER CP
+SELECT i.instructor_id,i.zip, i.last_name, i.first_name
+FROM instructor i, zipcode z
+where i.zip=z.zip;
+
+PROMPT JOIN USING (COURSE)
+SELECT course_no, s.selection_no, c.description, s.location, s.instructor_id
+FROM course c JOIN section s
+USING (course_no);
+
+PROMPT ON CONDITION EN EL JOIN
+SELECT c.course_no, s.sectiohn_no, c.description, s.location, s. instructor_id
+FROM course c JOIN sectrion s
+ON (c.course_no=s.course_no);
+
+PROMPT Desplegar solo las primeras 20 tuplas
+SELECT c.course_no, s.section_no, c.description, s.location, s.instructor_id
+FROM course c JOIN section s
+ON(c.course_no=s.course_no AND ROWNUM <=20);
+
+PROMPT SEPARANDO LA CONDICION DEL FILTRADO DE LA CONDICION DE JO0IN DE 
+SELECT c.course_no, s.sectriojn_no, c.description, s.location, s.instructor_id
+FROM course c JOIN section s
+ON(c.course_no=s.course_no)
+WHERE descriptionLIKE 'B%'; 
+
+PROMPT PRODUCTO CARTESIANO 10X78=780
+SELECT COUNT(*)
+FROM section;
+SELECT (*)
+FROM instructor;
+SELECT COUNT (*)
+FROM section, instructor;
+
+PROMPT THE ANSI STANDARD CROSS-JOIN
+SELECT COUNT (*)
+FROM section CROSS JOIN instructor;
+
+PROMPT CLAUSULA ORDER BY
+SELECT s.last_name, s.zip, z.state, z.city
+FROM student s, zipcode z
+WHERE s.zip=z.zip
+ORDER BY s.zip;
+
+PROMPT FORMATO ANSI
+SELECT s.last_name, s.zip, z.state, z.city
+FROM student s JOIN zipcode z
+ON(s.zip=z.zip);
+ORDER BY s.zip;
+
+PROMPT 
+SELECT s.last_name, zip, z.state, z.city
+FROM student s JOIN zipcode z
+USING (zip)
+ORDER BY zip;
+
+PROMPT however, if you are not interesed in the
+PROMPTSECTION_ID and you want to only list 
+PROMPT the names without
+PROMPTthe duplication, use DISTINCT in the SELECT statement
+
+SELECT DISTINCT s.firs_name,l s.last_name, s.student_id
+FROM student s, enrollment e
+WHERE s.student_id=e.student_id
+ORDER BY s.last_name;
+
+PROMPT con requisito null
+COLUMN REQUISITO FORMAT A 15
+SELECT c.course_no, c.description, s.section_no
+NVL(TO_CHAR(c.PREREQUISITE),'Sin Requisito')REQUISITO
+FROM course c, section s
+WHERE c.course_no=s.course_no
+AND c.prerequisite IS NULL
+ORDER BY c.course_no, s.section_no;
+
+PROMPT THE ANSI JOIN DISTINGUISHES THE JOIN CONDITION FROM THE FILTERING CRITERIA
+SELECT c.course_no, c.description, s.section_no
+FROM course c JOIN section s
+ON(c.course_no=s.course_no)
+WHERE c.prerequisite IS NULL
+ORDER BY c.course_no, section_no;
+spool off

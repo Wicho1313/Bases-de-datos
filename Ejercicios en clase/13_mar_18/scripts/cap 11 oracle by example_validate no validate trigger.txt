@@ -1,0 +1,82 @@
+﻿spool G:\ESCOM\bases\13_mar_18\validate_no_validate_trigger.txt
+CREATE TABLE toy
+(toy_id NUMBER(10), 
+description VARCHAR2(15) NOT NULL, 
+last_purchase_date DATE, 
+remaining_quantity NUMBER(6));
+
+REM CREA TABLA
+CREATE TABLE tab1
+(col1 NUMBER (10),
+col2 NUMBER(4)
+CONSTRAINT tab1_col2_nn NOT NULL,
+col3 VARCHAR2(5),
+col4 DATE DEFAULT SYSDATE,
+col5 VARCHAR2(20),
+col6 NUMBER,
+CONSTRAINT tab1_pk PRIMARY KEY(col1),
+CONSTRAINT tab1_zipcode_fk FOREIGN KEY(col3)
+REFERENCES zipcode(zip),
+CONSTRAINT tab1_col5_col6_uk
+UNIQUE(col5, col6),
+CONSTRAINT tab1_col6_ck
+CHECK(col6<100),
+CONSTRAINT tab1_col2_col6_ck
+CHECK(col2>100 AND col6>20));
+
+REM Revisa esta sintaxis
+
+[CONSTRAINT constraintname]
+[NULL|NOT NULL]|
+[REFERENCES tablename (columname)]
+[ON DELETE {CASCADE|ON DELETE SET NULL}]|
+[UNIQUE|PRIMARY KEY]
+[USING INDEX
+[(CREATE INDEX indexname 
+ON tablename(columnname[,columname...])]
+[storage_clause])]]|
+[CHECK(check_condition)]
+[ENABLE|DISABLE]
+[VALIDATE|NOVALIDATE]
+REM EJEMPLO DE TRIGGER
+CREATE OR REPLACE TRIGGER
+student_tgr_bur
+BEFORE UPDATE ON STUDENT
+FOR EACH ROW
+BEGIN
+:new.modified_date:=SYSDATE;
+END;
+
+REM PRUEBA SU CREACION Y SU EJECUCION
+REM VERIFICA LAS TABLAS DEL DICCIONARIO ACERCA DE LOS TRIGGERSREM HABILITA Y DESHABILITA EL TRIGGER PROBÁNDOLO
+
+CREATE TABLE jan_03_enrollment AS 
+SELECT *
+FORM enrollment
+WHERE enroll_date>=
+TO_DATE ('01/01/2003','MM/DD/YYYY')
+AND enroll_date < TO_DATE('02/01/2003','MM/DD/YYYY');
+REM REVISA LOS NOMBRES DE LOS ATRIBUTOS
+DESC jan_03_enrollment
+SELECT student_id, section_id, enroll_date
+FROM jan_03_enrollment;
+
+DROP TABLE zipcode CASCADE CONSTRAINTS;
+REM PRUEBA LAS SIGUIENTES INSTRUCCIONES
+FLASHBACK TABLE table name [,tablename...] TO
+{{SCN|TIMESTAMP} expr [ENABLE|DISABLE TRIGGERS]|
+BEFORE DROP [RENAME TO newtablename]}
+REM REVISA LA PAPELERA DE RECICLAJE DE ORACLE
+DROP TABLE jan_03;
+SELECT object_name, original_name, type
+FROM user_recyclebin;
+SHOW recyclebin
+PURGE RECYCLEBIN;
+CREATE TABLE school_program AS
+SELECT last_name ||','||first_name name
+FROM student
+UNION 
+SELECT last_name||','||first_name
+FROM instructor;
+select * from school_program;
+spool off

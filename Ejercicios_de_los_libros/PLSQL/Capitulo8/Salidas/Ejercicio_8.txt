@@ -1,0 +1,14 @@
+SQL> SELECT created_by, 'GRADE' AS SOURCE, 1 AS SORT_ORDER   FROM grade  UNION SELECT created_by, 'GRADE_TYPE', 2   FROM grade_type  UNION SELECT created_by, 'GRADE_CONVERSION', 3   FROM grade_conversion  UNION SELECT created_by, 'ENROLLMENT', 4   FROM enrollment  ORDER BY 3;
+
+CREATED_BY                      || SOURCE            || SORT_ORDER                                                                                    
+------------------------------  || ----------------  || ----------                                                                                    
+BROSENZW                        || GRADE             ||          1                                                                                    
+CBRENNAN                        || GRADE             ||          1                                                                                    
+Jerry                           || GRADE             ||          1                                                                                    
+MyName                          || GRADE             ||          1                                                                                    
+MCAFFREY                        || GRADE_TYPE        ||          2                                                                                    
+JAYCAF                          || ENROLLMENT        ||          4                                                                                    
+
+6 rows selected.
+
+SQL> spool off

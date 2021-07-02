@@ -1,0 +1,19 @@
+SQL> rem pag 330 atrubuto null
+SQL> SELECT instructor_id, zip, last_name, first_name
+  2  FROM instructor
+  3  WHERE zip IS NULL;
+
+INSTRUCTOR_ID  || ZIP    || LAST_NAME                  || FIRST_NAME                                                                                  
+-------------  || -----  || -------------------------  || -------------------------                                                                   
+          110  ||        || Willig                     || Irene                                                                                       
+          300  ||        || Spencer                    ||                                                                                             
+
+SQL> 
+SQL> rem pag 330 no es nulo
+SQL> SELECT instructor_id, zip, last_name, first_name
+  2  FROM instructor
+  3  WHERE zip is not NULL;
+
+no rows selected
+
+SQL> spool off

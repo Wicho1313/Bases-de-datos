@@ -1,0 +1,69 @@
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ OWNER                                     NOT NULL VARCHAR2(30)
+ OBJECT_NAME                               NOT NULL VARCHAR2(30)
+ SUBOBJECT_NAME                                     VARCHAR2(30)
+ OBJECT_ID                                 NOT NULL NUMBER
+ DATA_OBJECT_ID                                     NUMBER
+ OBJECT_TYPE                                        VARCHAR2(19)
+ CREATED                                   NOT NULL DATE
+ LAST_DDL_TIME                             NOT NULL DATE
+ TIMESTAMP                                          VARCHAR2(19)
+ STATUS                                             VARCHAR2(7)
+ TEMPORARY                                          VARCHAR2(1)
+ GENERATED                                          VARCHAR2(1)
+ SECONDARY                                          VARCHAR2(1)
+ NAMESPACE                                 NOT NULL NUMBER
+ EDITION_NAME                                       VARCHAR2(30)
+
+
+  OWNER   |       OBJECT_NAME       |   Tipo                                                                                                          
+==========|=========================|==========                                                                                                       
+HR        |REG_ID_PK                |INDEX                                                                                                            
+HR        |PK_ELECTRODOM_APARATO    |INDEX                                                                                                            
+HR        |PK_EMP_NIF               |INDEX                                                                                                            
+HR        |LOC_COUNTRY_IX           |INDEX                                                                                                            
+HR        |LOC_STATE_PROVINCE_IX    |INDEX                                                                                                            
+HR        |LOC_CITY_IX              |INDEX                                                                                                            
+HR        |JHIST_DEPARTMENT_IX      |INDEX                                                                                                            
+HR        |JHIST_EMPLOYEE_IX        |INDEX                                                                                                            
+HR        |JHIST_JOB_IX             |INDEX                                                                                                            
+HR        |DEPT_LOCATION_IX         |INDEX                                                                                                            
+HR        |EMP_NAME_IX              |INDEX                                                                                                            
+HR        |EMP_MANAGER_IX           |INDEX                                                                                                            
+HR        |EMP_JOB_IX               |INDEX                                                                                                            
+HR        |EMP_DEPARTMENT_IX        |INDEX                                                                                                            
+HR        |JHIST_EMP_ID_ST_DATE_PK  |INDEX                                                                                                            
+HR        |EMP_EMP_ID_PK            |INDEX                                                                                                            
+HR        |EMP_EMAIL_UK             |INDEX                                                                                                            
+HR        |JOB_ID_PK                |INDEX                                                                                                            
+HR        |DEPT_ID_PK               |INDEX                                                                                                            
+HR        |LOC_ID_PK                |INDEX                                                                                                            
+HR        |COUNTRY_C_ID_PK          |INDEX                                                                                                            
+HR        |SECURE_DML               |PROCEDURE                                                                                                        
+HR        |ADD_JOB_HISTORY          |PROCEDURE                                                                                                        
+HR        |LOCATIONS_SEQ            |SEQUENCE                                                                                                         
+HR        |EMPLOYEES_SEQ            |SEQUENCE                                                                                                         
+HR        |DEPARTMENTS_SEQ          |SEQUENCE                                                                                                         
+HR        |JOB_HISTORY              |TABLE                                                                                                            
+HR        |ELECTRODOMESTICO         |TABLE                                                                                                            
+HR        |REGIONS                  |TABLE                                                                                                            
+HR        |INSTRUCTOR_CURSO         |TABLE                                                                                                            
+HR        |PLANTEL                  |TABLE                                                                                                            
+HR        |COUNTRIES                |TABLE                                                                                                            
+HR        |GRUPO_MATERIA            |TABLE                                                                                                            
+HR        |T3                       |TABLE                                                                                                            
+HR        |EMPLOYEES                |TABLE                                                                                                            
+HR        |T2                       |TABLE                                                                                                            
+HR        |JOBS                     |TABLE                                                                                                            
+HR        |T1                       |TABLE                                                                                                            
+HR        |DEPARTMENTS              |TABLE                                                                                                            
+HR        |INSTRUCTOR_ESTUDIANTE    |TABLE                                                                                                            
+HR        |LOCATIONS                |TABLE                                                                                                            
+HR        |EMP                      |TABLE                                                                                                            
+HR        |SECURE_EMPLOYEES         |TRIGGER                                                                                                          
+HR        |UPDATE_JOB_HISTORY       |TRIGGER                                                                                                          
+HR        |EMP_DETAILS_VIEW         |VIEW                                                                                                             
+
+45 rows selected.
+

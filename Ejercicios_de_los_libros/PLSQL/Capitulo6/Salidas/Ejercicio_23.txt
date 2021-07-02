@@ -1,0 +1,10 @@
+SQL> REM hace lo mismo que el anterior pero con formato ANSI
+SQL> SELECT c.course_no, c.description, s.section_no
+  2  FROM course c JOIN section s
+  3  ON (c.course_no = s.course_no)
+  4  WHERE c.prerequisite IS NULL
+  5  ORDER BY c.course_no, section_no;
+
+no rows selected
+
+SQL> spool off

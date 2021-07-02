@@ -1,0 +1,275 @@
+SQL> SET FLUSH OFF
+SQL> SET ECHO OFF
+SQL> SET TERMOUT OFF
+SQL> DROP TABLE R1;
+DROP TABLE R1
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> 
+SQL> CREATE TABLE R1(
+  2  A VARCHAR2(2),
+  3  B VARCHAR2(2),
+  4  C VARCHAR2(2),
+  5  D VARCHAR2(2)
+  6  );
+
+Table created.
+
+SQL> 
+SQL> INSERT INTO R1 VALUES('a1','b1','c1','d1');
+
+1 row created.
+
+SQL> INSERT INTO R1 VALUES('a2','b2','c1','d1');
+
+1 row created.
+
+SQL> INSERT INTO R1 VALUES('a1','b1','c1','d2');
+
+1 row created.
+
+SQL> INSERT INTO R1 VALUES('a4','b3','c2','d3');
+
+1 row created.
+
+SQL> 
+SQL> select * from r1;
+
+A  B  C  D                                                                      
+-- -- -- --                                                                     
+a1 b1 c1 d1                                                                     
+a2 b2 c1 d1                                                                     
+a1 b1 c1 d2                                                                     
+a4 b3 c2 d3                                                                     
+
+SQL> 
+SQL> prompt probemos la primera dependencia funcional
+probemos la primera dependencia funcional
+SQL> prompt FD A-->B
+FD A-->B
+SQL> 
+SQL> SELECT A,'-->',B
+  2  FROM R1
+  3  ORDER BY 1;
+
+A  '-- B                                                                        
+-- --- --                                                                       
+a1 --> b1                                                                       
+a1 --> b1                                                                       
+a2 --> b2                                                                       
+a4 --> b3                                                                       
+
+SQL> 
+SQL> REM CADA VALOR DIFERENTE DE B ES DETERMINADO
+SQL> REM DE FORMA UNICA POR UN VALOR DE A
+SQL> /* CONSTRUYAMOS UNA TABLA AUXILIAR PARA FACILITAR
+SQL> LA VISUALIZACION DE LA DEPENDENCIA FUNCIONAL
+SQL> EL LADO IZQ DE LA DEP Y EL LADO DERECHO
+SQL> */
+SQL> 
+SQL> REM OBTIENE LA DF AB-->B
+SQL> 
+SQL> DROP TABLE TEMP_DF;
+DROP TABLE TEMP_DF
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> 
+SQL> CREATE TABLE TEMP_DF(
+  2  DF_IZQ VARCHAR2(15),
+  3  DF_DER VARCHAR2(15)
+  4  );
+
+Table created.
+
+SQL> 
+SQL> PROMPT INSERTAMOS LOS VALORES DEL LADO IZQ Y DERECHO DE LA DF
+INSERTAMOS LOS VALORES DEL LADO IZQ Y DERECHO DE LA DF
+SQL> 
+SQL> INSERT INTO TEMP_DF (DF_IZQ, DF_DER)
+  2  SELECT CONCAT(CONCAT(A,','),B),B
+  3  FROM R1;
+
+4 rows created.
+
+SQL> 
+SQL> PROMPT VEMOS SI SATISFACE AB-->B
+VEMOS SI SATISFACE AB-->B
+SQL> SELECT DF_IZQ " AB --> ",
+  2  DF_DER "B"
+  3  FROM TEMP_DF ORDER BY DF_IZQ;
+
+ AB -->         B                                                               
+--------------- ---------------                                                 
+a1,b1           b1                                                              
+a1,b1           b1                                                              
+a2,b2           b2                                                              
+a4,b3           b3                                                              
+
+SQL> 
+SQL> REM PROBEMOS LA DF AC-->B
+SQL> DELETE FROM TEMP_DF;
+
+4 rows deleted.
+
+SQL> SELECT * FROM TEMP_DF;
+
+no rows selected
+
+SQL> 
+SQL> INSERT INTO TEMP_DF (DF_IZQ, DF_DER)
+  2  SELECT CONCAT(CONCAT(A,','),C),B
+  3  FROM R1;
+
+4 rows created.
+
+SQL> 
+SQL> REM DESPLIEGA AC-->B
+SQL> SELECT DF_IZQ "AC-->B",DF_DER "D"
+  2  FROM TEMP_DF
+  3  ORDER BY 1;
+
+AC-->B          D                                                               
+--------------- ---------------                                                 
+a1,c1           b1                                                              
+a1,c1           b1                                                              
+a2,c1           b2                                                              
+a4,c2           b3                                                              
+
+SQL> 
+SQL> REM OBTIENE LA DF AD-->B
+SQL> DELETE FROM TEMP_DF;
+
+4 rows deleted.
+
+SQL> 
+SQL> INSERT INTO TEMP_DF (DF_IZQ,DF_DER)
+  2  SELECT CONCAT(CONCAT(A,','),D),B
+  3  FROM R1;
+
+4 rows created.
+
+SQL> 
+SQL> PROMPT DESPLIEGA LA DF AD-->B
+DESPLIEGA LA DF AD-->B
+SQL> 
+SQL> SELECT DF_IZQ "AD-->", DF_DER "B"
+  2  FROM TEMP_DF
+  3  ORDER BY 1;
+
+AD-->           B                                                               
+--------------- ---------------                                                 
+a1,d1           b1                                                              
+a1,d2           b1                                                              
+a2,d1           b2                                                              
+a4,d3           b3                                                              
+
+SQL> 
+SQL> REM OBTENER ABC-->B
+SQL> DELETE FROM TEMP_DF;
+
+4 rows deleted.
+
+SQL> 
+SQL> INSERT INTO TEMP_DF (DF_IZQ, DF_DER)
+  2  SELECT CONCAT(CONCAT(CONCAT(CONCAT(A,','),B),','),C),B
+  3  FROM R1;
+
+4 rows created.
+
+SQL> 
+SQL> SELECT DF_IZQ "ABC-->", DF_DER"B"
+  2  FROM TEMP_DF ORDER BY 1;
+
+ABC-->          B                                                               
+--------------- ---------------                                                 
+a1,b1,c1        b1                                                              
+a1,b1,c1        b1                                                              
+a2,b2,c1        b2                                                              
+a4,b3,c2        b3                                                              
+
+SQL> 
+SQL> REM OBTIENE LA ABD-->B
+SQL> DELETE FROM TEMP_DF;
+
+4 rows deleted.
+
+SQL> 
+SQL> INSERT INTO TEMP_DF (DF_IZQ, DF_DER)
+  2  SELECT CONCAT(CONCAT(CONCAT(CONCAT(A,','),B),','),D),B
+  3  FROM R1;
+
+4 rows created.
+
+SQL> 
+SQL> SELECT DF_IZQ "ABD-->", DF_DER"B"
+  2  FROM TEMP_DF ORDER BY 1;
+
+ABD-->          B                                                               
+--------------- ---------------                                                 
+a1,b1,d1        b1                                                              
+a1,b1,d2        b1                                                              
+a2,b2,d1        b2                                                              
+a4,b3,d3        b3                                                              
+
+SQL> 
+SQL> REM SE OBTIENE ACD-->B
+SQL> DELETE FROM TEMP_DF;
+
+4 rows deleted.
+
+SQL> 
+SQL> INSERT INTO TEMP_DF (DF_IZQ, DF_DER)
+  2  SELECT CONCAT(CONCAT(CONCAT(CONCAT(A,','),C),','),D),B
+  3  FROM R1;
+
+4 rows created.
+
+SQL> 
+SQL> SELECT DF_IZQ "ACD-->", DF_DER "B"
+  2  FROM TEMP_DF ORDER BY 1;
+
+ACD-->          B                                                               
+--------------- ---------------                                                 
+a1,c1,d1        b1                                                              
+a1,c1,d2        b1                                                              
+a2,c1,d1        b2                                                              
+a4,c2,d3        b3                                                              
+
+SQL> 
+SQL> REM OBTIENES ABCD->B
+SQL> DELETE FROM TEMP_DF;
+
+4 rows deleted.
+
+SQL> 
+SQL> INSERT INTO TEMP_DF (DF_IZQ, DF_DER)
+  2  SELECT CONCAT(
+  3  CONCAT(
+  4  CONCAT(
+  5  CONCAT(
+  6  CONCAT(
+  7  CONCAT(A,',')
+  8  ,B),','),C),','),D),B
+  9  FROM R1;
+
+4 rows created.
+
+SQL> 
+SQL> SELECT DF_IZQ "ABCD-->", DF_DER "B"
+  2  FROM TEMP_DF
+  3  ORDER BY 1;
+
+ABCD-->         B                                                               
+--------------- ---------------                                                 
+a1,b1,c1,d1     b1                                                              
+a1,b1,c1,d2     b1                                                              
+a2,b2,c1,d1     b2                                                              
+a4,b3,c2,d3     b3                                                              
+
+SQL> spool off

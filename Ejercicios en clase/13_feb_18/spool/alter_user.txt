@@ -1,0 +1,304 @@
+SQL> 
+SQL> desc hr.employees;
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ EMPLOYEE_ID                                                                         NOT NULL NUMBER(6)
+ FIRST_NAME                                                                                   VARCHAR2(20)
+ LAST_NAME                                                                           NOT NULL VARCHAR2(25)
+ EMAIL                                                                               NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                                                                 VARCHAR2(20)
+ HIRE_DATE                                                                           NOT NULL DATE
+ JOB_ID                                                                              NOT NULL VARCHAR2(10)
+ SALARY                                                                                       NUMBER(8,2)
+ COMMISSION_PCT                                                                               NUMBER(2,2)
+ MANAGER_ID                                                                                   NUMBER(6)
+ DEPARTMENT_ID                                                                                NUMBER(4)
+
+SQL> desc dba_tab_columns;
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ OWNER                                                                               NOT NULL VARCHAR2(30)
+ TABLE_NAME                                                                          NOT NULL VARCHAR2(30)
+ COLUMN_NAME                                                                         NOT NULL VARCHAR2(30)
+ DATA_TYPE                                                                                    VARCHAR2(106)
+ DATA_TYPE_MOD                                                                                VARCHAR2(3)
+ DATA_TYPE_OWNER                                                                              VARCHAR2(120)
+ DATA_LENGTH                                                                         NOT NULL NUMBER
+ DATA_PRECISION                                                                               NUMBER
+ DATA_SCALE                                                                                   NUMBER
+ NULLABLE                                                                                     VARCHAR2(1)
+ COLUMN_ID                                                                                    NUMBER
+ DEFAULT_LENGTH                                                                               NUMBER
+ DATA_DEFAULT                                                                                 LONG
+ NUM_DISTINCT                                                                                 NUMBER
+ LOW_VALUE                                                                                    RAW(32)
+ HIGH_VALUE                                                                                   RAW(32)
+ DENSITY                                                                                      NUMBER
+ NUM_NULLS                                                                                    NUMBER
+ NUM_BUCKETS                                                                                  NUMBER
+ LAST_ANALYZED                                                                                DATE
+ SAMPLE_SIZE                                                                                  NUMBER
+ CHARACTER_SET_NAME                                                                           VARCHAR2(44)
+ CHAR_COL_DECL_LENGTH                                                                         NUMBER
+ GLOBAL_STATS                                                                                 VARCHAR2(3)
+ USER_STATS                                                                                   VARCHAR2(3)
+ AVG_COL_LEN                                                                                  NUMBER
+ CHAR_LENGTH                                                                                  NUMBER
+ CHAR_USED                                                                                    VARCHAR2(1)
+ V80_FMT_IMAGE                                                                                VARCHAR2(3)
+ DATA_UPGRADED                                                                                VARCHAR2(3)
+ HISTOGRAM                                                                                    VARCHAR2(15)
+
+SQL> 
+SQL> column owner format a15;
+SQL> column table_name format a20;
+SQL> column column_name format a15;
+SQL> set colsep ' * '
+SQL> 
+SQL> select owner, table_name, column_name
+  2  from dba_tab_columns
+  3  where owner='HR' and table_name='EMPLOYEES';
+
+OWNER           * TABLE_NAME           * COLUMN_NAME                                                                                                  
+=============== * ==================== * ===============                                                                                              
+HR              * EMPLOYEES            * EMPLOYEE_ID                                                                                                  
+HR              * EMPLOYEES            * FIRST_NAME                                                                                                   
+HR              * EMPLOYEES            * LAST_NAME                                                                                                    
+HR              * EMPLOYEES            * EMAIL                                                                                                        
+HR              * EMPLOYEES            * PHONE_NUMBER                                                                                                 
+HR              * EMPLOYEES            * HIRE_DATE                                                                                                    
+HR              * EMPLOYEES            * JOB_ID                                                                                                       
+HR              * EMPLOYEES            * SALARY                                                                                                       
+HR              * EMPLOYEES            * COMMISSION_PCT                                                                                               
+HR              * EMPLOYEES            * MANAGER_ID                                                                                                   
+HR              * EMPLOYEES            * DEPARTMENT_ID                                                                                                
+
+11 rows selected.
+
+SQL> 
+SQL> select owner, table_name, column_name
+  2  from ALL_tab_columns
+  3  where owner='HR' and table_name='EMPLOYEES';
+
+OWNER           * TABLE_NAME           * COLUMN_NAME                                                                                                  
+=============== * ==================== * ===============                                                                                              
+HR              * EMPLOYEES            * EMPLOYEE_ID                                                                                                  
+HR              * EMPLOYEES            * FIRST_NAME                                                                                                   
+HR              * EMPLOYEES            * LAST_NAME                                                                                                    
+HR              * EMPLOYEES            * EMAIL                                                                                                        
+HR              * EMPLOYEES            * PHONE_NUMBER                                                                                                 
+HR              * EMPLOYEES            * HIRE_DATE                                                                                                    
+HR              * EMPLOYEES            * JOB_ID                                                                                                       
+HR              * EMPLOYEES            * SALARY                                                                                                       
+HR              * EMPLOYEES            * COMMISSION_PCT                                                                                               
+HR              * EMPLOYEES            * MANAGER_ID                                                                                                   
+HR              * EMPLOYEES            * DEPARTMENT_ID                                                                                                
+
+11 rows selected.
+
+SQL> 
+SQL> DESC ALL_OBJECTS;
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ OWNER                                                                               NOT NULL VARCHAR2(30)
+ OBJECT_NAME                                                                         NOT NULL VARCHAR2(30)
+ SUBOBJECT_NAME                                                                               VARCHAR2(30)
+ OBJECT_ID                                                                           NOT NULL NUMBER
+ DATA_OBJECT_ID                                                                               NUMBER
+ OBJECT_TYPE                                                                                  VARCHAR2(19)
+ CREATED                                                                             NOT NULL DATE
+ LAST_DDL_TIME                                                                       NOT NULL DATE
+ TIMESTAMP                                                                                    VARCHAR2(19)
+ STATUS                                                                                       VARCHAR2(7)
+ TEMPORARY                                                                                    VARCHAR2(1)
+ GENERATED                                                                                    VARCHAR2(1)
+ SECONDARY                                                                                    VARCHAR2(1)
+ NAMESPACE                                                                           NOT NULL NUMBER
+ EDITION_NAME                                                                                 VARCHAR2(30)
+
+SQL> 
+SQL> REM CONFIGURA LA PAGINA, TAMA¥O DE LINEA. SEPARADOR DE COLUMNAS Y SUBRAYADO
+SQL> SET PAGESIZE 99
+SQL> SET LINESIZE 150
+SQL> SET COLSEP' || '
+SQL> SET UNDERLINE '='
+SQL> 
+SQL> COLUMN OWNER FORMAT A10 JUS CENTER
+SQL> COLUMN OBJECT_NAME FORMAT A25 JUSTIFY CENTER
+SQL> COLUMN Tipo FORMAT A10 JUS CENTER
+SQL> 
+SQL> SELECT OWNER, OBJECT_NAME, OBJECT_TYPE "Tipo"
+  2  FROM ALL_OBJECTS
+  3  WHERE OWNER='HR'
+  4  ORDER BY 3;
+
+  OWNER    ||        OBJECT_NAME        ||    Tipo                                                                                                    
+========== || ========================= || ==========                                                                                                 
+HR         || LOC_COUNTRY_IX            || INDEX                                                                                                      
+HR         || EMP_MANAGER_IX            || INDEX                                                                                                      
+HR         || EMP_JOB_IX                || INDEX                                                                                                      
+HR         || EMP_DEPARTMENT_IX         || INDEX                                                                                                      
+HR         || JHIST_EMP_ID_ST_DATE_PK   || INDEX                                                                                                      
+HR         || EMP_NAME_IX               || INDEX                                                                                                      
+HR         || LOC_STATE_PROVINCE_IX     || INDEX                                                                                                      
+HR         || LOC_CITY_IX               || INDEX                                                                                                      
+HR         || JHIST_DEPARTMENT_IX       || INDEX                                                                                                      
+HR         || JHIST_EMPLOYEE_IX         || INDEX                                                                                                      
+HR         || JHIST_JOB_IX              || INDEX                                                                                                      
+HR         || DEPT_LOCATION_IX          || INDEX                                                                                                      
+HR         || EMP_ID_PK                 || INDEX                                                                                                      
+HR         || DEPT_ID_PK                || INDEX                                                                                                      
+HR         || COUNTRY_C_ID_PK           || INDEX                                                                                                      
+HR         || JOB_ID_PK                 || INDEX                                                                                                      
+HR         || REG_ID_PK                 || INDEX                                                                                                      
+HR         || EMP_EMAIL_UK              || INDEX                                                                                                      
+HR         || EMP_EMP_ID_PK             || INDEX                                                                                                      
+HR         || LOC_ID_PK                 || INDEX                                                                                                      
+HR         || ADD_JOB_HISTORY           || PROCEDURE                                                                                                  
+HR         || SECURE_DML                || PROCEDURE                                                                                                  
+HR         || LOCATIONS_SEQ             || SEQUENCE                                                                                                   
+HR         || DEPARTMENTS_SEQ           || SEQUENCE                                                                                                   
+HR         || EMPLOYEES_SEQ             || SEQUENCE                                                                                                   
+HR         || JOB_HISTORY               || TABLE                                                                                                      
+HR         || EMPLOYEES                 || TABLE                                                                                                      
+HR         || JOBS                      || TABLE                                                                                                      
+HR         || DEPARTMENTS               || TABLE                                                                                                      
+HR         || LOCATIONS                 || TABLE                                                                                                      
+HR         || COUNTRIES                 || TABLE                                                                                                      
+HR         || REGIONS                   || TABLE                                                                                                      
+HR         || PROM_PRIOR                || TABLE                                                                                                      
+HR         || EMP                       || TABLE                                                                                                      
+HR         || PLANTEL                   || TABLE                                                                                                      
+HR         || INSTRUCTOR_ESTUDIANTE     || TABLE                                                                                                      
+HR         || INSTRUCTOR_CURSO          || TABLE                                                                                                      
+HR         || GRUPO_MATERIA             || TABLE                                                                                                      
+HR         || UPDATE_JOB_HISTORY        || TRIGGER                                                                                                    
+HR         || SECURE_EMPLOYEES          || TRIGGER                                                                                                    
+HR         || EMP_DETAILS_VIEW          || VIEW                                                                                                       
+
+41 rows selected.
+
+SQL> 
+SQL> DESC ALL_TAB_COLUMNS
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ OWNER                                                                               NOT NULL VARCHAR2(30)
+ TABLE_NAME                                                                          NOT NULL VARCHAR2(30)
+ COLUMN_NAME                                                                         NOT NULL VARCHAR2(30)
+ DATA_TYPE                                                                                    VARCHAR2(106)
+ DATA_TYPE_MOD                                                                                VARCHAR2(3)
+ DATA_TYPE_OWNER                                                                              VARCHAR2(120)
+ DATA_LENGTH                                                                         NOT NULL NUMBER
+ DATA_PRECISION                                                                               NUMBER
+ DATA_SCALE                                                                                   NUMBER
+ NULLABLE                                                                                     VARCHAR2(1)
+ COLUMN_ID                                                                                    NUMBER
+ DEFAULT_LENGTH                                                                               NUMBER
+ DATA_DEFAULT                                                                                 LONG
+ NUM_DISTINCT                                                                                 NUMBER
+ LOW_VALUE                                                                                    RAW(32)
+ HIGH_VALUE                                                                                   RAW(32)
+ DENSITY                                                                                      NUMBER
+ NUM_NULLS                                                                                    NUMBER
+ NUM_BUCKETS                                                                                  NUMBER
+ LAST_ANALYZED                                                                                DATE
+ SAMPLE_SIZE                                                                                  NUMBER
+ CHARACTER_SET_NAME                                                                           VARCHAR2(44)
+ CHAR_COL_DECL_LENGTH                                                                         NUMBER
+ GLOBAL_STATS                                                                                 VARCHAR2(3)
+ USER_STATS                                                                                   VARCHAR2(3)
+ AVG_COL_LEN                                                                                  NUMBER
+ CHAR_LENGTH                                                                                  NUMBER
+ CHAR_USED                                                                                    VARCHAR2(1)
+ V80_FMT_IMAGE                                                                                VARCHAR2(3)
+ DATA_UPGRADED                                                                                VARCHAR2(3)
+ HISTOGRAM                                                                                    VARCHAR2(15)
+
+SQL> 
+SQL> COLUMN OWNER FORMAT A6
+SQL> COLUMN TABLE_NAME FORMAT A23
+SQL> COLUMN COLUMN_NAME FORMAT A18
+SQL> COLUMN DATA_TYPE FORMAT A10
+SQL> COLUMN DATA_TYPE_MOD FORMAT A6
+SQL> COLUMN DATA_TYPE_OWNER FORMAT A6
+SQL> 
+SQL> SELECT OWNER, TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_SET_NAME "CARACT"
+  2  FROM ALL_TAB_COLUMNS
+  3  WHERE OWNER='HR'
+  4  ORDER BY 2,3;
+
+OWNER  || TABLE_NAME              || COLUMN_NAME        || DATA_TYPE  || CARACT                                                                       
+====== || ======================= || ================== || ========== || ============================================                                 
+HR     || COUNTRIES               || COUNTRY_ID         || CHAR       || CHAR_CS                                                                      
+HR     || COUNTRIES               || COUNTRY_NAME       || VARCHAR2   || CHAR_CS                                                                      
+HR     || COUNTRIES               || REGION_ID          || NUMBER     ||                                                                              
+HR     || DEPARTMENTS             || DEPARTMENT_ID      || NUMBER     ||                                                                              
+HR     || DEPARTMENTS             || DEPARTMENT_NAME    || VARCHAR2   || CHAR_CS                                                                      
+HR     || DEPARTMENTS             || LOCATION_ID        || NUMBER     ||                                                                              
+HR     || DEPARTMENTS             || MANAGER_ID         || NUMBER     ||                                                                              
+HR     || EMP                     || EMPLEADO_ID        || NUMBER     ||                                                                              
+HR     || EMP                     || FIRST_NAME         || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMP                     || LAST_NAME          || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMP                     || REPORTA_A          || NUMBER     ||                                                                              
+HR     || EMP_DETAILS_VIEW        || CITY               || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMP_DETAILS_VIEW        || COMMISSION_PCT     || NUMBER     ||                                                                              
+HR     || EMP_DETAILS_VIEW        || COUNTRY_ID         || CHAR       || CHAR_CS                                                                      
+HR     || EMP_DETAILS_VIEW        || COUNTRY_NAME       || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMP_DETAILS_VIEW        || DEPARTMENT_ID      || NUMBER     ||                                                                              
+HR     || EMP_DETAILS_VIEW        || DEPARTMENT_NAME    || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMP_DETAILS_VIEW        || EMPLOYEE_ID        || NUMBER     ||                                                                              
+HR     || EMP_DETAILS_VIEW        || FIRST_NAME         || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMP_DETAILS_VIEW        || JOB_ID             || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMP_DETAILS_VIEW        || JOB_TITLE          || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMP_DETAILS_VIEW        || LAST_NAME          || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMP_DETAILS_VIEW        || LOCATION_ID        || NUMBER     ||                                                                              
+HR     || EMP_DETAILS_VIEW        || MANAGER_ID         || NUMBER     ||                                                                              
+HR     || EMP_DETAILS_VIEW        || REGION_NAME        || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMP_DETAILS_VIEW        || SALARY             || NUMBER     ||                                                                              
+HR     || EMP_DETAILS_VIEW        || STATE_PROVINCE     || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMPLOYEES               || COMMISSION_PCT     || NUMBER     ||                                                                              
+HR     || EMPLOYEES               || DEPARTMENT_ID      || NUMBER     ||                                                                              
+HR     || EMPLOYEES               || EMAIL              || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMPLOYEES               || EMPLOYEE_ID        || NUMBER     ||                                                                              
+HR     || EMPLOYEES               || FIRST_NAME         || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMPLOYEES               || HIRE_DATE          || DATE       ||                                                                              
+HR     || EMPLOYEES               || JOB_ID             || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMPLOYEES               || LAST_NAME          || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMPLOYEES               || MANAGER_ID         || NUMBER     ||                                                                              
+HR     || EMPLOYEES               || PHONE_NUMBER       || VARCHAR2   || CHAR_CS                                                                      
+HR     || EMPLOYEES               || SALARY             || NUMBER     ||                                                                              
+HR     || GRUPO_MATERIA           || CURSO              || VARCHAR2   || CHAR_CS                                                                      
+HR     || GRUPO_MATERIA           || ESTUDIANTE         || VARCHAR2   || CHAR_CS                                                                      
+HR     || GRUPO_MATERIA           || INSTRUCTOR         || VARCHAR2   || CHAR_CS                                                                      
+HR     || INSTRUCTOR_CURSO        || CURSO              || VARCHAR2   || CHAR_CS                                                                      
+HR     || INSTRUCTOR_CURSO        || INSTRUCTOR         || VARCHAR2   || CHAR_CS                                                                      
+HR     || INSTRUCTOR_ESTUDIANTE   || ESTUDIANTE         || VARCHAR2   || CHAR_CS                                                                      
+HR     || INSTRUCTOR_ESTUDIANTE   || INSTRUCTOR         || VARCHAR2   || CHAR_CS                                                                      
+HR     || JOB_HISTORY             || DEPARTMENT_ID      || NUMBER     ||                                                                              
+HR     || JOB_HISTORY             || EMPLOYEE_ID        || NUMBER     ||                                                                              
+HR     || JOB_HISTORY             || END_DATE           || DATE       ||                                                                              
+HR     || JOB_HISTORY             || JOB_ID             || VARCHAR2   || CHAR_CS                                                                      
+HR     || JOB_HISTORY             || START_DATE         || DATE       ||                                                                              
+HR     || JOBS                    || JOB_ID             || VARCHAR2   || CHAR_CS                                                                      
+HR     || JOBS                    || JOB_TITLE          || VARCHAR2   || CHAR_CS                                                                      
+HR     || JOBS                    || MAX_SALARY         || NUMBER     ||                                                                              
+HR     || JOBS                    || MIN_SALARY         || NUMBER     ||                                                                              
+HR     || LOCATIONS               || CITY               || VARCHAR2   || CHAR_CS                                                                      
+HR     || LOCATIONS               || COUNTRY_ID         || CHAR       || CHAR_CS                                                                      
+HR     || LOCATIONS               || LOCATION_ID        || NUMBER     ||                                                                              
+HR     || LOCATIONS               || POSTAL_CODE        || VARCHAR2   || CHAR_CS                                                                      
+HR     || LOCATIONS               || STATE_PROVINCE     || VARCHAR2   || CHAR_CS                                                                      
+HR     || LOCATIONS               || STREET_ADDRESS     || VARCHAR2   || CHAR_CS                                                                      
+HR     || PLANTEL                 || DIRECCION_PTL      || VARCHAR2   || CHAR_CS                                                                      
+HR     || PLANTEL                 || ESTADO_PTL         || VARCHAR2   || CHAR_CS                                                                      
+HR     || PLANTEL                 || FOLIO_PTL          || NUMBER     ||                                                                              
+HR     || PLANTEL                 || NOMBRE_PTL         || VARCHAR2   || CHAR_CS                                                                      
+HR     || PLANTEL                 || TELEFONO_PTL       || VARCHAR2   || CHAR_CS                                                                      
+HR     || PROM_PRIOR              || PRIORIDAD          || NUMBER     ||                                                                              
+HR     || PROM_PRIOR              || PROM_GRAL          || NUMBER     ||                                                                              
+HR     || REGIONS                 || REGION_ID          || NUMBER     ||                                                                              
+HR     || REGIONS                 || REGION_NAME        || VARCHAR2   || CHAR_CS                                                                      
+
+69 rows selected.
+
+SQL> spool off

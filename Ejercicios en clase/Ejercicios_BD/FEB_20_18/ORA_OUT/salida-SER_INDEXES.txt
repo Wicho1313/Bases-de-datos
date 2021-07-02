@@ -1,0 +1,27 @@
+
+INDEX_NAME                INDEX_TYPE                TABLE_OWNER               TABLE_NAME                    BLEVEL LEAF_BLOCKS                        
+------------------------- ------------------------- ------------------------- ------------------------- ---------- -----------                        
+REG_ID_PK                 NORMAL                    HR                        REGIONS                            0  ##########                        
+LOC_ID_PK                 NORMAL                    HR                        LOCATIONS                          0  ##########                        
+LOC_CITY_IX               NORMAL                    HR                        LOCATIONS                          0  ##########                        
+LOC_STATE_PROVINCE_IX     NORMAL                    HR                        LOCATIONS                          0  ##########                        
+LOC_COUNTRY_IX            NORMAL                    HR                        LOCATIONS                          0  ##########                        
+JHIST_EMP_ID_ST_DATE_PK   NORMAL                    HR                        JOB_HISTORY                        0  ##########                        
+JHIST_JOB_IX              NORMAL                    HR                        JOB_HISTORY                        0  ##########                        
+JHIST_EMPLOYEE_IX         NORMAL                    HR                        JOB_HISTORY                        0  ##########                        
+JHIST_DEPARTMENT_IX       NORMAL                    HR                        JOB_HISTORY                        0  ##########                        
+JOB_ID_PK                 NORMAL                    HR                        JOBS                               0  ##########                        
+EMP_EMAIL_UK              NORMAL                    HR                        EMPLOYEES                          0  ##########                        
+EMP_EMP_ID_PK             NORMAL                    HR                        EMPLOYEES                          0  ##########                        
+EMP_DEPARTMENT_IX         NORMAL                    HR                        EMPLOYEES                          0  ##########                        
+EMP_JOB_IX                NORMAL                    HR                        EMPLOYEES                          0  ##########                        
+EMP_MANAGER_IX            NORMAL                    HR                        EMPLOYEES                          0  ##########                        
+EMP_NAME_IX               NORMAL                    HR                        EMPLOYEES                          0  ##########                        
+PK_EMP_NIF                NORMAL                    HR                        EMP                                                                     
+PK_ELECTRODOM_APARATO     NORMAL                    HR                        ELECTRODOMESTICO                                                        
+DEPT_ID_PK                NORMAL                    HR                        DEPARTMENTS                        0  ##########                        
+DEPT_LOCATION_IX          NORMAL                    HR                        DEPARTMENTS                        0  ##########                        
+COUNTRY_C_ID_PK           IOT - TOP                 HR                        COUNTRIES                          0  ##########                        
+
+21 rows selected.
+

@@ -1,0 +1,44 @@
+SQL> DESC EMPLOYEES
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ EMPLOYEE_ID                                                                         NOT NULL NUMBER(6)
+ FIRST_NAME                                                                                   VARCHAR2(20)
+ LAST_NAME                                                                           NOT NULL VARCHAR2(25)
+ EMAIL                                                                               NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                                                                 VARCHAR2(20)
+ HIRE_DATE                                                                           NOT NULL DATE
+ JOB_ID                                                                              NOT NULL VARCHAR2(10)
+ SALARY                                                                                       NUMBER(8,2)
+ COMMISSION_PCT                                                                               NUMBER(2,2)
+ MANAGER_ID                                                                                   NUMBER(6)
+ DEPARTMENT_ID                                                                                NUMBER(4)
+
+SQL> PROMPT DESPLIEGA ATRIBUTOS DE LA TABLA EMPLOYEES
+DESPLIEGA ATRIBUTOS DE LA TABLA EMPLOYEES
+SQL> SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, MANAGER_ID, SALARY
+  2  FROM EMPLOYEES
+  3  WHERE SALARY > 4000
+  4  AND SALARY < 7000;
+EMPLOYEE_ID*FIRST_NAME          *LAST_NAME                *MANAGER_ID*    SALARY                                                                      
+===========*====================*=========================*==========*==========                                                                      
+        104*Bruce               *Ernst                    *       103*      6000                                                                      
+        105*David               *Austin                   *       103*      4800                                                                      
+        106*Valli               *Pataballa                *       103*      4800                                                                      
+        107*Diana               *Lorentz                  *       103*      4200                                                                      
+        113*Luis                *Popp                     *       108*      6900                                                                      
+        123*Shanta              *Vollman                  *       100*      6500                                                                      
+        124*Kevin               *Mourgos                  *       100*      5800                                                                      
+        165*David               *Lee                      *       147*      6800                                                                      
+        166*Sundar              *Ande                     *       147*      6400                                                                      
+        167*Amit                *Banda                    *       147*      6200                                                                      
+        173*Sundita             *Kumar                    *       148*      6100                                                                      
+        179*Charles             *Johnson                  *       149*      6200                                                                      
+        184*Nandita             *Sarchand                 *       121*      4200                                                                      
+        185*Alexis              *Bull                     *       121*      4100                                                                      
+        200*Jennifer            *Whalen                   *       101*      4400                                                                      
+        202*Pat                 *Fay                      *       201*      6000                                                                      
+        203*Susan               *Mavris                   *       101*      6500                                                                      
+
+17 rows selected.
+
+SQL> spool off

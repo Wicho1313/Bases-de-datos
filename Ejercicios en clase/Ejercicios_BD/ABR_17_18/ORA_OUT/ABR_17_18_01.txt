@@ -1,0 +1,775 @@
+SP2-0246: Illegal FORMAT string "A17;"
+SP2-0246: Illegal FORMAT string "A17;"
+DROP TABLE GRUPO_MATERIA
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE INSTRUCTOR_CURSO
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE INSTRUCTOR_ESTUDIANTE
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+ESTUDIANTE      ||CURSO           ||INSTRUCTOR                                                                                                        
+----------------||----------------||----------------                                                                                                  
+MACLOVIA        ||BASES DE DATOS  ||Martinez                                                                                                          
+MANUEL          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+MARCELO         ||Sist Operativos ||Omar                                                                                                              
+MARCOS          ||T de Automatas  ||Shaums                                                                                                            
+MARGARITA       ||BASES DE DATOS  ||Martinez                                                                                                          
+MARIA           ||Sist Operativos ||Araujo                                                                                                            
+MARIANA         ||BASES DE DATOS  ||Lopez                                                                                                             
+MARTIN          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+MATEO           ||Sist Operativos ||Omar                                                                                                              
+
+9 rows selected.
+
+INSERT INTO INSTRUCTOR_CURSO SELECT DISTINCT (INSTRUCTOR), CURSO FROM GRUPO MATERIA
+                                                                      *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+9 rows created.
+
+
+  COUNT(*)                                                                                                                                            
+----------                                                                                                                                            
+         9                                                                                                                                            
+
+
+ESTUDIANTE      ||CURSO           ||INSTRUCTOR                                                                                                        
+----------------||----------------||----------------                                                                                                  
+MARIA           ||Sist Operativos ||Araujo                                                                                                            
+MARIANA         ||BASES DE DATOS  ||Lopez                                                                                                             
+MACLOVIA        ||BASES DE DATOS  ||Martinez                                                                                                          
+MARGARITA       ||BASES DE DATOS  ||Martinez                                                                                                          
+MANUEL          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+MARTIN          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+MARCELO         ||Sist Operativos ||Omar                                                                                                              
+MATEO           ||Sist Operativos ||Omar                                                                                                              
+MARCOS          ||T de Automatas  ||Shaums                                                                                                            
+
+9 rows selected.
+
+
+INSTRUCTOR      ||ESTUDIANTE                                                                                                                          
+----------------||----------------                                                                                                                    
+Araujo          ||MARIA                                                                                                                               
+Lopez           ||MARIANA                                                                                                                             
+Martinez        ||MACLOVIA                                                                                                                            
+Martinez        ||MARGARITA                                                                                                                           
+NAVATHE         ||MANUEL                                                                                                                              
+NAVATHE         ||MARTIN                                                                                                                              
+Omar            ||MARCELO                                                                                                                             
+Omar            ||MATEO                                                                                                                               
+Shaums          ||MARCOS                                                                                                                              
+
+9 rows selected.
+
+
+no rows selected
+
+
+9 rows deleted.
+
+
+0 rows deleted.
+
+ADICIONAR TODOS LOS ALUMNOS DE ARAUJO
+ADICIONAR TODOS LOS ALUMNOS DE NAVATHE
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+INSERTA ATRIBUTO EN LAS RELACIONES NORMALIZADAS A BCNF
+
+10 rows created.
+
+
+124 rows created.
+
+
+ESTUDIANTE      ||CURSO           ||INSTRUCTOR                                                                                                        
+----------------||----------------||----------------                                                                                                  
+IATANASIA       ||ISIST OPERA     ||ARAUJO                                                                                                            
+AARON           ||SIST OPERA      ||ARAUJO                                                                                                            
+ABEL            ||SIST OPERA      ||ARAUJO                                                                                                            
+ABIGAIL         ||SIST OPERA      ||ARAUJO                                                                                                            
+ABRAHAM         ||SIST OPERA      ||ARAUJO                                                                                                            
+ABRIL           ||SIST OPERA      ||ARAUJO                                                                                                            
+ADA             ||SIST OPERA      ||ARAUJO                                                                                                            
+ADALBERDO       ||SIST OPERA      ||ARAUJO                                                                                                            
+ADAN            ||SIST OPERA      ||ARAUJO                                                                                                            
+ADELA           ||SIST OPERA      ||ARAUJO                                                                                                            
+ADELAIDA        ||SIST OPERA      ||ARAUJO                                                                                                            
+ADELINA         ||SIST OPERA      ||ARAUJO                                                                                                            
+ADELMO          ||SIST OPERA      ||ARAUJO                                                                                                            
+ADOLFO          ||SIST OPERA      ||ARAUJO                                                                                                            
+ADRIAN          ||SIST OPERA      ||ARAUJO                                                                                                            
+ADRIANO         ||SIST OPERA      ||ARAUJO                                                                                                            
+AGATA           ||SIST OPERA      ||ARAUJO                                                                                                            
+AGUEDA          ||SIST OPERA      ||ARAUJO                                                                                                            
+AGUSTIN         ||SIST OPERA      ||ARAUJO                                                                                                            
+AIDA            ||SIST OPERA      ||ARAUJO                                                                                                            
+AINARA          ||SIST OPERA      ||ARAUJO                                                                                                            
+ALAN            ||SIST OPERA      ||ARAUJO                                                                                                            
+ALBANO          ||SIST OPERA      ||ARAUJO                                                                                                            
+ALBERTO         ||SIST OPERA      ||ARAUJO                                                                                                            
+ALCIRA          ||SIST OPERA      ||ARAUJO                                                                                                            
+ALDO            ||SIST OPERA      ||ARAUJO                                                                                                            
+ALEJANDA        ||SIST OPERA      ||ARAUJO                                                                                                            
+ALEJANDO        ||SIST OPERA      ||ARAUJO                                                                                                            
+ALEJO           ||SIST OPERA      ||ARAUJO                                                                                                            
+ALFONSO         ||SIST OPERA      ||ARAUJO                                                                                                            
+ALFREDO         ||SIST OPERA      ||ARAUJO                                                                                                            
+ALINA           ||SIST OPERA      ||ARAUJO                                                                                                            
+ALMUDENA        ||SIST OPERA      ||ARAUJO                                                                                                            
+ALONSO          ||SIST OPERA      ||ARAUJO                                                                                                            
+ALVARO          ||SIST OPERA      ||ARAUJO                                                                                                            
+AMADEO          ||SIST OPERA      ||ARAUJO                                                                                                            
+AMANCIO         ||SIST OPERA      ||ARAUJO                                                                                                            
+AMANDA          ||SIST OPERA      ||ARAUJO                                                                                                            
+AMARANTO        ||SIST OPERA      ||ARAUJO                                                                                                            
+AMAYA           ||SIST OPERA      ||ARAUJO                                                                                                            
+AMEIROSIA       ||SIST OPERA      ||ARAUJO                                                                                                            
+AMELIA          ||SIST OPERA      ||ARAUJO                                                                                                            
+AMIRA           ||SIST OPERA      ||ARAUJO                                                                                                            
+AMOS            ||SIST OPERA      ||ARAUJO                                                                                                            
+AMPARO          ||SIST OPERA      ||ARAUJO                                                                                                            
+ANA             ||SIST OPERA      ||ARAUJO                                                                                                            
+ANACLET0        ||SIST OPERA      ||ARAUJO                                                                                                            
+ANASTASIA       ||SIST OPERA      ||ARAUJO                                                                                                            
+ANDERA          ||SIST OPERA      ||ARAUJO                                                                                                            
+ANDRES          ||SIST OPERA      ||ARAUJO                                                                                                            
+ANGELA          ||SIST OPERA      ||ARAUJO                                                                                                            
+ANGELES         ||SIST OPERA      ||ARAUJO                                                                                                            
+ANGELICA        ||SIST OPERA      ||ARAUJO                                                                                                            
+ANGUSTIN        ||SIST OPERA      ||ARAUJO                                                                                                            
+ANIBAL          ||SIST OPERA      ||ARAUJO                                                                                                            
+ANICETO         ||SIST OPERA      ||ARAUJO                                                                                                            
+ANTONIA         ||SIST OPERA      ||ARAUJO                                                                                                            
+ANTONIETA       ||SIST OPERA      ||ARAUJO                                                                                                            
+ANTONI0         ||SIST OPERA      ||ARAUJO                                                                                                            
+APOLO           ||SIST OPERA      ||ARAUJO                                                                                                            
+AQUILES         ||SIST OPERA      ||ARAUJO                                                                                                            
+AQUILINA        ||SIST OPERA      ||ARAUJO                                                                                                            
+ARACELI         ||SIST OPERA      ||ARAUJO                                                                                                            
+ARCHIBADO       ||SIST OPERA      ||ARAUJO                                                                                                            
+ARIADNA         ||SIST OPERA      ||ARAUJO                                                                                                            
+ARIEL           ||SIST OPERA      ||ARAUJO                                                                                                            
+ARISTIDES       ||SIST OPERA      ||ARAUJO                                                                                                            
+ARMANDO         ||SIST OPERA      ||ARAUJO                                                                                                            
+ARNOLD0         ||SIST OPERA      ||ARAUJO                                                                                                            
+ARTURO          ||SIST OPERA      ||ARAUJO                                                                                                            
+ASUNCION        ||SIST OPERA      ||ARAUJO                                                                                                            
+AUGUSTO         ||SIST OPERA      ||ARAUJO                                                                                                            
+AURELIA         ||SIST OPERA      ||ARAUJO                                                                                                            
+AURELIO         ||SIST OPERA      ||ARAUJO                                                                                                            
+AURORA          ||SIST OPERA      ||ARAUJO                                                                                                            
+AUXILIA         ||SIST OPERA      ||ARAUJO                                                                                                            
+AXEL	           ||SIST OPERA      ||ARAUJO                                                                                                            
+AZUZENA         ||SIST OPERA      ||ARAUJO                                                                                                            
+ANSELM0         ||SI5T OPERA      ||ARAUJO                                                                                                            
+MARIA           ||Sist Operativos ||Araujo                                                                                                            
+AMALIA          ||SIST OPERAI     ||ARAUJ0                                                                                                            
+MARIANA         ||BASES DE DATOS  ||Lopez                                                                                                             
+MACLOVIA        ||BASES DE DATOS  ||Martinez                                                                                                          
+MARGARITA       ||BASES DE DATOS  ||Martinez                                                                                                          
+IRAFAEL         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+MANUEL          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+MARTIN          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RAIMUNDO        ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RAMIRO          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RAMON           ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RAMONA          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RAQUEL          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RAUL            ||BASES DE DATOS  ||NAVATHE                                                                                                           
+REBECA          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+REGINA          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+REINA           ||BASES DE DATOS  ||NAVATHE                                                                                                           
+
+ESTUDIANTE      ||CURSO           ||INSTRUCTOR                                                                                                        
+----------------||----------------||----------------                                                                                                  
+REINALDO        ||BASES DE DATOS  ||NAVATHE                                                                                                           
+REMEDIOS        ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RENATO          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RENE	           ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RICARDO         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RITA	           ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROBERTO         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROCIO           ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RODOLF0         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RODRIGO         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROGELIO         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROLAND0         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROMANI          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROMILDA         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROMILDO         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+RONALD0         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROQUE           ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROQUE           ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROSA	           ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROSALiA         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROSAMUNDA       ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROSANA          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROSARIO         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROSENDO         ||BASES DE DATOS  ||NAVATHE                                                                                                           
+ROXANA          ||BASES DE DATOS  ||NAVATHE                                                                                                           
+MARCELO         ||Sist Operativos ||Omar                                                                                                              
+MATEO           ||Sist Operativos ||Omar                                                                                                              
+MARCOS          ||T de Automatas  ||Shaums                                                                                                            
+
+124 rows selected.
+
+
+INSTRUCTOR      ||ESTUDIANTE                                                                                                                          
+----------------||----------------                                                                                                                    
+ARAUJO          ||AARON                                                                                                                               
+ARAUJO          ||ABEL                                                                                                                                
+ARAUJO          ||ABIGAIL                                                                                                                             
+ARAUJO          ||ABRAHAM                                                                                                                             
+ARAUJO          ||ABRIL                                                                                                                               
+ARAUJO          ||ADA                                                                                                                                 
+ARAUJO          ||ADALBERDO                                                                                                                           
+ARAUJO          ||ADAN                                                                                                                                
+ARAUJO          ||ADELA                                                                                                                               
+ARAUJO          ||ADELAIDA                                                                                                                            
+ARAUJO          ||ADELINA                                                                                                                             
+ARAUJO          ||ADELMO                                                                                                                              
+ARAUJO          ||ADOLFO                                                                                                                              
+ARAUJO          ||ADRIAN                                                                                                                              
+ARAUJO          ||ADRIANO                                                                                                                             
+ARAUJO          ||AGATA                                                                                                                               
+ARAUJO          ||AGUEDA                                                                                                                              
+ARAUJO          ||AGUSTIN                                                                                                                             
+ARAUJO          ||AIDA                                                                                                                                
+ARAUJO          ||AINARA                                                                                                                              
+ARAUJO          ||ALAN                                                                                                                                
+ARAUJO          ||ALBANO                                                                                                                              
+ARAUJO          ||ALBERTO                                                                                                                             
+ARAUJO          ||ALCIRA                                                                                                                              
+ARAUJO          ||ALDO                                                                                                                                
+ARAUJO          ||ALEJANDA                                                                                                                            
+ARAUJO          ||ALEJANDO                                                                                                                            
+ARAUJO          ||ALEJO                                                                                                                               
+ARAUJO          ||ALFONSO                                                                                                                             
+ARAUJO          ||ALFREDO                                                                                                                             
+ARAUJO          ||ALINA                                                                                                                               
+ARAUJO          ||ALMUDENA                                                                                                                            
+ARAUJO          ||ALONSO                                                                                                                              
+ARAUJO          ||ALVARO                                                                                                                              
+ARAUJO          ||AMADEO                                                                                                                              
+ARAUJO          ||AMANCIO                                                                                                                             
+ARAUJO          ||AMANDA                                                                                                                              
+ARAUJO          ||AMARANTO                                                                                                                            
+ARAUJO          ||AMAYA                                                                                                                               
+ARAUJO          ||AMEIROSIA                                                                                                                           
+ARAUJO          ||AMELIA                                                                                                                              
+ARAUJO          ||AMIRA                                                                                                                               
+ARAUJO          ||AMOS                                                                                                                                
+ARAUJO          ||AMPARO                                                                                                                              
+ARAUJO          ||ANA                                                                                                                                 
+ARAUJO          ||ANACLET0                                                                                                                            
+ARAUJO          ||ANASTASIA                                                                                                                           
+ARAUJO          ||ANDERA                                                                                                                              
+ARAUJO          ||ANDRES                                                                                                                              
+ARAUJO          ||ANGELA                                                                                                                              
+ARAUJO          ||ANGELES                                                                                                                             
+ARAUJO          ||ANGELICA                                                                                                                            
+ARAUJO          ||ANGUSTIN                                                                                                                            
+ARAUJO          ||ANIBAL                                                                                                                              
+ARAUJO          ||ANICETO                                                                                                                             
+ARAUJO          ||ANSELM0                                                                                                                             
+ARAUJO          ||ANTONIA                                                                                                                             
+ARAUJO          ||ANTONIETA                                                                                                                           
+ARAUJO          ||ANTONI0                                                                                                                             
+ARAUJO          ||APOLO                                                                                                                               
+ARAUJO          ||AQUILES                                                                                                                             
+ARAUJO          ||AQUILINA                                                                                                                            
+ARAUJO          ||ARACELI                                                                                                                             
+ARAUJO          ||ARCHIBADO                                                                                                                           
+ARAUJO          ||ARIADNA                                                                                                                             
+ARAUJO          ||ARIEL                                                                                                                               
+ARAUJO          ||ARISTIDES                                                                                                                           
+ARAUJO          ||ARMANDO                                                                                                                             
+ARAUJO          ||ARNOLD0                                                                                                                             
+ARAUJO          ||ARTURO                                                                                                                              
+ARAUJO          ||ASUNCION                                                                                                                            
+ARAUJO          ||AUGUSTO                                                                                                                             
+ARAUJO          ||AURELIA                                                                                                                             
+ARAUJO          ||AURELIO                                                                                                                             
+ARAUJO          ||AURORA                                                                                                                              
+ARAUJO          ||AUXILIA                                                                                                                             
+ARAUJO          ||AXEL	                                                                                                                               
+ARAUJO          ||AZUZENA                                                                                                                             
+ARAUJO          ||IATANASIA                                                                                                                           
+Araujo          ||MARIA                                                                                                                               
+ARAUJ0          ||AMALIA                                                                                                                              
+Lopez           ||MARIANA                                                                                                                             
+Martinez        ||MACLOVIA                                                                                                                            
+Martinez        ||MARGARITA                                                                                                                           
+NAVATHE         ||IRAFAEL                                                                                                                             
+NAVATHE         ||MANUEL                                                                                                                              
+NAVATHE         ||MARTIN                                                                                                                              
+NAVATHE         ||RAIMUNDO                                                                                                                            
+NAVATHE         ||RAMIRO                                                                                                                              
+NAVATHE         ||RAMON                                                                                                                               
+NAVATHE         ||RAMONA                                                                                                                              
+NAVATHE         ||RAQUEL                                                                                                                              
+NAVATHE         ||RAUL                                                                                                                                
+NAVATHE         ||REBECA                                                                                                                              
+NAVATHE         ||REGINA                                                                                                                              
+NAVATHE         ||REINA                                                                                                                               
+
+INSTRUCTOR      ||ESTUDIANTE                                                                                                                          
+----------------||----------------                                                                                                                    
+NAVATHE         ||REINALDO                                                                                                                            
+NAVATHE         ||REMEDIOS                                                                                                                            
+NAVATHE         ||RENATO                                                                                                                              
+NAVATHE         ||RENE	                                                                                                                               
+NAVATHE         ||RICARDO                                                                                                                             
+NAVATHE         ||RITA	                                                                                                                               
+NAVATHE         ||ROBERTO                                                                                                                             
+NAVATHE         ||ROCIO                                                                                                                               
+NAVATHE         ||RODOLF0                                                                                                                             
+NAVATHE         ||RODRIGO                                                                                                                             
+NAVATHE         ||ROGELIO                                                                                                                             
+NAVATHE         ||ROLAND0                                                                                                                             
+NAVATHE         ||ROMANI                                                                                                                              
+NAVATHE         ||ROMILDA                                                                                                                             
+NAVATHE         ||ROMILDO                                                                                                                             
+NAVATHE         ||RONALD0                                                                                                                             
+NAVATHE         ||ROQUE                                                                                                                               
+NAVATHE         ||ROQUE                                                                                                                               
+NAVATHE         ||ROSA	                                                                                                                               
+NAVATHE         ||ROSALiA                                                                                                                             
+NAVATHE         ||ROSAMUNDA                                                                                                                           
+NAVATHE         ||ROSANA                                                                                                                              
+NAVATHE         ||ROSARIO                                                                                                                             
+NAVATHE         ||ROSENDO                                                                                                                             
+NAVATHE         ||ROXANA                                                                                                                              
+Omar            ||MARCELO                                                                                                                             
+Omar            ||MATEO                                                                                                                               
+Shaums          ||MARCOS                                                                                                                              
+
+124 rows selected.
+
+
+INSTRUCTOR      ||CURSO                                                                                                                               
+----------------||----------------                                                                                                                    
+Lopez           ||BASES DE DATOS                                                                                                                      
+Martinez        ||BASES DE DATOS                                                                                                                      
+NAVATHE         ||BASES DE DATOS                                                                                                                      
+ARAUJO          ||ISIST OPERA                                                                                                                         
+ARAUJO          ||SIST OPERA                                                                                                                          
+ARAUJ0          ||SIST OPERAI                                                                                                                         
+Araujo          ||Sist Operativos                                                                                                                     
+Omar            ||Sist Operativos                                                                                                                     
+ARAUJO          ||SI5T OPERA                                                                                                                          
+Shaums          ||T de Automatas                                                                                                                      
+
+10 rows selected.
+
+
+  COUNT(*)                                                                                                                                            
+----------                                                                                                                                            
+       124                                                                                                                                            
+
+
+  COUNT(*)                                                                                                                                            
+----------                                                                                                                                            
+       124                                                                                                                                            
+
+
+  COUNT(*)                                                                                                                                            
+----------                                                                                                                                            
+        10                                                                                                                                            
+

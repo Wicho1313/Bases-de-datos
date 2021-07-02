@@ -1,0 +1,216 @@
+DROP TABLE CARRO
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+DROP TABLE R
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+MARCA  MODELO   COLOR                                                           
+------ -------- --------                                                        
+TOYOTA COROLLA  BLANCO                                                          
+FORD   Ka       VERDE                                                           
+TOYOTA Ka       BLACO                                                           
+FORD   Ka       ROJO                                                            
+FIAT   SIENA    GRIS                                                            
+
+DROP TABLE Q
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+MARCA  MODELO   COLOR                                                           
+------ -------- --------                                                        
+FIAT   SIENA    GRIS                                                            
+FORD   Ka       ROJO                                                            
+FORD   Ka       VERDE                                                           
+TOYOTA Ka       BLACO                                                           
+TOYOTA COROLLA  BLANCO                                                          
+
+FORM R NATURAL JOIN Q
+*
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected 
+
+
+drop table carro_2
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+MARCA  PLACA  MODELO   COLOR                                                    
+------ ------ -------- --------                                                 
+FIAT   ADA89A SIENA    GRIS                                                     
+FORD   MBO34L Ka       ROJO                                                     
+FORD   XSA67D Ka       ROJO                                                     
+FORD   MBO34L Ka       VERDE                                                    
+FORD   XSA67D Ka       VERDE                                                    
+TOYOTA LBF78G COROLLA  BLANCO                                                   
+TOYOTA LDA75K COROLLA  BLANCO                                                   
+TOYOTA LBF78G Ka       BLACO                                                    
+TOYOTA LDA75K Ka       BLACO                                                    
+
+9 rows selected.
+
+
+PLACA  MARCA  MARCA  MODELO   COLOR                                             
+------ ------ ------ -------- --------                                          
+ADA89A FIAT   FIAT   SIENA    GRIS                                              
+ADA89A FIAT   TOYOTA Ka       BLACO                                             
+ADA89A FIAT   FORD   Ka       ROJO                                              
+ADA89A FIAT   TOYOTA COROLLA  BLANCO                                            
+ADA89A FIAT   FORD   Ka       VERDE                                             
+MBO34L FORD   FORD   Ka       ROJO                                              
+XSA67D FORD   FORD   Ka       ROJO                                              
+MBO34L FORD   FIAT   SIENA    GRIS                                              
+XSA67D FORD   FIAT   SIENA    GRIS                                              
+MBO34L FORD   TOYOTA Ka       BLACO                                             
+XSA67D FORD   TOYOTA Ka       BLACO                                             
+
+PLACA  MARCA  MARCA  MODELO   COLOR                                             
+------ ------ ------ -------- --------                                          
+MBO34L FORD   TOYOTA COROLLA  BLANCO                                            
+XSA67D FORD   TOYOTA COROLLA  BLANCO                                            
+MBO34L FORD   FORD   Ka       VERDE                                             
+XSA67D FORD   FORD   Ka       VERDE                                             
+LDA75K TOYOTA FIAT   SIENA    GRIS                                              
+LBF78G TOYOTA TOYOTA Ka       BLACO                                             
+LDA75K TOYOTA TOYOTA Ka       BLACO                                             
+LBF78G TOYOTA FORD   Ka       VERDE                                             
+LDA75K TOYOTA FORD   Ka       ROJO                                              
+LBF78G TOYOTA TOYOTA COROLLA  BLANCO                                            
+LDA75K TOYOTA TOYOTA COROLLA  BLANCO                                            
+
+PLACA  MARCA  MARCA  MODELO   COLOR                                             
+------ ------ ------ -------- --------                                          
+LBF78G TOYOTA FIAT   SIENA    GRIS                                              
+LBF78G TOYOTA FORD   Ka       ROJO                                              
+LDA75K TOYOTA FORD   Ka       VERDE                                             
+
+25 rows selected.
+
+
+MARCA  PLACA  MODELO   COLOR                                                    
+------ ------ -------- --------                                                 
+FIAT   ADA89A SIENA    GRIS                                                     
+FORD   MBO34L Ka       ROJO                                                     
+FORD   XSA67D Ka       ROJO                                                     
+FORD   MBO34L Ka       VERDE                                                    
+FORD   XSA67D Ka       VERDE                                                    
+TOYOTA LBF78G COROLLA  BLANCO                                                   
+TOYOTA LDA75K COROLLA  BLANCO                                                   
+TOYOTA LBF78G Ka       BLACO                                                    
+TOYOTA LDA75K Ka       BLACO                                                    
+
+9 rows selected.
+
+
+PLACA  MARCA  MARCA  MODELO   COLOR                                             
+------ ------ ------ -------- --------                                          
+ADA89A FIAT   FIAT   SIENA    GRIS                                              
+ADA89A FIAT   FORD   Ka       VERDE                                             
+ADA89A FIAT   FORD   Ka       ROJO                                              
+ADA89A FIAT   TOYOTA Ka       BLACO                                             
+ADA89A FIAT   TOYOTA COROLLA  BLANCO                                            
+XSA67D FORD   FIAT   SIENA    GRIS                                              
+MBO34L FORD   FIAT   SIENA    GRIS                                              
+MBO34L FORD   FORD   Ka       ROJO                                              
+XSA67D FORD   FORD   Ka       ROJO                                              
+MBO34L FORD   FORD   Ka       VERDE                                             
+XSA67D FORD   FORD   Ka       VERDE                                             
+
+PLACA  MARCA  MARCA  MODELO   COLOR                                             
+------ ------ ------ -------- --------                                          
+MBO34L FORD   TOYOTA COROLLA  BLANCO                                            
+MBO34L FORD   TOYOTA Ka       BLACO                                             
+XSA67D FORD   TOYOTA Ka       BLACO                                             
+XSA67D FORD   TOYOTA COROLLA  BLANCO                                            
+LBF78G TOYOTA FIAT   SIENA    GRIS                                              
+LDA75K TOYOTA FIAT   SIENA    GRIS                                              
+LBF78G TOYOTA FORD   Ka       ROJO                                              
+LDA75K TOYOTA FORD   Ka       VERDE                                             
+LBF78G TOYOTA FORD   Ka       VERDE                                             
+LDA75K TOYOTA FORD   Ka       ROJO                                              
+LBF78G TOYOTA TOYOTA Ka       BLACO                                             
+
+PLACA  MARCA  MARCA  MODELO   COLOR                                             
+------ ------ ------ -------- --------                                          
+LDA75K TOYOTA TOYOTA Ka       BLACO                                             
+LDA75K TOYOTA TOYOTA COROLLA  BLANCO                                            
+LBF78G TOYOTA TOYOTA COROLLA  BLANCO                                            
+
+25 rows selected.
+
+
+MARCA  MARCA  COLOR                                                             
+------ ------ --------                                                          
+FIAT   FIAT   GRIS                                                              
+FIAT   FORD   ROJO                                                              
+FIAT   FORD   VERDE                                                             
+FIAT   TOYOTA BLACO                                                             
+FIAT   TOYOTA BLANCO                                                            
+FORD   FIAT   GRIS                                                              
+FORD   FIAT   GRIS                                                              
+FORD   FORD   ROJO                                                              
+FORD   FORD   ROJO                                                              
+FORD   FORD   VERDE                                                             
+FORD   FORD   VERDE                                                             
+
+MARCA  MARCA  COLOR                                                             
+------ ------ --------                                                          
+FORD   TOYOTA BLACO                                                             
+FORD   TOYOTA BLACO                                                             
+FORD   TOYOTA BLANCO                                                            
+FORD   TOYOTA BLANCO                                                            
+TOYOTA FIAT   GRIS                                                              
+TOYOTA FIAT   GRIS                                                              
+TOYOTA FORD   ROJO                                                              
+TOYOTA FORD   ROJO                                                              
+TOYOTA FORD   VERDE                                                             
+TOYOTA FORD   VERDE                                                             
+TOYOTA TOYOTA BLACO                                                             
+
+MARCA  MARCA  COLOR                                                             
+------ ------ --------                                                          
+TOYOTA TOYOTA BLACO                                                             
+TOYOTA TOYOTA BLANCO                                                            
+TOYOTA TOYOTA BLANCO                                                            
+
+25 rows selected.
+

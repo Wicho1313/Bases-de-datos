@@ -1,0 +1,71 @@
+Vázquez Santiago Humberto
+Espinoza Osorio José Luis
+2CM11
+
+-------------------------------------------------------------------------------------
+create database practica5;
+use database practica5;
+
+create table estudiante(id_estudiante varchar(100) not null primary key,
+			nombre varchar(100) not null,
+			grupo varchar(100) not null,
+			turno varchar(100) not null,
+			materias varchar(100) not null,
+			id_consejero varchar(100) not null,
+			foreign key(id_consejero) references consejero(id_consejero));
+
+create table consejero(	id_consejero varchar(100) not null primary key,
+			nombre varchar(100) not null);
+
+create table club(	id_club varchar(100) not null primary key,
+			nombre varchar(100) not null,
+			moderador varchar(100) not null);
+
+create table actividad(	id_actividad varchar(100) not null primary key,
+			nombre varchar(100) not null);
+
+create table club_actividad(	id_club varchar(100) not null,
+				id_actividad varchar(100) not null,
+				primary key(id_club,id_actividad),
+				foreign key(id_club) references club(id_club),
+				foreign key(id_actividad) references actividad(id_actividad));
+
+create table estudiante_club(	id_estudiante varchar(100) not null,
+				id_club varchar(100) not null,
+				primary key(id_estudiante, id_club),
+				foreign key(id_estudiante) references estudiante(id_estudiante),
+				foreign key(id_club) references club(id_club));
+
+---------------------------------------------------------------------------------------------------------------
+
+1. alter table proveedor add crédito double not null;
+
+2. update proveedor set crédito=20000;
+
+3. update socioclub set idclub=99 where idclub=25;
+
+4. update proveedor set crédito=((20000)-(20000*.09)) where idproveedor=24;
+
+5. 	update producto set idproveedor=33 where idproveedor=25;
+	update producto set idproveedor=33 where idproveedor=22;
+	update producto set idproveedor=33 where idproveedor=32;
+
+6. update proveedor set crédito=10000 where nombre like '%S%';
+
+7. update producto set preciounitario=40 where idproducto=15;
+
+8. update producto set preciounitario=((preciounitario*.1)+preciounitario);
+
+9. update club set nombre=upper(nombre);
+
+10. update socio set direccion='DIRECCION DE JUAN' where nombre like '%Juan%';
+
+11. alter table producto modify preciounitario decimal(7,2);
+
+12. select * from gerente where idgerente not in(50,60,70,80,90,100,110,120,150,130,200,230,300);
+
+14. select * from socio where nombre like '%A ';
+
+15. select s.nombre from servicio s, club c, servicioclub sc where s.idservicio=sc.idservicio and c.nombre='QUER‚TARO';
+
+18. select p.nombre from club c, proveedor p where c.nombre='Tepeyac'; 

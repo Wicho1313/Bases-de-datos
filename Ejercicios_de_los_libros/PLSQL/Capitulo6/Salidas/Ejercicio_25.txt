@@ -1,0 +1,10 @@
+SQL> REM Sale un producto cartesiano
+SQL> SELECT s.student_id, i.instructor_id,
+  2  s.zip, i.zip
+  3  FROM student s, instructor i
+  4  WHERE s.zip = i.zip
+  5  ORDER BY s.student_id, i.instructor_id;
+
+no rows selected
+
+SQL> spool off

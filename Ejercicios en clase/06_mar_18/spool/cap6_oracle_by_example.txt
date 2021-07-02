@@ -1,0 +1,1203 @@
+SQL> set pagesize 99
+SQL> set linesize 150
+SQL> set colsep '||'
+SQL> set underline '='
+SQL> 
+SQL> COLUMN COURSE_NO FORMAT 999;
+SQL> COLUMN SECTION_NO FORMAT 999;
+SQL> COLUMN DESCRIPTION FORMAT A30;
+SQL> COLUMN SALON FORMAT A7;
+SQL> COLUMN INSTRUCTOR_ID FORMAT 9999;
+SQL> SELECT course.course_no, section_no, description, Location SALON, Instructor_id
+  2  FROM course, section
+  3  where course.course_no=section.course_no;
+
+COURSE_NO||SECTION_NO||DESCRIPTION                   ||SALON  ||INSTRUCTOR_ID                                                                         
+=========||==========||==============================||=======||=============                                                                         
+      350||         3||JDeveloper Lab                ||L509   ||          107                                                                         
+       10||         2||DP Overview                   ||L214   ||          102                                                                         
+       20||         2||Intro to Computers            ||L210   ||          103                                                                         
+       20||         4||Intro to Computers            ||L214   ||          104                                                                         
+       20||         7||Intro to Computers            ||L509   ||          105                                                                         
+       20||         8||Intro to Computers            ||L210   ||          106                                                                         
+       25||         1||Intro to Programming          ||M311   ||          107                                                                         
+       25||         2||Intro to Programming          ||L210   ||          108                                                                         
+       25||         3||Intro to Programming          ||L507   ||          101                                                                         
+       25||         4||Intro to Programming          ||L214   ||          102                                                                         
+       25||         5||Intro to Programming          ||L509   ||          103                                                                         
+       25||         6||Intro to Programming          ||L509   ||          104                                                                         
+       25||         7||Intro to Programming          ||L210   ||          105                                                                         
+       25||         8||Intro to Programming          ||L509   ||          106                                                                         
+       25||         9||Intro to Programming          ||L507   ||          107                                                                         
+      146||         2||Java for C/C++ Programmers    ||L507   ||          102                                                                         
+      147||         1||GUI Programming               ||L509   ||          103                                                                         
+      204||         1||Intro to SQL                  ||L210   ||          104                                                                         
+      210||         1||Oracle Tools                  ||L507   ||          105                                                                         
+      220||         1||PL/SQL Programming            ||L509   ||          106                                                                         
+      230||         1||Intro to Internet             ||L500   ||          107                                                                         
+      230||         2||Intro to Internet             ||L214   ||          108                                                                         
+      240||         1||Intro to the Basic Language   ||L509   ||          101                                                                         
+      240||         2||Intro to the Basic Language   ||L214   ||          102                                                                         
+      310||         1||Operating Systems             ||L507   ||          103                                                                         
+      330||         1||Network Administration        ||L511   ||          104                                                                         
+      350||         1||JDeveloper Lab                ||L509   ||          105                                                                         
+      350||         2||JDeveloper Lab                ||L214   ||          106                                                                         
+      130||         1||Intro to Unix                 ||L507   ||          103                                                                         
+      420||         1||Database System Principles    ||M311   ||          108                                                                         
+      450||         1||DB Programming in Java        ||L507   ||          101                                                                         
+      134||         2||Advanced Unix Admin           ||L509   ||          102                                                                         
+      134||         3||Advanced Unix Admin           ||L509   ||          103                                                                         
+      135||         1||Unix Tips and Techniques      ||L509   ||          104                                                                         
+      135||         2||Unix Tips and Techniques      ||L214   ||          105                                                                         
+      135||         3||Unix Tips and Techniques      ||L509   ||          106                                                                         
+      135||         4||Unix Tips and Techniques      ||M200   ||          107                                                                         
+      140||         1||Structured Analysis           ||L509   ||          108                                                                         
+      140||         2||Structured Analysis           ||L210   ||          101                                                                         
+      140||         3||Structured Analysis           ||L507   ||          102                                                                         
+      142||         1||Project Management            ||L211   ||          103                                                                         
+      142||         2||Project Management            ||L214   ||          104                                                                         
+      142||         3||Project Management            ||L507   ||          105                                                                         
+      144||         2||Database Design               ||L214   ||          106                                                                         
+      145||         1||Internet Protocols            ||L214   ||          107                                                                         
+      145||         3||Internet Protocols            ||L210   ||          108                                                                         
+      146||         1||Java for C/C++ Programmers    ||L509   ||          101                                                                         
+      124||         1||Advanced Java Programming     ||M500   ||          102                                                                         
+      124||         2||Advanced Java Programming     ||H310   ||          103                                                                         
+      124||         3||Advanced Java Programming     ||L214   ||          104                                                                         
+      124||         4||Advanced Java Programming     ||L210   ||          105                                                                         
+      125||         1||JDeveloper                    ||L509   ||          106                                                                         
+      125||         2||JDeveloper                    ||L509   ||          107                                                                         
+      125||         3||JDeveloper                    ||L214   ||          108                                                                         
+      125||         4||JDeveloper                    ||L211   ||          101                                                                         
+      125||         6||JDeveloper                    ||L507   ||          102                                                                         
+      130||         2||Intro to Unix                 ||L214   ||          104                                                                         
+      130||         3||Intro to Unix                 ||L509   ||          105                                                                         
+      130||         4||Intro to Unix                 ||L509   ||          106                                                                         
+      132||         1||Basics of Unix Admin          ||L509   ||          107                                                                         
+      132||         3||Basics of Unix Admin          ||L509   ||          108                                                                         
+      134||         1||Advanced Unix Admin           ||L509   ||          101                                                                         
+      100||         1||Hands-On Windows              ||L214   ||          102                                                                         
+      100||         2||Hands-On Windows              ||L500   ||          103                                                                         
+      100||         3||Hands-On Windows              ||L509   ||          104                                                                         
+      100||         4||Hands-On Windows              ||L507   ||          105                                                                         
+      100||         5||Hands-On Windows              ||L214   ||          106                                                                         
+      120||         1||Intro to Java Programming     ||L507   ||          107                                                                         
+      120||         2||Intro to Java Programming     ||L206   ||          108                                                                         
+      120||         3||Intro to Java Programming     ||L509   ||          101                                                                         
+      120||         4||Intro to Java Programming     ||L509   ||          102                                                                         
+      120||         5||Intro to Java Programming     ||L210   ||          103                                                                         
+      120||         7||Intro to Java Programming     ||L507   ||          104                                                                         
+      122||         1||Intermediate Java Programming ||M311   ||          105                                                                         
+      122||         2||Intermediate Java Programming ||L211   ||          106                                                                         
+      122||         3||Intermediate Java Programming ||L507   ||          107                                                                         
+      122||         4||Intermediate Java Programming ||L210   ||          108                                                                         
+      122||         5||Intermediate Java Programming ||L507   ||          101                                                                         
+
+78 rows selected.
+
+SQL> 
+SQL> PROMPT ALIAS DE NOMBRES DE TABLAS
+ALIAS DE NOMBRES DE TABLAS
+SQL> SELECT c.course_no,s.section_no, c.description, s.location, s.instructor_id
+  2  FROM course c, section s
+  3  where c.course_no=s.course_no
+  4  AND ROWNUM<=25;
+
+COURSE_NO||SECTION_NO||DESCRIPTION                   ||LOCATION                                          ||INSTRUCTOR_ID                              
+=========||==========||==============================||==================================================||=============                              
+      350||         3||JDeveloper Lab                ||L509                                              ||          107                              
+       10||         2||DP Overview                   ||L214                                              ||          102                              
+       20||         2||Intro to Computers            ||L210                                              ||          103                              
+       20||         4||Intro to Computers            ||L214                                              ||          104                              
+       20||         7||Intro to Computers            ||L509                                              ||          105                              
+       20||         8||Intro to Computers            ||L210                                              ||          106                              
+       25||         1||Intro to Programming          ||M311                                              ||          107                              
+       25||         2||Intro to Programming          ||L210                                              ||          108                              
+       25||         3||Intro to Programming          ||L507                                              ||          101                              
+       25||         4||Intro to Programming          ||L214                                              ||          102                              
+       25||         5||Intro to Programming          ||L509                                              ||          103                              
+       25||         6||Intro to Programming          ||L509                                              ||          104                              
+       25||         7||Intro to Programming          ||L210                                              ||          105                              
+       25||         8||Intro to Programming          ||L509                                              ||          106                              
+       25||         9||Intro to Programming          ||L507                                              ||          107                              
+      146||         2||Java for C/C++ Programmers    ||L507                                              ||          102                              
+      147||         1||GUI Programming               ||L509                                              ||          103                              
+      204||         1||Intro to SQL                  ||L210                                              ||          104                              
+      210||         1||Oracle Tools                  ||L507                                              ||          105                              
+      220||         1||PL/SQL Programming            ||L509                                              ||          106                              
+      230||         1||Intro to Internet             ||L500                                              ||          107                              
+      230||         2||Intro to Internet             ||L214                                              ||          108                              
+      240||         1||Intro to the Basic Language   ||L509                                              ||          101                              
+      240||         2||Intro to the Basic Language   ||L214                                              ||          102                              
+      310||         1||Operating Systems             ||L507                                              ||          103                              
+
+25 rows selected.
+
+SQL> 
+SQL> REM OPERADOR LIKE
+SQL> SELECT c.course_no, s.section_no, c.description, s.location, s.istructor_id
+  2  from course c, section s
+  3  where c.course_no=s.course_no
+  4  AND c.description LIKE 'intro to%';
+SELECT c.course_no, s.section_no, c.description, s.location, s.istructor_id
+                                                             *
+ERROR at line 1:
+ORA-00904: "S"."ISTRUCTOR_ID": invalid identifier 
+
+
+SQL> REM NULL
+SQL> SELECT instructor_id, zip, last_name, first_name
+  2  FROM instructor
+  3  where zip IS NULL;
+
+INSTRUCTOR_ID||ZIP  ||LAST_NAME                ||FIRST_NAME                                                                                           
+=============||=====||=========================||=========================                                                                            
+          110||     ||Willig                   ||Irene                                                                                                
+
+SQL> 
+SQL> PROMPT EL INSTRUCTOR WILLING NO APARECE POR NO TENER CP
+EL INSTRUCTOR WILLING NO APARECE POR NO TENER CP
+SQL> SELECT i.instructor_id,i.zip, i.last_name, i.first_name
+  2  FROM instructor i, zipcode z
+  3  where i.zip=z.zip;
+
+INSTRUCTOR_ID||ZIP  ||LAST_NAME                ||FIRST_NAME                                                                                           
+=============||=====||=========================||=========================                                                                            
+          101||10015||Hanks                    ||Fernand                                                                                              
+          102||10025||Wojick                   ||Tom                                                                                                  
+          103||10025||Schorin                  ||Nina                                                                                                 
+          104||10035||Pertez                   ||Gary                                                                                                 
+          105||10015||Morris                   ||Anita                                                                                                
+          106||10025||Smythe                   ||Todd                                                                                                 
+          107||10005||Frantzen                 ||Marilyn                                                                                              
+          108||10025||Lowry                    ||Charles                                                                                              
+          109||10015||Chow                     ||Rick                                                                                                 
+
+9 rows selected.
+
+SQL> 
+SQL> PROMPT JOIN USING (COURSE)
+JOIN USING (COURSE)
+SQL> SELECT course_no, s.selection_no, c.description, s.location, s.instructor_id
+  2  FROM course c JOIN section s
+  3  USING (course_no);
+SELECT course_no, s.selection_no, c.description, s.location, s.instructor_id
+                  *
+ERROR at line 1:
+ORA-00904: "S"."SELECTION_NO": invalid identifier 
+
+
+SQL> 
+SQL> PROMPT ON CONDITION EN EL JOIN
+ON CONDITION EN EL JOIN
+SQL> SELECT c.course_no, s.sectiohn_no, c.description, s.location, s. instructor_id
+  2  FROM course c JOIN sectrion s
+  3  ON (c.course_no=s.course_no);
+FROM course c JOIN sectrion s
+                   *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> 
+SQL> PROMPT Desplegar solo las primeras 20 tuplas
+Desplegar solo las primeras 20 tuplas
+SQL> SELECT c.course_no, s.section_no, c.description, s.location, s.instructor_id
+  2  FROM course c JOIN section s
+  3  ON(c.course_no=s.course_no AND ROWNUM <=20);
+
+COURSE_NO||SECTION_NO||DESCRIPTION                   ||LOCATION                                          ||INSTRUCTOR_ID                              
+=========||==========||==============================||==================================================||=============                              
+      350||         3||JDeveloper Lab                ||L509                                              ||          107                              
+       10||         2||DP Overview                   ||L214                                              ||          102                              
+       20||         2||Intro to Computers            ||L210                                              ||          103                              
+       20||         4||Intro to Computers            ||L214                                              ||          104                              
+       20||         7||Intro to Computers            ||L509                                              ||          105                              
+       20||         8||Intro to Computers            ||L210                                              ||          106                              
+       25||         1||Intro to Programming          ||M311                                              ||          107                              
+       25||         2||Intro to Programming          ||L210                                              ||          108                              
+       25||         3||Intro to Programming          ||L507                                              ||          101                              
+       25||         4||Intro to Programming          ||L214                                              ||          102                              
+       25||         5||Intro to Programming          ||L509                                              ||          103                              
+       25||         6||Intro to Programming          ||L509                                              ||          104                              
+       25||         7||Intro to Programming          ||L210                                              ||          105                              
+       25||         8||Intro to Programming          ||L509                                              ||          106                              
+       25||         9||Intro to Programming          ||L507                                              ||          107                              
+      146||         2||Java for C/C++ Programmers    ||L507                                              ||          102                              
+      147||         1||GUI Programming               ||L509                                              ||          103                              
+      204||         1||Intro to SQL                  ||L210                                              ||          104                              
+      210||         1||Oracle Tools                  ||L507                                              ||          105                              
+      220||         1||PL/SQL Programming            ||L509                                              ||          106                              
+
+20 rows selected.
+
+SQL> 
+SQL> PROMPT SEPARANDO LA CONDICION DEL FILTRADO DE LA CONDICION DE JO0IN DE
+SEPARANDO LA CONDICION DEL FILTRADO DE LA CONDICION DE JO0IN DE
+SQL> SELECT c.course_no, s.sectriojn_no, c.description, s.location, s.instructor_id
+  2  FROM course c JOIN section s
+  3  ON(c.course_no=s.course_no)
+  4  WHERE descriptionLIKE 'B%';
+WHERE descriptionLIKE 'B%'
+                      *
+ERROR at line 4:
+ORA-00920: invalid relational operator 
+
+
+SQL> 
+SQL> PROMPT PRODUCTO CARTESIANO 10X78=780
+PRODUCTO CARTESIANO 10X78=780
+SQL> SELECT COUNT(*)
+  2  FROM section;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+        78                                                                                                                                            
+
+SQL> SELECT (*)
+  2  FROM instructor;
+SELECT (*)
+        *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> SELECT COUNT (*)
+  2  FROM section, instructor;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+       780                                                                                                                                            
+
+SQL> 
+SQL> PROMPT THE ANSI STANDARD CROSS-JOIN
+THE ANSI STANDARD CROSS-JOIN
+SQL> SELECT COUNT (*)
+  2  FROM section CROSS JOIN instructor;
+
+  COUNT(*)                                                                                                                                            
+==========                                                                                                                                            
+       780                                                                                                                                            
+
+SQL> 
+SQL> PROMPT CLAUSULA ORDER BY
+CLAUSULA ORDER BY
+SQL> SELECT s.last_name, s.zip, z.state, z.city
+  2  FROM student s, zipcode z
+  3  WHERE s.zip=z.zip
+  4  ORDER BY s.zip;
+
+LAST_NAME                ||ZIP  ||ST||CITY                                                                                                            
+=========================||=====||==||=========================                                                                                       
+Norman                   ||01247||MA||North Adams                                                                                                     
+Kocka                    ||02124||MA||Dorchester                                                                                                      
+Sethi                    ||02155||MA||Tufts Univ. Bedford                                                                                             
+La Blank                 ||02189||MA||Weymouth                                                                                                        
+Boremmann                ||02563||MA||Sandwich                                                                                                        
+Ancean                   ||06483||CT||Oxford                                                                                                          
+Madej                    ||06605||CT||Bridgeport                                                                                                      
+Thares                   ||06798||CT||Woodbury                                                                                                        
+Scrittorale              ||06820||WV||Georgetown                                                                                                      
+Kiraly                   ||06820||WV||Georgetown                                                                                                      
+Padel                    ||06820||WV||Georgetown                                                                                                      
+Meshaj                   ||06830||CT||Greenwich                                                                                                       
+Dennis                   ||06830||CT||Greenwich                                                                                                       
+Dalvi                    ||06830||CT||Greenwich                                                                                                       
+Allende                  ||06850||CT||Norwalk                                                                                                         
+Essner                   ||06851||CT||Norwalk                                                                                                         
+Lopez                    ||06853||CT||Rowayton                                                                                                        
+Andrew                   ||06870||CT||Old Greenwich                                                                                                   
+Tucker                   ||06877||CT||Ridgefield                                                                                                      
+Cheevens                 ||06880||CT||Westport                                                                                                        
+Miller                   ||06880||CT||Westport                                                                                                        
+Bunnell                  ||06902||CT||Stamford                                                                                                        
+Segall                   ||06903||CT||Stamford                                                                                                        
+Annina                   ||06903||CT||Stamford                                                                                                        
+Archor                   ||06905||CT||Stamford                                                                                                        
+Caro                     ||06907||CT||Stamford                                                                                                        
+Wicelinski               ||07003||NJ||Bloomfiel                                                                                                       
+Intal                    ||07003||NJ||Bloomfiel                                                                                                       
+Jameson                  ||07008||NJ||Carteret                                                                                                        
+Kelly                    ||07010||NJ||Cliffside Park                                                                                                  
+Velasco                  ||07010||NJ||Cliffside Park                                                                                                  
+Mulroy                   ||07010||NJ||Cliffside Park                                                                                                  
+Lopez                    ||07010||NJ||Cliffside Park                                                                                                  
+Mithane                  ||07010||NJ||Cliffside Park                                                                                                  
+Tucker                   ||07010||NJ||Cliffside Park                                                                                                  
+Ordes                    ||07011||NJ||Clifton                                                                                                         
+Orent                    ||07011||NJ||Clifton                                                                                                         
+Tangaribuan              ||07012||NJ||Clifton                                                                                                         
+Owens                    ||07012||NJ||Clifton                                                                                                         
+Velasco                  ||07016||NJ||Cranford                                                                                                        
+Cowie                    ||07016||NJ||Cranford                                                                                                        
+Bresser, HR Rep.         ||07023||NJ||Fanwood                                                                                                         
+Moskowitz                ||07024||NJ||Ft. Lee                                                                                                         
+Kwong                    ||07024||NJ||Ft. Lee                                                                                                         
+Delbrun                  ||07024||NJ||Ft. Lee                                                                                                         
+Ginestra                 ||07024||NJ||Ft. Lee                                                                                                         
+Porch                    ||07024||NJ||Ft. Lee                                                                                                         
+Walston                  ||07024||NJ||Ft. Lee                                                                                                         
+Citron                   ||07024||NJ||Ft. Lee                                                                                                         
+Limate                   ||07024||NJ||Ft. Lee                                                                                                         
+Naso                     ||07024||NJ||Ft. Lee                                                                                                         
+Cook                     ||07029||NJ||Harrison                                                                                                        
+Edwards                  ||07036||NJ||Lyndon                                                                                                          
+Thomas                   ||07036||NJ||Lyndon                                                                                                          
+Edwards                  ||07040||NJ||Maplewood                                                                                                       
+Sheppard                 ||07042||NJ||Montclair                                                                                                       
+Moffat                   ||07042||NJ||Montclair                                                                                                       
+Olvsade                  ||07042||NJ||Montclair                                                                                                       
+Dewitt                   ||07042||NJ||Montclair                                                                                                       
+Montanez                 ||07042||NJ||Montclair                                                                                                       
+Grant                    ||07044||NJ||Verona                                                                                                          
+Dunkon                   ||07047||NJ||North Bergen                                                                                                    
+German                   ||07047||NJ||North Bergen                                                                                                    
+Landry                   ||07047||NJ||North Bergen                                                                                                    
+Dusenberry               ||07047||NJ||North Bergen                                                                                                    
+Naso                     ||07047||NJ||North Bergen                                                                                                    
+Martin                   ||07055||NJ||Passaic                                                                                                         
+Leung                    ||07055||NJ||Passaic                                                                                                         
+Jackson                  ||07057||NJ||Wallington                                                                                                      
+Miroff                   ||07060||NJ||Plainfield                                                                                                      
+Sprouse                  ||07060||NJ||Plainfield                                                                                                      
+Heedles                  ||07060||NJ||Plainfield                                                                                                      
+Griffith                 ||07065||NJ||Rahway                                                                                                          
+Porch                    ||07070||NJ||Rutherford                                                                                                      
+Towle                    ||07070||NJ||Rutherford                                                                                                      
+Noviello                 ||07070||NJ||Rutherford                                                                                                      
+Garnes                   ||07078||NJ||Short Hills                                                                                                     
+Prochaska                ||07078||NJ||Short Hills                                                                                                     
+Buckberg                 ||07090||NJ||Westfield                                                                                                       
+Benitez                  ||07093||NJ||Guttenberg                                                                                                      
+Dalvi                    ||07094||NJ||Secaucus                                                                                                        
+Ocampo                   ||07094||NJ||Secaucus                                                                                                        
+Beitler                  ||07096||NJ||Secaucus                                                                                                        
+Sikinger                 ||07104||NJ||Newark                                                                                                          
+Reyes                    ||07107||NJ||Newark                                                                                                          
+Braun                    ||07111||NY||Irvington                                                                                                       
+Thorton                  ||07111||NY||Irvington                                                                                                       
+Leopta                   ||07112||NJ||Newark                                                                                                          
+Mehta                    ||07302||NJ||Jersey City                                                                                                     
+De Armas                 ||07304||NJ||Jersey City                                                                                                     
+Oates                    ||07304||NJ||Jersey City                                                                                                     
+Ittoop                   ||07306||NJ||Jersey City                                                                                                     
+Roberts                  ||07306||NJ||Jersey City                                                                                                     
+Frost                    ||07306||NJ||Jersey City                                                                                                     
+Gallo                    ||07306||NJ||Jersey City                                                                                                     
+Harty                    ||07307||NJ||Jersey City                                                                                                     
+
+LAST_NAME                ||ZIP  ||ST||CITY                                                                                                            
+=========================||=====||==||=========================                                                                                       
+Ellman                   ||07307||NJ||Jersey City                                                                                                     
+Garshman                 ||07307||NJ||Jersey City                                                                                                     
+Affinito                 ||07401||NJ||Allendale                                                                                                       
+Eakheit                  ||07421||NJ||Hewitt                                                                                                          
+Millstein                ||07430||NJ||Mahwah                                                                                                          
+Cadet                    ||07444||NJ||Pompton Plains                                                                                                  
+Zapulla                  ||07450||NJ||Ridgewood                                                                                                       
+Goldsmith                ||07450||NJ||Ridgewood                                                                                                       
+Pace                     ||10025||NY||New York                                                                                                        
+Gillen                   ||10025||NY||New York                                                                                                        
+Abdou                    ||10025||NY||New York                                                                                                        
+Lefkowitz                ||10048||NY||New York                                                                                                        
+Puetrino                 ||10954||NY||Nannet                                                                                                          
+Jamerncy                 ||10956||NY||New City                                                                                                        
+Pineda                   ||10956||NY||New City                                                                                                        
+Robichaud                ||10965||NY||Pearl River                                                                                                     
+Perkins                  ||11021||NY||Great Neck                                                                                                      
+McNeal                   ||11030||NY||Manhasset                                                                                                       
+Lawson                   ||11042||NY||Long Beach                                                                                                      
+Valentine                ||11050||NY||Fort Washington                                                                                                 
+Robles                   ||11101||NY||Long Island City                                                                                                
+King                     ||11101||NY||Long Island City                                                                                                
+McLean                   ||11102||NY||Astoria                                                                                                         
+Guarino                  ||11104||NY||Sunnyside                                                                                                       
+Mierzwa                  ||11105||NY||Astoria                                                                                                         
+Frangopoulos             ||11105||NY||Astoria                                                                                                         
+Rothstein                ||11106||NY||Long Island City                                                                                                
+Sheppard                 ||11106||NY||Long Island City                                                                                                
+Kurtz                    ||11106||NY||Long Island City                                                                                                
+Moon                     ||11106||NY||Long Island City                                                                                                
+Grant                    ||11201||NY||Brooklyn                                                                                                        
+Satterfield              ||11201||NY||Brooklyn                                                                                                        
+Masser                   ||11203||NY||Brooklyn                                                                                                        
+Lindeman                 ||11204||NY||Brooklyn                                                                                                        
+Zuckerberg               ||11204||NY||Brooklyn                                                                                                        
+annunziato               ||11205||NY||Brooklyn                                                                                                        
+Dermody                  ||11205||NY||Brooklyn                                                                                                        
+Bullock                  ||11206||NY||Brooklyn                                                                                                        
+Grant                    ||11207||NY||Brooklyn                                                                                                        
+Radicola                 ||11208||NY||Brooklyn                                                                                                        
+Wilson                   ||11209||NY||Brooklyn                                                                                                        
+Williams                 ||11209||NY||Brooklyn                                                                                                        
+Allende                  ||11209||NY||Brooklyn                                                                                                        
+Winnicki                 ||11209||NY||Brooklyn                                                                                                        
+Masser                   ||11209||NY||Brooklyn                                                                                                        
+Boyce                    ||11212||NY||Brooklyn                                                                                                        
+Eng                      ||11213||NY||Brooklyn                                                                                                        
+Torres                   ||11213||NY||Brooklyn                                                                                                        
+Alexander                ||11214||NY||Brooklyn                                                                                                        
+Tabs                     ||11214||NY||Brooklyn                                                                                                        
+Walter                   ||11214||NY||Brooklyn                                                                                                        
+Torres                   ||11215||NY||Brooklyn                                                                                                        
+Perrin                   ||11215||NY||Brooklyn                                                                                                        
+Page                     ||11215||NY||Brooklyn                                                                                                        
+Smagler                  ||11216||NY||Brooklyn                                                                                                        
+Smith                    ||11217||NY||Brooklyn                                                                                                        
+McGill                   ||11218||NY||Brooklyn                                                                                                        
+Archer                   ||11218||NY||Brooklyn                                                                                                        
+Cahouet                  ||11219||NY||Brooklyn                                                                                                        
+Carcia                   ||11220||NY||Brooklyn                                                                                                        
+Thompson                 ||11220||NY||Brooklyn                                                                                                        
+Bathmanapan              ||11221||NY||Brooklyn                                                                                                        
+Mastandora               ||11222||NY||Brooklyn                                                                                                        
+Murray                   ||11224||NY||Brooklyn                                                                                                        
+Grant                    ||11224||NY||Brooklyn                                                                                                        
+Yeroushalmi              ||11224||NY||Brooklyn                                                                                                        
+Brown                    ||11225||NY||Brooklyn                                                                                                        
+Marten                   ||11225||NY||Brooklyn                                                                                                        
+Ward                     ||11225||NY||Brooklyn                                                                                                        
+Mandel                   ||11226||NY||Brooklyn                                                                                                        
+Laporte                  ||11226||NY||Brooklyn                                                                                                        
+Smith                    ||11226||NY||Brooklyn                                                                                                        
+Jaele                    ||11226||NY||Brooklyn                                                                                                        
+Gallagher                ||11228||NY||Brooklyn                                                                                                        
+Daly                     ||11229||NY||Brooklyn                                                                                                        
+Nyziak                   ||11230||NY||Brooklyn                                                                                                        
+Viotty                   ||11230||NY||Brooklyn                                                                                                        
+Biers                    ||11232||NY||Brooklyn                                                                                                        
+Lin                      ||11233||NY||Brooklyn                                                                                                        
+Saluja                   ||11233||NY||Brooklyn                                                                                                        
+Draquez                  ||11234||NY||Brooklyn                                                                                                        
+Simmons                  ||11235||NY||Brooklyn                                                                                                        
+Daly                     ||11235||NY||Brooklyn                                                                                                        
+Lefbowitz                ||11236||NY||Brooklyn                                                                                                        
+Hagel                    ||11236||NY||Brooklyn                                                                                                        
+Baltazar                 ||11236||NY||Brooklyn                                                                                                        
+Yourish                  ||11238||NY||Brooklyn                                                                                                        
+M. Orent                 ||11303||NY||Monbasset                                                                                                       
+MacDonald, Jr.           ||11354||NY||Flushing                                                                                                        
+Axch                     ||11355||NY||Flushing                                                                                                        
+Avia                     ||11355||NY||Flushing                                                                                                        
+Chirichella              ||11355||NY||Flushing                                                                                                        
+Kulina                   ||11355||NY||Flushing                                                                                                        
+Torres                   ||11355||NY||Flushing                                                                                                        
+Anglin                   ||11357||NY||Whitestone                                                                                                      
+Padron                   ||11357||NY||Whitestone                                                                                                      
+
+LAST_NAME                ||ZIP  ||ST||CITY                                                                                                            
+=========================||=====||==||=========================                                                                                       
+Abdou                    ||11358||NY||Flushing                                                                                                        
+Milano                   ||11360||NY||Bayside                                                                                                         
+Joas                     ||11365||NY||Fresh Meadows                                                                                                   
+Fielding                 ||11365||NY||Fresh Meadows                                                                                                   
+Segall                   ||11365||NY||Fresh Meadows                                                                                                   
+Jodoin                   ||11366||NY||Flushing                                                                                                        
+Boyd                     ||11368||NY||Corona                                                                                                          
+Chatman                  ||11368||NY||Corona                                                                                                          
+Hutheesing               ||11368||NY||Corona                                                                                                          
+Griffen                  ||11368||NY||Corona                                                                                                          
+Miller                   ||11368||NY||Corona                                                                                                          
+Lasseter                 ||11368||NY||Corona                                                                                                          
+Malone                   ||11369||NY||Elmhurst                                                                                                        
+Zopf                     ||11372||NY||Jackson Heights                                                                                                 
+Valentine                ||11372||NY||Jackson Heights                                                                                                 
+M. Orent                 ||11372||NY||Jackson Heights                                                                                                 
+Engongoro                ||11372||NY||Jackson Heights                                                                                                 
+Tripp                    ||11372||NY||Jackson Heights                                                                                                 
+Lippen                   ||11373||NY||Amherst                                                                                                         
+Philpotts                ||11373||NY||Amherst                                                                                                         
+Ramesh                   ||11373||NY||Amherst                                                                                                         
+Barogh                   ||11373||NY||Amherst                                                                                                         
+Da Silva                 ||11373||NY||Amherst                                                                                                         
+Rosenberg                ||11373||NY||Amherst                                                                                                         
+Callender                ||11375||NY||Forest Hills                                                                                                    
+Runyan                   ||11375||NY||Forest Hills                                                                                                    
+Saliternan               ||11375||NY||Forest Hills                                                                                                    
+Greenberg                ||11375||NY||Forest Hills                                                                                                    
+Lloyd                    ||11375||NY||Forest Hills                                                                                                    
+Miller                   ||11377||NY||Woodside                                                                                                        
+Diokno                   ||11377||NY||Woodside                                                                                                        
+Liggons                  ||11377||NY||Woodside                                                                                                        
+Kuehn                    ||11377||NY||Woodside                                                                                                        
+Sentell                  ||11385||NY||Ridgewood Queens                                                                                                
+Martin                   ||11385||NY||Ridgewood Queens                                                                                                
+Austin                   ||11385||NY||Ridgewood Queens                                                                                                
+Reed                     ||11412||NY||Hollis                                                                                                          
+Brownstein               ||11412||NY||Hollis                                                                                                          
+Shah                     ||11412||NY||Hollis                                                                                                          
+Cross                    ||11413||NY||Laurelton                                                                                                       
+Larcia                   ||11413||NY||Laurelton                                                                                                       
+Aung                     ||11413||NY||Laurelton                                                                                                       
+Kasperovich              ||11414||NY||Howard Bank                                                                                                     
+Jung                     ||11415||NY||Kew Gardens                                                                                                     
+De Simone                ||11419||NY||Richmond Hill                                                                                                   
+Crocitto                 ||11419||NY||Richmond Hill                                                                                                   
+Galik                    ||11420||NY||Jamaica                                                                                                         
+Velie                    ||11422||NY||Laurelton                                                                                                       
+Arias                    ||11426||NY||Bellrose                                                                                                        
+Jimenes                  ||11428||NY||Queens Village                                                                                                  
+Valamas                  ||11432||NY||Jamaica                                                                                                         
+Kellam                   ||11433||NY||Jamaica                                                                                                         
+Wetcel                   ||11434||NY||Jamaica                                                                                                         
+Chamnonkool              ||11434||NY||Jamaica                                                                                                         
+Enison                   ||11435||NY||Jamaica                                                                                                         
+Galik                    ||11435||NY||Jamaica                                                                                                         
+Allende                  ||11510||NY||Baldwin                                                                                                         
+Schafer                  ||11530||NY||Garden City                                                                                                     
+Airall                   ||11552||NY||West Hempstead                                                                                                  
+Vargas                   ||11561||NY||Long Beach                                                                                                      
+Ross                     ||11565||NY||Malverne                                                                                                        
+Merriman                 ||11565||NY||Malverne                                                                                                        
+Abid                     ||11565||NY||Malverne                                                                                                        
+Balterzar                ||11576||NY||Roslyn                                                                                                          
+McHowell                 ||11717||NJ||Brentwood                                                                                                       
+Carey                    ||11743||NY||Huntington                                                                                                      
+Brendler                 ||11746||NY||Dix Hills                                                                                                       
+Krot                     ||11746||NY||Dix Hills                                                                                                       
+Korka                    ||11746||NY||Dix Hills                                                                                                       
+Galik                    ||11758||NY||Massapequa                                                                                                      
+Waldman                  ||11766||NY||Huntington                                                                                                      
+Bose                     ||11787||NY||Smithtown                                                                                                       
+Gates                    ||11787||NY||Smithtown                                                                                                       
+Mwangi                   ||13760||NY||Endicott                                                                                                        
+Gilloon                  ||43224||OH||Columbus                                                                                                        
+Snow                     ||48104||MI||Ann Arbor                                                                                                       
+
+268 rows selected.
+
+SQL> 
+SQL> PROMPT FORMATO ANSI
+FORMATO ANSI
+SQL> SELECT s.last_name, s.zip, z.state, z.city
+  2  FROM student s JOIN zipcode z
+  3  ON(s.zip=z.zip);
+
+LAST_NAME                ||ZIP  ||ST||CITY                                                                                                            
+=========================||=====||==||=========================                                                                                       
+Crocitto                 ||11419||NY||Richmond Hill                                                                                                   
+Landry                   ||07047||NJ||North Bergen                                                                                                    
+Enison                   ||11435||NY||Jamaica                                                                                                         
+Moskowitz                ||07024||NJ||Ft. Lee                                                                                                         
+Olvsade                  ||07042||NJ||Montclair                                                                                                       
+Mierzwa                  ||11105||NY||Astoria                                                                                                         
+Sethi                    ||02155||MA||Tufts Univ. Bedford                                                                                             
+Walter                   ||11214||NY||Brooklyn                                                                                                        
+Martin                   ||11385||NY||Ridgewood Queens                                                                                                
+Noviello                 ||07070||NJ||Rutherford                                                                                                      
+Thomas                   ||07036||NJ||Lyndon                                                                                                          
+Kulina                   ||11355||NY||Flushing                                                                                                        
+Laporte                  ||11226||NY||Brooklyn                                                                                                        
+Kuehn                    ||11377||NY||Woodside                                                                                                        
+Lopez                    ||06853||CT||Rowayton                                                                                                        
+Abdou                    ||11358||NY||Flushing                                                                                                        
+Alexander                ||11214||NY||Brooklyn                                                                                                        
+Pineda                   ||10956||NY||New City                                                                                                        
+Lippen                   ||11373||NY||Amherst                                                                                                         
+Radicola                 ||11208||NY||Brooklyn                                                                                                        
+Wicelinski               ||07003||NJ||Bloomfiel                                                                                                       
+Aung                     ||11413||NY||Laurelton                                                                                                       
+Runyan                   ||11375||NY||Forest Hills                                                                                                    
+Grant                    ||11207||NY||Brooklyn                                                                                                        
+Oates                    ||07304||NJ||Jersey City                                                                                                     
+Reed                     ||11412||NY||Hollis                                                                                                          
+Torres                   ||11215||NY||Brooklyn                                                                                                        
+Masser                   ||11209||NY||Brooklyn                                                                                                        
+Lasseter                 ||11368||NY||Corona                                                                                                          
+Miller                   ||11368||NY||Corona                                                                                                          
+Smith                    ||11217||NY||Brooklyn                                                                                                        
+Garshman                 ||07307||NJ||Jersey City                                                                                                     
+Baltazar                 ||11236||NY||Brooklyn                                                                                                        
+Boyd                     ||11368||NY||Corona                                                                                                          
+Waldman                  ||11766||NY||Huntington                                                                                                      
+Biers                    ||11232||NY||Brooklyn                                                                                                        
+Essner                   ||06851||CT||Norwalk                                                                                                         
+Lefkowitz                ||10048||NY||New York                                                                                                        
+German                   ||07047||NJ||North Bergen                                                                                                    
+Cahouet                  ||11219||NY||Brooklyn                                                                                                        
+Orent                    ||07011||NJ||Clifton                                                                                                         
+Prochaska                ||07078||NJ||Short Hills                                                                                                     
+Gates                    ||11787||NY||Smithtown                                                                                                       
+Sheppard                 ||11106||NY||Long Island City                                                                                                
+Edwards                  ||07036||NJ||Lyndon                                                                                                          
+Philpotts                ||11373||NY||Amherst                                                                                                         
+Dennis                   ||06830||CT||Greenwich                                                                                                       
+Grant                    ||11224||NY||Brooklyn                                                                                                        
+Jameson                  ||07008||NJ||Carteret                                                                                                        
+Limate                   ||07024||NJ||Ft. Lee                                                                                                         
+Edwards                  ||07040||NJ||Maplewood                                                                                                       
+Beitler                  ||07096||NJ||Secaucus                                                                                                        
+Grant                    ||11201||NY||Brooklyn                                                                                                        
+Andrew                   ||06870||CT||Old Greenwich                                                                                                   
+Gillen                   ||10025||NY||New York                                                                                                        
+Perrin                   ||11215||NY||Brooklyn                                                                                                        
+Daly                     ||11235||NY||Brooklyn                                                                                                        
+Jodoin                   ||11366||NY||Flushing                                                                                                        
+Joas                     ||11365||NY||Fresh Meadows                                                                                                   
+Naso                     ||07047||NJ||North Bergen                                                                                                    
+McLean                   ||11102||NY||Astoria                                                                                                         
+Balterzar                ||11576||NY||Roslyn                                                                                                          
+Brownstein               ||11412||NY||Hollis                                                                                                          
+Arias                    ||11426||NY||Bellrose                                                                                                        
+McGill                   ||11218||NY||Brooklyn                                                                                                        
+Brown                    ||11225||NY||Brooklyn                                                                                                        
+Boyce                    ||11212||NY||Brooklyn                                                                                                        
+Satterfield              ||11201||NY||Brooklyn                                                                                                        
+Kurtz                    ||11106||NY||Long Island City                                                                                                
+Ramesh                   ||11373||NY||Amherst                                                                                                         
+Torres                   ||11213||NY||Brooklyn                                                                                                        
+Bullock                  ||11206||NY||Brooklyn                                                                                                        
+Delbrun                  ||07024||NJ||Ft. Lee                                                                                                         
+Zuckerberg               ||11204||NY||Brooklyn                                                                                                        
+Mehta                    ||07302||NJ||Jersey City                                                                                                     
+Sheppard                 ||07042||NJ||Montclair                                                                                                       
+Garnes                   ||07078||NJ||Short Hills                                                                                                     
+Gilloon                  ||43224||OH||Columbus                                                                                                        
+Reyes                    ||07107||NJ||Newark                                                                                                          
+Affinito                 ||07401||NJ||Allendale                                                                                                       
+M. Orent                 ||11303||NY||Monbasset                                                                                                       
+Viotty                   ||11230||NY||Brooklyn                                                                                                        
+Jamerncy                 ||10956||NY||New City                                                                                                        
+Grant                    ||07044||NJ||Verona                                                                                                          
+Bose                     ||11787||NY||Smithtown                                                                                                       
+Meshaj                   ||06830||CT||Greenwich                                                                                                       
+Dalvi                    ||06830||CT||Greenwich                                                                                                       
+Allende                  ||06850||CT||Norwalk                                                                                                         
+Segall                   ||11365||NY||Fresh Meadows                                                                                                   
+Bresser, HR Rep.         ||07023||NJ||Fanwood                                                                                                         
+Lefbowitz                ||11236||NY||Brooklyn                                                                                                        
+Axch                     ||11355||NY||Flushing                                                                                                        
+Cook                     ||07029||NJ||Harrison                                                                                                        
+Griffen                  ||11368||NY||Corona                                                                                                          
+Hutheesing               ||11368||NY||Corona                                                                                                          
+annunziato               ||11205||NY||Brooklyn                                                                                                        
+
+LAST_NAME                ||ZIP  ||ST||CITY                                                                                                            
+=========================||=====||==||=========================                                                                                       
+Montanez                 ||07042||NJ||Montclair                                                                                                       
+Tucker                   ||06877||CT||Ridgefield                                                                                                      
+Kellam                   ||11433||NY||Jamaica                                                                                                         
+Thares                   ||06798||CT||Woodbury                                                                                                        
+Goldsmith                ||07450||NJ||Ridgewood                                                                                                       
+Robichaud                ||10965||NY||Pearl River                                                                                                     
+Williams                 ||11209||NY||Brooklyn                                                                                                        
+Chatman                  ||11368||NY||Corona                                                                                                          
+Dusenberry               ||07047||NJ||North Bergen                                                                                                    
+Citron                   ||07024||NJ||Ft. Lee                                                                                                         
+Da Silva                 ||11373||NY||Amherst                                                                                                         
+Segall                   ||06903||CT||Stamford                                                                                                        
+Malone                   ||11369||NY||Elmhurst                                                                                                        
+Pace                     ||10025||NY||New York                                                                                                        
+Diokno                   ||11377||NY||Woodside                                                                                                        
+Moffat                   ||07042||NJ||Montclair                                                                                                       
+Heedles                  ||07060||NJ||Plainfield                                                                                                      
+Valentine                ||11372||NY||Jackson Heights                                                                                                 
+Lopez                    ||07010||NJ||Cliffside Park                                                                                                  
+Kocka                    ||02124||MA||Dorchester                                                                                                      
+Jung                     ||11415||NY||Kew Gardens                                                                                                     
+Mulroy                   ||07010||NJ||Cliffside Park                                                                                                  
+Brendler                 ||11746||NY||Dix Hills                                                                                                       
+Carcia                   ||11220||NY||Brooklyn                                                                                                        
+Tripp                    ||11372||NY||Jackson Heights                                                                                                 
+Frost                    ||07306||NJ||Jersey City                                                                                                     
+Snow                     ||48104||MI||Ann Arbor                                                                                                       
+Scrittorale              ||06820||WV||Georgetown                                                                                                      
+Yourish                  ||11238||NY||Brooklyn                                                                                                        
+Ordes                    ||07011||NJ||Clifton                                                                                                         
+Roberts                  ||07306||NJ||Jersey City                                                                                                     
+Wilson                   ||11209||NY||Brooklyn                                                                                                        
+Dalvi                    ||07094||NJ||Secaucus                                                                                                        
+Owens                    ||07012||NJ||Clifton                                                                                                         
+Bunnell                  ||06902||CT||Stamford                                                                                                        
+Zapulla                  ||07450||NJ||Ridgewood                                                                                                       
+Fielding                 ||11365||NY||Fresh Meadows                                                                                                   
+Frangopoulos             ||11105||NY||Astoria                                                                                                         
+Barogh                   ||11373||NY||Amherst                                                                                                         
+Boremmann                ||02563||MA||Sandwich                                                                                                        
+Chamnonkool              ||11434||NY||Jamaica                                                                                                         
+Velasco                  ||07010||NJ||Cliffside Park                                                                                                  
+Abid                     ||11565||NY||Malverne                                                                                                        
+Velasco                  ||07016||NJ||Cranford                                                                                                        
+Merriman                 ||11565||NY||Malverne                                                                                                        
+Griffith                 ||07065||NJ||Rahway                                                                                                          
+Moon                     ||11106||NY||Long Island City                                                                                                
+Walston                  ||07024||NJ||Ft. Lee                                                                                                         
+King                     ||11101||NY||Long Island City                                                                                                
+Harty                    ||07307||NJ||Jersey City                                                                                                     
+Rothstein                ||11106||NY||Long Island City                                                                                                
+Page                     ||11215||NY||Brooklyn                                                                                                        
+Kwong                    ||07024||NJ||Ft. Lee                                                                                                         
+Tangaribuan              ||07012||NJ||Clifton                                                                                                         
+Thompson                 ||11220||NY||Brooklyn                                                                                                        
+Caro                     ||06907||CT||Stamford                                                                                                        
+Benitez                  ||07093||NJ||Guttenberg                                                                                                      
+Porch                    ||07070||NJ||Rutherford                                                                                                      
+Naso                     ||07024||NJ||Ft. Lee                                                                                                         
+De Simone                ||11419||NY||Richmond Hill                                                                                                   
+Ross                     ||11565||NY||Malverne                                                                                                        
+Valamas                  ||11432||NY||Jamaica                                                                                                         
+Liggons                  ||11377||NY||Woodside                                                                                                        
+La Blank                 ||02189||MA||Weymouth                                                                                                        
+Korka                    ||11746||NY||Dix Hills                                                                                                       
+Engongoro                ||11372||NY||Jackson Heights                                                                                                 
+Ocampo                   ||07094||NJ||Secaucus                                                                                                        
+Jaele                    ||11226||NY||Brooklyn                                                                                                        
+Perkins                  ||11021||NY||Great Neck                                                                                                      
+Lindeman                 ||11204||NY||Brooklyn                                                                                                        
+Sikinger                 ||07104||NJ||Newark                                                                                                          
+Kelly                    ||07010||NJ||Cliffside Park                                                                                                  
+Ellman                   ||07307||NJ||Jersey City                                                                                                     
+Murray                   ||11224||NY||Brooklyn                                                                                                        
+Robles                   ||11101||NY||Long Island City                                                                                                
+Dewitt                   ||07042||NJ||Montclair                                                                                                       
+Cadet                    ||07444||NJ||Pompton Plains                                                                                                  
+M. Orent                 ||11372||NY||Jackson Heights                                                                                                 
+Winnicki                 ||11209||NY||Brooklyn                                                                                                        
+Madej                    ||06605||CT||Bridgeport                                                                                                      
+Valentine                ||11050||NY||Fort Washington                                                                                                 
+Saluja                   ||11233||NY||Brooklyn                                                                                                        
+Lawson                   ||11042||NY||Long Beach                                                                                                      
+Dunkon                   ||07047||NJ||North Bergen                                                                                                    
+Archor                   ||06905||CT||Stamford                                                                                                        
+Milano                   ||11360||NY||Bayside                                                                                                         
+Guarino                  ||11104||NY||Sunnyside                                                                                                       
+Larcia                   ||11413||NY||Laurelton                                                                                                       
+Callender                ||11375||NY||Forest Hills                                                                                                    
+Galik                    ||11420||NY||Jamaica                                                                                                         
+Airall                   ||11552||NY||West Hempstead                                                                                                  
+Jimenes                  ||11428||NY||Queens Village                                                                                                  
+Masser                   ||11203||NY||Brooklyn                                                                                                        
+Allende                  ||11510||NY||Baldwin                                                                                                         
+Velie                    ||11422||NY||Laurelton                                                                                                       
+Dermody                  ||11205||NY||Brooklyn                                                                                                        
+
+LAST_NAME                ||ZIP  ||ST||CITY                                                                                                            
+=========================||=====||==||=========================                                                                                       
+McHowell                 ||11717||NJ||Brentwood                                                                                                       
+Austin                   ||11385||NY||Ridgewood Queens                                                                                                
+Eakheit                  ||07421||NJ||Hewitt                                                                                                          
+Miller                   ||11377||NY||Woodside                                                                                                        
+Smagler                  ||11216||NY||Brooklyn                                                                                                        
+Archer                   ||11218||NY||Brooklyn                                                                                                        
+Ginestra                 ||07024||NJ||Ft. Lee                                                                                                         
+Marten                   ||11225||NY||Brooklyn                                                                                                        
+Puetrino                 ||10954||NY||Nannet                                                                                                          
+Padel                    ||06820||WV||Georgetown                                                                                                      
+Thorton                  ||07111||NY||Irvington                                                                                                       
+Tabs                     ||11214||NY||Brooklyn                                                                                                        
+Zopf                     ||11372||NY||Jackson Heights                                                                                                 
+Mwangi                   ||13760||NY||Endicott                                                                                                        
+Ward                     ||11225||NY||Brooklyn                                                                                                        
+Annina                   ||06903||CT||Stamford                                                                                                        
+Jackson                  ||07057||NJ||Wallington                                                                                                      
+Gallagher                ||11228||NY||Brooklyn                                                                                                        
+Cross                    ||11413||NY||Laurelton                                                                                                       
+Towle                    ||07070||NJ||Rutherford                                                                                                      
+Nyziak                   ||11230||NY||Brooklyn                                                                                                        
+Eng                      ||11213||NY||Brooklyn                                                                                                        
+Porch                    ||07024||NJ||Ft. Lee                                                                                                         
+De Armas                 ||07304||NJ||Jersey City                                                                                                     
+Schafer                  ||11530||NY||Garden City                                                                                                     
+Sprouse                  ||07060||NJ||Plainfield                                                                                                      
+Carey                    ||11743||NY||Huntington                                                                                                      
+Buckberg                 ||07090||NJ||Westfield                                                                                                       
+Daly                     ||11229||NY||Brooklyn                                                                                                        
+Miller                   ||06880||CT||Westport                                                                                                        
+Mandel                   ||11226||NY||Brooklyn                                                                                                        
+Galik                    ||11435||NY||Jamaica                                                                                                         
+Shah                     ||11412||NY||Hollis                                                                                                          
+Intal                    ||07003||NJ||Bloomfiel                                                                                                       
+Ittoop                   ||07306||NJ||Jersey City                                                                                                     
+Ancean                   ||06483||CT||Oxford                                                                                                          
+Vargas                   ||11561||NY||Long Beach                                                                                                      
+Avia                     ||11355||NY||Flushing                                                                                                        
+Galik                    ||11758||NY||Massapequa                                                                                                      
+Kiraly                   ||06820||WV||Georgetown                                                                                                      
+Rosenberg                ||11373||NY||Amherst                                                                                                         
+Sentell                  ||11385||NY||Ridgewood Queens                                                                                                
+Hagel                    ||11236||NY||Brooklyn                                                                                                        
+Leopta                   ||07112||NJ||Newark                                                                                                          
+Mastandora               ||11222||NY||Brooklyn                                                                                                        
+Smith                    ||11226||NY||Brooklyn                                                                                                        
+Cheevens                 ||06880||CT||Westport                                                                                                        
+Lin                      ||11233||NY||Brooklyn                                                                                                        
+Tucker                   ||07010||NJ||Cliffside Park                                                                                                  
+Mithane                  ||07010||NJ||Cliffside Park                                                                                                  
+Anglin                   ||11357||NY||Whitestone                                                                                                      
+Draquez                  ||11234||NY||Brooklyn                                                                                                        
+Yeroushalmi              ||11224||NY||Brooklyn                                                                                                        
+Millstein                ||07430||NJ||Mahwah                                                                                                          
+Kasperovich              ||11414||NY||Howard Bank                                                                                                     
+McNeal                   ||11030||NY||Manhasset                                                                                                       
+Gallo                    ||07306||NJ||Jersey City                                                                                                     
+Padron                   ||11357||NY||Whitestone                                                                                                      
+Krot                     ||11746||NY||Dix Hills                                                                                                       
+Simmons                  ||11235||NY||Brooklyn                                                                                                        
+Miroff                   ||07060||NJ||Plainfield                                                                                                      
+Cowie                    ||07016||NJ||Cranford                                                                                                        
+Chirichella              ||11355||NY||Flushing                                                                                                        
+Allende                  ||11209||NY||Brooklyn                                                                                                        
+MacDonald, Jr.           ||11354||NY||Flushing                                                                                                        
+Braun                    ||07111||NY||Irvington                                                                                                       
+Bathmanapan              ||11221||NY||Brooklyn                                                                                                        
+Leung                    ||07055||NJ||Passaic                                                                                                         
+Greenberg                ||11375||NY||Forest Hills                                                                                                    
+Torres                   ||11355||NY||Flushing                                                                                                        
+Saliternan               ||11375||NY||Forest Hills                                                                                                    
+Martin                   ||07055||NJ||Passaic                                                                                                         
+Wetcel                   ||11434||NY||Jamaica                                                                                                         
+Norman                   ||01247||MA||North Adams                                                                                                     
+Lloyd                    ||11375||NY||Forest Hills                                                                                                    
+Abdou                    ||10025||NY||New York                                                                                                        
+
+268 rows selected.
+
+SQL> ORDER BY s.zip;
+SP2-0734: unknown command beginning "ORDER BY s..." - rest of line ignored.
+SQL> 
+SQL> PROMPT
+
+SQL> SELECT s.last_name, zip, z.state, z.city
+  2  FROM student s JOIN zipcode z
+  3  USING (zip)
+  4  ORDER BY zip;
+
+LAST_NAME                ||ZIP  ||ST||CITY                                                                                                            
+=========================||=====||==||=========================                                                                                       
+Norman                   ||01247||MA||North Adams                                                                                                     
+Kocka                    ||02124||MA||Dorchester                                                                                                      
+Sethi                    ||02155||MA||Tufts Univ. Bedford                                                                                             
+La Blank                 ||02189||MA||Weymouth                                                                                                        
+Boremmann                ||02563||MA||Sandwich                                                                                                        
+Ancean                   ||06483||CT||Oxford                                                                                                          
+Madej                    ||06605||CT||Bridgeport                                                                                                      
+Thares                   ||06798||CT||Woodbury                                                                                                        
+Scrittorale              ||06820||WV||Georgetown                                                                                                      
+Kiraly                   ||06820||WV||Georgetown                                                                                                      
+Padel                    ||06820||WV||Georgetown                                                                                                      
+Meshaj                   ||06830||CT||Greenwich                                                                                                       
+Dennis                   ||06830||CT||Greenwich                                                                                                       
+Dalvi                    ||06830||CT||Greenwich                                                                                                       
+Allende                  ||06850||CT||Norwalk                                                                                                         
+Essner                   ||06851||CT||Norwalk                                                                                                         
+Lopez                    ||06853||CT||Rowayton                                                                                                        
+Andrew                   ||06870||CT||Old Greenwich                                                                                                   
+Tucker                   ||06877||CT||Ridgefield                                                                                                      
+Cheevens                 ||06880||CT||Westport                                                                                                        
+Miller                   ||06880||CT||Westport                                                                                                        
+Bunnell                  ||06902||CT||Stamford                                                                                                        
+Segall                   ||06903||CT||Stamford                                                                                                        
+Annina                   ||06903||CT||Stamford                                                                                                        
+Archor                   ||06905||CT||Stamford                                                                                                        
+Caro                     ||06907||CT||Stamford                                                                                                        
+Wicelinski               ||07003||NJ||Bloomfiel                                                                                                       
+Intal                    ||07003||NJ||Bloomfiel                                                                                                       
+Jameson                  ||07008||NJ||Carteret                                                                                                        
+Kelly                    ||07010||NJ||Cliffside Park                                                                                                  
+Velasco                  ||07010||NJ||Cliffside Park                                                                                                  
+Mulroy                   ||07010||NJ||Cliffside Park                                                                                                  
+Lopez                    ||07010||NJ||Cliffside Park                                                                                                  
+Mithane                  ||07010||NJ||Cliffside Park                                                                                                  
+Tucker                   ||07010||NJ||Cliffside Park                                                                                                  
+Ordes                    ||07011||NJ||Clifton                                                                                                         
+Orent                    ||07011||NJ||Clifton                                                                                                         
+Tangaribuan              ||07012||NJ||Clifton                                                                                                         
+Owens                    ||07012||NJ||Clifton                                                                                                         
+Velasco                  ||07016||NJ||Cranford                                                                                                        
+Cowie                    ||07016||NJ||Cranford                                                                                                        
+Bresser, HR Rep.         ||07023||NJ||Fanwood                                                                                                         
+Moskowitz                ||07024||NJ||Ft. Lee                                                                                                         
+Kwong                    ||07024||NJ||Ft. Lee                                                                                                         
+Delbrun                  ||07024||NJ||Ft. Lee                                                                                                         
+Ginestra                 ||07024||NJ||Ft. Lee                                                                                                         
+Porch                    ||07024||NJ||Ft. Lee                                                                                                         
+Walston                  ||07024||NJ||Ft. Lee                                                                                                         
+Citron                   ||07024||NJ||Ft. Lee                                                                                                         
+Limate                   ||07024||NJ||Ft. Lee                                                                                                         
+Naso                     ||07024||NJ||Ft. Lee                                                                                                         
+Cook                     ||07029||NJ||Harrison                                                                                                        
+Edwards                  ||07036||NJ||Lyndon                                                                                                          
+Thomas                   ||07036||NJ||Lyndon                                                                                                          
+Edwards                  ||07040||NJ||Maplewood                                                                                                       
+Sheppard                 ||07042||NJ||Montclair                                                                                                       
+Moffat                   ||07042||NJ||Montclair                                                                                                       
+Olvsade                  ||07042||NJ||Montclair                                                                                                       
+Dewitt                   ||07042||NJ||Montclair                                                                                                       
+Montanez                 ||07042||NJ||Montclair                                                                                                       
+Grant                    ||07044||NJ||Verona                                                                                                          
+Dunkon                   ||07047||NJ||North Bergen                                                                                                    
+German                   ||07047||NJ||North Bergen                                                                                                    
+Landry                   ||07047||NJ||North Bergen                                                                                                    
+Dusenberry               ||07047||NJ||North Bergen                                                                                                    
+Naso                     ||07047||NJ||North Bergen                                                                                                    
+Martin                   ||07055||NJ||Passaic                                                                                                         
+Leung                    ||07055||NJ||Passaic                                                                                                         
+Jackson                  ||07057||NJ||Wallington                                                                                                      
+Miroff                   ||07060||NJ||Plainfield                                                                                                      
+Sprouse                  ||07060||NJ||Plainfield                                                                                                      
+Heedles                  ||07060||NJ||Plainfield                                                                                                      
+Griffith                 ||07065||NJ||Rahway                                                                                                          
+Porch                    ||07070||NJ||Rutherford                                                                                                      
+Towle                    ||07070||NJ||Rutherford                                                                                                      
+Noviello                 ||07070||NJ||Rutherford                                                                                                      
+Garnes                   ||07078||NJ||Short Hills                                                                                                     
+Prochaska                ||07078||NJ||Short Hills                                                                                                     
+Buckberg                 ||07090||NJ||Westfield                                                                                                       
+Benitez                  ||07093||NJ||Guttenberg                                                                                                      
+Dalvi                    ||07094||NJ||Secaucus                                                                                                        
+Ocampo                   ||07094||NJ||Secaucus                                                                                                        
+Beitler                  ||07096||NJ||Secaucus                                                                                                        
+Sikinger                 ||07104||NJ||Newark                                                                                                          
+Reyes                    ||07107||NJ||Newark                                                                                                          
+Braun                    ||07111||NY||Irvington                                                                                                       
+Thorton                  ||07111||NY||Irvington                                                                                                       
+Leopta                   ||07112||NJ||Newark                                                                                                          
+Mehta                    ||07302||NJ||Jersey City                                                                                                     
+De Armas                 ||07304||NJ||Jersey City                                                                                                     
+Oates                    ||07304||NJ||Jersey City                                                                                                     
+Ittoop                   ||07306||NJ||Jersey City                                                                                                     
+Roberts                  ||07306||NJ||Jersey City                                                                                                     
+Frost                    ||07306||NJ||Jersey City                                                                                                     
+Gallo                    ||07306||NJ||Jersey City                                                                                                     
+Harty                    ||07307||NJ||Jersey City                                                                                                     
+
+LAST_NAME                ||ZIP  ||ST||CITY                                                                                                            
+=========================||=====||==||=========================                                                                                       
+Ellman                   ||07307||NJ||Jersey City                                                                                                     
+Garshman                 ||07307||NJ||Jersey City                                                                                                     
+Affinito                 ||07401||NJ||Allendale                                                                                                       
+Eakheit                  ||07421||NJ||Hewitt                                                                                                          
+Millstein                ||07430||NJ||Mahwah                                                                                                          
+Cadet                    ||07444||NJ||Pompton Plains                                                                                                  
+Zapulla                  ||07450||NJ||Ridgewood                                                                                                       
+Goldsmith                ||07450||NJ||Ridgewood                                                                                                       
+Pace                     ||10025||NY||New York                                                                                                        
+Gillen                   ||10025||NY||New York                                                                                                        
+Abdou                    ||10025||NY||New York                                                                                                        
+Lefkowitz                ||10048||NY||New York                                                                                                        
+Puetrino                 ||10954||NY||Nannet                                                                                                          
+Jamerncy                 ||10956||NY||New City                                                                                                        
+Pineda                   ||10956||NY||New City                                                                                                        
+Robichaud                ||10965||NY||Pearl River                                                                                                     
+Perkins                  ||11021||NY||Great Neck                                                                                                      
+McNeal                   ||11030||NY||Manhasset                                                                                                       
+Lawson                   ||11042||NY||Long Beach                                                                                                      
+Valentine                ||11050||NY||Fort Washington                                                                                                 
+Robles                   ||11101||NY||Long Island City                                                                                                
+King                     ||11101||NY||Long Island City                                                                                                
+McLean                   ||11102||NY||Astoria                                                                                                         
+Guarino                  ||11104||NY||Sunnyside                                                                                                       
+Mierzwa                  ||11105||NY||Astoria                                                                                                         
+Frangopoulos             ||11105||NY||Astoria                                                                                                         
+Rothstein                ||11106||NY||Long Island City                                                                                                
+Sheppard                 ||11106||NY||Long Island City                                                                                                
+Kurtz                    ||11106||NY||Long Island City                                                                                                
+Moon                     ||11106||NY||Long Island City                                                                                                
+Grant                    ||11201||NY||Brooklyn                                                                                                        
+Satterfield              ||11201||NY||Brooklyn                                                                                                        
+Masser                   ||11203||NY||Brooklyn                                                                                                        
+Lindeman                 ||11204||NY||Brooklyn                                                                                                        
+Zuckerberg               ||11204||NY||Brooklyn                                                                                                        
+annunziato               ||11205||NY||Brooklyn                                                                                                        
+Dermody                  ||11205||NY||Brooklyn                                                                                                        
+Bullock                  ||11206||NY||Brooklyn                                                                                                        
+Grant                    ||11207||NY||Brooklyn                                                                                                        
+Radicola                 ||11208||NY||Brooklyn                                                                                                        
+Wilson                   ||11209||NY||Brooklyn                                                                                                        
+Williams                 ||11209||NY||Brooklyn                                                                                                        
+Allende                  ||11209||NY||Brooklyn                                                                                                        
+Winnicki                 ||11209||NY||Brooklyn                                                                                                        
+Masser                   ||11209||NY||Brooklyn                                                                                                        
+Boyce                    ||11212||NY||Brooklyn                                                                                                        
+Eng                      ||11213||NY||Brooklyn                                                                                                        
+Torres                   ||11213||NY||Brooklyn                                                                                                        
+Alexander                ||11214||NY||Brooklyn                                                                                                        
+Tabs                     ||11214||NY||Brooklyn                                                                                                        
+Walter                   ||11214||NY||Brooklyn                                                                                                        
+Torres                   ||11215||NY||Brooklyn                                                                                                        
+Perrin                   ||11215||NY||Brooklyn                                                                                                        
+Page                     ||11215||NY||Brooklyn                                                                                                        
+Smagler                  ||11216||NY||Brooklyn                                                                                                        
+Smith                    ||11217||NY||Brooklyn                                                                                                        
+McGill                   ||11218||NY||Brooklyn                                                                                                        
+Archer                   ||11218||NY||Brooklyn                                                                                                        
+Cahouet                  ||11219||NY||Brooklyn                                                                                                        
+Carcia                   ||11220||NY||Brooklyn                                                                                                        
+Thompson                 ||11220||NY||Brooklyn                                                                                                        
+Bathmanapan              ||11221||NY||Brooklyn                                                                                                        
+Mastandora               ||11222||NY||Brooklyn                                                                                                        
+Murray                   ||11224||NY||Brooklyn                                                                                                        
+Grant                    ||11224||NY||Brooklyn                                                                                                        
+Yeroushalmi              ||11224||NY||Brooklyn                                                                                                        
+Brown                    ||11225||NY||Brooklyn                                                                                                        
+Marten                   ||11225||NY||Brooklyn                                                                                                        
+Ward                     ||11225||NY||Brooklyn                                                                                                        
+Mandel                   ||11226||NY||Brooklyn                                                                                                        
+Laporte                  ||11226||NY||Brooklyn                                                                                                        
+Smith                    ||11226||NY||Brooklyn                                                                                                        
+Jaele                    ||11226||NY||Brooklyn                                                                                                        
+Gallagher                ||11228||NY||Brooklyn                                                                                                        
+Daly                     ||11229||NY||Brooklyn                                                                                                        
+Nyziak                   ||11230||NY||Brooklyn                                                                                                        
+Viotty                   ||11230||NY||Brooklyn                                                                                                        
+Biers                    ||11232||NY||Brooklyn                                                                                                        
+Lin                      ||11233||NY||Brooklyn                                                                                                        
+Saluja                   ||11233||NY||Brooklyn                                                                                                        
+Draquez                  ||11234||NY||Brooklyn                                                                                                        
+Simmons                  ||11235||NY||Brooklyn                                                                                                        
+Daly                     ||11235||NY||Brooklyn                                                                                                        
+Lefbowitz                ||11236||NY||Brooklyn                                                                                                        
+Hagel                    ||11236||NY||Brooklyn                                                                                                        
+Baltazar                 ||11236||NY||Brooklyn                                                                                                        
+Yourish                  ||11238||NY||Brooklyn                                                                                                        
+M. Orent                 ||11303||NY||Monbasset                                                                                                       
+MacDonald, Jr.           ||11354||NY||Flushing                                                                                                        
+Axch                     ||11355||NY||Flushing                                                                                                        
+Avia                     ||11355||NY||Flushing                                                                                                        
+Chirichella              ||11355||NY||Flushing                                                                                                        
+Kulina                   ||11355||NY||Flushing                                                                                                        
+Torres                   ||11355||NY||Flushing                                                                                                        
+Anglin                   ||11357||NY||Whitestone                                                                                                      
+Padron                   ||11357||NY||Whitestone                                                                                                      
+
+LAST_NAME                ||ZIP  ||ST||CITY                                                                                                            
+=========================||=====||==||=========================                                                                                       
+Abdou                    ||11358||NY||Flushing                                                                                                        
+Milano                   ||11360||NY||Bayside                                                                                                         
+Joas                     ||11365||NY||Fresh Meadows                                                                                                   
+Fielding                 ||11365||NY||Fresh Meadows                                                                                                   
+Segall                   ||11365||NY||Fresh Meadows                                                                                                   
+Jodoin                   ||11366||NY||Flushing                                                                                                        
+Boyd                     ||11368||NY||Corona                                                                                                          
+Chatman                  ||11368||NY||Corona                                                                                                          
+Hutheesing               ||11368||NY||Corona                                                                                                          
+Griffen                  ||11368||NY||Corona                                                                                                          
+Miller                   ||11368||NY||Corona                                                                                                          
+Lasseter                 ||11368||NY||Corona                                                                                                          
+Malone                   ||11369||NY||Elmhurst                                                                                                        
+Zopf                     ||11372||NY||Jackson Heights                                                                                                 
+Valentine                ||11372||NY||Jackson Heights                                                                                                 
+M. Orent                 ||11372||NY||Jackson Heights                                                                                                 
+Engongoro                ||11372||NY||Jackson Heights                                                                                                 
+Tripp                    ||11372||NY||Jackson Heights                                                                                                 
+Lippen                   ||11373||NY||Amherst                                                                                                         
+Philpotts                ||11373||NY||Amherst                                                                                                         
+Ramesh                   ||11373||NY||Amherst                                                                                                         
+Barogh                   ||11373||NY||Amherst                                                                                                         
+Da Silva                 ||11373||NY||Amherst                                                                                                         
+Rosenberg                ||11373||NY||Amherst                                                                                                         
+Callender                ||11375||NY||Forest Hills                                                                                                    
+Runyan                   ||11375||NY||Forest Hills                                                                                                    
+Saliternan               ||11375||NY||Forest Hills                                                                                                    
+Greenberg                ||11375||NY||Forest Hills                                                                                                    
+Lloyd                    ||11375||NY||Forest Hills                                                                                                    
+Miller                   ||11377||NY||Woodside                                                                                                        
+Diokno                   ||11377||NY||Woodside                                                                                                        
+Liggons                  ||11377||NY||Woodside                                                                                                        
+Kuehn                    ||11377||NY||Woodside                                                                                                        
+Sentell                  ||11385||NY||Ridgewood Queens                                                                                                
+Martin                   ||11385||NY||Ridgewood Queens                                                                                                
+Austin                   ||11385||NY||Ridgewood Queens                                                                                                
+Reed                     ||11412||NY||Hollis                                                                                                          
+Brownstein               ||11412||NY||Hollis                                                                                                          
+Shah                     ||11412||NY||Hollis                                                                                                          
+Cross                    ||11413||NY||Laurelton                                                                                                       
+Larcia                   ||11413||NY||Laurelton                                                                                                       
+Aung                     ||11413||NY||Laurelton                                                                                                       
+Kasperovich              ||11414||NY||Howard Bank                                                                                                     
+Jung                     ||11415||NY||Kew Gardens                                                                                                     
+De Simone                ||11419||NY||Richmond Hill                                                                                                   
+Crocitto                 ||11419||NY||Richmond Hill                                                                                                   
+Galik                    ||11420||NY||Jamaica                                                                                                         
+Velie                    ||11422||NY||Laurelton                                                                                                       
+Arias                    ||11426||NY||Bellrose                                                                                                        
+Jimenes                  ||11428||NY||Queens Village                                                                                                  
+Valamas                  ||11432||NY||Jamaica                                                                                                         
+Kellam                   ||11433||NY||Jamaica                                                                                                         
+Wetcel                   ||11434||NY||Jamaica                                                                                                         
+Chamnonkool              ||11434||NY||Jamaica                                                                                                         
+Enison                   ||11435||NY||Jamaica                                                                                                         
+Galik                    ||11435||NY||Jamaica                                                                                                         
+Allende                  ||11510||NY||Baldwin                                                                                                         
+Schafer                  ||11530||NY||Garden City                                                                                                     
+Airall                   ||11552||NY||West Hempstead                                                                                                  
+Vargas                   ||11561||NY||Long Beach                                                                                                      
+Ross                     ||11565||NY||Malverne                                                                                                        
+Merriman                 ||11565||NY||Malverne                                                                                                        
+Abid                     ||11565||NY||Malverne                                                                                                        
+Balterzar                ||11576||NY||Roslyn                                                                                                          
+McHowell                 ||11717||NJ||Brentwood                                                                                                       
+Carey                    ||11743||NY||Huntington                                                                                                      
+Brendler                 ||11746||NY||Dix Hills                                                                                                       
+Krot                     ||11746||NY||Dix Hills                                                                                                       
+Korka                    ||11746||NY||Dix Hills                                                                                                       
+Galik                    ||11758||NY||Massapequa                                                                                                      
+Waldman                  ||11766||NY||Huntington                                                                                                      
+Bose                     ||11787||NY||Smithtown                                                                                                       
+Gates                    ||11787||NY||Smithtown                                                                                                       
+Mwangi                   ||13760||NY||Endicott                                                                                                        
+Gilloon                  ||43224||OH||Columbus                                                                                                        
+Snow                     ||48104||MI||Ann Arbor                                                                                                       
+
+268 rows selected.
+
+SQL> 
+SQL> PROMPT however, if you are not interesed in the
+however, if you are not interesed in the
+SQL> PROMPTSECTION_ID and you want to only list
+SP2-0734: unknown command beginning "PROMPTSECT..." - rest of line ignored.
+SQL> PROMPT the names without
+the names without
+SQL> PROMPTthe duplication, use DISTINCT in the SELECT statement
+SP2-0734: unknown command beginning "PROMPTthe ..." - rest of line ignored.
+SQL> 
+SQL> SELECT DISTINCT s.firs_name,l s.last_name, s.student_id
+  2  FROM student s, enrollment e
+  3  WHERE s.student_id=e.student_id
+  4  ORDER BY s.last_name;
+SELECT DISTINCT s.firs_name,l s.last_name, s.student_id
+                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> 
+SQL> PROMPT con requisito null
+con requisito null
+SQL> COLUMN REQUISITO FORMAT A 15
+SP2-0246: Illegal FORMAT string "A"
+SQL> SELECT c.course_no, c.description, s.section_no
+  2  NVL(TO_CHAR(c.PREREQUISITE),'Sin Requisito')REQUISITO
+  3  FROM course c, section s
+  4  WHERE c.course_no=s.course_no
+  5  AND c.prerequisite IS NULL
+  6  ORDER BY c.course_no, s.section_no;
+NVL(TO_CHAR(c.PREREQUISITE),'Sin Requisito')REQUISITO
+   *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> 
+SQL> PROMPT THE ANSI JOIN DISTINGUISHES THE JOIN CONDITION FROM THE FILTERING CRITERIA
+THE ANSI JOIN DISTINGUISHES THE JOIN CONDITION FROM THE FILTERING CRITERIA
+SQL> SELECT c.course_no, c.description, s.section_no
+  2  FROM course c JOIN section s
+  3  ON(c.course_no=s.course_no)
+  4  WHERE c.prerequisite IS NULL
+  5  ORDER BY c.course_no, section_no;
+
+COURSE_NO||DESCRIPTION                   ||SECTION_NO                                                                                                 
+=========||==============================||==========                                                                                                 
+       10||DP Overview                   ||         2                                                                                                 
+       20||Intro to Computers            ||         2                                                                                                 
+       20||Intro to Computers            ||         4                                                                                                 
+       20||Intro to Computers            ||         7                                                                                                 
+       20||Intro to Computers            ||         8                                                                                                 
+      146||Java for C/C++ Programmers    ||         1                                                                                                 
+      146||Java for C/C++ Programmers    ||         2                                                                                                 
+      310||Operating Systems             ||         1                                                                                                 
+
+8 rows selected.
+
+SQL> spool off

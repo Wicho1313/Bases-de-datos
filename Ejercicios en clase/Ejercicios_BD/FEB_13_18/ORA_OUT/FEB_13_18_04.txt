@@ -1,0 +1,114 @@
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ OWNER                                                                               NOT NULL VARCHAR2(30)
+ TABLE_NAME                                                                          NOT NULL VARCHAR2(30)
+ COLUMN_NAME                                                                         NOT NULL VARCHAR2(30)
+ DATA_TYPE                                                                                    VARCHAR2(106)
+ DATA_TYPE_MOD                                                                                VARCHAR2(3)
+ DATA_TYPE_OWNER                                                                              VARCHAR2(120)
+ DATA_LENGTH                                                                         NOT NULL NUMBER
+ DATA_PRECISION                                                                               NUMBER
+ DATA_SCALE                                                                                   NUMBER
+ NULLABLE                                                                                     VARCHAR2(1)
+ COLUMN_ID                                                                                    NUMBER
+ DEFAULT_LENGTH                                                                               NUMBER
+ DATA_DEFAULT                                                                                 LONG
+ NUM_DISTINCT                                                                                 NUMBER
+ LOW_VALUE                                                                                    RAW(32)
+ HIGH_VALUE                                                                                   RAW(32)
+ DENSITY                                                                                      NUMBER
+ NUM_NULLS                                                                                    NUMBER
+ NUM_BUCKETS                                                                                  NUMBER
+ LAST_ANALYZED                                                                                DATE
+ SAMPLE_SIZE                                                                                  NUMBER
+ CHARACTER_SET_NAME                                                                           VARCHAR2(44)
+ CHAR_COL_DECL_LENGTH                                                                         NUMBER
+ GLOBAL_STATS                                                                                 VARCHAR2(3)
+ USER_STATS                                                                                   VARCHAR2(3)
+ AVG_COL_LEN                                                                                  NUMBER
+ CHAR_LENGTH                                                                                  NUMBER
+ CHAR_USED                                                                                    VARCHAR2(1)
+ V80_FMT_IMAGE                                                                                VARCHAR2(3)
+ DATA_UPGRADED                                                                                VARCHAR2(3)
+ HISTOGRAM                                                                                    VARCHAR2(15)
+
+
+OWNER |TABLE_NAME               |COLUMN_NAME       |DATA_TYPE |CHARACTER_SET_NAME                                                                     
+======|=========================|==================|==========|============================================                                           
+HR    |COUNTRIES                |COUNTRY_ID        |CHAR      |CHAR_CS                                                                                
+HR    |COUNTRIES                |COUNTRY_NAME      |VARCHAR2  |CHAR_CS                                                                                
+HR    |COUNTRIES                |REGION_ID         |NUMBER    |                                                                                       
+HR    |DEPARTMENTS              |DEPARTMENT_ID     |NUMBER    |                                                                                       
+HR    |DEPARTMENTS              |DEPARTMENT_NAME   |VARCHAR2  |CHAR_CS                                                                                
+HR    |DEPARTMENTS              |LOCATION_ID       |NUMBER    |                                                                                       
+HR    |DEPARTMENTS              |MANAGER_ID        |NUMBER    |                                                                                       
+HR    |ELECTRODOMESTICO         |APARATO           |NUMBER    |                                                                                       
+HR    |ELECTRODOMESTICO         |MARCA             |VARCHAR2  |CHAR_CS                                                                                
+HR    |ELECTRODOMESTICO         |MODELO            |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP                      |APELLIDOS         |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP                      |NIF               |NUMBER    |                                                                                       
+HR    |EMP                      |NIVEL             |NUMBER    |                                                                                       
+HR    |EMP                      |NOMBRE            |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP                      |OCUPACION         |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP_DETAILS_VIEW         |CITY              |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP_DETAILS_VIEW         |COMMISSION_PCT    |NUMBER    |                                                                                       
+HR    |EMP_DETAILS_VIEW         |COUNTRY_ID        |CHAR      |CHAR_CS                                                                                
+HR    |EMP_DETAILS_VIEW         |COUNTRY_NAME      |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP_DETAILS_VIEW         |DEPARTMENT_ID     |NUMBER    |                                                                                       
+HR    |EMP_DETAILS_VIEW         |DEPARTMENT_NAME   |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP_DETAILS_VIEW         |EMPLOYEE_ID       |NUMBER    |                                                                                       
+HR    |EMP_DETAILS_VIEW         |FIRST_NAME        |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP_DETAILS_VIEW         |JOB_ID            |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP_DETAILS_VIEW         |JOB_TITLE         |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP_DETAILS_VIEW         |LAST_NAME         |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP_DETAILS_VIEW         |LOCATION_ID       |NUMBER    |                                                                                       
+HR    |EMP_DETAILS_VIEW         |MANAGER_ID        |NUMBER    |                                                                                       
+HR    |EMP_DETAILS_VIEW         |REGION_NAME       |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMP_DETAILS_VIEW         |SALARY            |NUMBER    |                                                                                       
+HR    |EMP_DETAILS_VIEW         |STATE_PROVINCE    |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMPLOYEES                |COMMISSION_PCT    |NUMBER    |                                                                                       
+HR    |EMPLOYEES                |DEPARTMENT_ID     |NUMBER    |                                                                                       
+HR    |EMPLOYEES                |EMAIL             |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMPLOYEES                |EMPLOYEE_ID       |NUMBER    |                                                                                       
+HR    |EMPLOYEES                |FIRST_NAME        |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMPLOYEES                |HIRE_DATE         |DATE      |                                                                                       
+HR    |EMPLOYEES                |JOB_ID            |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMPLOYEES                |LAST_NAME         |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMPLOYEES                |MANAGER_ID        |NUMBER    |                                                                                       
+HR    |EMPLOYEES                |PHONE_NUMBER      |VARCHAR2  |CHAR_CS                                                                                
+HR    |EMPLOYEES                |SALARY            |NUMBER    |                                                                                       
+HR    |GRUPO_MATERIA            |CURSO             |VARCHAR2  |CHAR_CS                                                                                
+HR    |GRUPO_MATERIA            |ESTUDIANTE        |VARCHAR2  |CHAR_CS                                                                                
+HR    |GRUPO_MATERIA            |INSTRUCTOR        |VARCHAR2  |CHAR_CS                                                                                
+HR    |INSTRUCTOR_CURSO         |CURSO             |VARCHAR2  |CHAR_CS                                                                                
+HR    |INSTRUCTOR_CURSO         |INSTRUCTOR        |VARCHAR2  |CHAR_CS                                                                                
+HR    |INSTRUCTOR_ESTUDIANTE    |ESTUDIANTE        |VARCHAR2  |CHAR_CS                                                                                
+HR    |INSTRUCTOR_ESTUDIANTE    |INSTRUCTOR        |VARCHAR2  |CHAR_CS                                                                                
+HR    |JOB_HISTORY              |DEPARTMENT_ID     |NUMBER    |                                                                                       
+HR    |JOB_HISTORY              |EMPLOYEE_ID       |NUMBER    |                                                                                       
+HR    |JOB_HISTORY              |END_DATE          |DATE      |                                                                                       
+HR    |JOB_HISTORY              |JOB_ID            |VARCHAR2  |CHAR_CS                                                                                
+HR    |JOB_HISTORY              |START_DATE        |DATE      |                                                                                       
+HR    |JOBS                     |JOB_ID            |VARCHAR2  |CHAR_CS                                                                                
+HR    |JOBS                     |JOB_TITLE         |VARCHAR2  |CHAR_CS                                                                                
+HR    |JOBS                     |MAX_SALARY        |NUMBER    |                                                                                       
+HR    |JOBS                     |MIN_SALARY        |NUMBER    |                                                                                       
+HR    |LOCATIONS                |CITY              |VARCHAR2  |CHAR_CS                                                                                
+HR    |LOCATIONS                |COUNTRY_ID        |CHAR      |CHAR_CS                                                                                
+HR    |LOCATIONS                |LOCATION_ID       |NUMBER    |                                                                                       
+HR    |LOCATIONS                |POSTAL_CODE       |VARCHAR2  |CHAR_CS                                                                                
+HR    |LOCATIONS                |STATE_PROVINCE    |VARCHAR2  |CHAR_CS                                                                                
+HR    |LOCATIONS                |STREET_ADDRESS    |VARCHAR2  |CHAR_CS                                                                                
+HR    |PLANTEL                  |DIRECCION_PTL     |VARCHAR2  |CHAR_CS                                                                                
+HR    |PLANTEL                  |ESTADO_PTL        |VARCHAR2  |CHAR_CS                                                                                
+HR    |PLANTEL                  |FOLIO_PTL         |NUMBER    |                                                                                       
+HR    |PLANTEL                  |NOMBRE_PTL        |VARCHAR2  |CHAR_CS                                                                                
+HR    |PLANTEL                  |TELEFONO_PTL      |VARCHAR2  |CHAR_CS                                                                                
+HR    |REGIONS                  |REGION_ID         |NUMBER    |                                                                                       
+HR    |REGIONS                  |REGION_NAME       |VARCHAR2  |CHAR_CS                                                                                
+HR    |T1                       |COL1              |NUMBER    |                                                                                       
+HR    |T2                       |COL2              |NUMBER    |                                                                                       
+HR    |T3                       |COL3              |NUMBER    |                                                                                       
+
+74 rows selected.
+

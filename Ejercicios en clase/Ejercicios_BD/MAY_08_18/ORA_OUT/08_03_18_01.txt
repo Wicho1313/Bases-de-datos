@@ -1,0 +1,244 @@
+DROP TABLE Auto
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE Modelo_Marca
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE Modelo_Motor
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE Modelo_Color
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE Modelo_Color_Toldo
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE Modelo_Color_Adorno
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table created.
+
+
+2 rows created.
+
+
+MODELO               || MARCA                                                                                                                         
+-------------------- || --------------------                                                                                                          
+Cirrus               || Chrysler                                                                                                                      
+Mustang              || Ford                                                                                                                          
+
+
+Table created.
+
+
+4 rows created.
+
+
+MOTOR      || MODELO                                                                                                                                  
+---------- || --------------------                                                                                                                    
+Cirrus     || C3.0L                                                                                                                                   
+Cirrus     || C2.1L                                                                                                                                   
+Mustang    || F3.2L                                                                                                                                   
+Mustang    || F4.5L                                                                                                                                   
+
+
+Table created.
+
+
+5 rows created.
+
+
+MODELO               || COLOR                                                                                                                         
+-------------------- || --------------------                                                                                                          
+Cirrus               || Red                                                                                                                           
+Cirrus               || Green                                                                                                                         
+Mustang              || White                                                                                                                         
+Mustang              || Red                                                                                                                           
+Mustang              || Blue                                                                                                                          
+
+
+Table created.
+
+
+10 rows created.
+
+
+MODELO               || COLOR                || TOLDO                                                                                                 
+-------------------- || -------------------- || --------------------                                                                                  
+Cirrus               || Green                || White                                                                                                 
+Cirrus               || Red                  || Blue                                                                                                  
+Cirrus               || Red                  || Black                                                                                                 
+Cirrus               || Green                || Brown                                                                                                 
+Mustang              || Blue                 || Black                                                                                                 
+Mustang              || Red                  || Black                                                                                                 
+Mustang              || Blue                 || White                                                                                                 
+Mustang              || White                || Red                                                                                                   
+Mustang              || Red                  || White                                                                                                 
+Mustang              || White                || White                                                                                                 
+
+10 rows selected.
+
+
+Table created.
+
+
+10 rows created.
+
+
+MODELO               || COLOR                || ADORNO                                                                                                
+-------------------- || -------------------- || --------------------                                                                                  
+Cirrus               || Red                  || Black                                                                                                 
+Cirrus               || Red                  || White                                                                                                 
+Cirrus               || Green                || White                                                                                                 
+Cirrus               || Green                || Brown                                                                                                 
+Mustang              || Red                  || Blue                                                                                                  
+Mustang              || Blue                 || White                                                                                                 
+Mustang              || White                || Black                                                                                                 
+Mustang              || White                || Red                                                                                                   
+Mustang              || Red                  || White                                                                                                 
+Mustang              || Blue                 || Yellow                                                                                                
+
+10 rows selected.
+

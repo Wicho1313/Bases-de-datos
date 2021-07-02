@@ -1,0 +1,9 @@
+SQL> 
+SQL> SELECT e.student_id, e.section_id
+  2  FROM enrollment e, student s
+  3  WHERE e.student_id = s.student_id
+  4  AND s.zip = '06820';
+
+no rows selected
+
+SQL> spool off

@@ -1,0 +1,13 @@
+SQL> COLUMN "CURRENT DATE" FORMAT A18
+SQL> COLUMN "YEAR 88" FORMAT A10
+SQL> COLUMN "YEAR 18" FORMAT A18
+SQL> SELECT TO_CHAR(SYSDATE, 'MM/DD/YYYY') "CURRENT DATE",
+  2         TO_CHAR(TO_DATE('10/14/88','MM/DD/RR'),'YYYY') "YEAR 88",
+  3         TO_CHAR(TO_DATE('10/14/18','MM/DD/RR'),'YYYY') "YEAR 18"
+  4  FROM DUAL;
+
+CURRENT DATE       YEAR 88    YEAR 18                                                                                                                 
+------------------ ---------- ------------------                                                                                                      
+06/06/2018         1988       2018                                                                                                                    
+
+SQL> spool off

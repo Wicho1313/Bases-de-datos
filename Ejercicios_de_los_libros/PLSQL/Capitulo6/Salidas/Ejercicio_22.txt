@@ -1,0 +1,10 @@
+SQL> REM muestra alimnos sin prerequisito
+SQL> SELECT c.course_no, c.description, s.section_no
+  2  FROM course c, section s
+  3  WHERE c.course_no = s.course_no
+  4  AND c.prerequisite IS NULL
+  5  ORDER BY c.course_no, s.section_no;
+
+no rows selected
+
+SQL> spool off

@@ -1,0 +1,243 @@
+SQL> CREATE TABLE toy
+  2  (toy_id NUMBER(10),
+  3  description VARCHAR2(15) NOT NULL,
+  4  last_purchase_date DATE,
+  5  remaining_quantity NUMBER(6));
+CREATE TABLE toy
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> 
+SQL> REM CREA TABLA
+SQL> CREATE TABLE tab1
+  2  (col1 NUMBER (10),
+  3  col2 NUMBER(4)
+  4  CONSTRAINT tab1_col2_nn NOT NULL,
+  5  col3 VARCHAR2(5),
+  6  col4 DATE DEFAULT SYSDATE,
+  7  col5 VARCHAR2(20),
+  8  col6 NUMBER,
+  9  CONSTRAINT tab1_pk PRIMARY KEY(col1),
+ 10  CONSTRAINT tab1_zipcode_fk FOREIGN KEY(col3)
+ 11  REFERENCES zipcode(zip),
+ 12  CONSTRAINT tab1_col5_col6_uk
+ 13  UNIQUE(col5, col6),
+ 14  CONSTRAINT tab1_col6_ck
+ 15  CHECK(col6<100),
+ 16  CONSTRAINT tab1_col2_col6_ck
+ 17  CHECK(col2>100 AND col6>20));
+REFERENCES zipcode(zip),
+           *
+ERROR at line 11:
+ORA-00942: table or view does not exist 
+
+
+SQL> 
+SQL> REM Revisa esta sintaxis
+SQL> 
+SQL> [CONSTRAINT constraintname]
+SP2-0734: unknown command beginning "[CONSTRAIN..." - rest of line ignored.
+SQL> [NULL|NOT NULL]|
+SP2-0734: unknown command beginning "[NULL|NOT ..." - rest of line ignored.
+SQL> [REFERENCES tablename (columname)]
+SP2-0734: unknown command beginning "[REFERENCE..." - rest of line ignored.
+SQL> [ON DELETE {CASCADE|ON DELETE SET NULL}]|
+SP2-0734: unknown command beginning "[ON DELETE..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> [UNIQUE|PRIMARY KEY]
+SP2-0734: unknown command beginning "[UNIQUE|PR..." - rest of line ignored.
+SQL> [USING INDEX
+SP2-0734: unknown command beginning "[USING IND..." - rest of line ignored.
+SQL> [(CREATE INDEX indexname
+SP2-0734: unknown command beginning "[(CREATE I..." - rest of line ignored.
+SQL> ON tablename(columnname[,columname...])]
+SP2-0734: unknown command beginning "ON tablena..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> [storage_clause])]]|
+SP2-0734: unknown command beginning "[storage_c..." - rest of line ignored.
+SQL> [CHECK(check_condition)]
+SP2-0734: unknown command beginning "[CHECK(che..." - rest of line ignored.
+SQL> [ENABLE|DISABLE]
+SP2-0734: unknown command beginning "[ENABLE|DI..." - rest of line ignored.
+SQL> [VALIDATE|NOVALIDATE]
+SP2-0734: unknown command beginning "[VALIDATE|..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> REM EJEMPLO DE TRIGGER
+SQL> CREATE OR REPLACE TRIGGER
+  2  student_tgr_bur
+  3  BEFORE UPDATE ON STUDENT
+  4  FOR EACH ROW
+  5  BEGIN
+  6  :new.modified_date:=SYSDATE;
+  7  END;
+  8  /
+BEFORE UPDATE ON STUDENT
+                 *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+SQL> REM PRUEBA SU CREACION Y SU EJECUCION
+SQL> REM VERIFICA LAS TABLAS DEL DICCIONARIO ACERCA DE LOS TRIGGERSREM HABILITA Y DESHABILITA EL TRIGGER PROBµNDOLO
+SQL> 
+SQL> CREATE TABLE jan_03_enrollment AS
+  2  SELECT *
+  3  FORM enrollment
+  4  WHERE enroll_date>=
+  5  TO_DATE ('01/01/2003','MM/DD/YYYY')
+  6  AND enroll_date < TO_DATE('02/01/2003','MM/DD/YYYY');
+FORM enrollment
+*
+ERROR at line 3:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> REM REVISA LOS NOMBRES DE LOS ATRIBUTOS
+SQL> DESC jan_03_enrollment
+ERROR:
+ORA-04043: object jan_03_enrollment does not exist 
+
+
+SQL> SELECT student_id, section_id, enroll_date
+  2  FROM jan_03_enrollment;
+FROM jan_03_enrollment
+     *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> 
+SQL> DROP TABLE zipcode CASCADE CONSTRAINTS;
+DROP TABLE zipcode CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> REM PRUEBA LAS SIGUIENTES INSTRUCCIONES
+SQL> FLASHBACK TABLE table name [,tablename...] TO
+  2  {{SCN|TIMESTAMP} expr [ENABLE|DISABLE TRIGGERS]|
+  3  BEFORE DROP [RENAME TO newtablename]}
+  4  REM REVISA LA PAPELERA DE RECICLAJE DE ORACLE
+  5  DROP TABLE jan_03;
+FLASHBACK TABLE table name [,tablename...] TO
+*
+ERROR at line 1:
+ORA-00439: feature not enabled: Flashback Table 
+
+
+SQL> SELECT object_name, original_name, type
+  2  FROM user_recyclebin;
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+BIN$+2U0cn1nRkuxVu8I+b9IpQ==$0 EMP_ID_PK                                        
+INDEX                                                                           
+                                                                                
+BIN$FnafeHfxRYelwxXe+olIPg==$0 EMP                                              
+TABLE                                                                           
+                                                                                
+BIN$U2BwpsBZT7Sj8C5iwuxQAw==$0 INSTRUCTOR_CURSO                                 
+TABLE                                                                           
+                                                                                
+BIN$4FikEw8kQbmJpqD2RwH5+A==$0 INSTRUCTOR_ESTUDIANTE                            
+TABLE                                                                           
+                                                                                
+BIN$BUqx21YrTEyAi1fv0M4vww==$0 GRUPO_MATERIA                                    
+TABLE                                                                           
+                                                                                
+BIN$71WfdGw9TquROLKtWejFVg==$0 INSTRUCTOR_CURSO                                 
+TABLE                                                                           
+                                                                                
+BIN$8jhJLDDKTLuB+cIrZaujTQ==$0 INSTRUCTOR_ESTUDIANTE                            
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+TABLE                                                                           
+                                                                                
+BIN$yeiLyBcgQ5uIsjkLEAPuwg==$0 GRUPO_MATERIA                                    
+TABLE                                                                           
+                                                                                
+BIN$gBY5+oMMQHSz1NO4zL1n9Q==$0 INSTRUCTOR_CURSO                                 
+TABLE                                                                           
+                                                                                
+BIN$AqaL9nVbTPGgPOouNfYFtw==$0 INSTRUCTOR_ESTUDIANTE                            
+TABLE                                                                           
+                                                                                
+BIN$v/Xxo2UQTT+vsuGaOsFMxg==$0 GRUPO_MATERIA                                    
+TABLE                                                                           
+                                                                                
+BIN$o9eeYKP5RkymaTy5N8xHog==$0 INSTRUCTOR_CURSO                                 
+TABLE                                                                           
+                                                                                
+BIN$pkw9Vv0TR6S+qPpBOszBuA==$0 INSTRUCTOR_ESTUDIANTE                            
+TABLE                                                                           
+
+OBJECT_NAME                    ORIGINAL_NAME                                    
+------------------------------ --------------------------------                 
+TYPE                                                                            
+-------------------------                                                       
+                                                                                
+BIN$F8MOcCTzRF2oZfPJGl0XWA==$0 PLANTEL                                          
+TABLE                                                                           
+                                                                                
+BIN$ggdLyYFiTjuRDU4kWJyyig==$0 PROM_PRIOR                                       
+TABLE                                                                           
+                                                                                
+
+15 rows selected.
+
+SQL> SHOW recyclebin
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME          
+---------------- ------------------------------ ------------ -------------------
+EMP              BIN$FnafeHfxRYelwxXe+olIPg==$0 TABLE        2018-02-27:07:50:17
+GRUPO_MATERIA    BIN$v/Xxo2UQTT+vsuGaOsFMxg==$0 TABLE        2018-04-17:08:07:20
+GRUPO_MATERIA    BIN$yeiLyBcgQ5uIsjkLEAPuwg==$0 TABLE        2018-04-17:08:05:02
+GRUPO_MATERIA    BIN$BUqx21YrTEyAi1fv0M4vww==$0 TABLE        2018-04-17:08:02:10
+INSTRUCTOR_CURSO BIN$o9eeYKP5RkymaTy5N8xHog==$0 TABLE        2018-04-17:08:07:20
+INSTRUCTOR_CURSO BIN$gBY5+oMMQHSz1NO4zL1n9Q==$0 TABLE        2018-04-17:08:05:02
+INSTRUCTOR_CURSO BIN$71WfdGw9TquROLKtWejFVg==$0 TABLE        2018-04-17:08:02:10
+INSTRUCTOR_CURSO BIN$U2BwpsBZT7Sj8C5iwuxQAw==$0 TABLE        2018-04-17:07:57:31
+INSTRUCTOR_ESTUD BIN$pkw9Vv0TR6S+qPpBOszBuA==$0 TABLE        2018-04-17:08:07:20
+IANTE                                                                           
+INSTRUCTOR_ESTUD BIN$AqaL9nVbTPGgPOouNfYFtw==$0 TABLE        2018-04-17:08:05:02
+IANTE                                                                           
+INSTRUCTOR_ESTUD BIN$8jhJLDDKTLuB+cIrZaujTQ==$0 TABLE        2018-04-17:08:02:10
+IANTE                                                                           
+INSTRUCTOR_ESTUD BIN$4FikEw8kQbmJpqD2RwH5+A==$0 TABLE        2018-04-17:07:57:32
+IANTE                                                                           
+PLANTEL          BIN$F8MOcCTzRF2oZfPJGl0XWA==$0 TABLE        2018-04-24:07:29:39
+PROM_PRIOR       BIN$ggdLyYFiTjuRDU4kWJyyig==$0 TABLE        2018-04-24:08:06:07
+SQL> PURGE RECYCLEBIN;
+
+Recyclebin purged.
+
+SQL> CREATE TABLE school_program AS
+  2  SELECT last_name ||','||first_name name
+  3  FROM student
+  4  UNION
+  5  SELECT last_name||','||first_name
+  6  FROM instructor;
+FROM student
+     *
+ERROR at line 3:
+ORA-00942: table or view does not exist 
+
+
+SQL> select * from school_program;
+select * from school_program
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> spool off

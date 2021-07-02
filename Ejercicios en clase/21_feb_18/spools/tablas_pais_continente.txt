@@ -1,0 +1,69 @@
+SQL> DROP TABLE PAIS;
+
+Table dropped.
+
+SQL> DROP TABLE CONTINENTE;
+
+Table dropped.
+
+SQL> 
+SQL> CREATE TABLE CONTINENTE(
+  2  Nom_CONTINENTE varchar2(11),
+  3  constraint continente_pk primary key(Nom_CONTINENTE)
+  4  );
+
+Table created.
+
+SQL> 
+SQL> CREATE TABLE PAIS(
+  2  Nom_pais varchar2(10),
+  3  continente varchar2(11),
+  4  constraint pais_pk
+  5  primary key(Nom_pais),
+  6  constraint pais_continente_fk
+  7  foreign key(continente)references continente
+  8  );
+
+Table created.
+
+SQL> 
+SQL> INSERT INTO CONTINENTE VALUES('AFRICA');
+
+1 row created.
+
+SQL> INSERT INTO PAIS VALUES('BENIN','AFRICA');
+
+1 row created.
+
+SQL> INSERT INTO PAIS VALUES('KENIA','AFRICA');
+
+1 row created.
+
+SQL> INSERT INTO PAIS VALUES('LIBIA','AFRICA');
+
+1 row created.
+
+SQL> SELECT Nom_CONTINENTE FROM CONTINENTE;
+
+NOM_CONTINE                                                                     
+-----------                                                                     
+AFRICA                                                                          
+
+SQL> SELECT Nom_pais, continente from PAIS;
+
+NOM_PAIS   CONTINENTE                                                           
+---------- -----------                                                          
+BENIN      AFRICA                                                               
+KENIA      AFRICA                                                               
+LIBIA      AFRICA                                                               
+
+SQL> 
+SQL> DELETE CONTINENTE WHERE Nom_CONTINENTE='AFRICA';
+DELETE CONTINENTE WHERE Nom_CONTINENTE='AFRICA'
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (SYS.PAIS_CONTINENTE_FK) violated - child 
+record found 
+
+
+SQL> spool off;

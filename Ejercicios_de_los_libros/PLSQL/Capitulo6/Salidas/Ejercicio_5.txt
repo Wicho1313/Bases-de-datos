@@ -1,0 +1,8 @@
+SQL> rem la profrs Irene Willing no aparece en el desplegado
+SQL> SELECT i.instructor_id, i.zip, i.last_name, i.first_name
+  2  FROM instructor i, zipcode z
+  3  WHERE i.zip = z.zip;
+
+no rows selected
+
+SQL> spool off

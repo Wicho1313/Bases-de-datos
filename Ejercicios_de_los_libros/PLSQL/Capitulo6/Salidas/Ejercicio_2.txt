@@ -1,0 +1,10 @@
+SQL> rem pag 330 se hacen alias de las tablas
+SQL> SELECT c.course_no C_NO, s.section_no, c.description,
+  2  s.location, s.instructor_id INST_ID
+  3  FROM course c, section s
+  4  WHERE c.course_no = s.course_no
+  5      and rownum <= 20;
+
+no rows selected
+
+SQL> spool off

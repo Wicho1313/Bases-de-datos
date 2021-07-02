@@ -1,0 +1,115 @@
+SP2-0103: Nothing in SQL buffer to run.
+SP2-0734: unknown command beginning "poblar tab..." - rest of line ignored.
+SP2-0734: unknown command beginning "declarar f..." - rest of line ignored.
+SP2-0734: unknown command beginning "borrar emp..." - rest of line ignored.
+SP2-0734: unknown command beginning "deshabilit..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SP2-0734: unknown command beginning "borrar jef..." - rest of line ignored.
+SP2-0734: unknown command beginning "habilitar ..." - rest of line ignored.
+SP2-0042: unknown command "*/" - rest of line ignored.
+
+Table dropped.
+
+
+Table created.
+
+tuplas
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+despliega empleados del jefe
+
+FIRST_NAME           LAST_NAME                                                  
+-------------------- --------------------                                       
+Andrew               Fuller                                                     
+Janet                Leverling                                                  
+Margaret             Peacock                                                    
+
+despliega jefe
+
+FIRST_NAME           LAST_NAME             REPORTA_A                            
+-------------------- -------------------- ----------                            
+Nancy                Devolio                                                    
+
+despliega jefe
+
+FIRST_NAME   LAST_NAME    REPORTA                                               
+------------ ------------ ------------                                          
+Nancy        Devolio      SIN JEFE                                              
+
+
+no rows selected
+
+declara la llave foranea
+
+Table altered.
+
+habilita llave foranea
+
+Table altered.
+
+intenta borrar al jefe
+DELETE FROM EMP
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (HR.FK_EMP_REFLEXIVA) violated - child record 
+found 
+
+
+deshabilita llave foranea
+
+Table altered.
+
+borrar al jefe
+
+1 row deleted.
+
+SP2-0734: unknown command beginning "propmt ins..." - rest of line ignored.
+
+1 row created.
+
+despliega todos los tuplas
+
+EMPLEADO_ID FIRST_NAME   LAST_NAME     REPORTA_A                                
+----------- ------------ ------------ ----------                                
+          2 Andrew       Fuller                1                                
+          3 Janet        Leverling             1                                
+          4 Margaret     Peacock               1                                
+          5 Steven       Rodriguez             3                                
+          6 Rosy         BUchanan              5                                
+          7 Mary         Sumaya                6                                
+          1 Nancy        Devolio                                                
+
+7 rows selected.
+
+
+OWNER          TABLE_NAME     CONSTRAINT_NAME                C TABLE_NAME       
+-------------- -------------- ------------------------------ - --------------   
+DEFERRABLE     DEFERRED                                                         
+-------------- ---------                                                        
+HR             EMP            EMP_ID_PK                      P EMP              
+NOT DEFERRABLE IMMEDIATE                                                        
+                                                                                
+HR             EMP            FK_EMP_REFLEXIVA               R EMP              
+NOT DEFERRABLE IMMEDIATE                                                        
+                                                                                
+

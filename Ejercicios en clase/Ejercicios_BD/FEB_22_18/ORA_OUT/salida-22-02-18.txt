@@ -1,0 +1,138 @@
+
+Table dropped.
+
+
+Table created.
+
+Drop table EMP_DATOS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Commit complete.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+  NIF      NOMBRE            APELLIDOS               NIVEL      OCUPACION          MATRICULA                                                          
+-----      ------------      -------------      ----------      ------------      ----------                                                          
+   10      Nancy             Devolio            ##########      GERENTE                 1010                                                          
+   20      Andrew            Fuller             ##########      VENDEDOR                1020                                                          
+   30      Janet             Leverling          ##########      VENDEDOR                1030                                                          
+   40      Margaret          Peacock            ##########      CONTADOR                1040                                                          
+   50      Steven            Rodriguez          ##########      PROGRAMADOR             1050                                                          
+   60      Rosy              Buchanan           ##########      ANALISTA                1060                                                          
+   70      Mary              Sumaya             ##########      CONTADOR                1070                                                          
+
+7 rows selected.
+
+
+ MATRICULA      NACIMIENTO           DIRECCION             HOBBIES                  NIF                                                               
+==========      ===============      ================      ============      ==========                                                               
+      1010      19/01/68             ALTILLO 50            LECTURA                   10                                                               
+      1020      19/01/78             REGINA 22             EL CHAT                   20                                                               
+      1030      19/01/88             ARGENTINA 20          MUSICA                    30                                                               
+      1040      19/01/98             DONCELES 16           FUTBOL                    40                                                               
+      1050      19/01/99             MOTEVIDEO 45          CINE                      50                                                               
+      1060      19/01/00             TICOMAN 19            TEATRO                    60                                                               
+      1070      19/01/01             LIMA 38               GRAFFITTI                 70                                                               
+
+7 rows selected.
+
+
+NOMBRE               APELLIDOS         HOBBIES                                                                                                        
+===============      ============      ====================                                                                                           
+Nancy                Devolio           LECTURA                                                                                                        
+Andrew               Fuller            EL CHAT                                                                                                        
+Janet                Leverling         MUSICA                                                                                                         
+Margaret             Peacock           FUTBOL                                                                                                         
+Steven               Rodriguez         CINE                                                                                                           
+Rosy                 Buchanan          TEATRO                                                                                                         
+Mary                 Sumaya            GRAFFITTI                                                                                                      
+
+7 rows selected.
+
+
+NOMBRE               APELLIDOS         HOBBIES                          NIF             NIF                                                           
+===============      ============      ====================      ==========      ==========                                                           
+Nancy                Devolio           LECTURA                           10              10                                                           
+Andrew               Fuller            EL CHAT                           20              20                                                           
+Janet                Leverling         MUSICA                            30              30                                                           
+Margaret             Peacock           FUTBOL                            40              40                                                           
+Steven               Rodriguez         CINE                              50              50                                                           
+Rosy                 Buchanan          TEATRO                            60              60                                                           
+Mary                 Sumaya            GRAFFITTI                         70              70                                                           
+
+7 rows selected.
+
+
+NOMBRE               APELLIDOS         HOBBIES                    MATRICULA       MATRICULA                                                           
+===============      ============      ====================      ==========      ==========                                                           
+Nancy                Devolio           LECTURA                         1010            1010                                                           
+Andrew               Fuller            EL CHAT                         1020            1020                                                           
+Janet                Leverling         MUSICA                          1030            1030                                                           
+Margaret             Peacock           FUTBOL                          1040            1040                                                           
+Steven               Rodriguez         CINE                            1050            1050                                                           
+Rosy                 Buchanan          TEATRO                          1060            1060                                                           
+Mary                 Sumaya            GRAFFITTI                       1070            1070                                                           
+
+7 rows selected.
+
+
+NOMBRE      APELLIDOS     HOBBIES         MATRICULA   MATRICULA         NIF         NIF                                                               
+==========  ============  =============  ==========  ==========  ==========  ==========                                                               
+Nancy       Devolio       LECTURA        ##########  ##########          10          10                                                               
+Andrew      Fuller        EL CHAT        ##########  ##########          20          20                                                               
+Janet       Leverling     MUSICA         ##########  ##########          30          30                                                               
+Margaret    Peacock       FUTBOL         ##########  ##########          40          40                                                               
+Steven      Rodriguez     CINE           ##########  ##########          50          50                                                               
+Rosy        Buchanan      TEATRO         ##########  ##########          60          60                                                               
+Mary        Sumaya        GRAFFITTI      ##########  ##########          70          70                                                               
+
+7 rows selected.
+

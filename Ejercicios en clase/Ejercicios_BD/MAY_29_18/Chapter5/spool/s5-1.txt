@@ -1,0 +1,6 @@
+SELECT COUNT(*) FROM course WHERE prerequisite IS NULL
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
